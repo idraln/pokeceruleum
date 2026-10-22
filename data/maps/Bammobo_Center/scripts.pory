@@ -1,0 +1,40 @@
+raw `
+Bammobo_Center_MapScripts::
+	.byte 0
+`
+
+script Bammobo_Center_Owner {
+    lock
+    faceplayer
+    msgbox(format("Hello, dear. Would you like to buy a refreshment?"))
+    waitmessage
+    pokemart(Bammobo_Center_Items)
+    msgbox(format("Thank you, dear. I hope you well on your journey."))
+    release
+    end
+}
+
+mart Bammobo_Center_Items {
+    ITEM_FRESH_WATER
+    ITEM_LEMONADE
+    ITEM_ENERGY_POWDER
+    ITEM_HEAL_POWDER
+    ITEM_ENERGY_ROOT
+    ITEM_SITRUS_BERRY
+}
+
+script Bammobo_Center_Camper {
+    lock
+    faceplayer
+    msgbox(format("I have to warn you: if you need to go to Passwacan, you might need a mask to protect you from the landfill's musty odor. It really stings the eyes."))
+    release
+    end
+}
+
+script Bammobo_Center_Man {
+    lock
+    faceplayer
+    msgbox(format("The forest south from here is home to some of the rarest Pokémon in Thura. You should check it out!"))
+    release
+    end
+}

@@ -313,6 +313,7 @@ void SetSelectedConditionSearch(u32 cursorPos);
 u32 GetSelectedConditionSearch(void);
 
 void CB2_InitPokeNav(void);
+void CB2_InitPokenavForPhoneMap(void);
 u32 CreateLoopedTask(LoopedTask loopedTask, u32 priority);
 bool32 FuncIsActiveLoopedTask(LoopedTask func);
 void *GetSubstructPtr(u32 index);

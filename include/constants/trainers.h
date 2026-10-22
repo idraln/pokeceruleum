@@ -108,7 +108,61 @@
 #define TRAINER_PIC_LEAF                  90
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
-#define TRAINER_PIC_COUNT                 93
+#define TRAINER_PIC_EKA                   93 //
+#define TRAINER_PIC_FANDANGO_M            94 //
+#define TRAINER_PIC_FANDANGO_F            95 //
+#define TRAINER_PIC_FANDANGO_ADMIN_M      96 //
+#define TRAINER_PIC_FANDANGO_ADMIN_F      97 //
+#define TRAINER_PIC_FANDANGO_DOUBLE       98 //
+#define TRAINER_PIC_COOLTRAINER_AFRO      99 //
+#define TRAINER_PIC_SAM                   100 //
+#define TRAINER_PIC_CORINNA               101 //
+#define TRAINER_PIC_WORKER_M              102 //
+#define TRAINER_PIC_WORKER_F              103 //
+#define TRAINER_PIC_BRUCE                 104 //
+#define TRAINER_PIC_HERMIT                105 //
+#define TRAINER_PIC_RETRO_BUG             106 //
+#define TRAINER_PIC_RETRO_LADY            107 //
+#define TRAINER_PIC_RETRO_LASS            108 //
+#define TRAINER_PIC_RETRO_KID             109 //
+#define TRAINER_PIC_RETRO_GRANDMA         110 //
+#define TRAINER_PIC_BRO_MASKED            111 //
+#define TRAINER_PIC_BRO                   112 //
+#define TRAINER_PIC_KAM                   113 //
+#define TRAINER_PIC_ANDRE                 114 //
+#define TRAINER_PIC_ANAIS                 115 //
+#define TRAINER_PIC_DIVER                 116 //
+#define TRAINER_PIC_COLLEEN               117 //
+#define TRAINER_PIC_MARTIN                118 //
+#define TRAINER_PIC_POMME                 119 //
+#define TRAINER_PIC_GARY                  120 //
+#define TRAINER_PIC_BURGLAR               121 //
+//
+#define TRAINER_PIC_HERO_BALD_LIGHT               122 //
+#define TRAINER_PIC_HERO_SHORT_LIGHT               123 //
+#define TRAINER_PIC_HERO_LONG_LIGHT              124 //
+//
+#define TRAINER_PIC_HERO_BALD_MEDIUM               125 //
+#define TRAINER_PIC_HERO_SHORT_MEDIUM               126 //
+#define TRAINER_PIC_HERO_LONG_MEDIUM              127 //
+//
+#define TRAINER_PIC_HERO_BALD_DARK               128 //
+#define TRAINER_PIC_HERO_SHORT_DARK               129 //
+#define TRAINER_PIC_HERO_LONG_DARK              130 //
+//
+#define TRAINER_PIC_HERO_RETRO_SHORT_LIGHT               131 //
+#define TRAINER_PIC_HERO_RETRO_LONG_LIGHT              132 //
+//
+#define TRAINER_PIC_HERO_RETRO_SHORT_MEDIUM               133 //
+#define TRAINER_PIC_HERO_RETRO_LONG_MEDIUM              134 //
+//
+#define TRAINER_PIC_HERO_RETRO_SHORT_DARK               135 //
+#define TRAINER_PIC_HERO_RETRO_LONG_DARK              136 //
+//
+#define TRAINER_PIC_SOLDIER               137
+#define TRAINER_PIC_MAID               138
+
+#define TRAINER_PIC_COUNT                 139
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -119,6 +173,29 @@
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      5
 #define TRAINER_BACK_PIC_WALLY                  6
 #define TRAINER_BACK_PIC_STEVEN                 7
+#define TRAINER_BACK_PIC_ROCHEVAL               8 //
+#define TRAINER_BACK_PIC_BRUCE                  9 //
+//
+#define TRAINER_BACK_PIC_HERO_BALD_LIGHT               10 //
+#define TRAINER_BACK_PIC_HERO_SHORT_LIGHT               11 //
+#define TRAINER_BACK_PIC_HERO_LONG_LIGHT              12 //
+//
+#define TRAINER_BACK_PIC_HERO_BALD_MEDIUM               13 //
+#define TRAINER_BACK_PIC_HERO_SHORT_MEDIUM               14 //
+#define TRAINER_BACK_PIC_HERO_LONG_MEDIUM              15 //
+//
+#define TRAINER_BACK_PIC_HERO_BALD_DARK               16 //
+#define TRAINER_BACK_PIC_HERO_SHORT_DARK               17 //
+#define TRAINER_BACK_PIC_HERO_LONG_DARK              18 //
+//
+#define TRAINER_BACK_PIC_HERO_RETRO_SHORT_LIGHT               19 //
+#define TRAINER_BACK_PIC_HERO_RETRO_LONG_LIGHT              20 //
+//
+#define TRAINER_BACK_PIC_HERO_RETRO_SHORT_MEDIUM               21 //
+#define TRAINER_BACK_PIC_HERO_RETRO_LONG_MEDIUM              22 //
+//
+#define TRAINER_BACK_PIC_HERO_RETRO_SHORT_DARK               23 //
+#define TRAINER_BACK_PIC_HERO_RETRO_LONG_DARK              24 //
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -202,8 +279,29 @@
 #define FACILITY_CLASS_LEAF                  0x4f
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
+////
+#define FACILITY_CLASS_HERO_BALD_LIGHT       0x52
+#define FACILITY_CLASS_HERO_SHORT_LIGHT       0x53
+#define FACILITY_CLASS_HERO_LONG_LIGHT       0x54
+////
+#define FACILITY_CLASS_HERO_BALD_MEDIUM       0x55
+#define FACILITY_CLASS_HERO_SHORT_MEDIUM       0x56
+#define FACILITY_CLASS_HERO_LONG_MEDIUM       0x57
+////
+#define FACILITY_CLASS_HERO_BALD_DARK       0x58
+#define FACILITY_CLASS_HERO_SHORT_DARK       0x59
+#define FACILITY_CLASS_HERO_LONG_DARK       0x5A
+////
+#define FACILITY_CLASS_HERO_RETRO_SHORT_LIGHT   0x5B 
+#define FACILITY_CLASS_HERO_RETRO_LONG_LIGHT    0x5C
+////
+#define FACILITY_CLASS_HERO_RETRO_SHORT_MEDIUM  0x5D
+#define FACILITY_CLASS_HERO_RETRO_LONG_MEDIUM   0x5E
+////
+#define FACILITY_CLASS_HERO_RETRO_SHORT_DARK    0x5F
+#define FACILITY_CLASS_HERO_RETRO_LONG_DARK     0x60
 
-#define FACILITY_CLASSES_COUNT               0x52
+#define FACILITY_CLASSES_COUNT               0x61
 
 #define RS_FACILITY_CLASS_AQUA_LEADER_ARCHIE    0x0
 #define RS_FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -353,6 +451,25 @@ enum TrainerClassID
     TRAINER_CLASS_PIKE_QUEEN,
     TRAINER_CLASS_PYRAMID_KING,
     TRAINER_CLASS_RS_PROTAG,
+    TRAINER_CLASS_FANDANGO,
+    TRAINER_CLASS_FANDANGO_ADMIN,
+    TRAINER_CLASS_FANDANGO_DOUBLE,
+    TRAINER_CLASS_WORKER,
+    TRAINER_CLASS_HERMIT,
+    TRAINER_CLASS_UNKNOWN,
+    TRAINER_CLASS_BRO,
+    TRAINER_CLASS_RETRO_BUG,
+    TRAINER_CLASS_RETRO_LADY,
+    TRAINER_CLASS_RETRO_LASS,
+    TRAINER_CLASS_RETRO_KID,
+    TRAINER_CLASS_RETRO_GRANDMA,
+    TRAINER_CLASS_DIVER,
+    TRAINER_CLASS_COUNCIL,
+    TRAINER_CLASS_KAM,
+    TRAINER_CLASS_BURGLAR,
+    TRAINER_CLASS_SOLDIER,
+    TRAINER_CLASS_MAID,
+    TRAINER_CLASS_FISHERMAN_SAM,
     TRAINER_CLASS_COUNT,
 };
 
@@ -370,6 +487,8 @@ enum TrainerClassID
 #define TRAINER_ENCOUNTER_MUSIC_HIKER       11 // used for other trainer classes too
 #define TRAINER_ENCOUNTER_MUSIC_INTERVIEWER 12
 #define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
+#define TRAINER_ENCOUNTER_MUSIC_RETRO_BOY        14 
+#define TRAINER_ENCOUNTER_MUSIC_RETRO_GIRL        15 
 
 #define F_TRAINER_FEMALE (1 << 7)
 

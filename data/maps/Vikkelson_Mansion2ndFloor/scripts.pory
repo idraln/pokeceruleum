@@ -1,0 +1,358 @@
+raw `
+Vikkelson_Mansion2ndFloor_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_Mansion2ndFloor_5 {
+	lock
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_northeast * 2))
+	waitmovement(0)
+	delay(40)
+	msgbox(format("...You're finally here."))
+	closemessage
+	applymovement(1, moves(face_down))
+	waitmovement(0)
+	delay(40)
+	msgbox(format("You're so young. Yet, so brave. Facing what you've been through... How can the world be so cruel to a face like yours."))
+	closemessage
+	delay(40)
+	msgbox(format("Please, approach. Don't be scared."))
+	closemessage
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_southwest * 2))
+	waitmovement(0)
+	special(RemoveCameraObject)
+	delay(20)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up walk_right * 3 walk_up face_left))
+	waitmovement(0)
+	applymovement(1, moves(face_right))
+	waitmovement(0)
+	msgbox(format("Now, I need to be sure that you're strong enough to hear what I have to unveil. Face me, and my dear Persian, in a display of unconditional love between humans and Pokémon."))
+	setflag(FLAG_TRAINERBATTLE)
+	trainerbattle_no_intro(TRAINER_VIKKIE_1, Vikkie1)
+	goto(Vikkelson_Mansion2ndFloor_AfterCombat)
+}
+
+script Vikkelson_Mansion2ndFloor_6 {
+	lock
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_northeast walk_up))
+	waitmovement(0)
+	msgbox(format("...You're finally here."))
+	closemessage
+	applymovement(1, moves(face_down))
+	waitmovement(0)
+	delay(40)
+	msgbox(format("You're so young. Yet, so brave. Facing what you've been through... How can the world be so cruel to a face like yours."))
+	closemessage
+	delay(40)
+	msgbox(format("Please, approach. Don't be scared."))
+	closemessage
+	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_slow_diag_southwest walk_slow_down))
+	waitmovement(0)
+	special(RemoveCameraObject)
+	delay(20)
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up walk_right * 2 walk_up face_left))
+	waitmovement(0)
+	applymovement(1, moves(face_right))
+	waitmovement(0)
+	msgbox(format("Now, I need to be sure that you're strong enough to hear what I have to unveil. Face me, and my dear Persian, in a display of unconditional love between humans and Pokémon."))
+	setflag(FLAG_TRAINERBATTLE)
+	trainerbattle_no_intro(TRAINER_VIKKIE_1, Vikkie1)
+	goto(Vikkelson_Mansion2ndFloor_AfterCombat)
+}
+
+script Vikkelson_Mansion2ndFloor_AfterCombat {
+	if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        call(Vikkelson_Mansion2ndFloor_Loss)
+    }
+    else {
+        call(Vikkelson_Mansion2ndFloor_Win)
+    }
+}
+
+script Vikkelson_Mansion2ndFloor_Win {
+	namebox("Vikkie")
+	msgbox(format("I haven't been lied to... Even my dearest companion couldn't do anything against your might. No wonder you have climbed your path all the way to the President himself with only one Pokémon."))
+	hidenamebox
+	special(HealPlayerParty)
+	call(Vikkelson_Mansion2ndFloor_AfterCombatDialog)
+}
+
+script Vikkelson_Mansion2ndFloor_Loss {
+	namebox("Vikkie")
+	msgbox(format("I haven't been lied to... Even with your back against the wall, you showed resilience until your last breath. No wonder you have climbed your path all the way to the President himself with only one Pokémon."))
+	hidenamebox
+	special(HealPlayerParty)
+	call(Vikkelson_Mansion2ndFloor_AfterCombatDialog)
+}
+
+script Vikkelson_Mansion2ndFloor_AfterCombatDialog {
+	msgbox(format("..."))
+	namebox("Vikkie")
+	msgbox(format("Now, you must have a lot of questions going through that beautiful head of yours. Let me first introduce myself."))
+	closemessage
+	hidenamebox
+	applymovement(1, moves(face_up))
+	waitmovement(0)
+	fadescreenspeed(FADE_TO_BLACK, 2)
+	setvar(VAR_0x8004, 7)
+	setvar(VAR_0x8005, 75)
+	special(TeleportCamera)
+	delay(40)
+	///
+	setvar(VAR_0x8004, 7)
+	setvar(VAR_0x8005, 25)
+	special(TeleportCamera)
+	fadescreenspeed(FADE_FROM_BLACK, 2)
+    delay(40)
+    applymovement(2, moves(face_up delay_16 * 2 walk_fast_right * 2 face_up delay_16 * 2 walk_fast_down * 2 walk_fast_right * 6 walk_fast_up * 2 jump_in_place_up * 2))
+    namebox("Vikkie")
+	msgbox(format("I was born Victoria Lafont, in a small village located in Kalos. I lost both my parents at a young age, and had to learn to fend for myself so as not to be swallowed whole by the world around me."))
+	hidenamebox
+	waitmovement(0)
+    closemessage
+	playse(SE_PIN)
+    applymovement(2, moves(emote_exclamation_mark))
+    waitmovement(0)
+	delay(40)
+	namebox("Vikkie")
+	msgbox(format("But these moments, love, you see... These moments made me who I am. A strong, an independent woman who can face the most ferocious adversity."))
+	closemessage
+	hidenamebox
+	delay(40)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+	setvar(VAR_0x8004, 7)
+	setvar(VAR_0x8005, 38)
+	special(TeleportCamera)
+	delay(40)
+    fadescreenspeed(FADE_FROM_BLACK, 2)
+    delay(40)
+    applymovement(3, moves(walk_right * 9))
+    waitmovement(0)
+	namebox("Vikkie")
+	msgbox(format("Anyways. One day, I decided to embark, secretly, mind you, on a boat that was going to this newly discovered plot of land, later called Thura."))
+	closemessage
+    hidenamebox
+	applymovement(3, moves(walk_right * 9))
+    waitmovement(0)
+	delay(40)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+	setvar(VAR_0x8004, 7)
+	setvar(VAR_0x8005, 51)
+	special(TeleportCamera)
+	delay(40)
+    fadescreenspeed(FADE_FROM_BLACK, 2)
+    delay(40)
+	namebox("Vikkie")
+	msgbox(format("For a long time... I scavenged for food, alone, in the forest. I even made a friend. My dearest Persian, who was nothing but a baby Meowth at the time."))
+	closemessage
+	hidenamebox
+	delay(40)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+	delay(20)
+    namebox("Vikkie")
+	msgbox(format("Then, I stumbled upon this beautiful spot, with a natural beach made of the finest sand I've ever witnessed."))
+    closemessage
+	hidenamebox
+	setvar(VAR_0x8004, 7)
+	setvar(VAR_0x8005, 64)
+	special(TeleportCamera)
+	fadescreenspeed(FADE_FROM_BLACK, 2)
+    delay(40)
+	namebox("Vikkie")
+	msgbox(format("I had an idea. I was going to turn this plot of land into a safe haven for restless souls, who wish to relax and enjoy life, as it's supposed to be. It started as a modest hut by the beach..."))
+	closemessage
+	hidenamebox
+	delay(40)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+	setvar(VAR_0x8004, 7)
+	setvar(VAR_0x8005, 75)
+	special(TeleportCamera)
+	delay(40)
+	///
+	setvar(VAR_0x8004, 8)
+	setvar(VAR_0x8005, 4)
+	special(TeleportCamera)
+	fadescreenspeed(FADE_FROM_BLACK, 2)
+	delay(40)
+	namebox("Vikkie")
+	msgbox(format("...Fast forward 20 years, and here we are. Thanks to my efforts, I became one of the most influential, if not the most, woman of Thura. Everyone wanted to enjoy some time in my town. From the lowest bum, to the President himself. I became the confidant of the richest people in Thura. Allowing me to become one of them. Me, the poor girl who had to scavenge through trash in order to survive."))
+	closemessage
+	hidenamebox
+	delay(40)
+	namebox("Vikkie")
+	msgbox(format("Now, you must imagine how shocking it was for me to learn what happened to the President, and to that extent, to you. The President is a dear friend, and I can only wish that he's safe."))
+	closemessage
+	hidenamebox
+	delay(40)
+	applymovement(1, moves(face_right))
+	namebox("Vikkie")
+	msgbox(format("Which brings us to the matter of our meeting. I have strong suspicions that both the President, and your Xatu, are being held hostages in a town called Virimante, in the southwest of Thura."))
+	hidenamebox
+	multichoice(0, 8, MULTI_VIKKIE, TRUE)
+	switch(var(VAR_RESULT)) {
+        case 0:
+			closemessage
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			delay(40)
+			namebox("Vikkie")
+			msgbox(format("You may have met some funny-looking people, all dressed in pink. Hell, there's even one wandering outside in my garden."))
+			closemessage
+			hidenamebox
+			applymovement(1, moves(face_right))
+			waitmovement(0)
+			delay(40)
+			namebox("Vikkie")
+			msgbox(format("For some time now, those people, who seem to revolve around a leader, I believe their name is K.A.M... They were content with inconsequent crimes. Then, they stepped up and provoked the explosion you experienced, alongside the President. Why would they do that? I'm afraid it is one of the rare questions I don't have an answer for..."))
+			msgbox(format("Since then, they have increased their evil deeds. Some have tried to capture gyms, others commit petty theft, like stealing Eka's most precious possession: his scarf.")) 
+			closemessage
+			hidenamebox
+			playse(SE_PIN)
+			applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+			waitmovement(0)
+			delay(40)
+			namebox("Vikkie")
+			msgbox(format("I told you, dear. Everything gets to my ears, sooner or later. But I'm here to help you. And this is of the utmost importance; for the sake of your Xatu, and, more importantly, the sake of Thura itself. Who knows what these goons are capable of... You must go to Virimante, and make them understand."))
+			closemessage
+			hidenamebox
+			delay(40)
+			namebox("Vikkie")
+			msgbox(format("Of course, to go there, you'll need much stronger Pokémons, and, of course, much stronger bonds with your companions. They're not Xatu, after all."))
+			hidenamebox
+			msgbox(format("..."))
+			namebox("Vikkie")
+			msgbox(format("I understand you've taken the Council Challenge once again? Very well. There couldn't be a better way to tie strong bonds with your Pokémons. In order to advance to your quest, and to save Thura, you must go to Glasville first, and face Corinna. You already know that the path is blocked; I'll order one of my men to clear the way."))
+			closemessage
+			hidenamebox
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("Don't thank me. The best way you can make yourself up is by defeating those thugs, thus liberating the President... And your dear companion, of course."))
+			closemessage
+			hidenamebox
+			delay(20)
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("One last thing... Did you see what happened to Persian in the fight we just experienced? This is what we, in Kalos, call a Mega Evolution. It allows your Pokémon to grow stronger, but only during the glimpse of a battle."))
+			hidenamebox
+			closemessage
+			delay(20)
+			applymovement(1, moves(face_player))
+			waitmovement(0)
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("Take this. I want you to feel what it's like to have true might in front of your very eyes."))
+			hidenamebox
+			closemessage
+			giveitem(ITEM_MEGA_RING)
+			closemessage
+			delay(20)
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("Now, go. Every second wasted takes Thura a step closer to chaos."))
+			hidenamebox
+			applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right))
+			waitmovement(0)
+			setvar(VAR_MAIN_STORY, 17)
+			setflag(FLAG_ROCK_BLACK)
+			setflag(FLAG_SCIENTIST_GLASVILLE)
+			setflag(FLAG_CORINNA)
+			release
+			end
+		case 1:
+			closemessage
+			playse(SE_PIN)
+			applymovement(1, moves(emote_exclamation_mark))
+			waitmovement(0)
+			delay(40)
+			namebox("Vikkie")
+			msgbox(format("Oh, no, no. You don't get it. I'm not one to exert direct influence. My role is to gather information, and distill so that Thura prospers."))
+			closemessage
+			hidenamebox
+			delay(20)
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			delay(40)
+			namebox("Vikkie")
+			msgbox(format("Virimante is the nest of those evil people, covered in pink, that you must have seen."))
+			msgbox(format("For some time now, those people, who seem to revolve around a leader, I believe their name is K.A.M... They were content with inconsequent crimes. Then, they stepped up and provoked the explosion you experienced, alongside the President. Why would they do that? I'm afraid it is one of the rare questions I don't have an answer for..."))
+			msgbox(format("Since then, they have increased their evil deeds. Some have tried to capture gyms, others commit petty theft, like stealing Eka's most precious possession: his scarf.")) 
+			closemessage
+			hidenamebox
+			playse(SE_PIN)
+			applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+			waitmovement(0)
+			delay(40)
+			applymovement(1, moves(face_right))
+			waitmovement(0)
+			namebox("Vikkie")
+			msgbox(format("I told you, dear. Everything gets to my ears, sooner or later. But I'm here to help you. And this is of the utmost importance; for the sake of your Xatu, and, more importantly, the sake of Thura itself. Who knows what these goons are capable of... You must go to Virimante, and make them understand."))
+			closemessage
+			hidenamebox
+			delay(40)
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			namebox("Vikkie")
+			msgbox(format("Of course, to go there, you'll need much stronger Pokémons, and, of course, much stronger bonds with your companions. They're not Xatu, after all."))
+			hidenamebox
+			msgbox(format("..."))
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			namebox("Vikkie")
+			msgbox(format("I understand you've taken the Council Challenge once again? Very well. There couldn't be a better way to tie strong bonds with your Pokémons. In order to advance to your quest, and to save Thura, you must go to Glasville first, and face Corinna. You already know that the path is blocked; I'll order one of my men to clear the way. Don't thank me. The best way you can make yourself up is by defeating those thugs, thus liberating the President... And Xatu, of course."))
+			closemessage
+			hidenamebox
+			delay(20)
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("One last thing... Did you see what happened to Persian in the fight we just experienced? This is what we, in Kalos, call a Mega Evolution. It allows your Pokémon to grow stronger, but only during the glimpse of a battle."))
+			hidenamebox
+			closemessage
+			delay(20)
+			applymovement(1, moves(face_player))
+			waitmovement(0)
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("Take this. I want you to feel what it's like to have true might in front of your very eyes."))
+			hidenamebox
+			closemessage
+			giveitem(ITEM_MEGA_RING)
+			closemessage
+			delay(20)
+			applymovement(1, moves(face_up))
+			waitmovement(0)
+			delay(20)
+			namebox("Vikkie")
+			msgbox(format("Now, go. Every second wasted takes Thura a step closer to chaos."))
+			hidenamebox
+			applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right))
+			waitmovement(0)
+			setvar(VAR_MAIN_STORY, 17)
+			setflag(FLAG_ROCK_BLACK)
+			setflag(FLAG_SCIENTIST_GLASVILLE)
+			setflag(FLAG_CORINNA)
+			release
+			end
+	}
+}
+
+text Vikkie1 {
+	format("So this was all true...")
+}
+
+script Vikkelson_Mansion2ndFloor_Vikkie {
+	lock
+	faceplayer
+	namebox("Vikkie")
+	msgbox(format("Go, {PLAYER}. Thura's fate lies between your hands."))
+	hidenamebox
+	release
+	end
+}

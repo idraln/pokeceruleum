@@ -1,0 +1,321 @@
+raw `
+Virimante_GymRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Virimante_GymRoom_OnFrame
+	.byte 0
+
+Virimante_GymRoom_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 30, Virimante_GymRoom_Arrival
+    .2byte 0
+`
+
+script Virimante_GymRoom_Arrival {
+    lock
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_down walk_fast_right * 2))
+    waitmovement(0)
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down face_right))
+    applymovement(1, moves(walk_in_place_left))
+    waitmovement(0)
+    playbgm(MUS_AQUA_MAGMA_HIDEOUT, TRUE)
+    namebox("K.A.M.")
+    msgbox(format("You're very weak. I'm actually ashamed my guys struggled to take on your gym a few weeks ago! I should've done it myself! As I always do!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    playse(SE_PIN)
+    applymovement(2, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    applymovement(2, moves(walk_left))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left * 2))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    namebox("Bruce")
+    msgbox(format("{PLAYER}! You're finally here!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("...I got my ass handed to me. Brutally. It took less than 2 minutes."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("I FAILED DIANCIE!!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Please, defeat them... You're the only hope left."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Let me heal your Pokémons first..."))
+    closemessage
+    hidenamebox
+    fadescreen(FADE_TO_BLACK)
+    playfanfare(MUS_HEAL)
+    special(HealPlayerParty)
+    waitfanfare
+    fadescreen(FADE_FROM_BLACK)
+    delay(20)
+    applymovement(1, moves(walk_in_place_left))
+    waitmovement(0)
+    namebox("K.A.M.")
+    msgbox(format("What's going on here?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_left * 2))
+    applymovement(2, moves(walk_up face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("Ahhhh... You must be {PLAYER}. I heard so much about you! You know Barbara actually lost sleep over you? She's one of my best grunts, so you must be very strong. But!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_down))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...You're in my space, and I don't like intruders. Unless!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_up face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...You're here to join our Band?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...No? You're here to... Stop us?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_down))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...But why?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_up face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("You know I can't let you do that, right?"))
+    closemessage
+    hidenamebox
+    trainerbattle_no_intro(TRAINER_KAM_VIRIMANTE, Kam1)
+    turnobject(2, DIR_EAST)
+    turnobject(1, DIR_WEST)
+    applymovement(2, moves(jump_in_place_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Enough is enough! Will you stop now?!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("Ugh... Okay, I guess. What do you want? Do you want us to stop taking over Gyms? If so, I'm afraid a fight isn't gonna be enough to convince me. But!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...I'm always open to negotiate. What's on the table?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(walk_in_place_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("What happened to the President? Why did you that?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(emote_question_mark))
+    waitmovement(0)
+    delay(40)
+    applymovement(1, moves(face_up))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...Huh? What are you talking about?"))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_in_place_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Don't play dumb! We know it's you and your grunts! You did this so you could take over Thura!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_left delay_16 face_up delay_16 face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("Uh, actually, no. I swear, it wasn't us. Although I wish it was. That was very cool."))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_in_place_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Cool you say? The President and {PLAYER} were on the rooftop when you guys collapsed the building! {PLAYER} almost died because of it! And Arceus knows where the President is!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_up))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("I just told you, old man. It. Wasn't. US!!"))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_in_place_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Oh yeah? And what about the Ironair?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(emote_question_mark))
+    waitmovement(0)
+    delay(40)
+    namebox("K.A.M.")
+    msgbox(format("...What about it?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(walk_in_place_down))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("The explosion? The worker you knocked out? He still can't remember his name!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_down))
+    waitmovement(0)
+    delay(20)
+    applymovement(1, moves(face_left))
+    waitmovement(0)
+    namebox("K.A.M.")
+    msgbox(format("Sorry for your guy, but once again. Not us."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_right))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("...I don't understand..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_up))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("...I..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(walk_left face_down))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("...Sorry, {PLAYER}. I wasted your time. I'll continue to investigate on my part. I'll let you know if I have something new... Sorry."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    applymovement(2, moves(walk_right face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("...Excuse me."))
+    closemessage
+    hidenamebox
+    applymovement(1, moves(walk_right face_left))
+    applymovement(2, moves(walk_down * 4))
+    waitmovement(0)
+    removeobject(2)
+    playse(SE_EXIT)
+    delay(40)
+    applymovement(1, moves(walk_left))
+    waitmovement(0)
+    namebox("K.A.M.")
+    msgbox(format("...What's up with him? We're outlaws, but we're not criminals. Although I have to concede, maybe taking over Gyms right after what happened at the League wasn't the wisest choice."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...Either way. I think I'll go back to my home region, Hoenn. This game has gone long enough, it's just been a mess all along, plus, I'm getting bored. The Fandango Band is hereby disbanded!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("Hasta la vista, baby."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_down * 3))
+    waitmovement(0)
+    removeobject(1)
+    playse(SE_EXIT)
+    fadeoutbgm(1)
+    playbgm(MUS_ABNORMAL_WEATHER, TRUE)
+    setflag(FLAG_BRUCE_VIRIMANTE)
+    setflag(FLAG_HIDE_MAP_NAME_POPUP)
+    clearflag(FLAG_KAM_VIRIMANTE)
+    setvar(VAR_MAIN_STORY, 31)
+    completequest(QUEST_FANDANGO)
+    setflag(FLAG_FANDANGO_QUEST_COMPLETE)
+    release
+    end
+}
+
+text Kam1 {
+    format("...I see! Barbara was right!")
+}

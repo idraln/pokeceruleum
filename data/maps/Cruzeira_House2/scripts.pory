@@ -1,0 +1,47 @@
+raw `
+Cruzeira_House2_MapScripts::
+	.byte 0
+`
+
+script Cruzeira_House2_Laila {
+    if(var(VAR_MAIN_STORY) <= 11) {
+        lock
+        namebox("Laila")
+        msgbox(format("Sob... Sob..."))
+        hidenamebox
+        release
+        end
+    }
+}
+
+script Cruzeira_House2_Grandma {
+    if(var(VAR_MAIN_STORY) == 11) {
+        lock
+        faceplayer
+        msgbox(format("Have you cleaned the gym from these vermines yet? Please. It is of the most importance for my dear Laila."))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("I am overwhelmed with gratitude for what you have done for my precious Laila. I will always be indebted to you. Please, If you ever return to Cruzeira, don't hesitate to visit my house and say hello."))
+        release
+        end
+    }
+}
+
+
+movement LailaLeave2 {
+    walk_down * 2
+    walk_right * 6
+    walk_down * 3
+}
+
+movement LailaLeave4 {
+    walk_up
+    walk_right * 3
+    walk_down * 3
+    walk_right * 3
+    walk_down * 3
+}

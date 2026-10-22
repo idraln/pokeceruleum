@@ -389,7 +389,7 @@ gSongTable::
 	song mus_encounter_swimmer, 0, 0
 	song mus_cave_of_origin, 0, 0
 	song mus_obtain_berry, 2, 2
-	song mus_awaken_legend, 2, 2
+	song mus_awaken_legend, 0, 0
 	song mus_slots_jackpot, 2, 2
 	song mus_slots_win, 2, 2
 	song mus_too_bad, 2, 2
@@ -560,6 +560,18 @@ gSongTable::
 	song mus_rg_trainer_tower, 0, 0
 	song mus_rg_slow_pallet, 0, 0
 	song mus_rg_teachy_tv_menu, 0, 0
+	song mus_gsc_battle_trainer, 0, 0
+	song mus_gsc_battle_wild, 0, 0
+	song mus_gsc_glorray, 0, 0
+	song mus_gsc_victory_wild, 0, 0
+	song mus_gsc_victory_battle, 0, 0
+	song mus_gsc_encounter_girl, 0, 0
+	song mus_gsc_encounter_boy, 0, 0
+	song mus_gsc_route, 0, 0
+	song mus_gsc_pc, 0, 0
+	song mus_gsc_grandma, 0, 0
+	song mus_glorray, 0, 0
+	song mus_gsc_heal, 2, 2
 	song ph_trap_blend, 2, 2
 	song ph_trap_held, 2, 2
 	song ph_trap_solo, 2, 2

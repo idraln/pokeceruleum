@@ -516,7 +516,7 @@ static bool32 ShouldDoNearbyMessage(void)
             if (GetMatchCallMapSec(selection) == gMapHeader.regionMapSectionId
              && FlagGet(FLAG_BADGE05_GET) == TRUE)
             {
-                if (!FlagGet(FLAG_WATTSON_REMATCH_AVAILABLE))
+                if (!FlagGet(FLAG_SCIENTIST_GLASVILLE))
                     return TRUE;
             }
         }

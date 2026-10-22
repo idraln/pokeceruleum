@@ -1,0 +1,59 @@
+raw `
+Rocheval_Motel_MapScripts::
+	.byte 0
+`
+
+script Rocheval_Motel_Owner {
+    lock
+    faceplayer
+    msgbox(format("Hi, welcome to Rocheval's own motel! How are you? Unfortunately, I don't have any rooms left. Come again!"))
+    release
+    end
+}
+
+script Rocheval_Motel_Tourist1 {
+    lock
+    faceplayer
+    msgbox(format("...Wow. This painting... I've been staring at it for 2 hours now. It means everything to me right now."))
+    release
+    end
+}
+
+script Rocheval_Motel_Tourist2 {
+    lock
+    playse(SE_PIN)
+    applymovement(1, RochevalAngryTourist)
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, RochevalMotelFace)
+    waitmovement(0)
+    msgbox(format("Excuse me? Can't you see the room is occupied? Those are bad manners, bro. Not cool. Now go."))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, RochevalMotelLeaving)
+    applymovement(1, RochevalAngryTourist2)
+    waitmovement(0)
+    release
+    end
+}
+
+movement RochevalAngryTourist {
+    emote_exclamation_mark
+    delay_16 * 2
+    walk_left
+    walk_down * 4
+    walk_left
+}
+
+movement RochevalAngryTourist2 {
+    walk_right
+    walk_up * 4
+    walk_right
+    face_up
+}
+
+movement RochevalMotelLeaving {
+    walk_down * 4
+}
+
+movement RochevalMotelFace {
+    face_right
+}

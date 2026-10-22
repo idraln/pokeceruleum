@@ -1,0 +1,26 @@
+raw `
+SapphireCity_Building6_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building6_Girl {
+    lock
+    msgbox(format("I'm working until 11pm today??? What the hell?"))
+    release
+    end
+}
+
+script SapphireCity_Building6_Old {
+    lock
+    msgbox(format("...Zzzz...Zzzz..."))
+    release
+    end
+}
+
+script SapphireCity_Building6_Boy {
+    lock
+    faceplayer
+    msgbox(format("I'm hiding because I don't want to go to school! Go away, you'll blow my cover!"))
+    release
+    end
+}

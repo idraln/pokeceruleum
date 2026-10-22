@@ -1,0 +1,410 @@
+raw `
+JangalaRd1_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, JangalaRd1_OnLoad
+	.byte 0
+`
+
+script JangalaRd_Triathlon {
+    setvar(VAR_TRIATHLON, 3)
+    end
+}
+
+script JangalaRd1_OnLoad {
+    if(var(VAR_QUEST_HERMIT) > 3) {
+        setmetatile(8, 87, METATILE_Bammobo_BushEntrance, TRUE)
+        setmetatile(8, 88, METATILE_Bammobo_BushWarp, FALSE)
+        special(DrawWholeMapView)
+        end
+    }
+    else {
+        end
+    }
+}
+
+script JangalaRd1_Marie {
+    trainerbattle_single(TRAINER_JANGALA_1, Marie1, Marie2)
+    msgbox(format("I'm a big fan of Komala, but I haven't encountered it yet. Soon!"))
+    closemessage
+    end
+}
+
+text Marie1 {
+    format("No, don't go! I need to find Komala first!")
+}
+
+text Marie2 {
+    format("Oh... I guess you'll catch it before me...")
+}
+
+script JangalaRd1_Victor {
+    trainerbattle_single(TRAINER_JANGALA_2, Victor1, Victor2)
+    msgbox(format("I was told that there were lots of insects on this road. I've clearly been lied to!"))
+    closemessage
+    end
+}
+
+text Victor1 {
+    format("Rain? Check. Grass? Check. Bugs? Nope!")
+}
+
+text Victor2 {
+    format("Where are they? Where? Are? They?")
+}
+
+script JangalaRd1_Gertrude {
+    trainerbattle_single(TRAINER_JANGALA_3, Gertrude1, Gertrude2)
+    msgbox(format("The humidity is unbearable. I should've gone to Littoral Rd."))
+    closemessage
+    end
+}
+
+text Gertrude1 {
+    format("You! Let's fight!")
+}
+
+text Gertrude2 {
+    format("Dammit, it's so moist in here! I can't focus!")
+}
+
+script JangalaRd1_Kevin {
+    trainerbattle_single(TRAINER_JANGALA_4, Kevin1, Kevin2)
+    msgbox(format("Some say that these platforms were crafted by Pokémons themselves. But how? Did they use tools?"))
+    closemessage
+    end
+}
+
+text Kevin1 {
+    format("Haha, watch your step! Don't fall!")
+}
+
+text Kevin2 {
+    format("Guess who almost fell down?")
+}
+
+script JangalaRd1_Florence {
+    trainerbattle_single(TRAINER_JANGALA_5, Florence1, Florence2)
+    msgbox(format("I used to be part of the Hoenn corps. Unfortunately, I messed up my knee pretty badly, and I was made redundant."))
+    closemessage
+    end
+}
+
+text Florence1 {
+    format("Cadet, ten-hut!")
+}
+
+text Florence2 {
+    format("Ok, stand at ease.")
+}
+
+script JangalaRd1_Fifi {
+    trainerbattle_single(TRAINER_JANGALA_6, Fifi1, Fifi2)
+    msgbox(format("I'm part of Koga's Ninja School! I'm a few steps away from being a proper ninja. Can't wait!"))
+    closemessage
+    end
+}
+
+text Fifi1 {
+    format("Boom! Final test before finally becoming a truly respected ninja!")
+}
+
+text Fifi2 {
+    format("Doesn't matter, I'm almost there!")
+}
+
+script JangalaRd1_Nini {
+    trainerbattle_single(TRAINER_JANGALA_7, Nini1, Nini2)
+    msgbox(format("I'm also a pupil in Koga's Ninja School, but I still have a lot of courses to take."))
+    closemessage
+    end
+}
+
+text Nini1 {
+    format("Uh... A-ha! Here I come! Get ready to taste my... Uh, no...")
+}
+
+text Nini2 {
+    format("Well, still a long way to go...")
+}
+
+script JangalaRd1_Tom {
+    trainerbattle_single(TRAINER_JANGALA_8, Tom1, Tom2)
+    msgbox(format("See those calves? You don't grow them by sitting all day on your couch, hah!"))
+    closemessage
+    end
+}
+
+text Tom1 {
+    format("Have you drunk water yet?")
+}
+
+text Tom2 {
+    format("Don't wait until you're thirsty!")
+}
+
+script JangalaRd1_Maxime {
+    trainerbattle_single(TRAINER_JANGALA_9, Maxime1, Maxime2)
+    msgbox(format("Every day I wake up and realise I can't fly. It shatters my heart."))
+    closemessage
+    end
+}
+
+text Maxime1 {
+    format("Sometimes, I climb trees and pretend I'm a bird. I also build nests.")
+}
+
+text Maxime2 {
+    format("I know, I'm not worth it...")
+}
+
+script JangalaRd1_Daphne {
+    trainerbattle_single(TRAINER_JANGALA_10, Daphne1, Daphne2)
+    msgbox(format("Zigzagoon couldn't do it! I wonder if I should let it evolve? It's so cute as is!"))
+    closemessage
+    end
+}
+
+text Daphne1 {
+    format("Check out my cute babies!")
+}
+
+text Daphne2 {
+    format("How dare you treat babies like that?")
+}
+
+script JangalaRd1_Chris {
+    trainerbattle_single(TRAINER_JANGALA_11, Chris1, Chris2)
+    if(var(VAR_DISAPPEARANCE) == 3) {
+        msgbox(format("Haha, I knew I had to persevere! Look at what I caught just now!"))
+    }
+    else {
+        msgbox(format("This is pissing me off. What did we do to deserve that? What are we supposed to do, harvest berries for a living? No way!"))
+    }
+    closemessage
+    end
+}
+
+text Chris1 {
+    format("Ah! Nothing! Come here, I need to vent!")
+}
+
+text Chris2 {
+    format("See what I mean?")
+}
+
+script JangalaRd1_Grunt {
+    trainerbattle_single(TRAINER_JANGALA_12, JangalaGrunt1, JangalaGrunt2)
+    msgbox(format("My job is done, I have nothing more to say to you, leave me alone."))
+    closemessage
+    end
+}
+
+text JangalaGrunt1 {
+    format("Haha, so you're the kid that wants to stop us! Bad news, we just cast a spell on the forest! You can't go to Virimante! Hahaha!")
+}
+
+text JangalaGrunt2 {
+    format("Ok.")
+}
+
+script JangalaRd1_Camper1 {
+    lock
+    faceplayer
+    msgbox(format("This is it! The perfect spot to bivouac! I called dibs, you can't settle here. Sorry bud, I don't make the rules!"))
+    release
+    end
+}
+
+script JangalaRd1_WorkerF {
+    lock
+    faceplayer
+    msgbox(format("Hiya! Would you like to try our newly made zip line? It's totally free of charge!"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Great! Hop in!"))
+        closemessage
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_1) == 37) {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_left * 2 face_down))
+            waitmovement(0)
+        }
+        else {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_down))
+            waitmovement(0)
+        }
+        turnobject(8, DIR_SOUTH)
+        msgbox(format("Ready? Now push with your legs!"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(slide_down * 15 face_right))
+        waitmovement(0)
+        applymovement(9, moves(walk_up face_left))
+        waitmovement(0)
+        msgbox(format("So? Nice sensations, eh? Don't hesitate to try it again!"))
+        closemessage
+        applymovement(9, moves(walk_down face_up))
+        waitmovement(0)
+    }
+    else {
+        msgbox(format("Haha, no worries! I get that I can be a bit frightening. If you need to go down, you can still paddle through the river!"))
+    }
+    release
+    end
+}
+
+script JangalaRd1_WorkerM {
+    lock
+    faceplayer
+    msgbox(format("Our zip line rules. The next step is to build one that is even longer on Passaqua Way!"))
+    release
+    end
+}
+
+script JangalaRd1_Camper2 {
+    lock
+    faceplayer
+    msgbox(format("Thank Arceus for that refuge! I'm exhausted. How is she still full of energy? Why didn't we go to the movies for a first date?"))
+    release
+    end
+}
+
+script JangalaRd1_Picnicker1 {
+    lock
+    faceplayer
+    msgbox(format("Hmmm. Another one who lied on their bio. No wonder he's already out of breath."))
+    release
+    end
+}
+
+script JangalaRd1_Weirdo {
+    lock
+    faceplayer
+    msgbox(format("Hehehe! I'm doing it! I'm finally going to live like a hermit, far away from civilization! I just need to get through these trees!"))
+    turnobject(15, DIR_NORTH)
+    release
+    end
+}
+
+script JangalaRd1_Item1 {
+    lock
+    removeobject(19)
+    giveitem(ITEM_BIG_ROOT)
+    setflag(FLAG_ITEM_JANGALA_1)
+    release
+    end
+}
+
+script JangalaRd1_Item2 {
+    lock
+    removeobject(20)
+    giveitem(ITEM_TM18)
+    setflag(FLAG_ITEM_JANGALA_2)
+    release
+    end
+}
+
+script JangalaRd1_Item3 {
+    lock
+    removeobject(21)
+    giveitem(ITEM_PP_UP)
+    setflag(FLAG_ITEM_JANGALA_3)
+    release
+    end
+}
+
+script JangalaRd1_Item4 {
+    lock
+    removeobject(22)
+    giveitem(ITEM_FULL_HEAL)
+    setflag(FLAG_ITEM_JANGALA_4)
+    release
+    end
+}
+
+script JangalaRd1_Hermit {
+    lock
+    faceplayer
+    gettimeofday
+    if(var(VAR_0x8000) == 3) {
+        namebox("Hermit")
+        msgbox(format("There you are. Get back, I'm gonna cut that bush."))
+        closemessage
+        hidenamebox
+        applymovement(23, moves(face_up))
+        waitmovement(0)
+        delay(20)
+        playse(SE_M_CUT)
+        delay(20)
+        setmetatile(8, 87, METATILE_Bammobo_BushEntrance, TRUE)
+        setmetatile(8, 88, METATILE_Bammobo_BushWarp, FALSE)
+        special(DrawWholeMapView)
+        delay(20)
+        applymovement(23, moves(face_player))
+        waitmovement(0)
+        namebox("Hermit")
+        msgbox(format("In we go."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(23, moves(face_up))
+        waitmovement(0)
+        delay(10)
+        removeobject(23)
+        setflag(FLAG_HERMIT_JANGALA)
+        clearflag(FLAG_HERMIT_JANGALA_BUSH)
+        setvar(VAR_QUEST_HERMIT, 4)
+        playse(SE_EXIT)
+        release
+        end
+    }
+    else {
+        namebox("Hermit")
+        msgbox(format("We can't go in yet. Come back when it's nighttime."))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
+}
+
+script JangalaRd1_Jezebel {
+    trainerbattle_single(TRAINER_TRIATHLON_2, Jezebel1, Jezebel2)
+    msgbox(format("No! Don't go any further! I must win! Tell me where to go!"))
+    closemessage
+    end
+}
+
+text Jezebel1 {
+    format("I'm lost! I must slow you down!")
+}
+
+text Jezebel2 {
+    format("No, stay here!")
+}
+
+script JangalaRd1_Ivan {
+    trainerbattle_single(TRAINER_TRIATHLON_3, Ivan1, Ivan2)
+    msgbox(format("Huh? What triathlon?"))
+    closemessage
+    end
+}
+
+text Ivan1 {
+    format("Fight me! I need to feel something!")
+}
+
+text Ivan2 {
+    format("That's what I'm talking about!")
+}
+
+script JangalaRd1_Artem {
+    trainerbattle_single(TRAINER_TRIATHLON_4, Artem1, Artem2)
+    msgbox(format("I haven't prepared myself enough..."))
+    closemessage
+    end
+}
+
+text Artem1 {
+    format("Oof... I need to take a breather.")
+}
+
+text Artem2 {
+    format("How aren't you tired yet?")
+}

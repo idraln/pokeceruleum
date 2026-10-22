@@ -6,6 +6,8 @@
 #include "bg.h"
 #include "graphics.h"
 #include "menu.h"
+#include "event_data.h"
+#include "constants/flags.h"
 
 const u8 gTextWindowFrame1_Gfx[] = INCBIN_U8("graphics/text_window/1.4bpp");
 static const u8 sTextWindowFrame2_Gfx[] = INCBIN_U8("graphics/text_window/2.4bpp");
@@ -69,17 +71,17 @@ static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
     {sTextWindowFrame7_Gfx, sTextWindowFrame7_Pal},
     {sTextWindowFrame8_Gfx, sTextWindowFrame8_Pal},
     {sTextWindowFrame9_Gfx, sTextWindowFrame9_Pal},
-    {sTextWindowFrame10_Gfx, sTextWindowFrame10_Pal},
-    {sTextWindowFrame11_Gfx, sTextWindowFrame11_Pal},
-    {sTextWindowFrame12_Gfx, sTextWindowFrame12_Pal},
-    {sTextWindowFrame13_Gfx, sTextWindowFrame13_Pal},
-    {sTextWindowFrame14_Gfx, sTextWindowFrame14_Pal},
-    {sTextWindowFrame15_Gfx, sTextWindowFrame15_Pal},
-    {sTextWindowFrame16_Gfx, sTextWindowFrame16_Pal},
-    {sTextWindowFrame17_Gfx, sTextWindowFrame17_Pal},
-    {sTextWindowFrame18_Gfx, sTextWindowFrame18_Pal},
-    {sTextWindowFrame19_Gfx, sTextWindowFrame19_Pal},
-    {sTextWindowFrame20_Gfx, sTextWindowFrame20_Pal}
+    {sTextWindowFrame10_Gfx, sTextWindowFrame10_Pal}
+    //{sTextWindowFrame11_Gfx, sTextWindowFrame11_Pal},
+    //{sTextWindowFrame12_Gfx, sTextWindowFrame12_Pal},
+    //{sTextWindowFrame13_Gfx, sTextWindowFrame13_Pal},
+    //{sTextWindowFrame14_Gfx, sTextWindowFrame14_Pal},
+    //{sTextWindowFrame15_Gfx, sTextWindowFrame15_Pal},
+    //{sTextWindowFrame16_Gfx, sTextWindowFrame16_Pal},
+    //{sTextWindowFrame17_Gfx, sTextWindowFrame17_Pal},
+    //{sTextWindowFrame18_Gfx, sTextWindowFrame18_Pal},
+    //{sTextWindowFrame19_Gfx, sTextWindowFrame19_Pal},
+    //{sTextWindowFrame20_Gfx, sTextWindowFrame20_Pal}
 };
 
 static const u16 sTextWindowDexNavFrame[] = INCBIN_U16("graphics/text_window/dexnav_pal.gbapal");
@@ -96,7 +98,14 @@ const struct TilesPal *GetWindowFrameTilesPal(u8 id)
 
 void LoadMessageBoxGfx(u8 windowId, u16 destOffset, u8 palOffset)
 {
-    LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), gMessageBox_Gfx, 0x1C0, destOffset);
+    if (FlagGet(FLAG_RETRO_INIT))
+    {
+        LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), gMessageBoxRetro_Gfx, 0x1C0, destOffset);
+    }
+    else 
+    {
+        LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), gMessageBox_Gfx, 0x1C0, destOffset);
+    }
     LoadPalette(GetOverworldTextboxPalettePtr(), palOffset, PLTT_SIZE_4BPP);
 }
 
@@ -113,8 +122,15 @@ void LoadUserWindowBorderGfx_(u8 windowId, u16 destOffset, u8 palOffset)
 
 void LoadWindowGfx(u8 windowId, u8 frameId, u16 destOffset, u8 palOffset)
 {
-    LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), sWindowFrames[frameId].tiles, 0x120, destOffset);
-    LoadPalette(sWindowFrames[frameId].pal, palOffset, PLTT_SIZE_4BPP);
+    if (FlagGet(FLAG_RETRO_INIT)) 
+    {
+        LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), sWindowFrames[9].tiles, 0x120, destOffset);
+        LoadPalette(sWindowFrames[9].pal, palOffset, PLTT_SIZE_4BPP);
+    }
+    else {
+        LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), sWindowFrames[frameId].tiles, 0x120, destOffset);
+        LoadPalette(sWindowFrames[frameId].pal, palOffset, PLTT_SIZE_4BPP);
+    }
 }
 
 void LoadUserWindowBorderGfx(u8 windowId, u16 destOffset, u8 palOffset)

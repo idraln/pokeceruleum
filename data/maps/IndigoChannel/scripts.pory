@@ -1,0 +1,148 @@
+raw `
+IndigoChannel_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, IndigoChannel_OnFrame
+	.byte 0
+
+IndigoChannel_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 35, IndigoChannel_Earthquake
+    .2byte 0
+`
+
+script IndigoChannel_Earthquake {
+    lockall
+    delay(40)
+    //call(IndigoChannel_ScreenShake)
+    playse(SE_PIN)
+    //applymovement(5, moves(emote_exclamation_mark))
+    //applymovement(4, moves(emote_exclamation_mark))
+    //waitmovement(0)
+    //call(IndigoChannel_ScreenShake)
+    //call(IndigoChannel_ScreenShake)
+    //call(IndigoChannel_ScreenShake)
+    //delay(40)
+    faceplayer
+    pokenavcall(IndigoCall)
+    waitmessage
+    setvar(VAR_MAIN_STORY, 36)
+    setflag(FLAG_VIKKIE_IRONAIR)
+    setflag(FLAG_TEAM_IRONAIR)
+    setflag(FLAG_PERSIAN_IRONAIR)
+    setflag(FLAG_DAVE_IRONAIR)
+    setflag(FLAG_XATU_IRONAIR)
+    setflag(FLAG_XATU_CORRUPTED_IRONAIR)
+    setflag(FLAG_DIANCIE)
+    releaseall
+    end
+}
+
+script IndigoChannel_ScreenShake {
+    delay(10)
+    setvar(VAR_0x8004, 5)
+    setvar(VAR_0x8005, 10)
+    setvar(VAR_0x8006, 10)
+    setvar(VAR_0x8007, 5)
+    special(ShakeCamera)
+    waitstate
+    delay(10)
+}
+
+text IndigoCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Bruce: {PLAYER}!!\p"
+    "… … … … … …\p"
+    "COME TO THE IRONAIR!!\n"
+    "QUICK!!\p"
+    "… … … … … …\p"
+    "SOMEONE BROKE THE SEAL,\n"
+    "DIANCIE'S IN GREAT DANGER!\l"
+    "… … … … … …\n… … … … … Click!"
+}
+
+script IndigoChannel_Flavio {
+    trainerbattle_single(TRAINER_INDIGO_1, Flavio1, Flavio2)
+    msgbox(format("You don't need to lift weights to get ripped. Just swim!"))
+    closemessage
+    end
+}
+
+text Flavio1 {
+    format("I'm swimming against the currents! Join me!")
+}
+
+text Flavio2 {
+    format("Alright, good session everyone.")
+}
+
+///////////
+
+script IndigoChannel_Gianluca {
+    trainerbattle_single(TRAINER_INDIGO_2, Gianluca1, Gianluca2)
+    if(var(VAR_DISAPPEARANCE) == 3) {
+        msgbox(format("Fishes are back in the ocean? I don't care! I've found another hobby, being a trainer!"))
+    }
+    else {
+        msgbox(format("Since I can't catch fish anymore, I catch trainers."))
+    }
+    closemessage
+    end
+}
+
+text Gianluca1 {
+    format("Ho ho! Look at what I've caught!")
+}
+
+text Gianluca2 {
+    format("Fine, I'll let you go.")
+}
+
+///////////
+
+script IndigoChannel_Polo {
+    trainerbattle_single(TRAINER_INDIGO_3, Polo1, Polo2)
+    msgbox(format("My boat just sank before my very eyes! What am I gonna do?"))
+    closemessage
+    end
+}
+
+text Polo1 {
+    format("I'm stranded! I messed up real bad!")
+}
+
+text Polo2 {
+    format("Great! And what now?")
+}
+
+///////////
+
+script IndigoChannel_Beauty {
+    lock
+    faceplayer
+    msgbox(format("Isn't this cove stunning? It's small but it's all you need!"))
+    release
+    end
+}
+
+script IndigoChannel_Swimmer1 {
+    lock
+    faceplayer
+    msgbox(format("The water seems deeper in here. Should I dive? Will I be able to go back to the surface? Nevermind, it's a bad idea."))
+    release
+    end
+}
+
+script IndigoChannel_Swimmer2 {
+    lock
+    faceplayer
+    msgbox(format("Huff... Huff... I did it! I dived all the way from there to here! It only took me 2 minutes!"))
+    release
+    end
+}
+
+script IndigoChannel_TM {
+    lock
+    removeobject(7)
+    setflag(FLAG_INDIGO_TM)
+    giveitem(ITEM_TM22)
+    release
+    end
+}

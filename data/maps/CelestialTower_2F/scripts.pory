@@ -1,0 +1,189 @@
+raw `
+CelestialTower_2F_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, CelestialTower_2F_OnTransition
+	.byte 0
+`
+
+script CelestialTower_2F_OnTransition {
+    if(var(VAR_MAIN_STORY) == 55) {
+        setobjectxyperm(1, 17, 3)
+        turnobject(1, DIR_EAST)
+    }
+}
+
+script CelestialTower_2F_Vikkie {
+    lock
+    special(SpawnCameraObject)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 3) {
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right * 6))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 4) {
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right * 6 walk_up))
+        waitmovement(0)
+    }
+    else {
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right * 6 walk_up * 2))
+        waitmovement(0)
+    }
+    delay(40)
+    namebox("Vikkie")
+    msgbox(format("...Haha, nice. Antoher gold necklace."))
+    hidenamebox
+    closemessage
+    applymovement(1, moves(walk_left * 3))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left * 3))
+    waitmovement(0)
+    delay(20)
+    applymovement(1, moves(emote_exclamation_mark jump_in_place_left * 2))
+    waitmovement(0)
+    playse(SE_PIN)
+    namebox("Vikkie")
+    msgbox(format("AAAH! WHAT ARE YOU DOING HERE?"))
+    hidenamebox
+    closemessage
+    applymovement(1, moves(walk_right face_left))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right))
+    waitmovement(0)
+    delay(20)
+    namebox("Vikkie")
+    msgbox(format("LEAVE ME ALONE! YOU WON'T CATCH ME!"))
+    hidenamebox
+    closemessage
+    applymovement(1, moves(walk_fast_right * 6))
+    if(var(VAR_TEMP_1) == 3) {
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left * 4))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 4) {
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left * 4 walk_down))
+        waitmovement(0)
+    }
+    else {
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left * 4 walk_down * 2))
+        waitmovement(0)
+    }
+    delay(20)
+    special(RemoveCameraObject)
+    setvar(VAR_MAIN_STORY, 55)
+    release
+    end
+}
+
+script CelestialTower_2F_VikkieFight {
+    lock
+    faceplayer
+    namebox("Vikkie")
+    msgbox(format("So you won't leave me alone? {PLAYER}, you do not realise what you're about to do..."))
+    hidenamebox
+    closemessage
+    trainerbattle_no_intro(TRAINER_VIKKIE_FINAL, VikkieLast1)
+    delay(20)
+    namebox("Vikkie")
+    msgbox(format("...I give up. You got me, congratulations."))
+    hidenamebox
+    closemessage
+    delay(20)
+    clearflag(FLAG_COPS_CELESTIAL)
+    addobject(2)
+    addobject(3)
+    addobject(4)
+    applymovement(4, moves(walk_right * 8))
+    waitmovement(0)
+    delay(20)
+    applymovement(4, moves(jump_in_place_left * 2))
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("Quick guys! She's here!"))
+    hidenamebox
+    closemessage
+    turnobject(4, DIR_EAST)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 2) {
+        applymovement(2, moves(walk_right * 8 walk_up walk_right * 4))
+        applymovement(3, moves(walk_up walk_right * 8 walk_up walk_right * 3 walk_down walk_right * 2 face_up)) 
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 3) {
+        applymovement(2, moves(walk_right * 8 walk_up walk_right * 3 walk_up walk_right * 2 face_down))
+        applymovement(3, moves(walk_up walk_right * 8 walk_up walk_right * 3 walk_down walk_right * 2 face_up))
+        waitmovement(0)
+    }
+    else {
+        applymovement(2, moves(walk_right * 8 walk_up walk_right * 4 walk_up walk_right face_down))
+        applymovement(3, moves(walk_up walk_right * 8 walk_up walk_right * 4))
+        waitmovement(0)
+    }
+    namebox("Cop")
+    msgbox(format("Miss Victoria Lafont, you're under arrest for crimes against peace, burglary, and multiple counts of grave desecration. Resistance will be futile. Follow us."))
+    hidenamebox
+    closemessage
+    if(var(VAR_TEMP_1) == 2) {
+        applymovement(2, moves(walk_left * 12))
+        applymovement(1, moves(walk_left * 12))
+        applymovement(3, moves(walk_up walk_left * 12))
+        waitmovement(0) 
+    }
+    elif(var(VAR_TEMP_1) == 3) {
+        applymovement(4, moves(walk_up face_down))
+        applymovement(3, moves(walk_left * 13))
+        applymovement(1, moves(walk_down walk_left * 13))
+        applymovement(2, moves(walk_down * 2 walk_left * 13))
+        waitmovement(0) 
+    }
+    else {
+        applymovement(3, moves(walk_left * 12))
+        applymovement(1, moves(walk_left * 12))
+        applymovement(2, moves(walk_down walk_left * 12))
+        waitmovement(0) 
+    }
+    removeobject(2)
+    removeobject(3)
+    removeobject(1)
+    if(var(VAR_TEMP_1) == 2) {
+        applymovement(4, moves(walk_right * 4 walk_up))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 3) {
+        applymovement(4, moves(walk_right * 2))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        waitmovement(0)
+    }
+    else {
+        applymovement(4, moves(walk_right * 3))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        waitmovement(0)
+    }
+    namebox("Sam")
+    msgbox(format("Nice, {PLAYER}! Justice is finally served! Great work. Now, if you'll excuse me, I've got a sandwich to devour."))
+    hidenamebox
+    closemessage
+    applymovement(4, moves(walk_fast_left * 12))
+    waitmovement(0)
+    removeobject(4)
+    setflag(FLAG_COPS_CELESTIAL)
+    setflag(FLAG_VIKKIE_CELESTIAL)
+    setflag(FLAG_SAM_CARGO)
+    setflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_MAIN_STORY, 56)
+    completequest(QUEST_VIKKIE)
+    setflag(FLAG_QUEST_VIKKIE_COMPLETE)
+    release
+    end
+}
+
+text VikkieLast1 {
+    format("...")
+}
+
+script CelestialTower_2F_Tombstone {
+    lockall
+    msgbox(format("This tombstone looks like it's been looted..."))
+    releaseall
+    end
+}

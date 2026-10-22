@@ -39,6 +39,9 @@ u32 mask:8;
 
 static IWRAM_DATA u32 sWorkingYkTable[TANS_TABLE_SIZE] = {0};
 
+#define SMOL_SCRATCH_SIZE 0x5000
+static EWRAM_DATA ALIGNED(4) u8 sSmolScratch[SMOL_SCRATCH_SIZE] = {0};
+
 // Helper struct to build the tANS decode tables without having to do calculations at run-time
 // Mask Table is 0, 1, 3, 7, 15, 31, 63.
 static const u32 sYkTemplate[2*TANS_TABLE_SIZE] = {
@@ -986,7 +989,18 @@ static void SmolDecompressData(const struct SmolHeader *header, const u32 *data,
     // Everything needs to be aligned.
     u32 alignedLoSize = header->loSize % 2 == 1 ? headerLoSize + 1 : headerLoSize;
     u32 alignedSymSize = header->symSize % 2 == 1 ? headerSymSize + 1 : headerSymSize;
-    void *memoryAlloced = Alloc((alignedSymSize*2) + alignedLoSize);
+    u32 scratchNeeded = (alignedSymSize * 2) + alignedLoSize;
+    bool32 usedHeap = FALSE;
+    void *memoryAlloced;
+    if (scratchNeeded <= SMOL_SCRATCH_SIZE)
+    {
+        memoryAlloced = sSmolScratch;
+    }
+    else
+    {
+        memoryAlloced = Alloc(scratchNeeded);
+        usedHeap = TRUE;
+    }
     u16 *symVec = memoryAlloced;
     u8 *loVec = memoryAlloced + alignedSymSize*2;
 
@@ -1032,7 +1046,8 @@ static void SmolDecompressData(const struct SmolHeader *header, const u32 *data,
     //  Actually decode the final data from loVec and symVec
     DecodeInstructionsIwram(headerLoSize, loVec, symVec, dest);
 
-    Free(memoryAlloced);
+    if (usedHeap)
+        Free(memoryAlloced);
 }
 
 ARM_FUNC __attribute__((flatten, noinline, no_reorder)) __attribute__((optimize("-O3"))) static void DeltaDecodeTileNumbers(u16 *tileNumbers, u32 arraySize)

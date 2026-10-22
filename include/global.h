@@ -564,6 +564,8 @@ struct RankingHall2P
     //u8 padding;
 };
 
+#include "constants/quests.h"
+
 struct SaveBlock2
 {
     /*0x00*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
@@ -602,7 +604,15 @@ struct SaveBlock2
 #endif //FREE_RECORD_MIXING_HALL_RECORDS
     /*0x624*/ u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
     /*0x64C*/ struct BattleFrontier frontier;
-}; // sizeof=0xF2C
+    struct Time fakeRTC;
+
+#define QUEST_FLAGS_COUNT ROUND_BITS_TO_BYTES(QUEST_COUNT)
+#define SUB_FLAGS_COUNT ROUND_BITS_TO_BYTES(SUB_QUEST_COUNT)
+#define QUEST_STATES 5 //Number of different quest states tracked in the saveblock
+
+    u8 questData[QUEST_FLAGS_COUNT * QUEST_STATES];
+    u8 subQuests[SUB_FLAGS_COUNT];
+};
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
@@ -1002,6 +1012,7 @@ struct MysteryGiftSave
     u32 trainerIds[2][5]; // Saved ids for 10 trainers, 5 each for battles and trades
 }; // 0x36C 0x3598
 
+
 // For external event data storage. The majority of these may have never been used.
 // In Emerald, the only known used fields are the PokeCoupon and BoxRS ones, but hacking the distribution discs allows Emerald to receive events and set the others
 struct ExternalEventData
@@ -1057,6 +1068,29 @@ struct Bag
     struct ItemSlot berries[BAG_BERRIES_COUNT];
 };
 
+struct FlashbackItemSlot
+{
+    u16 itemId;
+    u16 quantity;
+};
+
+struct FlashbackBackup
+{
+    struct Pokemon party[PARTY_SIZE];
+    u8 partyCount;
+
+    struct FlashbackItemSlot items[BAG_ITEMS_COUNT];
+    struct FlashbackItemSlot keyItems[BAG_KEYITEMS_COUNT];
+    struct FlashbackItemSlot pokeBalls[BAG_POKEBALLS_COUNT];
+    struct FlashbackItemSlot TMsHMs[BAG_TMHM_COUNT];
+    struct FlashbackItemSlot berries[BAG_BERRIES_COUNT];
+
+    u32 money;
+    u16 coins;
+
+    u8 badges;
+};
+
 struct SaveBlock1
 {
     /*0x00*/ struct Coords16 pos;
@@ -1083,7 +1117,8 @@ struct SaveBlock1
     /*0x560*/ struct Bag bag;
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
 #if FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1 == FALSE
-    /*0x988*/ u8 filler1[0x34]; // Previously Dex Flags, feel free to remove.
+    /*0x988*/ struct Coords16 savedPos;
+    /*0x98C*/ u8 filler1[0x30]; // Previously Dex Flags, feel free to remove.
 #endif //FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1
     /*0x9BC*/ u16 berryBlenderRecords[3];
     /*0x9C2*/ u8 unused_9C2[6];
@@ -1165,7 +1200,7 @@ struct SaveBlock1
     /*0x3???*/ struct TrainerHillSave trainerHill;
 #endif //FREE_TRAINER_HILL
     /*0x3???*/ struct WaldaPhrase waldaPhrase;
-    // sizeof: 0x3???
+    /* size = 0x3D88 */
 };
 
 extern struct SaveBlock1 *gSaveBlock1Ptr;

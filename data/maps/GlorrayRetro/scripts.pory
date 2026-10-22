@@ -1,0 +1,49 @@
+raw `
+GlorrayRetro_MapScripts::
+	.byte 0
+`
+
+script GlorrayRetro_Man {
+    lock
+    faceplayer
+    msgbox(format("I want to fight Aisha in her gym, but my Pokémons are too weak for now. Oh well!"))
+    release
+    end
+}
+
+script GlorrayRetro_Woman {
+    lock
+    faceplayer
+    msgbox(format("We're extremely lucky to live in such a remote place, away from all the noise and worries of the city."))
+    release
+    end
+}
+
+script GlorrayRetro_Kid {
+    lock
+    faceplayer
+    if(flag(FLAG_POTION_RETRO)) {
+        msgbox(format("Hi {PLAYER}! Thanks to you, Sentret is back in shape! Thank you again!"))
+    }
+    else {
+        msgbox(format("Hi {PLAYER}!! My Sentret's not doing so well, and I'm afraid the nurse's gonna yell at me... Will you buy me a Potion? Please? Pretty please?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Thank you so much!! I'll wait for you here!"))
+            checkitem(ITEM_POTION)
+            if(var(VAR_RESULT) == YES) {
+                playse(SE_PIN)
+                applymovement(1, moves(emote_exclamation_mark))
+                waitmovement(0)
+                delay(40)
+                msgbox(format("Oh thank you! Thank you!"))
+                removeitem(ITEM_POTION)
+                setflag(FLAG_POTION_RETRO)
+            }
+        }
+        else {
+            msgbox(format("Oh... But Sentret is about to faint..."))
+        }    
+    }
+    release
+    end
+}

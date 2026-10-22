@@ -131,6 +131,64 @@ static const u8 sDoorAnimTiles_TrainerHillLobbyElevator[] = INCBIN_U8("graphics/
 static const u16 sDoorNullPalette48[16] = {};
 static const u8 sDoorAnimTiles_TrainerHillRoofElevator[] = INCBIN_U8("graphics/door_anims/trainer_hill_roof_elevator.4bpp");
 static const u16 sDoorNullPalette49[16] = {};
+static const u8 sDoorAnimTiles_Rocheval1[] = INCBIN_U8("graphics/door_anims/rocheval_1.4bpp");
+static const u16 sDoorNullPalette50[16] = {};
+static const u8 sDoorAnimTiles_Rocheval2[] = INCBIN_U8("graphics/door_anims/rocheval_2.4bpp");
+static const u16 sDoorNullPalette51[16] = {};
+static const u8 sDoorAnimTiles_Sapphire1[] = INCBIN_U8("graphics/door_anims/sapphire_1.4bpp");
+static const u16 sDoorNullPalette52[16] = {};
+static const u8 sDoorAnimTiles_Sapphire2[] = INCBIN_U8("graphics/door_anims/sapphire_2.4bpp");
+static const u16 sDoorNullPalette53[16] = {};
+static const u8 sDoorAnimTiles_Sapphire3[] = INCBIN_U8("graphics/door_anims/sapphire_3.4bpp");
+static const u16 sDoorNullPalette54[16] = {};
+static const u8 sDoorAnimTiles_Ohulinn1[] = INCBIN_U8("graphics/door_anims/ohulinn_1.4bpp");
+static const u16 sDoorNullPalette55[16] = {};
+static const u8 sDoorAnimTiles_Ohulinn2[] = INCBIN_U8("graphics/door_anims/ohulinn_2.4bpp");
+static const u16 sDoorNullPalette56[16] = {};
+static const u8 sDoorAnimTiles_Cali1[] = INCBIN_U8("graphics/door_anims/cali_4.4bpp");
+static const u16 sDoorNullPalette57[16] = {};
+static const u8 sDoorAnimTiles_Cali2[] = INCBIN_U8("graphics/door_anims/cali_2.4bpp");
+static const u16 sDoorNullPalette58[16] = {};
+static const u8 sDoorAnimTiles_Cali3[] = INCBIN_U8("graphics/door_anims/cali_3.4bpp");
+static const u16 sDoorNullPalette59[16] = {};
+static const u8 sDoorAnimTiles_Oparque1[] = INCBIN_U8("graphics/door_anims/oparque_1.4bpp");
+static const u16 sDoorNullPalette60[16] = {};
+static const u8 sDoorAnimTiles_Glasville1[] = INCBIN_U8("graphics/door_anims/glasville_1.4bpp");
+static const u16 sDoorNullPalette61[16] = {};
+static const u8 sDoorAnimTiles_Glasville2[] = INCBIN_U8("graphics/door_anims/glasville_2.4bpp");
+static const u16 sDoorNullPalette62[16] = {};
+static const u8 sDoorAnimTiles_Vikkelson1[] = INCBIN_U8("graphics/door_anims/vikkelson_1.4bpp");
+static const u16 sDoorNullPalette63[16] = {};
+static const u8 sDoorAnimTiles_Passwacan1[] = INCBIN_U8("graphics/door_anims/pass_1.4bpp");
+static const u16 sDoorNullPalette64[16] = {};
+static const u8 sDoorAnimTiles_Glorray1[] = INCBIN_U8("graphics/door_anims/glorray_1.4bpp");
+static const u16 sDoorNullPalette65[16] = {};
+static const u8 sDoorAnimTiles_RetroH[] = INCBIN_U8("graphics/door_anims/retro_H.4bpp");
+static const u16 sDoorNullPalette66[16] = {};
+static const u8 sDoorAnimTiles_RetroGym[] = INCBIN_U8("graphics/door_anims/retro_gym.4bpp");
+static const u16 sDoorNullPalette67[16] = {};
+static const u8 sDoorAnimTiles_RetroMart[] = INCBIN_U8("graphics/door_anims/retro_mart.4bpp");
+static const u16 sDoorNullPalette68[16] = {};
+static const u8 sDoorAnimTiles_RetroPC[] = INCBIN_U8("graphics/door_anims/retro_pc.4bpp");
+static const u16 sDoorNullPalette69[16] = {};
+static const u8 sDoorAnimTiles_Virimante[] = INCBIN_U8("graphics/door_anims/virimante_1.4bpp");
+static const u16 sDoorNullPalette70[16] = {};
+
+static const u8 sDoorAnimTiles_Rooftop1[] = INCBIN_U8("graphics/door_anims/rooftop_1.4bpp");
+static const u16 sDoorNullPalette71[16] = {};
+static const u8 sDoorAnimTiles_Rooftop2[] = INCBIN_U8("graphics/door_anims/rooftop_2.4bpp");
+static const u16 sDoorNullPalette72[16] = {};
+static const u8 sDoorAnimTiles_Rooftop3[] = INCBIN_U8("graphics/door_anims/rooftop_3.4bpp");
+static const u16 sDoorNullPalette73[16] = {};
+
+static const u8 sDoorAnimTiles_Mistralton1[] = INCBIN_U8("graphics/door_anims/mistralton_1.4bpp");
+static const u16 sDoorNullPalette74[16] = {};
+static const u8 sDoorAnimTiles_Mistralton2[] = INCBIN_U8("graphics/door_anims/mistralton_2.4bpp");
+static const u16 sDoorNullPalette75[16] = {};
+
+static const u8 sDoorAnimTiles_Virimante2[] = INCBIN_U8("graphics/door_anims/virimante_2.4bpp");
+static const u16 sDoorNullPalette76[16] = {};
+
 
 static const struct DoorAnimFrame sDoorOpenAnimFrames[] =
 {
@@ -219,6 +277,35 @@ static const u8 sDoorAnimPalettes_BattleDomePreBattleRoom[] = {9, 9, 7, 7, 7, 7,
 static const u8 sDoorAnimPalettes_BattleTentInterior[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_TrainerHillLobbyElevator[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_TrainerHillRoofElevator[] = {9, 9, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_Rocheval1[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_Rocheval2[] = {9, 9, 9, 9, 9, 9, 9, 9};
+static const u8 sDoorAnimPalettes_Sapphire1[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_Sapphire2[] = {9, 9, 9, 9, 9, 9, 9, 9};
+static const u8 sDoorAnimPalettes_Sapphire3[] = {10, 10, 10, 10, 10, 10, 10, 10};
+static const u8 sDoorAnimPalettes_Ohulinn1[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_Ohulinn2[] = {9, 9, 9, 9, 9, 9, 9, 9};
+static const u8 sDoorAnimPalettes_Cali1[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_Cali2[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_Cali3[] = {9, 9, 9, 9, 9, 9, 9, 9};
+static const u8 sDoorAnimPalettes_Oparque1[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_Glasville1[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_Glasville2[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_Vikkelson1[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_Passwacan1[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_Glorray1[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_RetroH[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_RetroGym[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_RetroMart[] = {12, 12, 12, 12, 12, 12, 12, 12};
+static const u8 sDoorAnimPalettes_RetroPC[] = {11, 11, 11, 11, 11, 11, 11, 11};
+static const u8 sDoorAnimPalettes_Virimante[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_Virimante2[] = {9, 9, 9, 9, 9, 9, 9, 9};
+
+static const u8 sDoorAnimPalettes_Rooftop1[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_Rooftop2[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_Rooftop3[] = {6, 6, 6, 6, 6, 6, 6, 6};
+
+static const u8 sDoorAnimPalettes_Mistralton1[] = {9, 9, 9, 9, 9, 9, 9, 9};
+static const u8 sDoorAnimPalettes_Mistralton2[] = {10, 10, 10, 10, 10, 10, 10, 10};
 
 static const struct DoorGraphics sDoorAnimGraphicsTable[] =
 {
@@ -277,6 +364,34 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_BattleTent_Door,                              DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTentInterior, sDoorAnimPalettes_BattleTentInterior},
     {METATILE_TrainerHill_Door_Elevator_Lobby,              DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_TrainerHillLobbyElevator, sDoorAnimPalettes_TrainerHillLobbyElevator},
     {METATILE_TrainerHill_Door_Elevator_Roof,               DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_TrainerHillRoofElevator, sDoorAnimPalettes_TrainerHillRoofElevator},
+    {METATILE_Rocheval_Door1,                               DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Rocheval1, sDoorAnimPalettes_Rocheval1},
+    {METATILE_Rocheval_Door2,                               DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Rocheval2, sDoorAnimPalettes_Rocheval2},
+    {METATILE_SapphireCity_Door1,                           DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Sapphire1, sDoorAnimPalettes_Sapphire1},
+    {METATILE_SapphireCity_Door2,                           DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Sapphire2, sDoorAnimPalettes_Sapphire2},
+    {METATILE_SapphireCity_Door3,                           DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Sapphire3, sDoorAnimPalettes_Sapphire3},
+    {METATILE_Ohulinn_Door3,                                DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Ohulinn1, sDoorAnimPalettes_Ohulinn1},
+    {METATILE_Ohulinn_Door2,                                DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Ohulinn2, sDoorAnimPalettes_Ohulinn2},
+    {METATILE_CaliOparque_Door5,                            DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Cali1, sDoorAnimPalettes_Cali1},
+    {METATILE_CaliOparque_DoorPC,                           DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Cali2, sDoorAnimPalettes_Cali2},
+    {METATILE_CaliOparque_Door2,                            DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Cali3, sDoorAnimPalettes_Cali3},
+    {METATILE_CaliOparque_Door3,                            DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Oparque1, sDoorAnimPalettes_Oparque1},
+    {METATILE_BlackGlass_Door1,                             DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Glasville1, sDoorAnimPalettes_Glasville1},
+    {METATILE_BlackGlass_Door2,                             DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Glasville2, sDoorAnimPalettes_Glasville2},
+    {METATILE_Fiesta_Door1,                                 DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Vikkelson1, sDoorAnimPalettes_Vikkelson1},
+    {METATILE_Passwacan_Door2,                              DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Passwacan1, sDoorAnimPalettes_Passwacan1},
+    {METATILE_Array_Door1,                                  DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Glorray1, sDoorAnimPalettes_Glorray1},
+    {METATILE_Retro_DoorH,                                  DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_RetroH, sDoorAnimPalettes_RetroH},
+    {METATILE_Retro_DoorGym,                                DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_RetroGym, sDoorAnimPalettes_RetroGym},
+    {METATILE_Retro_DoorMart,                               DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_RetroMart, sDoorAnimPalettes_RetroMart},
+    {METATILE_Retro_DoorPC,                                 DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_RetroPC, sDoorAnimPalettes_RetroPC},
+    {METATILE_Virimante_Door1,                              DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Virimante, sDoorAnimPalettes_Virimante},
+    {METATILE_Virimante_Door2,                              DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Virimante2, sDoorAnimPalettes_Virimante2},
+    {METATILE_Rooftop_Door1,                              DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_Rooftop1, sDoorAnimPalettes_Rooftop1},
+    {METATILE_Rooftop_Door2,                              DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_Rooftop2, sDoorAnimPalettes_Rooftop2},
+    {METATILE_Rooftop_Door3,                              DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_Rooftop3, sDoorAnimPalettes_Rooftop3},
+
+    {METATILE_Mistralton_Door1,                              DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Mistralton1, sDoorAnimPalettes_Mistralton1},
+    {METATILE_Mistralton_Door2,                              DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Mistralton2, sDoorAnimPalettes_Mistralton2},
     {},
 };
 

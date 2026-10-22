@@ -1,0 +1,66 @@
+raw `
+PassaquaWyS_MapScripts::
+	.byte 0
+`
+
+script PassaquaWyS_Heidi {
+    trainerbattle_single(TRAINER_PASSWACAN_5, Heidi1, Heidi2)
+    msgbox(format("In my young days, I used to be one of the fastest cyclist of all Thura."))
+    closemessage
+    end
+}
+
+text Heidi1 {
+    format("Have you walked your steps today?")
+}
+
+text Heidi2 {
+    format("I see, more than enough!")
+}
+
+script PassaquaWyS_Bruno {
+    trainerbattle_single(TRAINER_PASSWACAN_6, Bruno1, Bruno2)
+    msgbox(format("It's a true blessing working with André. Last time, he bought us all pizza, out of nowhere! For no reason! How nice!"))
+    closemessage
+    end
+}
+
+text Bruno1 {
+    format("Long day of work ahead, let's have some fun!")
+}
+
+text Bruno2 {
+    format("Haha, thank you!")
+}
+
+script PassaquaWyS_Diana {
+    trainerbattle_single(TRAINER_PASSWACAN_7, Diana1, Diana2)
+    msgbox(format("I've been raising Pokémons for over a year now. We breeders are essential! If not us, who's gonna care for all these cute babies?"))
+    closemessage
+    end
+}
+
+text Diana1 {
+    format("Meet my babies, please!")
+}
+
+text Diana2 {
+    format("What, don't you like them?")
+}
+
+script PassaquaWyS_Girl {
+    lock
+    faceplayer
+    msgbox(format("My father owns the power plant in Passwacan! But I'm too afraid of electricity so I don't go see him when he works. I prefer nature and cute flowers!"))
+    release
+    end
+}
+
+script PassaquaWyS_Item {
+    lock
+    removeobject(5)
+    giveitem(ITEM_TM36)
+    setflag(FLAG_ITEM_PASS_3)
+    release
+    end
+}

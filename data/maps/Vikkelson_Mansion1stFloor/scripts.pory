@@ -1,0 +1,66 @@
+raw `
+Vikkelson_Mansion1stFloor_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_Mansion1stFloor_Housemaid1 {
+    lock
+    faceplayer
+    msgbox(format("Sorry, but the floor below is solely accessible to the housemaids and guards."))
+    //call(Script_SetGrayscaleTint)
+    //delay(120)
+    //call(Script_RemoveTint)
+    release
+    end
+}
+
+script Vikkelson_Mansion1stFloor_Old {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) > 46) {
+        msgbox(format("Miss Vikkie left in a hurry and she still hasn't come back. I wonder what on earth could have happened?"))
+    }
+    else {
+        msgbox(format("I have known Miss Vikkie for a very long time. You could say that I'm somewhat of a mentor to her."))
+    }
+    release
+    end
+}
+
+script Vikkelson_Mansion1stFloor_Housemaid2 {
+    lock
+    faceplayer
+    msgbox(format("Please, enjoy a large variety of treats, cooked by the greatest and most talented chef in Thura."))
+    release
+    end
+}
+
+script Vikkelson_Mansion1stFloor_Artist {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) > 46) {
+        msgbox(format("Miss Vikkie could pay a lot for these pieces. But I can't accept money from her. Working for her is worth all the riches in the world."))
+    }
+    else {
+        msgbox(format("What do you think of this piece?"))
+        closemessage
+        applymovement(3, moves(face_up))
+        waitmovement(0)
+        msgbox(format("I painted them exclusively for Miss Vikkie. Free of charge, of course. When someone of her standing asks you a favor, you must oblige."))
+    }
+    release
+    end
+}
+
+script Vikkelson_Mansion1stFloor_RandomWoman {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) > 46) {
+        msgbox(format("So I stayed around to eat the appetizers, and you know what? I heard a maid that the owner of this mansion, some woman named Vikkie I think, fled in another region. Mental, innit?"))
+    }
+    else {
+        msgbox(format("This isn't the nightclub, is it? Dude, I don't know how I got there, but hey! At least, the treats are succulent."))
+    }
+    release
+    end
+}

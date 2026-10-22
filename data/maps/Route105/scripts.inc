@@ -26,7 +26,7 @@ Route105_OnFrame:
 	.2byte 0
 
 Route105_EventScript_Foster::
-	trainerbattle_single TRAINER_FOSTER, Route105_Text_FosterIntro, Route105_Text_FosterDefeated
+	trainerbattle_single TRAINER_PEBBLE_1, Route105_Text_FosterIntro, Route105_Text_FosterDefeated
 	msgbox Route105_Text_FosterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -36,7 +36,7 @@ Route105_EventScript_Luis::
 	end
 
 Route105_EventScript_Dominik::
-	trainerbattle_single TRAINER_DOMINIK, Route105_Text_DominikIntro, Route105_Text_DominikDefeated
+	trainerbattle_single TRAINER_CHALL_1, Route105_Text_DominikIntro, Route105_Text_DominikDefeated
 	msgbox Route105_Text_DominikPostBattle, MSGBOX_AUTOCLOSE
 	end
 

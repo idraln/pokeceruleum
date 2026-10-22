@@ -1,0 +1,34 @@
+raw `
+Glorray_PC_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Glorray_PC_OnTransition
+    .byte 0
+`
+
+script Glorray_PC_OnTransition {
+    setrespawn(HEAL_LOCATION_ARRAY)
+    end
+}
+
+script Glorray_PC_Heal {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	msgbox(format("The machine seems to work as it used to. Heal your party?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        hidefollower(0)
+        fadescreen(FADE_TO_BLACK)
+        closemessage
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+    }
+    else {
+        msgbox(format("(Maybe another time.)"))
+        release
+        end
+    }
+}

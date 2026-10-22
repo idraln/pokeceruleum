@@ -1,0 +1,311 @@
+raw `
+BlackstoneRdEast_MapScripts::
+	.byte 0
+`
+
+script BlackstoneRdEast_Alfred {
+    trainerbattle_single(TRAINER_BLACK_5, Alfred1, Alfred2)
+    msgbox(format("The spirits are among us, and they're not happy..."))
+    closemessage
+    end
+}
+
+script BlackstoneRdEast_Helga {
+    trainerbattle_single(TRAINER_BLACK_6, Helga1, Helga2)
+    msgbox(format("I'm not actually possessed, I just like to scare people. Teehee."))
+    closemessage
+    end
+}
+
+script BlackstoneRdEast_Bart {
+    trainerbattle_single(TRAINER_BLACK_7, Bart1, Bart2)
+    msgbox(format("This place is too scary, I don't like it. But it feels like there's something holding me back..."))
+    closemessage
+    end
+}
+
+script BlackstoneRdEast_Old {
+    lock
+    faceplayer
+    msgbox(format("Be very respectful of your surroundings, dear."))
+    release
+    end
+}
+
+script BlackstoneRdEast_Woman {
+    lock
+    faceplayer
+    msgbox(format("Every month or so, I come to pay a visit to my good old Ludicolo. He really was the greatest companion I've ever had."))
+    turnobject(5, DIR_NORTH)
+    release
+    end
+}
+
+script BlackstoneRdEast_Tombstone1 {
+    lockall
+    msgbox(format("Sylvain F.\n1994 - 2020\lTo the best friend I've ever had. I hope you found peace, wherever you are."))
+    releaseall
+    end
+}
+
+script BlackstoneRdEast_Tombstone2 {
+    lockall
+    msgbox(format("Ludicolo\n2003 - 2024\lTo a Pokémon that always knew how to make me laugh."))
+    releaseall
+    end
+}
+
+script BlackstoneRdEast_Tombstone3 {
+    lockall
+    checkitem(ITEM_BLUE_SCARF, 1)
+    if(var(VAR_RESULT) == TRUE && var(VAR_MAIN_STORY) == 19) {
+        msgbox(format("Corinna\n1956 - 2026\lTo our beloved Council Member. May you rest in peace."))
+        closemessage
+        delay(20)
+        msgbox(format("This is the resting place of Corinna. Drop some Dead-Seer on her tombstone?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("You poured a few drops of the Dead-Seer on Corinna's tombstone."))
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            delay(40)
+            //fwdtime(22,00)
+            //setweather(WEATHER_SHADE)
+            clearflag(FLAG_CORINNA)
+            //removeobject(5)
+            addobject(6)
+            playbgm(MUS_DUMMY, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+            namebox("Corinna")
+            msgbox(format("...Huh?..."))
+            closemessage
+            hidenamebox
+            applymovement(6, moves(walk_down))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(jump_in_place_down walk_down face_up))
+            waitmovement(0)
+            delay(40)
+            applymovement(6, moves(face_left delay_16 face_right delay_16 face_down))
+            waitmovement(0)
+            delay(40)
+            namebox("Corinna")
+            msgbox(format("...What's going on? Why am I back here?..."))
+            closemessage
+            hidenamebox
+            applymovement(6, moves(walk_left * 2))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+            waitmovement(0)
+            delay(40)
+            namebox("Corinna")
+            msgbox(format("...This is not good..."))
+            closemessage
+            hidenamebox
+            applymovement(6, moves(walk_right * 4))
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+            waitmovement(0)
+            delay(20)
+            playse(SE_PIN)
+            applymovement(6, moves(emote_exclamation_mark delay_16 face_left))
+            waitmovement(0)
+            namebox("Corinna")
+            msgbox(format("...Wait..."))
+            closemessage
+            hidenamebox
+            delay(20)
+            namebox("Corinna")
+            msgbox(format("...You... Can see me?..."))
+            closemessage
+            hidenamebox
+            applymovement(6, moves(walk_left * 2 face_down))
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+            waitmovement(0)
+            namebox("Corinna")
+            msgbox(format("...How?..."))
+            hidenamebox
+            msgbox(format("..."))
+            namebox("Corinna")
+            msgbox(format("...You did what?"))
+            hidenamebox
+            msgbox(format("..."))
+            closemessage
+            delay(40)
+            namebox("Corinna")
+            msgbox(format("...This is not acceptable... You don't wake someone from their eternal rest... You messed up really bad..."))
+            hidenamebox
+            closemessage
+            setflag(FLAG_TRAINERBATTLE)
+            trainerbattle_no_intro(TRAINER_CORINNA, Corinna1)
+            if(var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+                namebox("Corinna")
+                msgbox(format("...Don't ever come back..."))
+                closemessage
+                hidenamebox
+                fadescreen(FADE_TO_BLACK)
+                special(SetCB2WhiteOut)
+                setvar(VAR_MAIN_STORY, 20)
+                setflag(FLAG_CORINNA)
+                releaseall
+                end
+            }
+            else {
+                namebox("Corinna")
+                msgbox(format("...I don't think you realise what you just did... Great sorrow will strike you... Soon..."))
+                closemessage
+                hidenamebox
+                fadescreen(FADE_TO_BLACK)
+                delay(40)
+                //fwdtime(15,00)
+                //setweather(WEATHER_RAIN_THUNDERSTORM)
+                setflag(FLAG_CORINNA)
+                removeobject(6)
+                //addobject(5)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+                waitmovement(0)
+                fadescreen(FADE_FROM_BLACK)
+                delay(40)
+                msgbox(format("(I should go back and report to Dave.)"))
+                setvar(VAR_MAIN_STORY, 21)
+            }
+        }
+        else {
+            msgbox(format("Decided against it."))
+        }
+    }
+    elif(var(VAR_RESULT) == TRUE && var(VAR_MAIN_STORY) == 20) {
+        msgbox(format("Corinna\n1956 - 2026\lTo our beloved Council Member. May you rest in peace."))
+        closemessage
+        delay(20)
+        msgbox(format("This is the resting place of Corinna. Drop some Dead-Seer on her tombstone?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("You poured a few drops of the Dead-Seer on Corinna's tombstone."))
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            delay(40)
+            clearflag(FLAG_CORINNA)
+            addobject(6)
+            playbgm(MUS_DUMMY, TRUE)
+            fadescreen(FADE_FROM_BLACK)
+            namebox("Corinna")
+            msgbox(format("...Huh?..."))
+            closemessage
+            hidenamebox
+            applymovement(6, moves(walk_down))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(jump_in_place_down walk_down face_up))
+            waitmovement(0)
+            delay(40)
+            applymovement(6, moves(face_left delay_16 face_right delay_16 face_down))
+            waitmovement(0)
+            delay(40)
+            namebox("Corinna")
+            msgbox(format("...You... Again?... Didn't you learn the first time?"))
+            hidenamebox
+            setflag(FLAG_TRAINERBATTLE)
+            trainerbattle_no_intro(TRAINER_CORINNA, Corinna1)
+            if(var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+                namebox("Corinna")
+                msgbox(format("...Don't ever come back..."))
+                closemessage
+                hidenamebox
+                fadescreen(FADE_TO_BLACK)
+                special(SetCB2WhiteOut)
+                setflag(FLAG_CORINNA)
+                releaseall
+                end
+            }
+            else {
+                namebox("Corinna")
+                msgbox(format("...I don't think you realise what you just did... Great sorrow will strike you... Soon..."))
+                closemessage
+                hidenamebox
+                fadescreen(FADE_TO_BLACK)
+                delay(40)
+                //fwdtime(15,00)
+                //setweather(WEATHER_RAIN_THUNDERSTORM)
+                setflag(FLAG_CORINNA)
+                removeobject(6)
+                //addobject(5)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+                waitmovement(0)
+                fadescreen(FADE_FROM_BLACK)
+                delay(40)
+                msgbox(format("(I should go back and report to Dave.)"))
+                setvar(VAR_MAIN_STORY, 21)
+            }
+        }
+        else {
+            msgbox(format("Decided against it."))
+        }
+    }
+    else {
+        msgbox(format("Corinna\n1956 - 2026\lTo our beloved Council Member. May you rest in peace."))
+    }
+    releaseall
+    end
+}
+
+script BlackstoneRdEast_Tombstone4 {
+    lockall
+    msgbox(format("Anonymous\n??? - 2023\lTo you, unknown to everyone, but deserving of love."))
+    releaseall
+    end
+}
+
+script BlackstoneRdEast_Tombstone5 {
+    lockall
+    msgbox(format("Marc R.\n1974 - 2023"))
+    releaseall
+    end
+}
+
+script BlackstoneRdEast_Sign {
+    lockall
+    msgbox(format("{UP_ARROW} Glasville\n{DOWN_ARROW} Obsidian Path"))
+    releaseall
+    end
+}
+
+script BlackstoneRdEast_Item {
+    lock
+    removeobject(10)
+    giveitem(ITEM_REAPER_CLOTH)
+    setflag(FLAG_ITEM_BLACKSTONE_EAST)
+    release
+    end
+}
+
+script BlackstoneRdEast_TM {
+    lock
+    removeobject(11)
+    giveitem(ITEM_TM17)
+    setflag(FLAG_ITEM_BLACKSTONE_EAST_TM)
+    release
+    end
+}
+
+text Alfred1 {
+    format("Have you paid respects to the spirits yet?")
+}
+
+text Alfred2 {
+    format("This isn't enough...")
+}
+
+text Helga1 {
+    format("Blergh... AAAAAHHH!")
+}
+
+text Helga2 {
+    format("Hmm. It didn't work, did it?")
+}
+
+text Bart1 {
+    format("Are you actually real?")
+}
+
+text Bart2 {
+    format("Thank Arceus, you're a real human being...")
+}
+
+text Corinna1 {
+    format("...")
+}

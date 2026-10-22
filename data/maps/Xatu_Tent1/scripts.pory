@@ -1,0 +1,13 @@
+raw `
+Xatu_Tent1_MapScripts::
+	.byte 0
+`
+
+script Xatu_Tent1_TM {
+	lock
+	removeobject(1)
+	setflag(FLAG_HERRON_TM)
+	giveitem(ITEM_TM31)
+	release
+	end
+}

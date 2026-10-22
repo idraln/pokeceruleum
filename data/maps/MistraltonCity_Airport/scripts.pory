@@ -1,0 +1,82 @@
+raw `
+MistraltonCity_Airport_MapScripts::
+	.byte 0
+`
+
+script MistraltonCity_Airport_SmallInfoBoard {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Mistralton City! Enjoy our fresh vegetables and fresh air!"))
+    release
+    end
+}
+
+script MistraltonCity_Airport_BigInfoBoard {
+    lock
+    faceplayer
+    msgbox(format("Next departure: Sapphire City, Thura."))
+    release
+    end
+}
+
+script MistraltonCity_Airport_Attendant {
+    lock
+    faceplayer
+    checkitem(ITEM_EON_TICKET)
+    if(var(VAR_RESULT) == TRUE) {
+        msgbox(format("Hi! Would you like to embark to Sapphire City?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Very well then, right this way!"))
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            playse(SE_TRUCK_MOVE)
+            delay(60)
+            playse(SE_TRUCK_STOP)
+            setrespawn(HEAL_LOCATION_SAPPHIRE_CITY)
+            clearflag(FLAG_CANT_FLY)
+            warpsilent(MAP_SAPPHIRE_CITY_AIRPORT, 3, 10)
+        }
+        else {
+            msgbox(format("Very well, then! Come back later!"))
+        }
+    }
+    else {
+        msgbox(format("Hi, welcome to Mistralton City! We hope you have a great time in Unova!"))
+    }
+}
+
+script MistraltonCity_Airport_Man {
+    lock
+    faceplayer
+    msgbox(format("I messed up my commute! I was supposed to land in Kalos, not in here!"))
+    closemessage
+    turnobject(4, DIR_NORTH)
+    release
+    end
+}
+
+script MistraltonCity_Airport_Girl {
+    lock
+    faceplayer
+    msgbox(format("You can already smell the fresh air! And we're still inside!"))
+    release
+    end
+}
+
+script MistraltonCity_Airport_Boy {
+    lock
+    faceplayer
+    msgbox(format("I need those airplane models! I need them!"))
+    release
+    end
+}
+
+script MistraltonCity_Airport_Old {
+    lock
+    faceplayer
+    msgbox(format("You can see how big Twist Mountain is from here. How beautiful..."))
+    closemessage
+    turnobject(3, DIR_NORTH)
+    release
+    end
+}

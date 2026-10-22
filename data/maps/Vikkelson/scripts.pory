@@ -1,0 +1,318 @@
+raw `
+Vikkelson_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Vikkelson_OnTransition
+	.byte 0
+`
+
+script Vikkelson_OnTransition {
+    setflag(FLAG_VISITED_VIKKELSON)
+}
+
+script Vikkelson_BoyRunning {
+    if(var(VAR_LOST_BOY_1) == 0) {
+        lock
+        faceplayer
+        msgbox(format("This is a disaster! I forgot to pack underwear! What am I going to do?"))
+        release
+        end
+    }
+    elif(var(VAR_LOST_BOY_1) == 1) {
+        lock
+        faceplayer
+        msgbox(format("This is a disaster! I forgot to pack underwear! What am I going to do?"))
+        msgbox(format("..."))
+        msgbox(format("Huh? My dad is looking for me? Well, I'm in the middle of an existential crisis, so now is not the time!"))
+        setvar(VAR_LOST_BOY_1, 2)
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("I know! I just have to pick some leaves from a tree and make myself some makeshift pants! Haha, yeah!"))
+        release
+        end
+    }
+}
+
+script Vikkelson_GirlMart {
+    lock
+    faceplayer
+    msgbox(format("Party town, yeah, sure. But where are you supposed to sleep? Don't tell me this poor excuse of a hostel behind me is enough for all the people here."))
+    release
+    end
+}
+
+script Vikkelson_LostMan {
+    lock
+    faceplayer
+    msgbox(format("Excuse me, but do you happen to know where is the gym? I'm deep into the Council Challenge and I can't find for the life of me the third gym."))
+    release
+    end
+}
+
+script Vikkelson_Dad {
+    if(var(VAR_LOST_BOY_1) == 1 || var(VAR_LOST_BOY_2) == 1) {
+        lock
+        faceplayer
+        msgbox(format("Have you found'em yet?"))
+        release
+        end
+    }
+    elif(var(VAR_LOST_BOY_1) == 2 && var(VAR_LOST_BOY_2) == 2) {
+        lock
+        faceplayer
+        msgbox(format("They're where?"))
+        msgbox(format("..."))
+        msgbox(format("...Meh. I can't be bothered. I'm going back home, my head hurts like hell. Thanks for the help, though. Take this."))
+        closemessage
+        giveitem(ITEM_FRESH_WATER)
+        completequest(QUEST_LOST_BOYS)
+        closemessage
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_1) == 48) {
+            applymovement(18, moves(walk_down walk_left * 3 walk_down * 5))
+            waitmovement(0)
+            removeobject(18)
+            setflag(FLAG_PARTY_FAMILY)
+            release
+            end
+        }
+        else {
+            applymovement(18, moves(walk_left * 4 walk_down * 6))
+            waitmovement(0)
+            removeobject(18)
+            setflag(FLAG_PARTY_FAMILY)
+            release
+            end
+        }
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("Huh... I lost my boys. The five beers I just had are messing with my head. Can you tell me where they are? I'll gift you something."))
+        startquest(QUEST_LOST_BOYS)
+        setvar(VAR_LOST_BOY_1, 1)
+        setvar(VAR_LOST_BOY_2, 1)
+        release
+        end
+    }
+}
+
+script Vikkelson_Cook {
+    lock
+    faceplayer
+    msgbox(format("Oof... I'll tell you what, cooking for Vikkie is no joke. I don't know how she can eat so much, yet stay in shape. I sure wish I could stay in shape like her too!"))
+    release
+    end
+}
+
+script Vikkelson_Worker {
+    lock
+    faceplayer
+    msgbox(format("Between the parties, the meetings and all the other events, we barely have time to breathe."))
+    release
+    end
+}
+
+script Vikkelson_Grunt {
+    lock
+    faceplayer
+    msgbox(format("What? What about my outfit? Look, pink is gonna be the next big thing. Mark my words."))
+    release
+    end
+}
+
+script Vikkelson_Musician {
+    lock
+    faceplayer
+    msgbox(format("Me and the lads are going to play a private concert for Miss Vikkie and some of her friends. I hope she pays well."))
+    release
+    end
+}
+
+script Vikkelson_Poochyena {
+    lock
+    faceplayer
+    playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+    msgbox(format("Grrr... Grrr..."))
+    release
+    end
+}
+
+script Vikkelson_Guards {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Miss Vikkie's Mansion. Miss Vikkie warned us about your visit. Feel free to look around. Don't run inside, though. The floor tiling is made of delicate marble from Unova."))
+    release
+    end
+}
+
+script Vikkelson_GirlStink {
+    lock
+    faceplayer
+    msgbox(format("Too many people, and on top of all that, this place stinks. Like a strong odor. I don't know what that is, but man is it insufferable."))
+    release
+    end
+}
+
+script Vikkelson_Drunk {
+    lock
+    faceplayer 
+    msgbox(format("Are you real? I... Huh? What? Leave me alone! Who are you? Uh..."))
+    release
+    end
+}
+
+script Vikkelson_ShyGirl {
+    lock
+    faceplayer
+    msgbox(format("I want to see what's inside the dancehall, but I'm scared to go alone. Is it weird if I go in by myself?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("That's what I thought... Well, no dance moves for me today..."))
+    }
+    else {
+        msgbox(format("You think so?"))
+        msgbox(format("..."))
+        msgbox(format("Yeah, you're right! What's the big deal after all?"))
+        msgbox(format("..."))
+        msgbox(format("Thanks for lifting up my mood! Take this."))
+        giveitem(ITEM_PEARL)
+        closemessage
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_0) == 37) {
+            applymovement(8, moves(walk_left walk_up * 4))
+            waitmovement(0)
+            removeobject(8)
+            playse(SE_EXIT)
+            setflag(FLAG_SHY_GIRL_VIKKELSON)
+        }
+        else {
+            applymovement(8, moves(walk_up * 4))
+            waitmovement(0)
+            removeobject(8)
+            playse(SE_EXIT)
+            setflag(FLAG_SHY_GIRL_VIKKELSON)
+        }
+    }
+    release
+    end
+}
+
+script Vikkelson_Beauty {
+    lock
+    faceplayer
+    msgbox(format("Hoho... Everyone's good looking here... Aunty's gonna get laid tonight!"))
+    release
+    end
+}
+
+script Vikkelson_RichBoy {
+    lock
+    faceplayer
+    msgbox(format("Great place, but... It lacks something. You see, I'm more of a posh guy myself, and some places here feel sort of... Depraved."))
+    release
+    end
+}
+
+script Vikkelson_Stand {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to my modest stand! What would you like to buy?"))
+    waitmessage
+    pokemart(VikkelsonStand)
+    msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    release
+    end
+}
+
+script Vikkelson_Sleeper {
+    lock
+    faceplayer
+    msgbox(format("It's too warm... I wanna go back home."))
+    release
+    end
+}
+
+script Vikkelson_BeachWoman {
+    lock
+    faceplayer
+    msgbox(format("Isn't it wonderful? In this place, the sun never sets, giving the impression of an eternal summer evening!"))
+    release
+    end
+}
+
+script Vikkelson_BeachKid {
+    lock
+    faceplayer
+    msgbox(format("Look! I made a sand castle!"))
+    msgbox(format("..."))
+    msgbox(format("Hah! I tricked you! This is actually my Sandygast!"))
+    release
+    end
+}
+
+script Vikkelson_Drowner {
+    lock
+    faceplayer
+    msgbox(format("HELP! I'm drowning!! Call someone!"))
+    release
+    end
+}
+
+script Vikkelson_Swimmer {
+    lock
+    faceplayer
+    msgbox(format("Don't worry, that guy isn't actually drowning. He likes the attention. The day he actually drowns, he'll understand."))
+    release
+    end
+}
+
+script Vikkelson_Sign {
+    lockall
+    msgbox(format("Vikkelson\nBuilt from the ground by Victoria Lafont"))
+    releaseall
+    end
+}
+
+script Vikkelson_CantGoThere {
+    lock
+    msgbox(format("(The currents are too strong. It would be dangerous going further.)"))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+script Vikkelson_Sam {
+    lock
+    faceplayer
+    applymovement(23, moves(face_player))
+    waitmovement(0)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 38) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+    }
+    namebox("Sam")
+    msgbox(format("There you are {PLAYER}! You remember Bruce asked me and K.A.M. to find Vikkie, right? Well, we searched all of Thura, and we came away empty-handed. That's until I realised we haven't yet searched a place: her mansion. Now that you're here, let's see what's inside, and be sure to talk to everyone you meet in there. They might know something. Let's go!"))
+    hidenamebox
+    closemessage
+    applymovement(23, moves(walk_up))
+    waitmovement(0)
+    removeobject(23)
+    setflag(FLAG_SAM_VIKKELSON)
+    playse(SE_EXIT)
+    setvar(VAR_MAIN_STORY, 48)
+    release
+    end
+}
+
+mart VikkelsonStand {
+    ITEM_RAGE_CANDY_BAR
+    ITEM_WHIPPED_DREAM
+    ITEM_ORAN_BERRY
+    ITEM_SITRUS_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_PECHA_BERRY
+}

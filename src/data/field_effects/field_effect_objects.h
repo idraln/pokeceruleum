@@ -1,5 +1,6 @@
 const struct SpritePalette gSpritePalette_GeneralFieldEffect0 = {gFieldEffectObjectPalette0, FLDEFF_PAL_TAG_GENERAL_0};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect1 = {gFieldEffectObjectPalette1, FLDEFF_PAL_TAG_GENERAL_1};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect2 = {gFieldEffectObjectPalette2, FLDEFF_PAL_TAG_GENERAL_2};
 
 static const union AnimCmd sAnim_Shadow[] =
 {
@@ -126,11 +127,11 @@ static const struct SpriteFrameImage sPicTable_TallGrass[] = {
 
 static const union AnimCmd sAnim_TallGrass[] =
 {
-    ANIMCMD_FRAME(1, 10),
-    ANIMCMD_FRAME(2, 10),
-    ANIMCMD_FRAME(3, 10),
-    ANIMCMD_FRAME(4, 10),
-    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 5),
+    ANIMCMD_FRAME(2, 5),
+    ANIMCMD_FRAME(3, 5),
+    ANIMCMD_FRAME(4, 5),
+    ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
 };
 
@@ -707,6 +708,73 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_JumpSmallSplash = {
     .callback = UpdateJumpImpactEffect,
 };
 
+static const struct SpriteFrameImage sPicTable_PastoralLongGrass[] = {
+    overworld_frame(gFieldEffectObjectPic_PastoralLongGrass, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_PastoralLongGrass, 2, 2, 1),
+    overworld_frame(gFieldEffectObjectPic_PastoralLongGrass, 2, 2, 2),
+    overworld_frame(gFieldEffectObjectPic_PastoralLongGrass, 2, 2, 3),
+};
+
+static const union AnimCmd sAnim_PastoralLongGrass[] =
+{
+    ANIMCMD_FRAME(1, 3),
+    ANIMCMD_FRAME(2, 3),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_PastoralLongGrass[] =
+{
+    sAnim_PastoralLongGrass,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_PastoralLongGrass = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_2,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_PastoralLongGrass,
+    .images = sPicTable_PastoralLongGrass,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdatePastoralLongGrassFieldEffect,
+};
+
+static const struct SpriteFrameImage sPicTable_SnowGrass[] = {
+    overworld_frame(gFieldEffectObjectPic_SnowGrass, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_SnowGrass, 2, 2, 1),
+    overworld_frame(gFieldEffectObjectPic_SnowGrass, 2, 2, 2),
+    overworld_frame(gFieldEffectObjectPic_SnowGrass, 2, 2, 3),
+    overworld_frame(gFieldEffectObjectPic_SnowGrass, 2, 2, 4),
+};
+
+static const union AnimCmd sAnim_SnowGrass[] =
+{
+    ANIMCMD_FRAME(1, 5),
+    ANIMCMD_FRAME(2, 5),
+    ANIMCMD_FRAME(3, 5),
+    ANIMCMD_FRAME(4, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_SnowGrass[] =
+{
+    sAnim_SnowGrass,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_SnowGrass = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_2,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_SnowGrass,
+    .images = sPicTable_SnowGrass,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateSnowGrassFieldEffect,
+};
+
 static const struct SpriteFrameImage sPicTable_LongGrass[] = {
     overworld_frame(gFieldEffectObjectPic_LongGrass, 2, 2, 0),
     overworld_frame(gFieldEffectObjectPic_LongGrass, 2, 2, 1),
@@ -739,6 +807,41 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_LongGrass = {
     .images = sPicTable_LongGrass,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateLongGrassFieldEffect,
+};
+
+static const struct SpriteFrameImage sPicTable_RetroGrass[] = {
+    overworld_frame(gFieldEffectObjectPic_RetroGrass, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_RetroGrass, 2, 2, 1),
+    overworld_frame(gFieldEffectObjectPic_RetroGrass, 2, 2, 2),
+    overworld_frame(gFieldEffectObjectPic_RetroGrass, 2, 2, 3),
+    overworld_frame(gFieldEffectObjectPic_RetroGrass, 2, 2, 4),
+};
+
+static const union AnimCmd sAnim_RetroGrass[] =
+{
+    ANIMCMD_FRAME(1, 3),
+    ANIMCMD_FRAME(2, 3),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_RetroGrass[] =
+{
+    sAnim_RetroGrass,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_RetroGrass = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_2,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_RetroGrass,
+    .images = sPicTable_RetroGrass,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateRetroGrassFieldEffect,
 };
 
 static const struct SpriteFrameImage sPicTable_JumpLongGrass[] = {

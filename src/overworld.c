@@ -76,6 +76,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/rgb.h"
+#include "triathlon.h"
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -568,7 +570,7 @@ void SetObjEventTemplateMovementType(u8 localId, u8 movementType)
     }
 }
 
-static void InitMapView(void)
+void InitMapView(void)
 {
     ResetFieldCamera();
     CopyMapTilesetsToVram(gMapHeader.mapLayout);
@@ -1731,6 +1733,8 @@ void CB2_OverworldBasic(void)
 void CB2_Overworld(void)
 {
     bool32 fading = (gPaletteFade.active != 0);
+    //if (FlagGet(FLAG_TRIATHLON) && !IsTriathlonTimerDisplayActive())
+    //    CreateTriathlonTimerDisplay();
     if (fading)
         SetVBlankCallback(NULL);
     OverworldBasic();
@@ -1789,7 +1793,7 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    gFieldCallback = ExecuteTruckSequence;
+    //gFieldCallback = ExecuteTruckSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
@@ -1806,6 +1810,9 @@ void CB2_WhiteOut(void)
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();
+        if (FlagGet(FLAG_TRIATHLON))
+            FlagSet(FLAG_SYS_DISABLE_SAVE);
+            AbortTriathlon();
         DoWhiteOut();
         ResetInitialPlayerAvatarState();
         ScriptContext_Init();
@@ -1895,6 +1902,7 @@ static void CB2_ReturnToFieldLocal(void)
     {
         SetFieldVBlankCallback();
         SetMainCallback2(CB2_Overworld);
+        ResumeTriathlonTimer();
     }
 }
 

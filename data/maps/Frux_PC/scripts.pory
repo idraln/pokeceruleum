@@ -1,0 +1,58 @@
+raw `
+Frux_PC_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Frux_PC_OnTransition
+    .byte 0
+`
+
+script Frux_PC_OnTransition {
+    setrespawn(HEAL_LOCATION_FRUX)
+    end
+}
+
+script Frux_PC_Nurse {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	msgbox(format("Oi oi, welcome to Frux's Pokémon Center! Would you like to heal your party?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        msgbox(format("Nice. Gimme your Pokémons."))
+        hidefollower(0)
+        applymovement(1, PkmnCenter_NurseTurn)
+        waitmovement(0)
+        dofieldeffect(FLDEFF_POKECENTER_HEAL)
+        waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+        applymovement(1, PkmnCenter_NurseReTurn)
+        waitmovement(0)
+        special(HealPlayerParty)
+        msgbox(format("There! Your Pokémons are fully healed!"))
+        waitmessage
+        applymovement(1, PkmnCenter_NurseBow)
+        waitmovement(0)
+        msgbox(format("Come back soon!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("It's okay, see ya soon!"))
+        release
+        end
+    }
+}
+
+script Frux_PC_Worker {
+    lock
+    faceplayer
+    msgbox(format("Did you know that, deep in the Ironair, there's a cave filled with sapphires? Some of them are ten foot tall! I've never seen them myself, but that's what I've been told."))
+    release
+    end
+}
+
+script Frux_PC_Camper {
+    lock
+    faceplayer
+    msgbox(format("Pokémon Centers are great to heal your party, but there's also plenty of books to learn about the place you're in! I've already learned so much!"))
+    turnobject(3, DIR_NORTH)
+    release
+    end
+}

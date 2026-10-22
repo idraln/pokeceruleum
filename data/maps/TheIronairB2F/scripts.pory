@@ -1,0 +1,1113 @@
+raw `
+TheIronairB2F_MapScripts::
+	.byte 0
+`
+
+script TheIronairB2F_TM {
+    lock
+    removeobject(15)
+    setflag(FLAG_ITEM_IRONAIR_B2F)
+    giveitem(ITEM_TM37)
+    release
+    end
+}
+
+script TheIronairB2F_Vikkie {
+    lock
+    msgbox(format("{PLAYER}!!"))
+    clearflag(FLAG_VIKKIE_IRONAIR)
+    addobject(1)
+    closemessage
+    delay(20)
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left delay_16 * 2 face_right delay_16 * 2 face_left))
+    waitmovement(0)
+    delay(20)
+    playbgm(MUS_LILYCOVE_MUSEUM, FALSE)
+    applymovement(1, moves(walk_down * 5 walk_right * 4 walk_down face_right))
+    waitmovement(0)
+    delay(20)
+    namebox("Vikkie")
+    msgbox(format("...{PLAYER}, what are you doing here? Aren't you fighting the Fandango Band? Unless..."))
+    closemessage
+    hidenamebox
+    turnobject(1, DIR_SOUTH)
+    delay(20)
+    namebox("Vikkie")
+    msgbox(format("...You're with them?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_EAST)
+    namebox("Vikkie")
+    msgbox(format("...I knew it. I knew that, deep inside, you concealed a dark secret... I just have a sense for these things. I'm afraid I'll have to turn you over to the authorities... Come with me. Struggling won't do you any good."))
+    closemessage
+    hidenamebox
+    applymovement(1, moves(walk_left * 2))
+    waitmovement(0)
+    fadeoutbgm(1)
+    namebox("???")
+    msgbox(format("NO!!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(emote_question_mark))
+    waitmovement(0)
+    delay(40)
+    clearflag(FLAG_DAVE_IRONAIR)
+    addobject(2)
+    applymovement(2, moves(walk_fast_down * 5 walk_fast_right * 4 walk_fast_down face_right))
+    waitmovement(0)
+    namebox("Dave")
+    msgbox(format("{PLAYER}, don't go with her!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(2, DIR_WEST)
+    delay(20)
+    namebox("Dave")
+    msgbox(format("...She'll hurt you! Like, in a really bad way!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(2, DIR_EAST)
+    delay(20)
+    namebox("Dave")
+    msgbox(format("...Do you remember about the top secret project I talked you about back in Glorray?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(jump_in_place_left))
+    waitmovement(0)
+    delay(20)
+    namebox("Dave")
+    msgbox(format("Turns out it's a real bad project! They want to hurt Pokémons! They want to use the serum I crafted to inject it into a Pokémon! They say this Pokémon, Xatu, will teleport them to the past! I'm pretty sure it doesn't work like that though!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(2, DIR_EAST)
+    delay(20)
+    namebox("Dave")
+    msgbox(format("They are the ones who provoked the earthquake back at the Pokémon League HQ building! So that Vikkie could become President and Ulrich could get his hands on the sapphires!"))
+    closemessage
+    hidenamebox
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    turnobject(2, DIR_SOUTH)
+    delay(20)
+    namebox("Dave")
+    msgbox(format("...Forgive me, {PLAYER}. I'm not a bad guy, I swear! Just a lost scientist!"))
+    closemessage
+    hidenamebox
+    delay(60)
+    applymovement(1, moves(walk_right))
+    waitmovement(0)
+    turnobject(2, DIR_WEST)
+    delay(60)
+    namebox("Vikkie")
+    msgbox(format("...Dave, I knew you were a coward. I shouldn't have recruited you, you've been nothing but a disappointment so far..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_NORTH)
+    delay(20)
+    namebox("Vikkie")
+    msgbox(format("Persian, get rid of him."))
+    closemessage
+    hidenamebox
+    fadescreen(FADE_TO_WHITE)
+    clearflag(FLAG_PERSIAN_IRONAIR)
+    addobject(11)
+    fadescreen(FADE_FROM_WHITE)
+    delay(20)
+    playmoncry(SPECIES_PERSIAN, CRY_MODE_NORMAL)
+    msgbox(format("Siiiiiiian!"))
+    closemessage
+    delay(40)
+    waitmoncry
+    closemessage
+    turnobject(2, DIR_NORTH)
+    delay(20)
+    applymovement(11, moves(jump_down))
+    waitmovement(0)
+    applymovement(2, moves(jump_down * 4))
+    waitmovement(0)
+    removeobject(2)
+    setflag(FLAG_DAVE_IRONAIR)
+    delay(60)
+    fadescreen(FADE_TO_WHITE)
+    removeobject(11)
+    setflag(FLAG_PERSIAN_IRONAIR)
+    fadescreen(FADE_FROM_WHITE)
+    applymovement(1, moves(walk_right))
+    waitmovement(0)
+    delay(20)
+    goto(TheIronairB2F_VikkiesFight)
+}
+
+script TheIronairB2F_VikkiesFight {
+    namebox("Vikkie")
+    msgbox(format("...Your turn."))
+    closemessage
+    hidenamebox
+    setflag(FLAG_TRAINERBATTLE)
+    trainerbattle_no_intro(TRAINER_VIKKIE_IRONAIR, Vikkie2)
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        namebox("Vikkie")
+        msgbox(format("Hahaha! Pathetic! You're done for!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        fadescreen(FADE_TO_BLACK)
+        delay(20)
+        msgbox(format("Try again?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            closemessage
+            special(HealPlayerParty)
+            delay(40)
+            fadescreen(FADE_FROM_BLACK)
+            goto(TheIronairB2F_VikkiesFight)
+        }
+        else {
+            closemessage
+            setflag(FLAG_VIKKIE_IRONAIR)
+            setflag(FLAG_DAVE_IRONAIR)
+            setobjectxyperm(2, 14, 33)
+            setobjectxyperm(1, 14, 33)
+            special(SetCB2WhiteOut)
+            release
+            end
+        }
+    }
+    else {
+        special(HealPlayerParty)
+        delay(20)
+        applymovement(1, moves(walk_left))
+        waitmovement(0)
+        turnobject(1, DIR_EAST)
+        delay(20)
+        namebox("Vikkie")
+        msgbox(format("You'll never catch me! I'm the most powerful woman of Thura! Don't you forget it!"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(walk_fast_left * 2 walk_fast_up * 2 walk_fast_left walk_fast_up * 4))
+        waitmovement(0)
+        removeobject(1)
+        setflag(FLAG_VIKKIE_IRONAIR)
+        delay(60)
+        special(SpawnCameraObject)
+        namebox("???")
+        msgbox(format("{PLAYER}! Down here!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_southeast * 7 walk_down * 3))
+        waitmovement(0)
+        applymovement(3, moves(jump_in_place_up))
+        waitmovement(0)
+        namebox("Ulrich")
+        msgbox(format("Look! I've got the President! There's still a chance you can save him! Come down here!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 3 walk_diag_northwest * 7))
+        waitmovement(0)
+        special(RemoveCameraObject)
+        setvar(VAR_MAIN_STORY, 38)
+        release
+        end
+    }
+}
+
+script TheIronairB2F_Ulrich {
+    if(var(VAR_MAIN_STORY) == 39) {
+        lock
+        namebox("Ulrich")
+        msgbox(format("...I don't understand... Why? Why didn't it work? The serum formula was thoroughly followed..."))
+        hidenamebox
+        release
+        end
+    }
+    else {
+        lock
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        namebox("Ulrich")
+        msgbox(format("...{PLAYER}, we meet again. And this time, you can see my face."))
+        closemessage
+        hidenamebox
+        delay(40)
+        turnobject(3, DIR_SOUTH)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...How long has it been, 10 years? More or less?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(3, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...I never understood why Grandma hated me. She always spoke so fondly about you... And on the other hand, she despised me. When she gave you that egg, I couldn't take it anymore."))
+        closemessage
+        hidenamebox
+        delay(20)
+        turnobject(3, DIR_SOUTH)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...So, I left Glorray. I lived in the streets of Sapphire City for a long time. Each time I could, I read. I learned so much. And then, I stumbled on that book..."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(3, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...The Legend of Xatu. I knew that Pokémon had psychic powers that are beyond our comprehension... But to learn that it could teleport one into the past? I was sold."))
+        closemessage
+        hidenamebox
+        delay(20)
+        turnobject(3, DIR_SOUTH)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...When I learned that you were facing the President, I knew that this was my only chance: I would steal Xatu from you, make it teleport me into the past and finally convince Grandma that I'm worth it. Because in the meantime, I got strong. Very strong."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(3, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        goto(TheIronairB2F_UlrichsFight)
+    }
+}
+
+script TheIronairB2F_UlrichsFight {
+    namebox("Ulrich")
+    msgbox(format("...Let me show you."))
+    closemessage
+    hidenamebox
+    setflag(FLAG_TRAINERBATTLE)
+    trainerbattle_no_intro(TRAINER_ULRICH_IRONAIR, Ulrich1)
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        namebox("Ulrich")
+        msgbox(format("...Sorry, {PLAYER}. But your run ends here."))
+        closemessage
+        hidenamebox
+        delay(20)
+        fadescreen(FADE_TO_BLACK)
+        delay(20)
+        msgbox(format("Try again?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            closemessage
+            special(HealPlayerParty)
+            delay(40)
+            fadescreen(FADE_FROM_BLACK)
+            goto(TheIronairB2F_UlrichsFight)
+        }
+        else {
+            special(SetCB2WhiteOut)
+            release
+            end
+        }
+    }
+    else {
+        special(HealPlayerParty)
+        delay(20)
+        turnobject(3, DIR_SOUTH)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...I could've used Xatu, but it wouldn't obey me, no matter what I do. It's okay, though."))
+        closemessage
+        hidenamebox
+        delay(20)
+        if(var(VAR_TEMP_0) == 26) {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right face_up))
+            applymovement(3, moves(walk_up))
+            waitmovement(0)
+        }
+        else {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+            applymovement(3, moves(walk_up))
+            waitmovement(0)
+        }
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...It's time you get out of your Pokéball."))
+        closemessage
+        hidenamebox
+        fadescreen(FADE_TO_WHITE)
+        special(SpawnCameraObject)
+        if(var(VAR_TEMP_0) == 26) {
+            applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 3 walk_left))
+            waitmovement(0)
+        }
+        else {
+            applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 4 walk_right))
+            waitmovement(0)
+        }
+        clearflag(FLAG_XATU_IRONAIR)
+        addobject(10)
+        fadescreen(FADE_FROM_WHITE)
+        delay(40)
+        applymovement(3, moves(walk_up * 2))
+        waitmovement(0)
+        delay(40)
+        turnobject(3, DIR_SOUTH)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...Remember your old pal, {PLAYER}? I told you I took care of it."))
+        closemessage
+        hidenamebox
+        delay(20)
+        turnobject(3, DIR_NORTH)
+        delay(20)
+        namebox("Ulrich")
+        msgbox(format("...It ends now, though. With that serum, Xatu will be able to teleport me into the past... COME ON, NOW!"))
+        closemessage
+        hidenamebox
+        playse(SE_ORB)
+        special(DoOrbEffect)
+        call(ScreenShake)
+        delay(40)
+        call(ScreenShake)
+        delay(40)
+        call(ScreenShake)
+        delay(40)
+        special(FadeOutOrbEffect)
+        waitstate
+        removeobject(10)
+        setflag(FLAG_XATU_IRONAIR)
+        clearflag(FLAG_XATU_CORRUPTED_IRONAIR)
+        addobject(12)
+        setweather(WEATHER_VOLCANIC_ASH)
+        doweather
+        playmoncry(SPECIES_XATU, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        delay(40)
+        applymovement(3, moves(face_left delay_16 * 3 face_right delay_16 * 3))
+        waitmovement(0)
+        namebox("Ulrich")
+        msgbox(format("...Huh? Why am I still here?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(3, moves(walk_down jump_in_place_up))
+        waitmovement(0)
+        namebox("Ulrich")
+        msgbox(format("COME ON, YOU STUPID BIRD! TAKE ME BACK TO HER!"))
+        closemessage
+        hidenamebox
+        playmoncry(SPECIES_XATU, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_down * 3 walk_fast_right))
+        waitmovement(0)
+        special(RemoveCameraObject)
+        closemessage
+        delay(40)
+        if(var(VAR_TEMP_0) == 26) {
+            applymovement(4, moves(face_up))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+            waitmovement(0)
+        }
+        else {
+            applymovement(4, moves(face_left))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+            waitmovement(0)
+        }
+        namebox("Pres.")
+        msgbox(format("{PLAYER}! Xatu has gone totally rogue, it could cause the Ironair to erupt! You must end its suffering! Go!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 39)
+        release
+        end
+    }
+}
+
+script TheIronairB2F_DontGo {
+    lock
+    applymovement(4, moves(jump_in_place_up))
+    waitmovement(0)
+    delay(20)
+    namebox("Pres.")
+    msgbox(format("{PLAYER}!! Now is not the time to flee! You must deal with Xatu!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+script TheIronairB2F_President {
+    if(var(VAR_MAIN_STORY) == 39) {
+        lock
+        faceplayer
+        namebox("Pres.")
+        msgbox(format("You must stop Xatu now!"))
+        hidenamebox
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        namebox("Pres.")
+        msgbox(format("{PLAYER}! You gotta help me, please!"))
+        hidenamebox
+        release
+        end
+    }
+}
+
+//setwildbattle SPECIES_GROUDON, 70
+//setflag FLAG_SYS_CTRL_OBJ_DELETE
+//special BattleSetup_StartLegendaryBattle
+//waitstate
+//clearflag FLAG_SYS_CTRL_OBJ_DELETE
+
+script TheIronairB2F_Xatu {
+    lock
+    faceplayer
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    setwildbattle(SPECIES_LUGIA, 70)
+    waitse
+    playmoncry(SPECIES_XATU, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    playmoncry(SPECIES_XATU, CRY_MODE_FAINT)
+    waitmoncry
+    fadescreen(FADE_TO_WHITE)
+    delay(60)
+    setweather(WEATHER_NONE)
+    doweather
+    removeobject(12)
+    setflag(FLAG_XATU_CORRUPTED_IRONAIR)
+    if(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 45) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_left face_up))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_0) == 26 && var(VAR_TEMP_1) == 44) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left walk_down * 2 walk_right face_up))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 45) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_right face_up))
+        waitmovement(0)
+    }
+    fadescreen(FADE_FROM_WHITE)
+    delay(60)
+    applymovement(3, moves(face_down))
+    waitmovement(0)
+    namebox("Ulrich")
+    msgbox(format("...This is it. I've failed, once again..."))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("???")
+    msgbox(format("{PLAYER}!"))
+    closemessage
+    hidenamebox
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up emote_exclamation_mark))
+    applymovement(3, moves(face_up emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+
+    clearflag(FLAG_TEAM_IRONAIR)
+    addobject(5)
+    addobject(9)
+    addobject(13)
+    addobject(8)
+    applymovement(5, moves(jump_down * 3 walk_fast_down * 3 walk_fast_left * 3))
+    applymovement(9, moves(jump_down * 4 walk_fast_down * 3 walk_fast_left * 2))
+    applymovement(13, moves(jump_down * 5 walk_fast_down * 3 walk_fast_left * 1))
+    applymovement(8, moves(jump_down * 6 walk_fast_down * 3 face_left))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    delay(60)
+    namebox("Bruce")
+    msgbox(format("{PLAYER}!! Are you ok?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(5, moves(face_down))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("You..."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(5, moves(walk_fast_down face_left))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("You almost wiped out an entire region! For what, your only selfish purpose? YOU'LL PAY FOR YOUR CRIMES!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(3, DIR_SOUTH)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("...No. I don't think I will."))
+    closemessage
+    hidenamebox
+    playse(SE_PIN)
+    applymovement(5, moves(emote_exclamation_mark))
+    applymovement(13, moves(emote_question_mark))
+    applymovement(8, moves(emote_question_mark))
+    waitmovement(0)
+    delay(40)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down))
+    waitmovement(0)
+    turnobject(3, DIR_NORTH)
+    delay(20)
+    //playbgm(MUS_END, TRUE)
+    namebox("Ulrich")
+    msgbox(format("...{PLAYER}, all I wanted was Grandma to love me like she loved you."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down walk_right))
+    applymovement(3, moves(walk_down walk_right))
+    waitmovement(0)
+    delay(20)
+    turnobject(3, DIR_NORTH)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("One last gift to you all..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(3, DIR_SOUTH)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("...You're coming down with me."))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_down))
+    applymovement(3, moves(walk_fast_down))
+    applymovement(4, moves(jump_down))
+    waitmovement(0)
+    removeobject(4)
+    setflag(FLAG_DEATH)
+    playse(SE_PIN)
+    applymovement(5, moves(jump_in_place_down emote_exclamation_mark))
+    applymovement(9, moves(jump_in_place_down emote_exclamation_mark))
+    applymovement(13, moves(jump_in_place_down emote_exclamation_mark))
+    applymovement(8, moves(jump_in_place_down emote_exclamation_mark))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    turnobject(3, DIR_NORTH)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("...Goodbye, {PLAYER}."))
+    closemessage
+    hidenamebox
+    //fadeoutbgm(1)
+    delay(40)
+    applymovement(3, moves(jump_down))
+    waitmovement(0)
+    removeobject(3)
+    setflag(FLAG_DEATH_2)
+    delay(40)
+    applymovement(8, moves(walk_fast_down * 2 walk_fast_left * 3 walk_fast_down jump_in_place_down * 2))
+    waitmovement(0)
+    namebox("Bernard")
+    msgbox(format("PRESIDENT!!!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(8, DIR_NORTH)
+    delay(20)
+    namebox("Bernard")
+    msgbox(format("We've got to save him!! Quick!!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(5, moves(walk_in_place_down))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Lad, it's too late. There's nothing we can do. We must gather our forces to find and arrest Vikkie."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(5, DIR_EAST)
+    namebox("Bruce")
+    msgbox(format("Sam, K.A.M, I need you to form a team and find that woman. She must be stopped at all costs."))
+    closemessage
+    hidenamebox
+    applymovement(13, moves(jump_in_place_left))
+    applymovement(9, moves(jump_in_place_left))
+    waitmovement(0)
+    delay(20)
+    msgbox(format("You got it boss!"))
+    closemessage
+    delay(20)
+    applymovement(13, moves(walk_right walk_up * 3 jump_up * 3 walk_fast_up * 2))
+    applymovement(9, moves(walk_right * 2 walk_up * 3 jump_up * 3 walk_fast_up * 2))
+    waitmovement(0)
+    removeobject(9)
+    removeobject(13)
+    delay(20)
+    playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+    delay(20)
+    waitmoncry
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left walk_up * 3))
+    playse(SE_PIN)
+    applymovement(5, moves(face_up emote_exclamation_mark))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up emote_exclamation_mark))
+    waitmovement(0)
+    delay(60)
+    special(RemoveCameraObject)
+    namebox("Bruce")
+    msgbox(format("...That cry! It can't be..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    clearflag(FLAG_DIANCIE)
+    addobject(14)
+    applymovement(14, moves(walk_slow_down * 3))
+    waitmovement(0)
+    delay(40)
+    applymovement(5, moves(walk_fast_up * 3 walk_fast_left face_up))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    applymovement(8, moves(face_up))
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_slow_up * 2))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("DIANCIE! I'M SO SORRY, I FAILED YOU!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+    delay(40)
+    waitmoncry
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("You...forgive me? For what I've done to protect the Ironair?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(5, DIR_SOUTH)
+    delay(20)
+    turnobject(5, DIR_NORTH)
+    namebox("Bruce")
+    msgbox(format(" Diancie!!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(5, DIR_SOUTH)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("It's {PLAYER} who saved Thura!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left walk_up * 2))
+    waitmovement(0)
+    delay(20)
+    turnobject(5, DIR_NORTH)
+    namebox("Bruce")
+    msgbox(format("They're the one to thank! Not me! I've been nothing but a failure to you!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+    delay(40)
+    waitmoncry
+    playse(SE_PIN)
+    applymovement(5, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("Thank you, thank you, O mighty guardian of the Ironair! I'll protect your lair with my life!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(5, DIR_WEST)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Come, {PLAYER}. It's time to go and leave Diancie, now. I'll walk you home."))
+    closemessage
+    hidenamebox
+    turnobject(5, DIR_NORTH)
+    delay(40)
+    fadescreenspeed(FADE_TO_BLACK, 5)
+    special(RemoveCameraObject)
+    setvar(VAR_MAIN_STORY, 40)
+    clearflag(FLAG_NATU_EGG_LEAGUE)
+    warpsilent(MAP_SAPPHIRE_CITY_BUILDING2, 5, 37)
+    release
+    end
+}
+
+script TheIronairB2F_Diancie {
+    lock
+    faceplayer
+    if(var(VAR_DIANCIE_FIGHT) == 1) {
+        playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+        delay(40)
+        waitmoncry
+        namebox("Diancie")
+        msgbox(format("(Welcome back, {PLAYER}. Will you accept me in your party, now?)"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            closemessage
+            hidenamebox
+            delay(20)
+            playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+            delay(40)
+            waitmoncry
+            namebox("Diancie")
+            msgbox(format("(Thank you, {PLAYER}.)"))
+            closemessage
+            hidenamebox
+            delay(20)
+            fadescreen(FADE_TO_WHITE)
+            removeobject(16)
+            setflag(FLAG_DIANCIE)
+            delay(40)
+            givemon(SPECIES_DIANCIE, 70, ITEM_DIANCITE)
+            clearflag(FLAG_BRUCE_DIANCIE)
+            addobject(17)
+            fadescreen(FADE_FROM_WHITE)
+            getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(jump_down * 4 walk_down walk_left * 5 face_up))
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+                waitmovement(0)
+            }
+            elif(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(jump_down * 4 walk_left * 2))
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+                waitmovement(0)
+            }
+            else {
+                applymovement(17, moves(jump_down * 4 walk_down walk_left * 3))
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+                waitmovement(0)
+            }
+            namebox("Bruce")
+            msgbox(format("Haha, I knew it! I knew Diancie considered you worthy of a President!"))
+            closemessage
+            hidenamebox
+            delay(20)
+            msgbox(format("..."))
+            closemessage
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("Now that that's done, it's time to find Vikkie. Sam will call you soon! As for me, I'll go back to my own lair, the foundry. Thanks again for what you've did, {PLAYER}! Don't hesitate to come say hi when you're in Frux."))
+            closemessage
+            hidenamebox
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("One last thing. You remember my Melmetal, right? Well, it was born from a steel puddle. One day, a tank burst and there was this little Pokémon I've never seen before! A Meltan. Apparently, it's very rare. I want you to have one."))
+            hidenamebox
+            closemessage
+            givemon(SPECIES_MELTAN, 20)
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("Okay. See you later!"))
+            closemessage
+            hidenamebox
+            if(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(walk_right * 5 walk_up jump_up * 4 walk_left * 13))
+                waitmovement(0)
+            }
+            elif(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(walk_right * 2 jump_up * 4 walk_left * 13))
+                waitmovement(0)
+            }
+            else {
+                applymovement(17, moves(walk_right * 3 walk_up jump_up * 4 walk_left * 13))
+                waitmovement(0)
+            }
+            removeobject(17)
+            setflag(FLAG_BRUCE_DIANCIE)
+            setflag(FLAG_BRUCE_GUARDING_DIANCIE)
+            completequest(QUEST_DIANCIE)
+            setflag(FLAG_DIANCIE_QUEST_COMPLETE)
+            clearflag(FLAG_BRUCE_LEFT_GYM)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            setvar(VAR_MAIN_STORY, 46)
+            release
+            end
+        }
+        else {
+            closemessage
+            hidenamebox
+            delay(20)
+            playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+            delay(40)
+            waitmoncry
+            namebox("Diancie")
+            msgbox(format("(Worry not, {PLAYER}. If you ever change your mind, I'll be waiting for in this very place.)"))
+            closemessage
+            hidenamebox
+            release
+            end
+        }
+    }
+    else {
+        playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+        delay(40)
+        waitmoncry
+        namebox("Diancie")
+        msgbox(format("(Welcome again, {PLAYER}. Thanks for what you've done to protect my lair.)"))
+        closemessage
+        hidenamebox
+        delay(20)
+        playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+        delay(40)
+        waitmoncry
+        namebox("Diancie")
+        msgbox(format("(Please, let me face you in a battle. I want to test your strength. Worry not about me, for I can heal myself, even at my lowest.)"))
+        closemessage
+        hidenamebox
+        delay(20)
+        setwildbattle(SPECIES_DIANCIE, 70, ITEM_DIANCITE)
+        waitse
+        setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        special(BattleSetup_StartLegendaryBattle)
+        waitstate
+        clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        delay(20)
+        getcaughtmon(SPECIES_DIANCIE)
+        if(var(VAR_RESULT) == TRUE) {
+            playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+            delay(40)
+            waitmoncry
+            namebox("Diancie")
+            msgbox(format("(Thank you, {PLAYER}. You truly are worthy of my trust. I'm glad to be part of your team.)"))
+            hidenamebox
+            closemessage
+            fadescreen(FADE_TO_WHITE)
+            removeobject(16)
+            setflag(FLAG_DIANCIE)
+            delay(40)
+            clearflag(FLAG_BRUCE_DIANCIE)
+            addobject(17)
+            fadescreen(FADE_FROM_WHITE)
+            getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(jump_down * 4 walk_down walk_left * 5 face_up))
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+                waitmovement(0)
+            }
+            elif(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(jump_down * 4 walk_left * 2))
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+                waitmovement(0)
+            }
+            else {
+                applymovement(17, moves(jump_down * 4 walk_down walk_left * 3))
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+                waitmovement(0)
+            }
+            namebox("Bruce")
+            msgbox(format("Haha, I knew it! I knew Diancie considered you worthy of a President!"))
+            closemessage
+            hidenamebox
+            delay(20)
+            msgbox(format("..."))
+            closemessage
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("Now that that's done, it's time to find Vikkie. Sam will call you soon! As for me, I'll go back to my own lair, the foundry. Thanks again for what you've did, {PLAYER}! Don't hesitate to come say hi when you're in Frux."))
+            closemessage
+            hidenamebox
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("One last thing. You remember my Melmetal, right? Well, it was born from a steel puddle. One day, a tank burst and there was this little Pokémon I've never seen before! A Meltan. Apparently, it's very rare. I want you to have one."))
+            hidenamebox
+            closemessage
+            givemon(SPECIES_MELTAN, 20)
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("Okay. See you later!"))
+            closemessage
+            hidenamebox
+            if(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(walk_right * 5 walk_up jump_up * 4 walk_left * 13))
+                waitmovement(0)
+            }
+            elif(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 43) {
+                applymovement(17, moves(walk_right * 2 jump_up * 4 walk_left * 13))
+                waitmovement(0)
+            }
+            else {
+                applymovement(17, moves(walk_right * 3 walk_up jump_up * 4 walk_left * 13))
+                waitmovement(0)
+            }
+            removeobject(17)
+            setflag(FLAG_BRUCE_DIANCIE)
+            setflag(FLAG_BRUCE_GUARDING_DIANCIE)
+            completequest(QUEST_DIANCIE)
+            setflag(FLAG_DIANCIE_QUEST_COMPLETE)
+            clearflag(FLAG_BRUCE_LEFT_GYM)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            setvar(VAR_MAIN_STORY, 46)
+            release
+            end
+        }
+        else {
+            playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+            delay(40)
+            waitmoncry
+            namebox("Diancie")
+            msgbox(format("(Thank you, {PLAYER}. You truly are worthy of my trust. Please, accept me in your party. I want to be part of your journey.)"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                closemessage
+                hidenamebox
+                delay(20)
+                playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+                delay(40)
+                waitmoncry
+                namebox("Diancie")
+                msgbox(format("(Thank you, {PLAYER}.)"))
+                closemessage
+                hidenamebox
+                delay(20)
+                fadescreen(FADE_TO_WHITE)
+                removeobject(16)
+                setflag(FLAG_DIANCIE)
+                givemon(SPECIES_DIANCIE, 70, ITEM_DIANCITE)
+                delay(40)
+                clearflag(FLAG_BRUCE_DIANCIE)
+                addobject(17)
+                fadescreen(FADE_FROM_WHITE)
+                getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+                if(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 43) {
+                    applymovement(17, moves(jump_down * 4 walk_down walk_left * 5 face_up))
+                    waitmovement(0)
+                    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+                    waitmovement(0)
+                }
+                elif(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 43) {
+                    applymovement(17, moves(jump_down * 4 walk_left * 2))
+                    waitmovement(0)
+                    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+                    waitmovement(0)
+                }
+                else {
+                    applymovement(17, moves(jump_down * 4 walk_down walk_left * 3))
+                    waitmovement(0)
+                    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+                    waitmovement(0)
+                }
+                namebox("Bruce")
+                msgbox(format("Haha, I knew it! I knew Diancie considered you worthy of a President!"))
+                closemessage
+                hidenamebox
+                delay(20)
+                msgbox(format("..."))
+                closemessage
+                delay(20)
+                namebox("Bruce")
+                msgbox(format("Now that that's done, it's time to find Vikkie. Sam will call you soon! As for me, I'll go back to my own lair, the foundry. Thanks again for what you've did, {PLAYER}! Don't hesitate to come say hi when you're in Frux."))
+                closemessage
+                hidenamebox
+                delay(20)
+                namebox("Bruce")
+                msgbox(format("One last thing. You remember my Melmetal, right? Well, it was born from a steel puddle. One day, a tank burst and there was this little Pokémon I've never seen before! A Meltan. Apparently, it's very rare. I want you to have one."))
+                hidenamebox
+                closemessage
+                givemon(SPECIES_MELTAN, 20)
+                delay(20)
+                namebox("Bruce")
+                msgbox(format("Okay. See you later!"))
+                closemessage
+                hidenamebox
+                if(var(VAR_TEMP_0) == 25 && var(VAR_TEMP_1) == 43) {
+                    applymovement(17, moves(walk_right * 5 walk_up jump_up * 4 walk_left * 13))
+                    waitmovement(0)
+                }
+                elif(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 43) {
+                    applymovement(17, moves(walk_right * 2 jump_up * 4 walk_left * 13))
+                    waitmovement(0)
+                }
+                else {
+                    applymovement(17, moves(walk_right * 3 walk_up jump_up * 4 walk_left * 13))
+                    waitmovement(0)
+                }
+                removeobject(17)
+                setflag(FLAG_BRUCE_DIANCIE)
+                setflag(FLAG_BRUCE_GUARDING_DIANCIE)
+                clearflag(FLAG_BRUCE_LEFT_GYM)
+                completequest(QUEST_DIANCIE)
+                setflag(FLAG_DIANCIE_QUEST_COMPLETE)
+                setflag(FLAG_HIDE_MAP_NAME_POPUP)
+                setvar(VAR_MAIN_STORY, 46)
+                release
+                end
+            }
+            else {
+                closemessage
+                hidenamebox
+                delay(20)
+                playmoncry(SPECIES_DIANCIE, CRY_MODE_NORMAL)
+                delay(40)
+                waitmoncry
+                namebox("Diancie")
+                msgbox(format("(I understand, {PLAYER}. If you ever change your mind, I'll be waiting for in this very place.)"))
+                closemessage
+                hidenamebox
+                setvar(VAR_DIANCIE_FIGHT, 1)
+                release
+                end
+            }
+        }
+    }
+}
+
+text Vikkie2 {
+    format("No...")
+}
+
+text Ulrich1 {
+    format("...Yeah.")
+}
+
+script TheIronairB2F_ScreenShake {
+    delay(10)
+    setvar(VAR_0x8004, 10)
+    setvar(VAR_0x8005, 10)
+    setvar(VAR_0x8006, 10)
+    setvar(VAR_0x8007, 10)
+    special(ShakeCamera)
+    waitstate
+    delay(10)
+}
+
+script TheIronairB2F_Test {
+    fadescreenspeed(FADE_TO_BLACK, 5)
+    special(RemoveCameraObject)
+    setvar(VAR_MAIN_STORY, 40)
+    warpsilent(MAP_BLEAK_RIFT, 11, 51)
+    release
+    end
+}

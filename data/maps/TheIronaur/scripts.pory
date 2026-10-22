@@ -1,0 +1,235 @@
+raw `
+TheIronaur_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, TheIronaur_OnTransition
+	.byte 0
+`
+
+script TheIronaur_OnTransition {
+    if(var(VAR_MAIN_STORY) == 45 || var(VAR_MAIN_STORY) == 46) {
+        setobjectxyperm(10, 17, 7)
+        applymovement(10, moves(face_down))
+        waitmovement(0)
+    }
+    end
+}
+
+script TheIronair_Norbert {
+    trainerbattle_single(TRAINER_IRONAIR_1, Norbert1, Norbert2)
+    msgbox(format("It's so hot in here, I feel like I'm in the center of the Earth!"))
+    closemessage
+    end
+}
+
+text Norbert1 {
+    format("Look at that pool of lava! Don't fall in!")
+}
+
+text Norbert2 {
+    format("Ho ho, I almost fell!")
+}
+
+script TheIronair_Worker1 {
+    lock
+    msgbox(format("Dammit, it's so hot... I hate this job. That's it: tonight I'm applying to the Botanic School in Cruzeira."))
+    release
+    end
+}
+
+script TheIronair_Worker2 {
+    lock
+    faceplayer
+    msgbox(format("Wanna know something cool? The other day, I found an iron ore the size of a fully grown man! I swear!"))
+    release
+    end
+}
+
+script TheIronair_Worker3 {
+    lock
+    faceplayer
+    msgbox(format("20 years ago, the entrance to the Ironair was so small that only a Durant could fit in. And look at us now!"))
+    release
+    end
+}
+
+script TheIronair_Worker4 {
+    lock
+    faceplayer
+    msgbox(format("I wonder if we could turn iron into something more pleasing to the eye, like gemstones, instead of plain pipes or whatever."))
+    release
+    end
+}
+
+script TheIronair_Shock {
+    lock
+    faceplayer
+    msgbox(format("This is bad... He was one of our strongest, toughest dude..."))
+    turnobject(9, DIR_EAST)
+    release
+    end
+}
+
+script TheIronair_Guard {
+    lock
+    faceplayer
+    msgbox(format("Sorry mate, you can't go through. Bruce's orders."))
+    release
+    end
+}
+
+script TheIronair_Aftermath {
+    lock
+    //special(SpawnCameraObject)
+    //applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_right * 2))
+    //waitmovement(0)
+    applymovement(7, moves(walk_in_place_down))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("Boy, wake up! Tell me what happened!"))
+    closemessage
+    hidenamebox
+    delay(40)
+    //applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_down))
+    //waitmovement(0)
+    applymovement(6, moves(face_left delay_16 face_right delay_16 face_down delay_16 * 2))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(6, moves(emote_exclamation_mark delay_16 * 3 face_up))
+    waitmovement(0)
+    delay(20)
+    msgbox(format("Ugh... My head... I'm sorry Bruce... I couldn't stop them..."))
+    closemessage
+    //applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_up))
+    //waitmovement(0)
+    applymovement(7, moves(walk_in_place_down))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("Them? Who's them? What did they look like? Are they still downstairs?"))
+    closemessage
+    hidenamebox
+    delay(40)
+    //applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_down))
+    //waitmovement(0)
+    msgbox(format("I'm sorry Bruce, I can't remember..."))
+    closemessage
+    delay(40)
+    msgbox(format("I feel like I'm gonna throw up..."))
+    closemessage
+    applymovement(6, moves(face_down))
+    waitmovement(0)
+    //applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_up))
+    //waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("For Arceus' sake..."))
+    closemessage
+    hidenamebox
+    applymovement(7, moves(walk_left walk_down face_left))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("You! Take him back to Frux. Lay him down and give him plenty of berries."))
+    closemessage
+    hidenamebox
+    applymovement(6, moves(walk_slow_left * 3 walk_left * 3 walk_up * 3 walk_left * 6))
+    applymovement(9, moves(walk_left * 4 face_right delay_16 * 3 walk_up * 3 walk_left * 6))
+    applymovement(7, moves(walk_up face_left))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("{PLAYER}, meet me downstairs. How knows, maybe they're still there, and in that case, I'll need some strong support."))
+    closemessage
+    hidenamebox
+    applymovement(7, moves(walk_fast_right * 3))
+    waitmovement(0)
+    removeobject(7)
+    delay(60)
+    removeobject(6)
+    removeobject(9)
+    setflag(FLAG_BEFORE_ATTACK)
+    setflag(FLAG_BRUCE_IRONAIR)
+    setvar(VAR_MAIN_STORY, 27)
+    release
+    end
+}
+
+script TheIronair_BruceGuarding {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) == 45) {
+        namebox("Bruce")
+        msgbox(format("{PLAYER}, have you talked to Diancie yet?"))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 44) {
+        namebox("Bruce")
+        msgbox(format("There you are, {PLAYER}! Now that you've become the President, there's one last thing you need to do: you need to prove your worth to Diancie. Go downstairs and see by yourself! But before that, let me gift you something I've been crafting for a long time."))
+        closemessage
+        hidenamebox
+        giveitem(ITEM_MASTER_BALL)
+        closemessage
+        delay(20)
+        namebox("Bruce")
+        msgbox(format("I've been trying for months now to craft a Pokéball that will catch any Pokémon that exists without failure, and I've finally succeeded! Now that I made the blueprint, I want you to have the very first copy I made. Now go talk to Diancie!"))
+        closemessage
+        hidenamebox
+        applymovement(10, moves(walk_right walk_up face_down))
+        waitmovement(0)
+        setobjectxyperm(10, 17, 7)
+        startquest(QUEST_DIANCIE)
+        setvar(VAR_MAIN_STORY, 45)
+        setvar(VAR_DIANCIE_FIGHT, 0)
+        release
+        end
+    }
+    else {
+        namebox("Bruce")
+        msgbox(format("Hey, {PLAYER}! Thanks again for what you've did to protect Thura. Come back to me when you've become the President."))
+        hidenamebox
+        release
+        end
+    }
+}
+
+text SamCallVikkie {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Sam: Hey {PLAYER}!\p"
+    "… … … … … …\p"
+    "Bravo again on being the new\n"
+    "President!\p"
+    "… … … … … …\p"
+    "What would you say about finding\n"
+    "Vikkie and bringing her back in\l"
+    "Thura? Meet me in her mansion.\l"
+    "We'll look for clues.\l"
+    "… … … … … …\n… … … … … Click!"
+}
+
+script TheIronair_Excadrill {
+    lock
+    faceplayer
+    playmoncry(SPECIES_EXCADRILL, CRY_MODE_NORMAL)
+    msgbox(format("Drill! Drill!"))
+    release
+    end
+}
+
+script TheIronair_Mine {
+    lock
+    checkitem(ITEM_GOLD_TEETH)
+    if(var(VAR_RESULT) == TRUE) {
+        msgbox(format("The wall is bulging slightly. Try digging into it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            fadescreen(FADE_TO_BLACK)
+            special(Excavation_ItemUseCB)
+        }
+        else {
+            msgbox(format("Decided against it."))
+        }
+    }
+    else {
+        msgbox(format("You'll need tools to dig into the wall."))
+    }
+    release
+    end
+}

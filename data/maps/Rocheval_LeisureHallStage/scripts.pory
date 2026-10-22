@@ -1,0 +1,422 @@
+raw `
+Rocheval_LeisureHallStage_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Rocheval_LeisureHallStage_OnFrame
+	.byte 0
+
+Rocheval_LeisureHallStage_OnFrame:
+    map_script_2 VAR_TEMP_0, 0, Rocheval_LeisureHallStage_Arrival
+    .2byte 0
+`
+
+script Rocheval_LeisureHallStage_Arrival {
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerEnteringStage)
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraPanningToAnimator)
+    waitmovement(0)
+    delay(20)
+    applymovement(1, AnimatorPresenting)
+    applymovement(OBJ_EVENT_ID_CAMERA, AnimatorPresenting)
+    waitmovement(0)
+    namebox("Host")
+    msgbox(format("Ladies and gentlemen, welcome to one of Rocheval's numerous prides, the Trainer Contest!"))
+    closemessage
+    hidenamebox
+    //playse(SE_APPLAUSE)
+    // 
+    applymovement(1, AnimatorPresenting2)
+    applymovement(OBJ_EVENT_ID_CAMERA, AnimatorPresenting2)
+    waitmovement(0)
+    namebox("Host")
+    msgbox(format("In this edition, we have a lot of exciting trainers, waiting to give their everything out, for you to enjoy! So, make some noise!"))
+    closemessage
+    hidenamebox
+    applymovement(9, moves(jump_in_place_down * 2))
+    applymovement(8, moves(face_right delay_16 face_down))
+    applymovement(12, moves(face_left delay_16 face_down))
+    applymovement(10, moves(walk_in_place_down))
+    waitmovement(0)
+    playse(SE_APPLAUSE)
+    applymovement(1, AnimatorPresenting3)
+    applymovement(OBJ_EVENT_ID_CAMERA, AnimatorPresenting3)
+    waitmovement(0)
+    namebox("Host")
+    msgbox(format("Now, allow me introduce the contestants to the first match."))
+    closemessage
+    hidenamebox
+    applymovement(1, AnimatorFacingPlayer)
+    applymovement(OBJ_EVENT_ID_CAMERA, AnimatorFacingPlayer)
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraPanningToPlayer)
+    waitmovement(0)
+    namebox("Host")
+    msgbox(format("Let's start with {PLAYER}, and they're already here! In a hurry? Hah. Well, they sure do look like they will crush their opponents! Give them some applause!"))
+    closemessage
+    hidenamebox
+    applymovement(9, moves(jump_in_place_down * 2))
+    applymovement(8, moves(face_right delay_16 face_down))
+    applymovement(12, moves(face_left delay_16 face_down))
+    applymovement(10, moves(walk_in_place_down))
+    waitmovement(0)
+    playse(SE_APPLAUSE)
+    delay(20)
+    namebox("Host")
+    msgbox(format("Next, we'll welcome Joseph!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraPanningFromPlayerToFoe)
+    waitmovement(0)
+    clearflag(FLAG_TRAINER_CONTEST1)
+    addobject(5)
+    playse(SE_EXIT)
+    applymovement(OBJ_EVENT_ID_CAMERA, NPCEntrance)
+    applymovement(5, NPCEntrance)
+    waitmovement(0)
+    applymovement(1, AnimatorFacingFoe)
+    waitmovement(0)
+    delay(20)
+    namebox("Host")
+    msgbox(format("He just began his trainer career, and he's ready to give it all! Make some noise for Joseph!"))
+    closemessage
+    hidenamebox
+    applymovement(9, moves(jump_in_place_down * 2))
+    applymovement(8, moves(face_right delay_16 face_down))
+    applymovement(12, moves(face_left delay_16 face_down))
+    applymovement(10, moves(walk_in_place_down))
+    waitmovement(0)
+    playse(SE_APPLAUSE)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraBackToAnimator)
+    waitmovement(0)
+    namebox("Host")
+    msgbox(format("Now that the introductions are done, let the show begin! Contestants, entertain us!"))
+    closemessage
+    hidenamebox
+    applymovement(1, AnimatorLeavingStage)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraBackToPlayer)
+    waitmovement(0)
+    setvar(VAR_TEMP_0, 1)
+    special(RemoveCameraObject)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerFacing1stTrainer)
+    applymovement(5, FoeFacingPlayer)
+    waitmovement(0)
+    setvar(VAR_LAST_TALKED, 5)
+    setflag(FLAG_TRAINERBATTLE)
+    namebox("Joseph")
+    msgbox(Joseph1)
+    closemessage
+    hidenamebox
+    trainerbattle_no_intro(TRAINER_JOSEPH_CONTEST, Joseph2)
+    goto(Rocheval_LeisureHallStage_AfterJoseph)
+}
+
+script Rocheval_LeisureHallStage_AfterJoseph {
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        special(HealPlayerParty)
+        playse(SE_APPLAUSE)
+        namebox("Host")
+        msgbox(format("What a great fight! Well done to you both! Unfortunately, this is the end for {PLAYER}. Thanks for participating!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 6)
+        setvar(VAR_TRAINER_CONTEST_PRIZE, 1)
+        releaseall
+        warpsilent(MAP_ROCHEVAL_LEISURE_HALL_ENTRANCE, 3, 10)
+        waitstate
+        end
+    }
+    else {
+        playse(SE_APPLAUSE)
+        namebox("Host")
+        msgbox(format("What a great fight! Well done to you both! {PLAYER} is advancing to the semi-finals!"))
+        closemessage
+        hidenamebox
+        applymovement(5, NPCLeave)
+        waitmovement(0)
+        removeobject(5)
+        playse(SE_EXIT)
+         
+        setflag(FLAG_TRAINER_CONTEST1)
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerGettingHealed)
+        waitmovement(0)
+        msgbox(format("You're doing great! Here, let me heal your Pokémons."))
+        special(HealPlayerParty)
+        fadescreen(FADE_TO_BLACK)
+        delay(60)
+        clearflag(FLAG_TRAINER_CONTEST2)
+        addobject(6)
+        playse(SE_APPLAUSE)
+        namebox("Host")
+        msgbox(format("Wow! Gina just annihilated Marco! His Magnemite couldn't do anything. Gina advances to the next round!"))
+        closemessage
+        hidenamebox
+        delay(30)
+        fadescreen(FADE_FROM_BLACK)
+        namebox("Host")
+        msgbox(format("Next up, we have {PLAYER} against Gina! Have at it, young ones!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerFacing1stTrainer)
+        applymovement(6, FoeFacingPlayer)
+        waitmovement(0)
+        setvar(VAR_TRAINERBATTLE, 0)
+        setvar(VAR_LAST_TALKED, 6)
+        setflag(FLAG_TRAINERBATTLE)
+        namebox("Gina")
+        msgbox(Gina1)
+        closemessage
+        hidenamebox
+        trainerbattle_no_intro(TRAINER_GINA_CONTEST, Gina2)
+        goto(Rocheval_LeisureHallStage_AfterGina)
+    }
+}
+
+script Rocheval_LeisureHallStage_AfterGina {
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        special(HealPlayerParty)
+        playse(SE_APPLAUSE)
+        namebox("Host")
+        msgbox(format("How sad for {PLAYER}! Don't worry, there's always next time!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 6)
+        setvar(VAR_TRAINER_CONTEST_PRIZE, 1)
+        releaseall
+        warpsilent(MAP_ROCHEVAL_LEISURE_HALL_ENTRANCE, 3, 10)
+        waitstate
+        end
+    }
+    else {
+        playse(SE_APPLAUSE)
+        namebox("Host")
+        msgbox(format("How sad for Gina! Don't worry little girl, there's always next time!"))
+        closemessage
+        hidenamebox
+        applymovement(6, NPCLeave)
+        waitmovement(0)
+        removeobject(6)
+        playse(SE_EXIT)
+         
+        delay(20)
+        namebox("Host")
+        msgbox(format("Congratulations {PLAYER}, you're our first finalist! A round of applause for them!"))
+        closemessage
+        hidenamebox
+        applymovement(9, moves(jump_in_place_down * 2))
+        applymovement(8, moves(face_right delay_16 face_down))
+        applymovement(12, moves(face_left delay_16 face_down))
+        applymovement(10, moves(walk_in_place_down))
+        waitmovement(0)
+        playse(SE_APPLAUSE)
+         
+        setflag(FLAG_TRAINER_CONTEST2)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerGettingHealed)
+        waitmovement(0)
+        msgbox(format("You're almost there! Here, let me heal your Pokémons."))
+        special(HealPlayerParty)
+        fadescreen(FADE_TO_BLACK)
+        delay(60)
+        clearflag(FLAG_TRAINER_CONTEST3)
+        addobject(7)
+        playse(SE_APPLAUSE)
+        namebox("Host")
+        msgbox(format("We have our second and last finalist!"))
+        closemessage
+        hidenamebox
+        delay(30)
+        fadescreen(FADE_FROM_BLACK)
+        namebox("Host")
+        msgbox(format("It is already time for the final! It's {PLAYER} against Sam! And it appears that they already know each other... How exciting! Lads, battle!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerFacing1stTrainer)
+        applymovement(7, FoeFacingPlayer)
+        waitmovement(0)
+        setvar(VAR_TRAINERBATTLE, 0)
+        setvar(VAR_LAST_TALKED, 7)
+        setflag(FLAG_TRAINERBATTLE)
+        namebox("Sam")
+        msgbox(Sam3)
+        closemessage
+        hidenamebox
+        trainerbattle_no_intro(TRAINER_SAM_CONTEST, Sam4)
+        goto(Rocheval_LeisureHallStage_End)
+    }
+}
+
+script Rocheval_LeisureHallStage_End {
+    setvar(VAR_MAIN_STORY, 6)
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        special(HealPlayerParty)
+        setvar(VAR_TRAINERBATTLE, 0)
+        setvar(VAR_TRAINER_CONTEST_PRIZE, 2)
+        applymovement(1, SamWinsAnimator)
+        waitmovement(0)
+        namebox("Host")
+        msgbox(format("Everyone, your new Trainer Contest winner, Sam!! Give them some noise!"))
+        closemessage
+        hidenamebox
+        playse(SE_APPLAUSE)
+         
+        applymovement(7, SamWins)
+        waitmovement(0)
+        delay(30)
+        releaseall
+        warpsilent(MAP_ROCHEVAL_LEISURE_HALL_ENTRANCE, 3, 10)
+        waitstate
+        end
+    }
+    else {
+        special(HealPlayerParty)
+        setvar(VAR_TRAINERBATTLE, 0)
+        setvar(VAR_TRAINER_CONTEST_PRIZE, 3)
+        applymovement(1, PlayerWinsAnimator)
+        waitmovement(0)
+        namebox("Host")
+        msgbox(format("Everyone, your new Trainer Contest winner, {PLAYER}!! Give them some noise!"))
+        closemessage
+        hidenamebox
+        playse(SE_APPLAUSE)
+         
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerWins)
+        waitmovement(0)
+        delay(30)
+        releaseall
+        warpsilent(MAP_ROCHEVAL_LEISURE_HALL_ENTRANCE, 3, 10)
+        waitstate
+        end
+    }
+}
+
+movement PlayerEnteringStage {
+    walk_up
+    walk_right * 3
+    walk_up * 3
+    face_left
+}
+
+movement CameraPanningToAnimator {
+    walk_fast_left * 4
+    walk_fast_up * 4
+}
+
+movement AnimatorPresenting {
+    walk_down * 2
+    walk_left * 2
+    face_up
+}
+
+movement AnimatorPresenting2 {
+    walk_right * 5
+    walk_up
+    face_up
+}
+
+movement AnimatorPresenting3 {
+    walk_down
+    walk_left * 2
+    face_up
+}
+
+movement AnimatorFacingPlayer {
+    walk_down * 2
+    face_right
+}
+
+movement CameraPanningToPlayer {
+    walk_right * 3
+}
+
+movement CameraPanningFromPlayerToFoe {
+    walk_diag_southwest * 4
+}
+
+movement AnimatorFacingFoe {
+    face_left
+}
+
+movement CameraBackToAnimator {
+    walk_right * 4
+}
+
+movement AnimatorLeavingStage {
+    walk_left
+    walk_up * 4
+    face_down
+}
+
+movement CameraBackToPlayer {
+    walk_right * 3
+}
+
+movement PlayerFacing1stTrainer {
+    walk_left
+}
+
+movement FoeFacingPlayer {
+    walk_right
+}
+
+movement PlayerGettingHealed {
+    walk_right
+    face_right
+}
+
+movement NPCEntrance {
+    walk_up
+    walk_left * 3
+    walk_up * 3
+    face_right
+}
+
+movement NPCLeave {
+    walk_down * 3
+    walk_right * 2
+    walk_down
+}
+
+movement SamWinsAnimator {
+    walk_down * 3
+    walk_right
+    walk_down
+    face_up
+}
+
+movement SamWins {
+    walk_right * 2
+    face_up
+}
+
+movement PlayerWinsAnimator {
+    walk_down * 4
+    face_up
+}
+
+movement PlayerWins {
+    walk_left * 2
+    face_up
+}
+text Joseph1 {
+    format("I practiced every night after school! I simply cannot lose!")
+}
+
+text Joseph2 {
+    format("Ah. Despite my hard work, I lost.")
+}
+
+text Gina1 {
+    format("I'm so happy! I finally entered the contest! Yay!!")
+}
+
+text Gina2 {
+    format("It's already over? Oh...")
+}
+
+text Sam3 {
+    format("{PLAYER}, I managed to go through every round! Whatever happens, we'll get the prize money! Let's have fun now, shall we?")
+}
+
+text Sam4 {
+    format("Oh man, I can't believe I went this far! Congratulations {PLAYER}, you're truly something else.")
+}

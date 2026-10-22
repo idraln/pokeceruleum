@@ -2,7 +2,7 @@ Route133_MapScripts::
 	.byte 0
 
 Route133_EventScript_Franklin::
-	trainerbattle_single TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat
+	trainerbattle_single TRAINER_COUNCIL_ICE, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat
 	msgbox Route133_Text_FranklinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -17,7 +17,7 @@ Route133_EventScript_Linda::
 	end
 
 Route133_EventScript_Warren::
-	trainerbattle_single TRAINER_WARREN, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat
+	trainerbattle_single TRAINER_PASSWACAN_GYM_1, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat
 	msgbox Route133_Text_WarrenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -27,7 +27,7 @@ Route133_EventScript_Beck::
 	end
 
 Route133_EventScript_Mollie::
-	trainerbattle_single TRAINER_MOLLIE, Route133_Text_MollieIntro, Route133_Text_MollieDefeat
+	trainerbattle_single TRAINER_HERRON_2, Route133_Text_MollieIntro, Route133_Text_MollieDefeat
 	msgbox Route133_Text_MolliePostBattle, MSGBOX_AUTOCLOSE
 	end
 

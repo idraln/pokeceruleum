@@ -1,0 +1,92 @@
+raw `
+Vikkelson_MansionB1F_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_MansionB1F_Moria {
+    trainerbattle_single(TRAINER_MANSION_1, Moria1, Moria2)
+    msgbox(format("It does not matter that you defeated me, you're not allowed here! Leave this instant!"))
+    closemessage
+    end
+}
+
+text Moria1 {
+    format("What are you doing here? You're not allowed here!")
+}
+
+text Moria2 {
+    format("No! Leave!")
+}
+
+script Vikkelson_MansionB1F_Claudia {
+    trainerbattle_single(TRAINER_MANSION_2, Claudia1, Claudia2)
+    msgbox(format("Miss Vikkie left Thura, and you'll never find her!"))
+    closemessage
+    end
+}
+
+text Claudia1 {
+    format("You'll never find Miss Vikkie!")
+}
+
+text Claudia2 {
+    format("It doesn't matter, I won't tell you a thing!")
+}
+
+script Vikkelson_MansionB1F_Maid {
+    lock
+    faceplayer
+    msgbox(format("I'd love to fight you, but I'm on a break. And Vikkie still hasn't paid me so I don't actually care."))
+    release
+    end
+}
+
+script Vikkelson_MansionB1F_Cook {
+    lock
+    faceplayer
+    msgbox(format("Please, I haven't slept in actual days. I have no strength left to fight you."))
+    release
+    end
+}
+
+script Vikkelson_MansionB1F_PlaneTicket {
+    lock
+    if(var(VAR_MAIN_STORY) > 48) {
+        msgbox(format("(This looks like a ticket to Mistralton City, in Unova.)"))
+        release
+        end
+    }
+    else {
+        msgbox(format("(This looks like a ticket to Mistralton City, in Unova.)"))
+        closemessage
+        clearflag(FLAG_SAM_VIKKELSON)
+        addobject(4)
+        applymovement(4, moves(walk_down * 7 walk_right * 7 face_up))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        namebox("Sam")
+        msgbox(format("{PLAYER}! Did you find something interesting?"))
+        hidenamebox
+        closemessage
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up delay_16 * 3 face_down))
+        waitmovement(0)
+        delay(20)
+        applymovement(4, moves(emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Neat! We were right, she's actually left Thura! To the airport, now! We're going to Unova, baby."))
+        hidenamebox
+        closemessage
+        applymovement(4, moves(walk_fast_left * 7 walk_fast_up * 7))
+        waitmovement(0)
+        removeobject(4)
+        setflag(FLAG_SAM_VIKKELSON)
+        setvar(VAR_MAIN_STORY, 49)
+        release
+        end
+    }
+}

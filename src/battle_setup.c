@@ -52,6 +52,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "wild_encounter.h"
+#include "triathlon.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -148,26 +149,26 @@ static const u8 sBattleTransitionTable_BattleDome[] =
 
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
 {
-    [REMATCH_ROSE] = REMATCH(TRAINER_ROSE_1, TRAINER_ROSE_2, TRAINER_ROSE_3, TRAINER_ROSE_4, TRAINER_ROSE_5, MAP_ROUTE118),
+    [REMATCH_ROSE] = REMATCH(TRAINER_BLACK_3, TRAINER_VIKKIE_1, TRAINER_BLACK_5, TRAINER_BLACK_6, TRAINER_BLACK_7, MAP_ROUTE118),
     [REMATCH_ANDRES] = REMATCH(TRAINER_ANDRES_1, TRAINER_ANDRES_2, TRAINER_ANDRES_3, TRAINER_ANDRES_4, TRAINER_ANDRES_5, MAP_ROUTE105),
-    [REMATCH_DUSTY] = REMATCH(TRAINER_DUSTY_1, TRAINER_DUSTY_2, TRAINER_DUSTY_3, TRAINER_DUSTY_4, TRAINER_DUSTY_5, MAP_ROUTE111),
-    [REMATCH_LOLA] = REMATCH(TRAINER_LOLA_1, TRAINER_LOLA_2, TRAINER_LOLA_3, TRAINER_LOLA_4, TRAINER_LOLA_5, MAP_ROUTE109),
-    [REMATCH_RICKY] = REMATCH(TRAINER_RICKY_1, TRAINER_RICKY_2, TRAINER_RICKY_3, TRAINER_RICKY_4, TRAINER_RICKY_5, MAP_ROUTE109),
+    [REMATCH_DUSTY] = REMATCH(TRAINER_CORINNA, TRAINER_PEBBLE_2, TRAINER_PEBBLE_3, TRAINER_PEBBLE_4, TRAINER_PEBBLE_5, MAP_ROUTE111),
+    [REMATCH_LOLA] = REMATCH(TRAINER_PEBBLE_6, TRAINER_FRUX_GYM_1, TRAINER_FRUX_GYM_2, TRAINER_FRUX_GYM_3, TRAINER_BRUCE, MAP_ROUTE109),
+    [REMATCH_RICKY] = REMATCH(TRAINER_OXIDE_1, TRAINER_IRONAIR_1, TRAINER_JANGALA_1, TRAINER_JANGALA_2, TRAINER_JANGALA_3, MAP_ROUTE109),
     [REMATCH_LILA_AND_ROY] = REMATCH(TRAINER_LILA_AND_ROY_1, TRAINER_LILA_AND_ROY_2, TRAINER_LILA_AND_ROY_3, TRAINER_LILA_AND_ROY_4, TRAINER_LILA_AND_ROY_5, MAP_ROUTE124),
     [REMATCH_CRISTIN] = REMATCH(TRAINER_CRISTIN_1, TRAINER_CRISTIN_2, TRAINER_CRISTIN_3, TRAINER_CRISTIN_4, TRAINER_CRISTIN_5, MAP_ROUTE121),
-    [REMATCH_BROOKE] = REMATCH(TRAINER_BROOKE_1, TRAINER_BROOKE_2, TRAINER_BROOKE_3, TRAINER_BROOKE_4, TRAINER_BROOKE_5, MAP_ROUTE111),
-    [REMATCH_WILTON] = REMATCH(TRAINER_WILTON_1, TRAINER_WILTON_2, TRAINER_WILTON_3, TRAINER_WILTON_4, TRAINER_WILTON_5, MAP_ROUTE111),
-    [REMATCH_VALERIE] = REMATCH(TRAINER_VALERIE_1, TRAINER_VALERIE_2, TRAINER_VALERIE_3, TRAINER_VALERIE_4, TRAINER_VALERIE_5, MAP_MT_PYRE_6F),
-    [REMATCH_CINDY] = REMATCH(TRAINER_CINDY_1, TRAINER_CINDY_3, TRAINER_CINDY_4, TRAINER_CINDY_5, TRAINER_CINDY_6, MAP_ROUTE104),
-    [REMATCH_THALIA] = REMATCH(TRAINER_THALIA_1, TRAINER_THALIA_2, TRAINER_THALIA_3, TRAINER_THALIA_4, TRAINER_THALIA_5, MAP_ABANDONED_SHIP_ROOMS_1F),
-    [REMATCH_JESSICA] = REMATCH(TRAINER_JESSICA_1, TRAINER_JESSICA_2, TRAINER_JESSICA_3, TRAINER_JESSICA_4, TRAINER_JESSICA_5, MAP_ROUTE121),
-    [REMATCH_WINSTON] = REMATCH(TRAINER_WINSTON_1, TRAINER_WINSTON_2, TRAINER_WINSTON_3, TRAINER_WINSTON_4, TRAINER_WINSTON_5, MAP_ROUTE104),
-    [REMATCH_STEVE] = REMATCH(TRAINER_STEVE_1, TRAINER_STEVE_2, TRAINER_STEVE_3, TRAINER_STEVE_4, TRAINER_STEVE_5, MAP_ROUTE114),
-    [REMATCH_TONY] = REMATCH(TRAINER_TONY_1, TRAINER_TONY_2, TRAINER_TONY_3, TRAINER_TONY_4, TRAINER_TONY_5, MAP_ROUTE107),
-    [REMATCH_NOB] = REMATCH(TRAINER_NOB_1, TRAINER_NOB_2, TRAINER_NOB_3, TRAINER_NOB_4, TRAINER_NOB_5, MAP_ROUTE115),
+    [REMATCH_BROOKE] = REMATCH(TRAINER_BOIS_2, TRAINER_AZUR_1, TRAINER_AZUR_2, TRAINER_AZUR_3, TRAINER_AZUR_4, MAP_ROUTE111),
+    [REMATCH_WILTON] = REMATCH(TRAINER_JANGALA_11, TRAINER_PASSWACAN_4, TRAINER_PASSWACAN_5, TRAINER_PASSWACAN_6, TRAINER_PASSWACAN_7, MAP_ROUTE111),
+    [REMATCH_VALERIE] = REMATCH(TRAINER_AZUR_8, TRAINER_AZUR_10, TRAINER_AZUR_11, TRAINER_BRO_OPARQUE, TRAINER_NAVY_1, MAP_MT_PYRE_6F),
+    [REMATCH_CINDY] = REMATCH(TRAINER_NAVY_2, TRAINER_RETRO_1, TRAINER_RETRO_2, TRAINER_RETRO_3, TRAINER_RETRO_4, MAP_ROUTE104),
+    [REMATCH_THALIA] = REMATCH(TRAINER_ABYSS_2, TRAINER_THALIA_2, TRAINER_THALIA_3, TRAINER_THALIA_4, TRAINER_THALIA_5, MAP_ABANDONED_SHIP_ROOMS_1F),
+    [REMATCH_JESSICA] = REMATCH(TRAINER_BERYL_2, TRAINER_VIRIMANTE_4, TRAINER_VIRIMANTE_5, TRAINER_VIRIMANTE_6, TRAINER_KAM_VIRIMANTE, MAP_ROUTE121),
+    [REMATCH_WINSTON] = REMATCH(TRAINER_HERRON_1, TRAINER_HERRON_4, TRAINER_INDIGO_1, TRAINER_INDIGO_2, TRAINER_INDIGO_3, MAP_ROUTE104),
+    [REMATCH_STEVE] = REMATCH(TRAINER_ABYSS_1, TRAINER_ABYSS_5, TRAINER_ANAIS_HYDRO, TRAINER_VIKKIE_IRONAIR, TRAINER_ULRICH_IRONAIR, MAP_ROUTE114),
+    [REMATCH_TONY] = REMATCH(TRAINER_CHALL_4, TRAINER_OBSIDIAN_2, TRAINER_ALFIE, TRAINER_NELLY, TRAINER_ROSE, MAP_ROUTE107),
+    [REMATCH_NOB] = REMATCH(TRAINER_ROUTE7_1, TRAINER_ROUTE7_2, TRAINER_ROUTE7_3, TRAINER_ROUTE7_4, TRAINER_ROUTE7_5, MAP_ROUTE115),
     [REMATCH_KOJI] = REMATCH(TRAINER_KOJI_1, TRAINER_KOJI_2, TRAINER_KOJI_3, TRAINER_KOJI_4, TRAINER_KOJI_5, MAP_ROUTE127),
-    [REMATCH_FERNANDO] = REMATCH(TRAINER_FERNANDO_1, TRAINER_FERNANDO_2, TRAINER_FERNANDO_3, TRAINER_FERNANDO_4, TRAINER_FERNANDO_5, MAP_ROUTE123),
-    [REMATCH_DALTON] = REMATCH(TRAINER_DALTON_1, TRAINER_DALTON_2, TRAINER_DALTON_3, TRAINER_DALTON_4, TRAINER_DALTON_5, MAP_ROUTE118),
+    [REMATCH_FERNANDO] = REMATCH(TRAINER_COUNCIL_FIGHT_2, TRAINER_FERNANDO_2, TRAINER_FERNANDO_3, TRAINER_FERNANDO_4, TRAINER_FERNANDO_5, MAP_ROUTE123),
+    [REMATCH_DALTON] = REMATCH(TRAINER_COUNCIL_FIRE_2, TRAINER_COUNCIL_ROCK_2, TRAINER_KAM_FINAL, TRAINER_TRIATHLON_1, TRAINER_TRIATHLON_2, MAP_ROUTE118),
     [REMATCH_BERNIE] = REMATCH(TRAINER_BERNIE_1, TRAINER_BERNIE_2, TRAINER_BERNIE_3, TRAINER_BERNIE_4, TRAINER_BERNIE_5, MAP_ROUTE114),
     [REMATCH_ETHAN] = REMATCH(TRAINER_ETHAN_1, TRAINER_ETHAN_2, TRAINER_ETHAN_3, TRAINER_ETHAN_4, TRAINER_ETHAN_5, MAP_JAGGED_PASS),
     [REMATCH_JOHN_AND_JAY] = REMATCH(TRAINER_JOHN_AND_JAY_1, TRAINER_JOHN_AND_JAY_2, TRAINER_JOHN_AND_JAY_3, TRAINER_JOHN_AND_JAY_4, TRAINER_JOHN_AND_JAY_5, MAP_METEOR_FALLS_1F_2R),
@@ -201,16 +202,16 @@ const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
     [REMATCH_AMY_AND_LIV] = REMATCH(TRAINER_AMY_AND_LIV_1, TRAINER_AMY_AND_LIV_2, TRAINER_AMY_AND_LIV_4, TRAINER_AMY_AND_LIV_5, TRAINER_AMY_AND_LIV_6, MAP_ROUTE103),
     [REMATCH_ERNEST] = REMATCH(TRAINER_ERNEST_1, TRAINER_ERNEST_2, TRAINER_ERNEST_3, TRAINER_ERNEST_4, TRAINER_ERNEST_5, MAP_ROUTE125),
     [REMATCH_CORY] = REMATCH(TRAINER_CORY_1, TRAINER_CORY_2, TRAINER_CORY_3, TRAINER_CORY_4, TRAINER_CORY_5, MAP_ROUTE108),
-    [REMATCH_EDWIN] = REMATCH(TRAINER_EDWIN_1, TRAINER_EDWIN_2, TRAINER_EDWIN_3, TRAINER_EDWIN_4, TRAINER_EDWIN_5, MAP_ROUTE110),
+    [REMATCH_EDWIN] = REMATCH(TRAINER_CRUZ_GYM_1WIN_1, TRAINER_CRUZ_GYM_1WIN_2, TRAINER_CRUZ_GYM_1WIN_3, TRAINER_CRUZ_GYM_1WIN_4, TRAINER_CRUZ_GYM_1WIN_5, MAP_ROUTE110),
     [REMATCH_LYDIA] = REMATCH(TRAINER_LYDIA_1, TRAINER_LYDIA_2, TRAINER_LYDIA_3, TRAINER_LYDIA_4, TRAINER_LYDIA_5, MAP_ROUTE117),
     [REMATCH_ISAAC] = REMATCH(TRAINER_ISAAC_1, TRAINER_ISAAC_2, TRAINER_ISAAC_3, TRAINER_ISAAC_4, TRAINER_ISAAC_5, MAP_ROUTE117),
-    [REMATCH_GABRIELLE] = REMATCH(TRAINER_GABRIELLE_1, TRAINER_GABRIELLE_2, TRAINER_GABRIELLE_3, TRAINER_GABRIELLE_4, TRAINER_GABRIELLE_5, MAP_MT_PYRE_3F),
+    [REMATCH_GABRIELLE] = REMATCH(TRAINER_30TH_1, TRAINER_GABRIELLE_2, TRAINER_GABRIELLE_3, TRAINER_GABRIELLE_4, TRAINER_GABRIELLE_5, MAP_MT_PYRE_3F),
     [REMATCH_CATHERINE] = REMATCH(TRAINER_CATHERINE_1, TRAINER_CATHERINE_2, TRAINER_CATHERINE_3, TRAINER_CATHERINE_4, TRAINER_CATHERINE_5, MAP_ROUTE119),
     [REMATCH_JACKSON] = REMATCH(TRAINER_JACKSON_1, TRAINER_JACKSON_2, TRAINER_JACKSON_3, TRAINER_JACKSON_4, TRAINER_JACKSON_5, MAP_ROUTE119),
     [REMATCH_HALEY] = REMATCH(TRAINER_HALEY_1, TRAINER_HALEY_2, TRAINER_HALEY_3, TRAINER_HALEY_4, TRAINER_HALEY_5, MAP_ROUTE104),
     [REMATCH_JAMES] = REMATCH(TRAINER_JAMES_1, TRAINER_JAMES_2, TRAINER_JAMES_3, TRAINER_JAMES_4, TRAINER_JAMES_5, MAP_PETALBURG_WOODS),
     [REMATCH_TRENT] = REMATCH(TRAINER_TRENT_1, TRAINER_TRENT_2, TRAINER_TRENT_3, TRAINER_TRENT_4, TRAINER_TRENT_5, MAP_ROUTE112),
-    [REMATCH_SAWYER] = REMATCH(TRAINER_SAWYER_1, TRAINER_SAWYER_2, TRAINER_SAWYER_3, TRAINER_SAWYER_4, TRAINER_SAWYER_5, MAP_MT_CHIMNEY),
+    [REMATCH_SAWYER] = REMATCH(TRAINER_SAM_1, TRAINER_SAWYER_2, TRAINER_SAWYER_3, TRAINER_SAWYER_4, TRAINER_SAWYER_5, MAP_MT_CHIMNEY),
     [REMATCH_KIRA_AND_DAN] = REMATCH(TRAINER_KIRA_AND_DAN_1, TRAINER_KIRA_AND_DAN_2, TRAINER_KIRA_AND_DAN_3, TRAINER_KIRA_AND_DAN_4, TRAINER_KIRA_AND_DAN_5, MAP_ABANDONED_SHIP_ROOMS2_1F),
     [REMATCH_WALLY_VR] = REMATCH(TRAINER_WALLY_VR_2, TRAINER_WALLY_VR_3, TRAINER_WALLY_VR_4, TRAINER_WALLY_VR_5, TRAINER_WALLY_VR_5, MAP_VICTORY_ROAD_1F),
     [REMATCH_ROXANNE] = REMATCH(TRAINER_ROXANNE_1, TRAINER_ROXANNE_2, TRAINER_ROXANNE_3, TRAINER_ROXANNE_4, TRAINER_ROXANNE_5, MAP_RUSTBORO_CITY),
@@ -262,7 +263,7 @@ static void Task_BattleStart(u8 taskId)
 static void CreateBattleStartTask(u8 transition, u16 song)
 {
     u8 taskId = CreateTask(Task_BattleStart, 1);
-
+    SuspendTriathlonTimerForBattle();
     gTasks[taskId].tTransition = transition;
     PlayMapChosenOrBattleBGM(song);
 }
@@ -307,6 +308,7 @@ static void CreateBattleStartTask_Debug(u8 transition, u16 song)
 
 void BattleSetup_StartWildBattle(void)
 {
+    //SuspendTriathlonTimerForBattle();
     if (GetSafariZoneFlag())
         DoSafariBattle();
     else
@@ -428,7 +430,13 @@ static void DoBattlePyramidTrainerHillBattle(void)
 // Initiates battle where Wally catches Ralts
 void StartWallyTutorialBattle(void)
 {
-    CreateMaleMon(&gEnemyParty[0], SPECIES_RALTS, 5);
+    u8 starter = VarGet(VAR_FAV_TYPE);
+    if(starter == 0)
+        CreateMaleMon(&gEnemyParty[0], SPECIES_TREECKO, 5);
+    if(starter == 1)
+        CreateMaleMon(&gEnemyParty[0], SPECIES_TORCHIC, 5);
+    if(starter == 2)
+        CreateMaleMon(&gEnemyParty[0], SPECIES_MUDKIP, 5);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_WALLY_TUTORIAL;
@@ -499,6 +507,17 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
         break;
     case SPECIES_LUGIA:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
+    case SPECIES_DUSKNOIR:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
+    case SPECIES_TREVENANT:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
+    case SPECIES_DIANCIE:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
     case SPECIES_HO_OH:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
@@ -625,6 +644,7 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 {
     u16 tileBehavior;
     s16 x, y;
+    u32 time = GetTimeOfDay();
 
     if (I_FISHING_ENVIRONMENT >= GEN_4 && gIsFishingEncounter)
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
@@ -632,27 +652,475 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
         PlayerGetDestCoords(&x, &y);
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
-
-    if (MetatileBehavior_IsTallGrass(tileBehavior))
-        return BATTLE_ENVIRONMENT_GRASS;
-    if (MetatileBehavior_IsLongGrass(tileBehavior))
-        return BATTLE_ENVIRONMENT_LONG_GRASS;
-    if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
-        return BATTLE_ENVIRONMENT_SAND;
+    ///////////
+    //if (MetatileBehavior_IsTallGrass(tileBehavior))
+    //    return BATTLE_ENVIRONMENT_GRASS;
+    //if (MetatileBehavior_IsLongGrass(tileBehavior))
+    //    return BATTLE_ENVIRONMENT_LONG_GRASS;
+    //if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
+    //    return BATTLE_ENVIRONMENT_SAND;
 
     switch (gMapHeader.mapType)
     {
     case MAP_TYPE_TOWN:
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_LONG_GRASS;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_DAWN;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_DAWN;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_NIGHT;    
+
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_PASTORAL;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_PASTORAL_DAWN;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_PASTORAL_DAWN;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_PASTORAL_NIGHT;
+
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SNOW_2;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SNOW_2_NIGHT;
+
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SNOW_2;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SNOW_2_NIGHT;
+
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SAND;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SAND_NIGHT;
+        
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SAND;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SAND_NIGHT;
+
+        if (MetatileBehavior_IsRetro(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+        if (MetatileBehavior_IsRetroNE(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+
+        if (MetatileBehavior_IsVine(tileBehavior))
+            return BATTLE_ENVIRONMENT_CAVE;
+
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_JANGALA;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_JANGALA_DAWN;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_JANGALA_DAWN;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_JANGALA_NIGHT;
+
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_PEBBLE;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_PEBBLE_DAWN;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_PEBBLE_DAWN;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_PEBBLE_NIGHT;
+        
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+        return BATTLE_ENVIRONMENT_GRASS;
     case MAP_TYPE_CITY:
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_LONG_GRASS;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_DAWN;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_DAWN;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_NIGHT;    
+
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_PASTORAL;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_PASTORAL_DAWN;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_PASTORAL_DAWN;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_PASTORAL_NIGHT;
+
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SNOW_2;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SNOW_2_NIGHT;
+
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SNOW_2;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SNOW_2_NIGHT;
+
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SAND;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SAND_NIGHT;
+        
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SAND;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SAND_NIGHT;
+
+        if (MetatileBehavior_IsRetro(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+        if (MetatileBehavior_IsRetroNE(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+
+        if (MetatileBehavior_IsVine(tileBehavior))
+            return BATTLE_ENVIRONMENT_CAVE;
+
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_JANGALA;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_JANGALA_DAWN;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_JANGALA_DAWN;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_JANGALA_NIGHT;
+
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_PEBBLE;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_PEBBLE_DAWN;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_PEBBLE_DAWN;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_PEBBLE_NIGHT;
+        
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsRooftop(tileBehavior))
+            return BATTLE_ENVIRONMENT_ROOFTOP;
+        return BATTLE_ENVIRONMENT_GRASS;
     case MAP_TYPE_ROUTE:
-        break;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsNormal(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsObsidian(tileBehavior))
+            return BATTLE_ENVIRONMENT_OBSIDIAN;
+
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsTallGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_GRASS;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_GRASS_DAWN;
+        if (MetatileBehavior_IsShortGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_GRASS_NIGHT;
+
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_LONG_GRASS;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_DAWN;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_DAWN;
+        if (MetatileBehavior_IsLongGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_LONG_GRASS_NIGHT;    
+
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_PASTORAL;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_PASTORAL_DAWN;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_PASTORAL_DAWN;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_PASTORAL_NIGHT;
+
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SNOW_2;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnow(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SNOW_2_NIGHT;
+
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SNOW_2;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SNOW_2_DAWN;
+        if (MetatileBehavior_IsSnowNE(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SNOW_2_NIGHT;
+
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SAND;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsSandOrDeepSand(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SAND_NIGHT;
+        
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_SAND;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_SAND_DAWN;
+        if (MetatileBehavior_IsShallowFlowingWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_SAND_NIGHT;
+
+        if (MetatileBehavior_IsRetro(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+        if (MetatileBehavior_IsRetroNE(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+
+        if (MetatileBehavior_IsVine(tileBehavior))
+            return BATTLE_ENVIRONMENT_CAVE;
+
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_JANGALA;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_JANGALA_DAWN;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_JANGALA_DAWN;
+        if (MetatileBehavior_IsJangala(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_JANGALA_NIGHT;
+
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_PEBBLE;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_PEBBLE_DAWN;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_PEBBLE_DAWN;
+        if (MetatileBehavior_IsPebble(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_PEBBLE_NIGHT;
+        
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableFishableWater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_DAY)
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_MORNING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_EVENING)
+            return BATTLE_ENVIRONMENT_WATER_DAWN;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && time == TIME_NIGHT)
+            return BATTLE_ENVIRONMENT_WATER_NIGHT;
+
+        return BATTLE_ENVIRONMENT_GRASS;
+        //break;
     case MAP_TYPE_UNDERGROUND:
         if (MetatileBehavior_IsIndoorEncounter(tileBehavior))
             return BATTLE_ENVIRONMENT_BUILDING;
+        if (MetatileBehavior_IsLongGrass(tileBehavior))
+            return BATTLE_ENVIRONMENT_LONG_GRASS;
+        if (MetatileBehavior_IsPastoralLongGrass(tileBehavior))
+            return BATTLE_ENVIRONMENT_LONG_GRASS;
+        if (MetatileBehavior_IsVine(tileBehavior))
+            return BATTLE_ENVIRONMENT_VINE;
+        if (MetatileBehavior_IsBois(tileBehavior))
+            return BATTLE_ENVIRONMENT_BOIS;
+        if (MetatileBehavior_IsBoisNE(tileBehavior))
+            return BATTLE_ENVIRONMENT_BOIS;
+        if (MetatileBehavior_IsTallGrass(tileBehavior))
+            return BATTLE_ENVIRONMENT_BOIS;
+        if (MetatileBehavior_IsIronair1(tileBehavior))
+            return BATTLE_ENVIRONMENT_IRONAIR_1;
+        if (MetatileBehavior_IsIronair2(tileBehavior))
+            return BATTLE_ENVIRONMENT_IRONAIR_2;
+        if (MetatileBehavior_IsObsidian(tileBehavior))
+            return BATTLE_ENVIRONMENT_OBSIDIAN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior))
+            return BATTLE_ENVIRONMENT_WATER;
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
-            return BATTLE_ENVIRONMENT_POND;
+            return BATTLE_ENVIRONMENT_WATER;
         return BATTLE_ENVIRONMENT_CAVE;
     case MAP_TYPE_INDOOR:
+        if (MetatileBehavior_IsRetro(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+        if (MetatileBehavior_IsRetroNE(tileBehavior))
+            return BATTLE_ENVIRONMENT_RETRO;
+        if (MetatileBehavior_IsRocheval(tileBehavior))
+            return BATTLE_ENVIRONMENT_ROCHEVAL;
+        if (MetatileBehavior_IsFrux(tileBehavior))
+            return BATTLE_ENVIRONMENT_FRUX;
+        if (MetatileBehavior_IsOhulinn(tileBehavior))
+            return BATTLE_ENVIRONMENT_OHULINN;
+        if (MetatileBehavior_IsFighting(tileBehavior))
+            return BATTLE_ENVIRONMENT_FIGHTING;
+        if (MetatileBehavior_IsMountain(tileBehavior))
+            return BATTLE_ENVIRONMENT_MOUNTAIN;
+        if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior))
+            return BATTLE_ENVIRONMENT_WATER;
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
+            return BATTLE_ENVIRONMENT_WATER; 
+        return BATTLE_ENVIRONMENT_BUILDING;
     case MAP_TYPE_SECRET_BASE:
         return BATTLE_ENVIRONMENT_BUILDING;
     case MAP_TYPE_UNDERWATER:
@@ -662,17 +1130,14 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
             return BATTLE_ENVIRONMENT_WATER;
         return BATTLE_ENVIRONMENT_PLAIN;
     }
-    if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior))
-        return BATTLE_ENVIRONMENT_WATER;
-    if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
-        return BATTLE_ENVIRONMENT_POND;
+
     if (MetatileBehavior_IsMountain(tileBehavior))
         return BATTLE_ENVIRONMENT_MOUNTAIN;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
         // Is BRIDGE_TYPE_POND_*?
         if (MetatileBehavior_GetBridgeType(tileBehavior) != BRIDGE_TYPE_OCEAN)
-            return BATTLE_ENVIRONMENT_POND;
+            return BATTLE_ENVIRONMENT_WATER;
 
         if (MetatileBehavior_IsBridgeOverWater(tileBehavior) == TRUE)
             return BATTLE_ENVIRONMENT_WATER;
@@ -786,6 +1251,12 @@ u8 GetTrainerBattleTransition(void)
         || trainerClass == TRAINER_CLASS_MAGMA_LEADER
         || trainerClass == TRAINER_CLASS_MAGMA_ADMIN)
         return B_TRANSITION_MAGMA;
+
+    if (trainerClass == TRAINER_CLASS_FANDANGO
+        || trainerClass == TRAINER_CLASS_FANDANGO_ADMIN
+        || trainerClass == TRAINER_CLASS_FANDANGO_DOUBLE
+        || trainerClass == TRAINER_CLASS_KAM)
+        return B_TRANSITION_FANDANGO;
 
     if (trainerClass == TRAINER_CLASS_TEAM_AQUA
         || trainerClass == TRAINER_CLASS_AQUA_LEADER
@@ -1284,8 +1755,8 @@ static void HandleBattleVariantEndParty(void)
     FlagClear(B_FLAG_SKY_BATTLE);
 }
 
-static void CB2_EndTrainerBattle(void)
-{
+ static void CB2_EndTrainerBattle(void)
+ {
     HandleBattleVariantEndParty();
 
     if (FollowerNPCIsBattlePartner())
@@ -1301,6 +1772,13 @@ static void CB2_EndTrainerBattle(void)
     {
         DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    }
+    else if (FlagGet(FLAG_TRAINERBATTLE))
+    {
+        VarSet(VAR_TRAINERBATTLE, gBattleOutcome);
+        FlagClear(FLAG_TRAINERBATTLE);
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        return;
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
@@ -1324,6 +1802,7 @@ static void CB2_EndTrainerBattle(void)
         }
     }
 }
+
 
 static void CB2_EndRematchBattle(void)
 {
@@ -1469,6 +1948,12 @@ void PlayTrainerEncounterMusic(void)
             break;
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_ENCOUNTER_RICH;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_RETRO_BOY:
+            music = MUS_GSC_ENCOUNTER_BOY;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_RETRO_GIRL:
+            music = MUS_GSC_ENCOUNTER_GIRL;
             break;
         default:
             music = MUS_ENCOUNTER_SUSPICIOUS;

@@ -1,0 +1,29 @@
+raw `
+SapphireCity_Building1_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building1_Boy {
+    lock
+    faceplayer
+    msgbox(format("I'm watching PokéSurvivor! I can't wait for the 50th season!!"))
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}
+
+script SapphireCity_Building1_Gamer {
+    lock
+    faceplayer
+    msgbox(format("I'm currently playing the game you're playing right now. How's that for a broken 4th wall, huh?"))
+    release
+    end
+}
+
+script SapphireCity_Building1_Grandma {
+    lock
+    faceplayer
+    msgbox(format("My husband went out to buy some milk, but he hasn't come back yet. He's probably lost, again."))
+    release
+    end
+}

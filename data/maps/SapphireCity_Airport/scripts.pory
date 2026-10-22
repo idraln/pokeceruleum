@@ -1,0 +1,332 @@
+raw `
+SapphireCity_Airport_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SapphireCity_Airport_OnFrame
+    map_script MAP_SCRIPT_ON_TRANSITION, SapphireCity_Airport_OnTransition
+	.byte 0
+
+SapphireCity_Airport_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 7, SapphireCity_Airport_Arrival
+    .2byte 0
+`
+
+script SapphireCity_Airport_OnTransition {
+    setrespawn(HEAL_LOCATION_SAPPHIRE_CITY)
+    if(flag(FLAG_AIRPORT_GUARDS)) {
+        addobject(12)
+        addobject(13)
+        setobjectxyperm(12, 3, 9)
+        setobjectxyperm(13, 4, 9)
+        applymovement(12, DIR_SOUTH)
+        applymovement(13, DIR_SOUTH)
+    }
+    end
+}
+
+script SapphireCity_Airport_Arrival {
+    lock
+    applymovement(14, SCA_Arr)
+    applymovement(OBJ_EVENT_ID_PLAYER, SCA_Arr)
+    waitmovement(0)
+    applymovement(14, SCA_Left)
+    applymovement(OBJ_EVENT_ID_PLAYER, SCA_Right)
+    waitmovement(0)
+    applymovement(12, SCA_GuardLeft)
+    applymovement(13, SCA_GuardRight)
+    waitmovement(0)
+    setobjectxyperm(12, 3, 9)
+    setobjectxyperm(13, 4, 9)
+    namebox("Sam")
+    msgbox(format("Alright, there we are! The big city! Sapphire City!"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("Come on, keep your head up. I'm sure your Pokémon is doing just fine!"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("I have something else to cheer you up, hear this: I booked us an apartment! It's on the first floor of the building number 2! Yeah, yeah, you're welcome, hehe."))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("How did I afford the flight and now the flat? Ok, don't freak out, but I sold my boat to some guy back in Rocheval. You made me realise my true self! I want to become a professionnal trainer, just like you. So, what better choice other than to sell everything I had and make a fresh start?"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("Nah, don't worry, you don't need to repay me. Go and figure out what happened, and then come to the flat. Remember, it's on the first floor of the building number 2. Have fun!"))
+    hidenamebox
+    closemessage
+    applymovement(14, moves(walk_down * 3))
+    waitmovement(0)
+    delay(20)
+    playse(SE_PIN)
+    applymovement(14, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    applymovement(14, moves(walk_up * 3 face_left))
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("Wait! I just remembered. I had this old phone laying around at my place. You can take it, so that we can always stay in touch! It even has a neat PokéDex feature!"))
+    hidenamebox
+    closemessage
+    applymovement(14, SCA_Leaving)
+    waitmovement(0)
+    removeobject(14)
+    delay(20)
+    msgbox(format("(The phone can now be accessed by the Start Menu.)"))
+    closemessage
+    setflag(FLAG_DIANCIE_POST)
+    setflag(FLAG_BRUCE_DIANCIE)
+    setflag(FLAG_SYS_PHONE_GET)
+    setflag(FLAG_ADDED_MATCH_CALL_TO_POKENAV)
+    setflag(FLAG_ENABLE_SAM_POKENAV)
+    setflag(FLAG_AIRPORT_GUARDS)
+    setflag(FLAG_SAM_AIRPORT)
+    setflag(FLAG_SAPPHIRE_STEVE_H)
+    setflag(FLAG_SAPPHIRE_NERD_2)
+    setflag(FLAG_SAM_PEBBLE)
+    clearflag(FLAG_BLACKSTONE_NPC)
+    setflag(FLAG_BLACKSTONE_TRAINERS)
+    setvar(VAR_MAIN_STORY, 8)
+    setvar(VAR_SAPPHIRE_LOVERS, 0)
+    setvar(VAR_SAPPHIRE_NERD, 0)
+    setflag(FLAG_BRUCE_GUARDING_DIANCIE)
+    setflag(FLAG_HERMIT_JANGALA)
+    setflag(FLAG_TRAINERS_TRIATHLON)
+    setvar(VAR_SHOP_UPDATE, 0)
+    setvar(VAR_HOUSE_GLASVILLE, 0)
+    setflag(FLAG_TRIATHLON_NPC)
+    setflag(FLAG_TRIATHLON_CEREMONY)
+    setvar(VAR_TRIATHLON, 0)
+    setvar(VAR_DISAPPEARANCE, 0)
+    setvar(VAR_PRESIDENT, 0)
+    setflag(FLAG_SAM_VIKKELSON)
+    setflag(FLAG_CALI_KID)
+    setflag(FLAG_NATU_EGG_LEAGUE)
+    setvar(VAR_100_PERCENT, 0)
+    setrespawn(MAP_SAPPHIRE_CITY)
+    startquest(QUEST_FIND_XATU)
+    startquest(QUEST_EMBLEMS)
+    startquest(QUEST_HOME)
+    release
+    end
+}
+
+script SapphireCity_Airport_SmallInfoBoard1 {
+    lock
+    faceplayer
+    msgbox(format("Did you know? The first fully practical and controllable helicopter was created in 1936!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_SmallInfoBoard2 {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Sapphire City! Thura's heart, shining from its 20 shades of blue!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_BigInfoBoard {
+    lock
+    faceplayer
+    msgbox(format("Next departure: Mistralton City, Unova."))
+    release
+    end
+}
+
+script SapphireCity_Airport_Rocket {
+    lock
+    faceplayer
+    msgbox(format("The Sapphire expedition\nBack in 1973, a team of scientists from Sapphire City went on to successfully fly to and from the Moon, bringing pride and exposition from Thura to the world."))
+    release
+    end
+}
+
+script SapphireCity_Airport_Sapphire {
+    lock
+    faceplayer
+    msgbox(format("Replica of a Sapphire\nWhen on their expedition, the team of scientists made a groundbreaking discovery: unusually big sapphires were present on the Moon. Here is an example of what the team could find.\pDISCLAIMER: This is not a real Sapphire! Don't try and steal it!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_Girl {
+    lock
+    faceplayer
+    msgbox(format("I'm not waiting for a flight, I just like hanging in airports. Look at how big this place is!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_Beauty {
+    lock
+    faceplayer
+    msgbox(format("If I can't bring my three suitcases in the helicopter, then what's the meaning of all of this? I need all my stuff. Screw this, I'm not going."))
+    closemessage
+    turnobject(4, DIR_NORTH)
+    delay(20)
+    msgbox(format("Come on guys, I'm sure we can work this out!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_PissMan {
+    lock
+    faceplayer
+    msgbox(format("What kind of an airport is that? I need to pee! I can't find the restrooms! I can't hold it in anymore!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_Woman {
+    lock
+    faceplayer
+    msgbox(format("Do you think the sapphires were actually this big? This can't be..."))
+    release
+    end
+}
+
+script SapphireCity_Airport_Nerd {
+    lock
+    faceplayer
+    msgbox(format("What a great idea they had with the windows! Look at the view, it's pristine!"))
+    closemessage
+    turnobject(8, DIR_NORTH)
+    release
+    end
+}
+
+script SapphireCity_Airport_GuardDep {
+    lock
+    faceplayer
+    checkitem(ITEM_EON_TICKET)
+    if(var(VAR_RESULT) == TRUE) {
+        msgbox(format("The helicopter departs soon to Mistralton City. Would you like to embark?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Very well, then. Have a safe flight."))
+            closemessage
+            getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_1) == 5) {
+                applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_right face_up))
+                waitmovement(0)
+            }
+            applymovement(10, moves(walk_left face_right))
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 2))
+            waitmovement(0)
+            fadescreen(FADE_TO_BLACK)
+            playse(SE_TRUCK_MOVE)
+            delay(60)
+            playse(SE_TRUCK_STOP)
+            setflag(FLAG_CANT_FLY)
+            setrespawn(HEAL_LOCATION_MISTRALTON_CITY)
+            warpsilent(MAP_MISTRALTON_CITY, 8, 20)
+        }
+        else {
+            msgbox(format("Come back later, then."))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("I'm sorry, you can't access the tarmac without a ticket."))
+        closemessage
+        turnobject(10, DIR_SOUTH)
+        release
+        end
+    }
+    
+}
+
+script SapphireCity_Airport_GuardDep2 {
+    lock
+    msgbox(format("Ma'am, I don't know what else to tell you. The helicopters have only so much room for suitcases."))
+    closemessage
+    release
+    end
+}
+
+script SapphireCity_Airport_GuardArr {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Sapphire City. We hope you enjoy your time here."))
+    closemessage
+    turnobject(12, DIR_SOUTH)
+    turnobject(13, DIR_SOUTH)
+    release
+    end
+}
+
+script SapphireCity_Airport_Boy {
+    lock
+    faceplayer
+    msgbox(format("Did you know that Unova isn't actually that far from here? It's a really cool region; you should go there sometime."))
+    release
+    end
+}
+
+script SapphireCity_Airport_SchoolBoy {
+    lock
+    faceplayer
+    msgbox(format("I'm afraid of escalators. But I also want to eat something at the restaurant, which is at the first floor! I'm going to die of either hunger or fear! I just wanna go home!"))
+    release
+    end
+}
+
+script SapphireCity_Airport_Receptionist {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) == 50) {
+        msgbox(format("We hope you have a safe flight with us!"))
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 49) {
+        msgbox(format("Hi, welcome to Sapphire City's airport! Would you like to book a ticket to Mistralton City?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Alright, there you go!"))
+            giveitem(ITEM_EON_TICKET)
+            msgbox(format("We hope you have a safe flight with us!"))
+            setvar(VAR_MAIN_STORY, 50)
+            release 
+            end
+        }
+        else {
+            msgbox(format("That's alright, come back later!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Hi, welcome to Sapphire City's airport! Unfortunately, the flight to Mistralton City is at capacity. You'll have to wait for the next one. Come back later!"))
+        release
+        end  
+    }
+}
+
+movement SCA_Arr {
+    walk_down * 2
+}
+
+movement SCA_Left {
+    face_left
+}
+
+movement SCA_Right {
+    face_right
+}
+
+movement SCA_Leaving {
+    walk_down * 6
+}
+
+movement SCA_GuardLeft {
+    walk_right
+    face_down
+}
+
+movement SCA_GuardRight {
+    walk_left
+    face_down
+}

@@ -1,0 +1,149 @@
+{
+  "id": "MAP_ULTRAMARINE_CHANNEL",
+  "name": "UltramarineChannel",
+  "layout": "LAYOUT_ULTRAMARINE_CHANNEL",
+  "music": "MUS_RG_ROUTE11",
+  "region_map_section": "MAPSEC_ULTRAMARINE_CHANNEL",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_NAVY_CHANNEL",
+      "offset": -32,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_CALI",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+      "x": 22,
+      "y": 43,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 3,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "UltramarineChannel_Kleo",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_SWIMMING",
+      "x": 11,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "UltramarineChannel_Timeo",
+      "flag": "FLAG_LOST_KID_ULTRAMARINE"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "UltramarineChannel_LostKidQuest"
+    }
+  ],
+  "bg_events": []
+}

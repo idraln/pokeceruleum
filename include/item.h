@@ -12,7 +12,7 @@
 /* Expands to:
  * enum
  * {
- *   ITEM_TM_FOCUS_PUNCH = ITEM_TM01,
+ *   ITEM_TM_ME_FIRST = ITEM_TM01,
  *   ...
  *   ITEM_HM_CUT = ITM_HM01,
  *   ...
@@ -136,9 +136,9 @@ static inline enum TMHMIndex GetItemTMHMIndex(u16 item)
     switch (item)
     {
         /* Expands to:
-         * case ITEM_TM_FOCUS_PUNCH:
+         * case ITEM_TM_ME_FIRST:
          *     return 1;
-         * case ITEM_TM_DRAGON_CLAW:
+         * case ITEM_TM_HEADBUTT:
          *      return 2;
          * etc */
         FOREACH_TM(UNPACK_ITEM_TO_TM_INDEX)
@@ -153,9 +153,9 @@ static inline u16 GetItemTMHMMoveId(u16 item)
     switch (item)
     {
         /* Expands to:
-         * case ITEM_TM_FOCUS_PUNCH:
+         * case ITEM_TM_ME_FIRST:
          *     return MOVE_FOCUS_PUNCH;
-         * case ITEM_TM_DRAGON_CLAW:
+         * case ITEM_TM_HEADBUTT:
          *      return MOVE_DRAGON_CLAW;
          * etc */
         FOREACH_TM(UNPACK_ITEM_TO_TM_MOVE_ID)
@@ -246,5 +246,7 @@ u32 GetItemStatus1Mask(u16 itemId);
 bool32 ItemHasVolatileFlag(u16 itemId, enum Volatile volatile);
 u32 GetItemSellPrice(u32 itemId);
 bool32 IsHoldEffectChoice(enum ItemHoldEffect holdEffect);
+bool8 IsUsingNormalBag(void);
+bool8 CheckAllTMs(void);
 
 #endif // GUARD_ITEM_H

@@ -40,6 +40,7 @@
 #define MAP_GROUP_TOWNS_AND_ROUTES MAP_GROUP(MAP_PETALBURG_CITY)
 #define MAP_GROUP_DUNGEONS MAP_GROUP(MAP_METEOR_FALLS_1F_1R)
 #define MAP_GROUP_SPECIAL_AREA MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST)
+#define MAP_GROUP_INDOOR_LITTLEROOT MAP_GROUP(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F)
 
 #define AREA_SCREEN_WIDTH 32
 #define AREA_SCREEN_HEIGHT 20
@@ -153,7 +154,7 @@ static const u16 sMovingRegionMapSections[3] =
 
 static const u16 sFeebasData[][3] =
 {
-    {SPECIES_FEEBAS, MAP_GROUP(MAP_ROUTE119), MAP_NUM(MAP_ROUTE119)},
+    {SPECIES_FEEBAS, MAP_GROUP(MAP_BOIS_ESPRIT), MAP_NUM(MAP_BOIS_ESPRIT)},
     {NUM_SPECIES}
 };
 
@@ -331,6 +332,9 @@ static void FindMapsWithMon(u16 species)
             case MAP_GROUP_TOWNS_AND_ROUTES:
                 SetAreaHasMon(sFeebasData[i][1], sFeebasData[i][2]);
                 break;
+            case MAP_GROUP_INDOOR_LITTLEROOT:
+                SetAreaHasMon(sFeebasData[i][1], sFeebasData[i][2]);
+                break;
             case MAP_GROUP_DUNGEONS:
             case MAP_GROUP_SPECIAL_AREA:
                 SetSpecialMapHasMon(sFeebasData[i][1], sFeebasData[i][2]);
@@ -347,6 +351,9 @@ static void FindMapsWithMon(u16 species)
             switch (gWildMonHeaders[i].mapGroup)
             {
             case MAP_GROUP_TOWNS_AND_ROUTES:
+                SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
+                break;
+            case MAP_GROUP_INDOOR_LITTLEROOT:
                 SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                 break;
             case MAP_GROUP_DUNGEONS:
@@ -636,10 +643,10 @@ static void DoAreaGlow(void)
 
 static const u8 *GetTimeOfDayTextWithButton(enum TimeOfDay timeOfDay)
 {
-    static const u8 gText_Morning[] = _("{DPAD_UPDOWN} MORNING");
-    static const u8 gText_Day[] = _("{DPAD_UPDOWN} DAY");
-    static const u8 gText_Evening[] = _("{DPAD_UPDOWN} EVENING");
-    static const u8 gText_Night[] = _("{DPAD_UPDOWN} NIGHT");
+    static const u8 gText_Morning[] = _("{DPAD_UPDOWN} Morning");
+    static const u8 gText_Day[] = _("{DPAD_UPDOWN} Day");
+    static const u8 gText_Evening[] = _("{DPAD_UPDOWN} Evening");
+    static const u8 gText_Night[] = _("{DPAD_UPDOWN} Night");
 
     switch (gAreaTimeOfDay)
     {
@@ -679,7 +686,7 @@ static void ShowEncounterInfoLabel(void)
 
 static void ShowAreaUnknownLabel(void)
 {
-    static const u8 gText_AreaUnknown[] = _("AREA UNKNOWN");
+    static const u8 gText_AreaUnknown[] = _("Area Unknown");
     int stringXPos = GetStringCenterAlignXOffset(FONT_NORMAL, gText_AreaUnknown, 80);
 
     PrintAreaLabelText(gText_AreaUnknown, DEX_AREA_LABEL_AREA_UNKNOWN, stringXPos);

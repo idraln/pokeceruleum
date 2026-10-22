@@ -1212,7 +1212,12 @@ static void PokeballGlowEffect_TryPlaySe(struct Sprite *sprite)
         sprite->data[3] = 0;
         if (sprite->sPlayHealSe)
         {
-            PlayFanfare(MUS_HEAL);
+            if(FlagGet(FLAG_RETRO_INIT)) {
+                PlayFanfare(MUS_GSC_HEAL);
+            }
+            else {
+                PlayFanfare(MUS_HEAL);
+            }
         }
     }
 }
@@ -1314,15 +1319,20 @@ static u8 CreatePokecenterMonitorSprite(s16 x, s16 y)
 
 static void SpriteCB_PokecenterMonitor(struct Sprite *sprite)
 {
-    if (sprite->data[0] != 0)
-    {
-        sprite->data[0] = 0;
-        sprite->invisible = FALSE;
-        StartSpriteAnim(sprite, 1);
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        return;
     }
-    if (sprite->animEnded)
-    {
-        FieldEffectFreeGraphicsResources(sprite);
+    else {
+        if (sprite->data[0] != 0)
+        {
+            sprite->data[0] = 0;
+            sprite->invisible = FALSE;
+            StartSpriteAnim(sprite, 1);
+        }
+        if (sprite->animEnded)
+        {
+            FieldEffectFreeGraphicsResources(sprite);
+        }
     }
 }
 
@@ -1972,7 +1982,7 @@ static bool8 WaterfallFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
     {
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         gFieldEffectArguments[0] = task->tMonId;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
     return FALSE;
@@ -2043,7 +2053,7 @@ static bool8 DiveFieldEffect_ShowMon(struct Task *task)
 {
     LockPlayerFieldControls();
     gFieldEffectArguments[0] = task->data[15];
-    FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+    //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     task->data[0]++;
     return FALSE;
 }
@@ -3274,7 +3284,7 @@ static void SurfFieldEffect_ShowMon(struct Task *task)
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
         gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
 }
@@ -3449,8 +3459,8 @@ static void FlyOutFieldEffect_ShowMon(struct Task *task)
     {
         task->tState++;
         gFieldEffectArguments[0] = task->tMonId;
-        if (!gSkipShowMonAnim)
-            FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //if (!gSkipShowMonAnim)
+            //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     }
 }
 
@@ -4265,7 +4275,7 @@ static bool8 RockClimb_ShowMon(struct Task *task, struct ObjectEvent *objectEven
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
         gFieldEffectArguments[0] = task->tMonId | 0x80000000;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
         return TRUE;
     }

@@ -490,7 +490,19 @@
 #define MUS_RG_TRAINER_TOWER        556 // MUS_RG_T_TOWER
 #define MUS_RG_SLOW_PALLET          557 // MUS_RG_SLOWMASARA
 #define MUS_RG_TEACHY_TV_MENU       558 // MUS_RG_TVNOIZE
-#define END_MUS                     MUS_RG_TEACHY_TV_MENU
+#define MUS_GSC_BATTLE_TRAINER      559
+#define MUS_GSC_BATTLE_WILD      560
+#define MUS_GSC_GLORRAY      561
+#define MUS_GSC_VICTORY_WILD      562
+#define MUS_GSC_VICTORY_BATTLE      563
+#define MUS_GSC_ENCOUNTER_GIRL      564
+#define MUS_GSC_ENCOUNTER_BOY      565
+#define MUS_GSC_ROUTE      566
+#define MUS_GSC_PC      567
+#define MUS_GSC_GRANDMA      568
+#define MUS_GLORRAY            569
+#define MUS_GSC_HEAL            570
+#define END_MUS                     MUS_GSC_HEAL
 
 // These PH_* constants are phoneme sounds used by the "bard" NPC (see src/bard_music.c and src/mauville_old_man.c).
 // Each comes in a triplet of PH_*_BLEND, PH_*_HELD, and PH_*_SOLO, and the name of each triplet incorporates the English phonetic sound it represents.

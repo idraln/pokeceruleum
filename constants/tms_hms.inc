@@ -5,7 +5,7 @@
 
 /* Expands to:
 * enum_start ITEM_TM01
-* enum ITEM_TM_FOCUS_PUNCH
+* enum ITEM_TM_ME_FIRST
 * ...
 * enum_start ITEM_HM01
 * enum ITEM_HM_CUT

@@ -1,0 +1,180 @@
+raw `
+Bammobo_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Bammobo_OnTransition
+	.byte 0
+`
+
+script Bammobo_OnTransition {
+    setflag(FLAG_VISITED_BAMMOBO)
+}
+
+script Bammobo_GruntF {
+    lock
+    faceplayer
+    msgbox(format("Haha, get ready, everyone! Our plan to rule over all of Thura is finally taking its shape!...\pBut first, we need to go back to Virimante. That old stinky dude is blocking the path."))
+    release
+    end
+}
+
+script Bammobo_GruntM {
+    lock
+    faceplayer
+    msgbox(format("There's this guy that lives in that bush and stinks like death, he refrained me from entering the Bois. I'm too scared to try again, I'm afraid he'll take me in his bush and do weird things to me."))
+    release
+    end
+}
+
+script Bammobo_Hermit {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+    waitmovement(0)
+    applymovement(1, moves(walk_in_place_right))
+    waitmovement(0)
+    namebox("Hermit")
+    msgbox(format("No, no, and NO! You will not go inside that forest! Those pink bastards have already done too much harm to the sacred forest!"))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_in_place_left))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("Come on, old man. That's ridiculous! We're talking about the fate of Thura in its whole! We're going to get rid of those vermins, I promise! You have to let me in!"))
+    closemessage
+    hidenamebox
+    applymovement(1, moves(walk_in_place_right))
+    waitmovement(0)
+    namebox("Hermit")
+    msgbox(format("Over my dead body!"))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(walk_in_place_left))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("Sorry, but I really don't have the time for that pettiness. I'm going in."))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_down))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(1, moves(emote_exclamation_mark jump_in_place_down delay_16 * 2 walk_fast_down * 2 walk_fast_right))
+    waitmovement(0)
+    applymovement(1, moves(walk_up))
+    applymovement(2, moves(walk_up face_down))
+    waitmovement(0)
+    namebox("Bruce")
+    msgbox(format("Did you just push me? Man, I swear, I-"))
+    closemessage
+    hidenamebox
+    turnobject(2, DIR_NORTH)
+    playse(SE_PIN)
+    applymovement(2, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("{PLAYER}! You might just be the person I need! Let's bring reason back into that man's mind! Let's join forces!"))
+    hidenamebox
+    goto(Bammobo_BeforeFight)
+}
+
+script Bammobo_BeforeFight {
+    special(SavePlayerParty)
+	fadescreen(FADE_TO_BLACK)
+	special(ChooseHalfPartyForBattle)
+	waitstate
+	goto_if_ne(VAR_RESULT, 0, Bammobo_Fight)
+	special(LoadPlayerParty)
+	goto(Bammobo_BeforeFight2)
+}
+
+script Bammobo_BeforeFight2 {
+    namebox("Bruce")
+    msgbox(format("Come on, {PLAYER}, choose! Each second lost is an hour gained for the Fandango Band!"))
+    hidenamebox
+    special(SavePlayerParty)
+	fadescreen(FADE_TO_BLACK)
+	special(ChooseHalfPartyForBattle)
+	waitstate
+	goto_if_ne(VAR_RESULT, 0, Bammobo_Fight)
+	special(LoadPlayerParty)
+	goto(Bammobo_BeforeFight2)
+}
+
+script Bammobo_Fight {
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 3) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 2))
+        waitmovement(0)
+        applymovement(2, moves(face_down))
+        waitmovement(0)
+    }
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_left walk_down))
+        waitmovement(0)
+        applymovement(2, moves(face_down))
+        waitmovement(0)
+    }
+    multi_2_vs_1(TRAINER_HERMIT, Hermit1, PARTNER_BRUCE)
+	switch(var(VAR_RESULT)) {
+        case 1:
+            applymovement(1, moves(face_left delay_16 face_up delay_16 face_left delay_16 face_up))
+            waitmovement(0)
+            namebox("Hermit")
+            msgbox(format("2 against 1... How brave you two are! I'll curse you! CURSE, YOU HEAR?"))
+            closemessage
+            hidenamebox
+            delay(40)
+            applymovement(1, moves(walk_fast_left face_up))
+            waitmovement(0)
+            namebox("Hermit")
+            msgbox(format("MOVE OUT THE WAY!"))
+            closemessage
+            hidenamebox
+            applymovement(1, moves(walk_fast_up * 6 walk_fast_right * 2 face_up))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+            waitmovement(0)
+            delay(40)
+            removeobject(1)
+            delay(40)
+            applymovement(2, moves(walk_left))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("{PLAYER}! Are you okay?"))
+            closemessage
+            hidenamebox
+            delay(20)
+            turnobject(2, DIR_NORTH)
+            namebox("Bruce")
+            msgbox(format("What was that all about? Speaking about a sacred forest? Nonsense!"))
+            closemessage
+            hidenamebox
+            delay(20)
+            turnobject(2, DIR_WEST)
+            namebox("Bruce")
+            msgbox(format("Anyway. Now that we got rid of him, we can go to Virimante. Quick! We lost enough time as is!"))
+            closemessage
+            hidenamebox
+            applymovement(2, moves(walk_down))
+            waitmovement(0)
+            removeobject(2)
+            playse(SE_EXIT)
+            setflag(FLAG_HERMIT_LEAVING)
+            clearflag(FLAG_HERMIT_BUSH)
+            setvar(VAR_MAIN_STORY, 29)
+            release
+            end
+    }
+	fadescreen(FADE_TO_BLACK)
+	special(SetCB2WhiteOut)
+	waitstate
+}
+
+text Hermit1 {
+    format("May Arceus curse you both!!")
+}
+
+script Bammobo_Sign {
+    lockall
+    msgbox(format("Bammobo\nThe dampest place in Thura."))
+    releaseall
+    end
+}

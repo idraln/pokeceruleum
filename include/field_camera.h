@@ -16,6 +16,7 @@ extern u16 gTotalCameraPixelOffsetX;
 extern u16 gTotalCameraPixelOffsetY;
 
 void DrawWholeMapView(void);
+void DrawWholeMapHidden(void);
 void CurrentMapDrawMetatileAt(int x, int y);
 void GetCameraOffsetWithPan(s16 *x, s16 *y);
 void DrawDoorMetatileAt(int x, int y, u16 *tiles);
@@ -28,5 +29,7 @@ void SetCameraPanning(s16 horizontal, s16 vertical);
 void InstallCameraPanAheadCallback(void);
 void UpdateCameraPanning(void);
 void FieldUpdateBgTilemapScroll(void);
+void MoveCameraAndRedrawMap(int deltaX, int deltaY);
+void UpdateSavedPos(void);
 
 #endif //GUARD_FIELD_CAMERA_H

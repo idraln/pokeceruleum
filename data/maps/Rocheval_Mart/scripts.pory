@@ -1,0 +1,47 @@
+raw `
+Rocheval_Mart_MapScripts::
+	.byte 0
+`
+
+script Rocheval_Mart_Clerk {
+    if (var(VAR_ROCHEVAL_MART) == 0) {
+        lock
+        faceplayer
+        setvar(VAR_ROCHEVAL_MART, 1)
+        msgbox(format("Hi. Welcome. Just wait a bit, I think this punk is trying to steal something."))
+        msgbox(format("..."))
+        msgbox(format("...Man, whatever. I'm not paid enough for this. Anyway. How can I help?"))
+        waitmessage
+        pokemart(Rocheval_Mart_Items)
+        msgbox(format("Alright. Please come again, or don't. See ya around."))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("Hi. How can I help?"))
+        waitmessage
+        pokemart(Rocheval_Mart_Items)
+        msgbox(format("Alright. Please come again, or don't. See ya around."))
+        release
+        end
+    }
+}
+
+script Rocheval_Mart_Jerk {
+    lock
+    faceplayer
+    msgbox(format("...Shhh... I'm trying to nick this chocolate bar. Piss off, you're gonna get me caught."))
+    turnobject(2, DIR_WEST)
+    release
+    end
+}
+
+mart Rocheval_Mart_Items {
+    ITEM_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_POKE_BALL
+    ITEM_REPEL
+}

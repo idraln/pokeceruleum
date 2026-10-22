@@ -1,0 +1,64 @@
+raw `
+SapphireCity_Shop3F_Attack_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Shop3F_Attack_Clerk_1 {
+    lock
+    faceplayer
+    if(var(VAR_SHOP_UPDATE) > 3) {
+        msgbox(format("Hello, and welcome to the Battle Department! How can I help you today?"))
+        waitmessage
+        pokemart(MartBattleItems)
+        msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    }
+    else {
+        msgbox(format("Hello there! Unfortunately, our department is still under construction. Come back later!"))
+    }
+    release
+    end
+}
+
+mart MartBattleItems {
+    ITEM_X_ATTACK
+    ITEM_X_DEFEND
+    ITEM_X_SP_ATK
+    ITEM_X_SP_DEF
+    ITEM_X_SPEED
+    ITEM_X_ACCURACY
+    ITEM_DIRE_HIT
+    ITEM_GUARD_SPEC
+}
+
+script SapphireCity_Shop3F_Attack_Clerk_2 {
+    lock
+    faceplayer
+    if(var(VAR_SHOP_UPDATE) > 3) {
+        msgbox(format("Hello, and welcome to the Vitamin Department! How can I help you today?"))
+        waitmessage
+        pokemart(MartVitaminItems)
+        msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    }
+    else {
+        msgbox(format("Hello there! Unfortunately, our department is still under construction. Come back later!"))
+    }
+    release
+    end
+}
+
+mart MartVitaminItems {
+    ITEM_CARBOS
+    ITEM_IRON
+    ITEM_PROTEIN
+    ITEM_CALCIUM
+    ITEM_ZINC
+}
+
+script SapphireCity_Shop3F_Attack_Boy {
+    lock
+    faceplayer
+    msgbox(format("Do you think that's a real Dire Hit? Do you think that if a Wurmple would be able to eat it?"))
+    turnobject(3, DIR_NORTH)
+    release
+    end
+}

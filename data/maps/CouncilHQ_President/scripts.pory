@@ -1,0 +1,90 @@
+raw `
+CouncilHQ_President_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, CouncilHQ_President_OnFrame
+	.byte 0
+
+CouncilHQ_President_OnFrame:
+    map_script_2 VAR_HALL_OF_FAME, 0, CouncilHQ_President_End
+    .2byte 0
+`
+
+script CouncilHQ_President_End {
+    lock
+    if(var(VAR_MAIN_STORY) == 42) {
+        namebox("Bernard")
+        msgbox(format("Only a few steps left before you become the President. Follow me."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(1, moves(walk_up * 10 face_down))
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 10))
+        waitmovement(0)
+        delay(20)
+        namebox("Bernard")
+        msgbox(format("There we are. Please, walk in."))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(walk_left face_right))
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        special(SetChampionSaveWarp)
+        setflag(FLAG_IS_CHAMPION)
+        dofieldeffect(FLDEFF_HALL_OF_FAME_RECORD)
+        waitfieldeffect(FLDEFF_HALL_OF_FAME_RECORD)
+        delay(40)
+        setrespawn(HEAL_LOCATION_SAPPHIRE_CITY)
+        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_COUNCIL_TRIES, 1)
+        setvar(VAR_COUNCIL_FIGHT, 0)
+        setvar(VAR_COUNCIL_ICE, 0)
+        setvar(VAR_COUNCIL_FIRE, 0)
+        setvar(VAR_COUNCIL_ROCK, 0)
+        setvar(VAR_HALL_OF_FAME, 1)
+        clearflag(FLAG_COUNCIL_ICE)
+        clearflag(FLAG_COUNCIL_ROCK)
+        clearflag(FLAG_COUNCIL_FIRE)
+        clearflag(FLAG_COUNCIL_FIGHT)
+        if(var(VAR_MAIN_STORY) == 42) {
+            setvar(VAR_MAIN_STORY, 43)
+        }
+        setvar(VAR_PRESIDENT, 1)
+        fadescreenspeed(FADE_TO_BLACK, 24)
+        special(GameClear)
+        waitstate
+        release
+        end
+    }
+    else {
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 11))
+        waitmovement(0)
+        delay(20)
+        special(SetChampionSaveWarp)
+        setflag(FLAG_IS_CHAMPION)
+        dofieldeffect(FLDEFF_HALL_OF_FAME_RECORD)
+        waitfieldeffect(FLDEFF_HALL_OF_FAME_RECORD)
+        delay(40)
+        setrespawn(HEAL_LOCATION_SAPPHIRE_CITY)
+        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_COUNCIL_TRIES, 1)
+        setvar(VAR_COUNCIL_FIGHT, 0)
+        setvar(VAR_COUNCIL_ICE, 0)
+        setvar(VAR_COUNCIL_FIRE, 0)
+        setvar(VAR_COUNCIL_ROCK, 0)
+        setvar(VAR_HALL_OF_FAME, 1)
+        clearflag(FLAG_COUNCIL_ICE)
+        clearflag(FLAG_COUNCIL_ROCK)
+        clearflag(FLAG_COUNCIL_FIRE)
+        clearflag(FLAG_COUNCIL_FIGHT)
+        setvar(VAR_PRESIDENT, 1)
+        fadescreenspeed(FADE_TO_BLACK, 24)
+        special(GameClear)
+        waitstate
+        release
+        end
+    }
+}

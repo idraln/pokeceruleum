@@ -1,0 +1,28 @@
+raw `
+CeruleanCoastRetro_MapScripts::
+	.byte 0
+`
+
+script CeruleanCoastRetro_Karl {
+    trainerbattle_single(TRAINER_RETRO_5, Karl1, Karl2)
+    msgbox(format("Do you think I can teach Surf to my Kakuna?"))
+    closemessage
+    end
+}
+
+text Karl1 {
+    format("I wanna know what's on the other side of the ocean!")    
+}
+
+text Karl2 {
+    format("Ok, maybe I'm good staying here.")
+}
+
+script CeruleanCoastRetro_Woman {
+    lock
+    faceplayer
+    msgbox(format("Breathe in... Breathe out. Everything's gonna be ok."))
+    turnobject(2, DIR_WEST)
+    release
+    end
+}

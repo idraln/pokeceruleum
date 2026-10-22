@@ -1,0 +1,61 @@
+raw `
+Virimante_PC_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Virimante_PC_OnTransition
+    .byte 0
+`
+
+script Virimante_PC_OnTransition {
+    setrespawn(HEAL_LOCATION_VIRIMANTE)
+    end
+}
+
+script Virimante_PC_Nurse {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	msgbox(format("Oi! I bet you want to heal your Pokémons, eh? Well, it's ¥50. Deal?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        checkmoney(50)
+        if(var(VAR_RESULT) == TRUE) {
+            incrementgamestat(GAME_STAT_USED_POKECENTER)
+            msgbox(format("Haha! That's what I thought. Give me your Pokémons! Don't worry, I won't steal them."))
+            hidefollower(0)
+            applymovement(1, PkmnCenter_NurseTurn)
+            waitmovement(0)
+            dofieldeffect(FLDEFF_POKECENTER_HEAL)
+            waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+            applymovement(1, PkmnCenter_NurseReTurn)
+            waitmovement(0)
+            special(HealPlayerParty)
+            msgbox(format("And voilà!"))
+            waitmessage
+            msgbox(format("Come back soon, very soon I hope! Haha!"))
+            removemoney(50)
+            release
+            end
+        }
+        else {
+            msgbox(format("You liar! You don't have enough money! Go away!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Then go away! I don't need your money!"))
+        release
+        end
+    }
+}
+
+script Virimante_PC_GruntM {
+    lock
+    faceplayer
+    msgbox(format("This bitch won't heal my Pokémons!"))
+    closemessage
+    delay(20)
+    turnobject(2, DIR_NORTH)
+    delay(20)
+    msgbox(format("We're supposed to be on the same team! How am I gonna steal a Gym with fainted Pokémons? Bitch!"))
+    release
+    end
+}

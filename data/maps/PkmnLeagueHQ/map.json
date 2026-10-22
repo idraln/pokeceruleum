@@ -1,0 +1,48 @@
+{
+  "id": "MAP_PKMN_LEAGUE_HQ",
+  "name": "PkmnLeagueHQ",
+  "layout": "LAYOUT_PKMN_LEAGUE_HQ",
+  "music": "MUS_RG_ROUTE24",
+  "region_map_section": "MAPSEC_PKMN_LEAGUE_HQ",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_THIRTIETH_ROAD",
+      "offset": 6,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_PEBBLE_CROSS",
+      "offset": 8,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_PKMN_LEAGUE_HQ_LOBBY",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PkmnLeagueHQ_Sign"
+    }
+  ]
+}

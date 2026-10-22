@@ -1,0 +1,110 @@
+raw `
+HerronPrairieRetro1_MapScripts::
+	.byte 0
+`
+
+script HerronPrairieRetro1_Teddy {
+    trainerbattle_single(TRAINER_RETRO_1, Teddy1, Teddy2)
+    msgbox(format("Your Pokémon looks so cool!"))
+    closemessage
+    end
+}
+
+text Teddy1 {
+    format("{PLAYER}! You finally have your own Pokémon! Show it to me!")
+}
+
+text Teddy2 {
+    format("Wow, very cool!")
+}
+
+/////////////
+
+script HerronPrairieRetro1_Nora {
+    trainerbattle_single(TRAINER_RETRO_2, Nora1, Nora2)
+    msgbox(format("Spring is my favourite moment of the year. Seeing flowers and Pokémons regain life is an amazing sight."))
+    closemessage
+    end
+}
+
+text Nora1 {
+    format("Ah, the smell of spring! The weather is getting warmer!")
+}
+
+text Nora2 {
+    format("Very warm indeed!")
+}
+
+/////////////
+
+script HerronPrairieRetro1_Fred {
+    trainerbattle_single(TRAINER_RETRO_3, Fred1, Fred2)
+    msgbox(format("Yanma can't be beaten! Your win is an anomaly!"))
+    closemessage
+    end
+}
+
+text Fred1 {
+    format("Yanma is the best Pokémon of all time!")
+}
+
+text Fred2 {
+    format("Huh? How is it possible?")
+}
+
+/////////////
+
+script HerronPrairieRetro1_Carly {
+    trainerbattle_single(TRAINER_RETRO_4, Carly1, Carly2)
+    msgbox(format("What's in that cave? I'm dying to see what's in there..."))
+    closemessage
+    end
+}
+
+text Carly1 {
+    format("I wanted to visit Xatu's cave, but the old man didn't let me in.")
+}
+
+text Carly2 {
+    format("Will you try your luck?")
+}
+
+/////////////
+
+script HerronPrairieRetro1_Man {
+    if(flag(FLAG_BERRY_RETRO)){
+        lock
+        faceplayer
+        msgbox(format("With my sis, we're trying to grow berries. The soil doesn't look too good, but it should work."))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("With my sis, we're trying to grow berries. The soil doesn't look too good, but it should work. Here, take this berry."))
+        giveitem(ITEM_ORAN_BERRY)
+        setflag(FLAG_BERRY_RETRO)
+        release
+        end
+    }
+}
+
+script HerronPrairieRetro1_Woman {
+    if(flag(FLAG_BERRY2_RETRO)){
+        lock
+        faceplayer
+        msgbox(format("With my bro, we're trying to grow berries in here. Fortunately, it should rain in a day or two."))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("With my bro, we're trying to grow berries in here. Fortunately, it should rain in a day or two. Take this berry!"))
+        giveitem(ITEM_CHERI_BERRY)
+        setflag(FLAG_BERRY2_RETRO)
+        release
+        end
+    }
+}

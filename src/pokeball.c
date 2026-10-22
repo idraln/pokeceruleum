@@ -1279,9 +1279,9 @@ void CreatePokeballSpriteToReleaseMon(u8 monSpriteId, u8 monPalNum, u8 x, u8 y, 
 {
     u8 spriteId;
 
-    LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[BALL_POKE]);
-    LoadSpritePalette(&gBallSpritePalettes[BALL_POKE]);
-    spriteId = CreateSprite(&gBallSpriteTemplates[BALL_POKE], x, y, subpriority);
+    LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[BALL_LOVE]);
+    LoadSpritePalette(&gBallSpritePalettes[BALL_LOVE]);
+    spriteId = CreateSprite(&gBallSpriteTemplates[BALL_LOVE], x, y, subpriority);
 
     gSprites[spriteId].sMonSpriteId = monSpriteId;
     gSprites[spriteId].sFinalMonX = gSprites[monSpriteId].x;

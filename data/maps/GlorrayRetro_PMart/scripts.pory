@@ -1,0 +1,31 @@
+raw `
+GlorrayRetro_PMart_MapScripts::
+	.byte 0
+`
+
+script GlorrayRetro_PMart_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Glorray's mart! How can I help you today?"))
+    waitmessage
+    pokemart(Glorray_PMart_Items)
+    msgbox(format("Thanks for shopping with us! We hope you come back soon!"))
+    release
+    end
+}
+
+script GlorrayRetro_PMart_Woman {
+    lock
+    faceplayer
+    msgbox(format("My sweet Furret needs the very best. That's why I only buy organic, local-made Potions."))
+    release
+    end
+}
+
+mart Glorray_PMart_Items {
+    ITEM_POTION
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ORAN_BERRY
+}

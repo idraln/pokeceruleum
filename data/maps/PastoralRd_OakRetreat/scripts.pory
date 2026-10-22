@@ -1,0 +1,48 @@
+raw `
+PastoralRd_OakRetreat_MapScripts::
+	.byte 0
+`
+
+script PastoralRd_OakRetreat_Isaiah {
+    trainerbattle_single(TRAINER_OAKRETREAT, Isaiah1, Isaiah2)
+    msgbox(format("This place is literally heaven on earth!"))
+    closemessage
+    end
+}
+
+text Isaiah1 {
+    format("Check this out! Freshly caught!")
+}
+
+text Isaiah2 {
+    format("Wooo! They're so cool!")
+}
+
+script PastoralRd_OakRetreat_Scientist {
+    lock
+    faceplayer
+    msgbox(format("See this species right in front of me?"))
+    closemessage
+    turnobject(2, DIR_NORTH)
+    delay(20)
+    msgbox(format("It's endemic to this cave. That means, we can only find this specific kind of flower right here, and nowhere else. Fascinating, isn't it?"))
+    release
+    end
+}
+
+script PastoralRd_OakRetreat_BugCatcher {
+    lock
+    faceplayer
+    msgbox(format("I'm overwhelmed! There's so much to look at!"))
+    release
+    end
+}
+
+script PastoralRd_OakRetreat_Item {
+    lock
+    removeobject(4)
+    giveitem(ITEM_TM47)
+    setflag(FLAG_ITEM_RETREAT)
+    release
+    end
+}

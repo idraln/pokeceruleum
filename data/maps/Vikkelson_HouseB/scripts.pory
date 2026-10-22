@@ -1,0 +1,11 @@
+raw `
+Vikkelson_HouseB_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_HouseB_Camper {
+    lock
+    msgbox(format("Come on, where is it? I swear I packed enough shirts for the trip, dammit..."))
+    release
+    end
+}

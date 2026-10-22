@@ -1,0 +1,37 @@
+raw `
+SapphireCity_Building7_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building7_Creep {
+    lock
+    faceplayer
+    msgbox(format("Haha, jackpot! You see the babe by the table? She's my roommate! I can totally see ourselves having a thing."))
+    release
+    end
+}
+
+script SapphireCity_Building7_Beauty {
+    lock
+    faceplayer
+    msgbox(format("I knew I should've limited my ad to 'girls only'. Now I'm having to deal with this tool!"))
+    release
+    end
+}
+
+script SapphireCity_Building7_Old {
+    lock
+    faceplayer
+    msgbox(format("Shoo kid, I'm watching the 13226th episode of The Young and the Restless!"))
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}
+
+script SapphireCity_Building7_Woman {
+    lock
+    msgbox(format("...So, if I buy canned food instead of fresh vegetables this month, I can afford pay to rent, and barely be overdraft. Yeah... What a life..."))
+    release
+    end
+}
+

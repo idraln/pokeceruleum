@@ -386,6 +386,18 @@ DirectSoundWaveData_unknown_16::
 DirectSoundWaveData_unknown_17::
 	.incbin "sound/direct_sound_samples/unknown_17.bin"
 
+	.align 2
+DirectSoundWaveData_Sawtooth::
+	.incbin "sound/direct_sound_samples/sawtooth.bin"
+
+	.align 2
+DirectSoundWaveData_Voice::
+	.incbin "sound/direct_sound_samples/voice.bin"
+
+	.align 2
+DirectSoundWaveData_Calliope::
+	.incbin "sound/direct_sound_samples/calliope.bin"
+
 .if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
 	.align 2

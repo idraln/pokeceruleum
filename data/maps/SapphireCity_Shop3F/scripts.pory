@@ -1,0 +1,57 @@
+raw `
+SapphireCity_Shop3F_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Shop3F_Old {
+    lock
+    faceplayer
+    msgbox(format("Ha! I saw you coming! Very funny!... Very funny indeed... I drank too many Potions."))
+    release
+    end
+}
+
+script SapphireCity_Shop3F_Girl {
+    lock
+    faceplayer
+    msgbox(format("I can't wait for the Evo Dept to open! My Cottonee is in dire need of a Sun Stone!"))
+    release
+    end
+}
+
+script SapphireCity_Shop3F_Boy {
+    lock
+    faceplayer
+    msgbox(format("What about clothes? Don't they sell them here?"))
+    release
+    end
+}
+
+script SapphireCity_Shop3F_MeanClerk {
+    lock
+    faceplayer
+    if(flag(FLAG_SAPPHIRE_CASHIER)) {
+        msgbox(format("Sup. What do...\nHey! You're the asshole that interrupted my lunch break!"))
+        msgbox(format("..."))
+        msgbox(format("Yeah, well, suddenly, I don't want to sell you anything! How's that for a customer service? You moron. Go away."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Sup. What do you want?"))
+        waitmessage
+        pokemart(SCS_Mart3F)
+        msgbox(format("Alright, thanks for coming, or whatever."))
+        release
+        end
+    }
+}
+
+mart SCS_Mart3F {
+    ITEM_ORAN_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_CHERI_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_SITRUS_BERRY
+    ITEM_CHESTO_BERRY
+}

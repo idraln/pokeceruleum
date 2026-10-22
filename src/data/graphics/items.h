@@ -835,6 +835,9 @@ const u16 gItemIconPalette_Beedrillite[] = INCBIN_U16("graphics/items/icon_palet
 const u32 gItemIcon_Pidgeotite[] = INCBIN_U32("graphics/items/icons/pidgeotite.4bpp.smol");
 const u16 gItemIconPalette_Pidgeotite[] = INCBIN_U16("graphics/items/icon_palettes/pidgeotite.gbapal");
 
+const u32 gItemIcon_Persianite[] = INCBIN_U32("graphics/items/icons/persianite.4bpp.smol");
+const u16 gItemIconPalette_Persianite[] = INCBIN_U16("graphics/items/icon_palettes/persianite.gbapal");
+
 const u32 gItemIcon_Alakazite[] = INCBIN_U32("graphics/items/icons/alakazite.4bpp.smol");
 const u16 gItemIconPalette_Alakazite[] = INCBIN_U16("graphics/items/icon_palettes/alakazite.gbapal");
 

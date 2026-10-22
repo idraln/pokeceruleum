@@ -1,0 +1,135 @@
+raw `
+Glasville_HouseB_MapScripts::
+	.byte 0
+`
+
+script Glasville_HouseB_Dave {
+    lock
+    if(var(VAR_MAIN_STORY) <= 17) {
+        faceplayer
+        msgbox(format("What? I'm not doing anything wrong here. Leave me alone, are you with the cops?"))
+        turnobject(1, DIR_NORTH)
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 18) {
+        faceplayer
+        namebox("Dave")
+        msgbox(format("Finally, you're here. Look, my name is Dave, and I work... Well, used to work at the waste treatment plant in Passwacan. Heckin' AI took my job, as it's supposed to know how to properly blend chemicals. Since then, I've been trying to sell my own concoctions, but the business just doesn't seem to catch up. For now! That's why you're the perfect subject."))
+        closemessage
+        hidenamebox
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_0) == 3) {
+            applymovement(1, moves(walk_right * 3 face_up))
+            waitmovement(0)
+            delay(40)
+            applymovement(1, moves(walk_left * 3 face_down))
+            waitmovement(0)
+        }
+        elif(var(VAR_TEMP_0) == 4) {
+            applymovement(1, moves(walk_down walk_right * 3 walk_up))
+            waitmovement(0)
+            delay(40)
+            applymovement(1, moves(walk_left))
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+            waitmovement(0)
+        }
+        namebox("Dave")
+        msgbox(format("Take this."))
+        hidenamebox
+        giveitem(ITEM_BLUE_SCARF)
+        namebox("Dave")
+        msgbox(format("This concoction right here, which I called 'The Dead-Seer' (patent pending) will allow you to meet Corinna, even if she's dead! You just have to pour a few drops of it on her tombstone. If it works, and believe me, it will, you'll spread the word that I'm the greatest scientist in Thura."))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Dave")
+        msgbox(format("...Where's her tombstone? Well, the cemetery is on the west of Glasville. You can't miss it."))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Dave")
+        msgbox(format("I brewed this potion on my gas stove. I don't have any equipment yet, but don't worry: I know what I'm doing. Remember, I'm a well-endowed scientist. Now go! And don't forget to report back to me once you're finished."))
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 19)
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 19 || var(VAR_MAIN_STORY) == 20) {
+        faceplayer
+        namebox("Dave")
+        msgbox(format("Well? Did it work?"))
+        hidenamebox
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 21) {
+        faceplayer
+        namebox("Dave")
+        msgbox(format("Well? Did it work?"))
+        hidenamebox
+        msgbox(format("..."))
+        closemessage
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark jump_in_place_down))
+        waitmovement(0)
+        delay(40)
+        faceplayer
+        namebox("Dave")
+        msgbox(format("Haha! I knew it! Dave, you still have it in you!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("Dave")
+        msgbox(format("...Huh? Corinna's spirit isn't happy? Well... Uh... Do you think that she's going to haunt me?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("Dave")
+        msgbox(format("Oh man... Either way, I don't feel great about this place. It's time I settle somewhere else. As a gift from believing in me, you can have that."))
+        closemessage
+        hidenamebox
+        setflag(FLAG_BADGE03_GET)
+        playfanfare(MUS_OBTAIN_BADGE)
+        msgbox(format("You just earned the Soul Emblem."))
+        waitfanfare
+        delay(20)
+        namebox("Dave")
+        msgbox(format("Take my number. Maybe we'll need each other in the future!"))
+        closemessage
+        hidenamebox
+        playfanfare(MUS_REGISTER_MATCH_CALL)
+        msgbox(format("You registered Scientist Dave."))
+        waitfanfare
+        closemessage
+        delay(20)
+        namebox("Dave")
+        msgbox(format("Now, if you'll excuse me."))
+        closemessage
+        hidenamebox
+        delay(20)
+        setflag(FLAG_REGISTERED_DAVE_POKENAV)
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_0) == 3) {
+            applymovement(1, moves(walk_fast_right walk_fast_down * 4))
+            waitmovement(0)
+            removeobject(1)
+            playse(SE_EXIT)
+            setflag(FLAG_DAVE_LEAVING)
+            setvar(VAR_MAIN_STORY, 22)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_0) == 4) {
+            applymovement(1, moves(walk_fast_down * 4))
+            waitmovement(0)
+            removeobject(1)
+            playse(SE_EXIT)
+            setflag(FLAG_DAVE_LEAVING)
+            setvar(VAR_MAIN_STORY, 22)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            release
+            end
+        }
+    }
+}

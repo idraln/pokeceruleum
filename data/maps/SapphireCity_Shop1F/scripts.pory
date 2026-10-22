@@ -1,0 +1,127 @@
+raw `
+SapphireCity_Shop1F_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Shop1F_Girl {
+    lock
+    faceplayer
+    msgbox(format("Do you know by any chance where the milk is?... You don't work here? Sorry."))
+    release
+    end
+}
+
+script SapphireCity_Shop1F_MusicMan {
+    lock
+    faceplayer
+    msgbox(format("Noooo! They removed my favorite brand of peanut butter from the shelves! This is a disaster!"))
+    release
+    end
+}
+
+script SapphireCity_Shop1F_Beauty {
+    lock
+    msgbox(format("Hmmm... Should I take it? Or that? Hmmm..."))
+    release
+    end
+}
+
+script SapphireCity_Shop1F_Nerd {
+    lock
+    faceplayer
+    msgbox(format("That's weird, I don't see any TCGs for sale here. Isn't this a supermarket?"))
+    release
+    end
+}
+
+script SapphireCity_Shop1F_FlowerLady {
+    lock
+    faceplayer
+    msgbox(format("They don't have any crushed dandelions left in Cruzeira, so I hoped they would have some here. But, no luck."))
+    release
+    end
+}
+
+script SapphireCity_Shop1F_AngryCustomer {
+    lock
+    msgbox(format("What do you mean I can't return this item? I still have the ticket, see?"))
+    msgbox(format("..."))
+    msgbox(format("Yeah I opened it, big deal! It doesn't prove that I had some!"))
+    release
+    end
+}
+
+script SapphireCity_Shop1F_Mart {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Sapphire City's supermarket! How can I help you today?"))
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    release
+    end
+}
+
+mart MartUntil1stBadge {
+    ITEM_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_BURN_HEAL
+    ITEM_POKE_BALL
+    ITEM_REPEL
+}
+
+mart MartUntil4thBadge {
+    ITEM_SUPER_POTION
+    ITEM_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_BURN_HEAL
+    ITEM_GREAT_BALL
+    ITEM_POKE_BALL
+    ITEM_SUPER_REPEL
+    ITEM_REPEL
+}
+
+mart MartUntil6thBadge {
+    ITEM_HYPER_POTION
+    ITEM_SUPER_POTION
+    ITEM_POTION
+    ITEM_FULL_HEAL
+    ITEM_ETHER
+    ITEM_ULTRA_BALL
+    ITEM_GREAT_BALL
+    ITEM_POKE_BALL
+    ITEM_MAX_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_REPEL
+}
+
+mart MartFinal {
+    ITEM_REVIVE
+    ITEM_FULL_RESTORE
+    ITEM_MAX_ETHER
+    ITEM_ETHER
+    ITEM_MAX_POTION
+    ITEM_HYPER_POTION
+    ITEM_SUPER_POTION
+    ITEM_POTION
+    ITEM_FULL_HEAL
+    ITEM_ULTRA_BALL
+    ITEM_GREAT_BALL
+    ITEM_POKE_BALL
+    ITEM_MAX_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_REPEL
+}

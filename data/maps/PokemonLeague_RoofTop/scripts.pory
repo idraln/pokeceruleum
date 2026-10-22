@@ -1,0 +1,346 @@
+raw `
+PokemonLeague_RoofTop_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_RoofTop_OnFrame
+	.byte 0
+
+PokemonLeague_RoofTop_OnFrame:
+    map_script_2 VAR_FIRST_CUTSCENE, 0, PokemonLeague_RoofTop_Arrival
+    .2byte 0
+`
+
+script PokemonLeague_RoofTop_Arrival {
+    lock
+    if(var(VAR_MAIN_STORY) == 57) {
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 3 walk_right))
+        waitmovement(0)
+        delay(20)
+        playbgm(MUS_ENCOUNTER_CHAMPION, TRUE)
+        namebox("K.A.M.")
+        msgbox(format("{PLAYER}! Remember when I said I wanted to be a Gym leader back in Hoenn? Well, I've been training hard to find Vikkie, and at some point I said to myself, heck it! Why not? Whay can't I achieve my dream? So I tried my luck at the Council Challenge, and here I am! And you're the last hurdle I have to overcome to complete that dream. Let's do it!"))
+        hidenamebox
+        closemessage
+        setflag(FLAG_TRAINERBATTLE)
+        trainerbattle_no_intro(TRAINER_KAM_FINAL, SamFinal1)
+        if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+            namebox("K.A.M.")
+            msgbox(format("I did it!"))
+            closemessage
+            hidenamebox
+            special(HealPlayerParty)
+            setvar(VAR_COUNCIL_TRIES, 1)
+            setvar(VAR_COUNCIL_FIGHT, 0)
+            setvar(VAR_COUNCIL_ICE, 0)
+            setvar(VAR_COUNCIL_FIRE, 0)
+            setvar(VAR_COUNCIL_ROCK, 0)
+            clearflag(FLAG_COUNCIL_ICE)
+            clearflag(FLAG_COUNCIL_ROCK)
+            clearflag(FLAG_COUNCIL_FIRE)
+            clearflag(FLAG_COUNCIL_FIGHT)
+            warpsilent(MAP_COUNCIL_HQ_LOBBY, 3, 11)
+            setvar(VAR_FIRST_CUTSCENE, 1)
+        }
+        else {
+            playbgm(MUS_VICTORY_GYM_LEADER, TRUE)
+            namebox("K.A.M.")
+            msgbox(format("{PLAYER}... Thank you. I know my worth, and it's thanks to you. I realised I could be much more than a bandit... I'm actually talented. I'm actually someone worth of recongition... Thank you. I'll leave you alone, for now. See ya!"))
+            closemessage
+            hidenamebox
+            applymovement(4, moves(walk_up * 3 walk_left * 4 face_up))
+            waitmovement(0)
+            opendoor(9, 5)
+            waitdooranim
+            applymovement(4, moves(walk_up))
+            waitmovement(0)
+            removeobject(4)
+            setflag(FLAG_KAM_LEAGUE)
+            playse(SE_EXIT)
+            delay(20)
+            closedoor(9, 5)
+            waitdooranim
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+            waitmovement(0)
+            delay(20)
+            completequest(QUEST_LAST_FIGHT)
+            delay(40)
+            setvar(VAR_MAIN_STORY, 58)
+            fadescreenspeed(FADE_TO_BLACK, 24)
+	        special(GameClear)
+        }
+    }
+    elif(var(VAR_MAIN_STORY) == 42) {
+        setvar(VAR_HALL_OF_FAME, 0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        waitmovement(0)
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 4 walk_right * 2 walk_down))
+        waitmovement(0)
+        delay(40)
+        msgbox(format("(...I did it. For you, Grandma. For you, Xatu. Even you, Ulrich...)"))
+        closemessage
+        delay(60)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 3))
+        waitmovement(0)
+        delay(40)
+        opendoor(9, 5)
+        waitdooranim
+        clearflag(FLAG_SAM_FINAL)
+        addobject(2)
+        applymovement(2, moves(walk_down))
+        waitmovement(0)
+        closedoor(9, 5)
+        waitdooranim
+        delay(40)
+        namebox("Sam")
+        msgbox(format("...Hey, {PLAYER}."))
+        closemessage
+        hidenamebox
+        delay(40)
+        applymovement(2, moves(walk_down walk_right * 2 walk_down))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Fancy seeing you here, eh? Who would've thought that we, that I would end up on top of the most prestigious building of all Thura?"))
+        closemessage
+        hidenamebox
+        delay(40)
+        applymovement(2, moves(walk_right walk_down face_left))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Guess what? I've also defeated each and every member of the Council! That means that we're both Presidents!"))
+        closemessage
+        hidenamebox
+        delay(40)
+        opendoor(9, 5)
+        waitdooranim
+        clearflag(FLAG_BERNARD_FINAL)
+        addobject(3)
+        applymovement(3, moves(walk_down))
+        waitmovement(0)
+        closedoor(9, 5)
+        waitdooranim
+        applymovement(3, moves(walk_down walk_right * 2 face_down))
+        waitmovement(0)
+        namebox("Bernard")
+        msgbox(format("Um, actually, no."))
+        closemessage
+        hidenamebox
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark face_up))
+        applymovement(2, moves(emote_exclamation_mark face_up))
+        waitmovement(0)
+        delay(40)
+        namebox("Bernard")
+        msgbox(format("Sorry to be a killjoy, but there can't be two Presidents. Believe me, we've tried and it doesn't work."))
+        closemessage
+        hidenamebox
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        applymovement(2, moves(face_left))
+        waitmovement(0)
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+        applymovement(2, moves(face_up))
+        waitmovement(0)
+        delay(40)
+        namebox("Bernard")
+        msgbox(format("That means that you'll have to fight in order to decide who'll become the sole President of Thura."))
+        closemessage
+        hidenamebox
+        delay(40)
+        playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        applymovement(2, moves(face_left))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("...{PLAYER}, I hope you're ready. This is an opportunity of a lifetime, and I'm not going to waste it. Let's do this!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+        applymovement(2, moves(walk_right face_left))
+        waitmovement(0)
+        setflag(FLAG_TRAINERBATTLE)
+        trainerbattle_no_intro(TRAINER_SAM_FINAL, SamFinal1)
+        if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+            namebox("Sam")
+            msgbox(format("It's okay, {PLAYER}. I'll wait for you here."))
+            closemessage
+            hidenamebox
+            special(HealPlayerParty)
+            setvar(VAR_COUNCIL_TRIES, 1)
+            setvar(VAR_COUNCIL_FIGHT, 0)
+            setvar(VAR_COUNCIL_ICE, 0)
+            setvar(VAR_COUNCIL_FIRE, 0)
+            setvar(VAR_COUNCIL_ROCK, 0)
+            clearflag(FLAG_COUNCIL_ICE)
+            clearflag(FLAG_COUNCIL_ROCK)
+            clearflag(FLAG_COUNCIL_FIRE)
+            clearflag(FLAG_COUNCIL_FIGHT)
+            warpsilent(MAP_COUNCIL_HQ_LOBBY, 3, 11)
+            setvar(VAR_FIRST_CUTSCENE, 1)
+        }
+        else {
+            playbgm(MUS_VICTORY_GYM_LEADER, TRUE)
+            applymovement(3, moves(walk_down * 2 face_left))
+            waitmovement(0)
+            namebox("Bernard")
+            msgbox(format("{PLAYER}, congratulations!! It's now official, you're the new President of Thura!"))
+            closemessage
+            hidenamebox
+            delay(20)
+            applymovement(3, moves(face_right))
+            waitmovement(0)
+            delay(20)
+            namebox("Bernard")
+            msgbox(format("Don't be sad, Sam. You've done great. You've got a long training career in front of you. And I might have something for you... Wait here."))
+            closemessage
+            hidenamebox
+            delay(20)
+            applymovement(3, moves(face_left))
+            waitmovement(0)
+            delay(20)
+            namebox("Bernard")
+            msgbox(format("{PLAYER}, follow me."))
+            closemessage
+            hidenamebox
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right walk_up * 2 walk_right * 3 face_up))
+            applymovement(3, moves(walk_up * 2 walk_right * 3 walk_up))
+            waitmovement(0)
+            opendoor(14, 5)
+            waitdooranim
+            applymovement(3, moves(walk_up))
+            waitmovement(0)
+            removeobject(3)
+            delay(20)
+            setflag(FLAG_BERNARD_FINAL)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 2))
+            waitmovement(0)
+            warp(MAP_COUNCIL_HQ_PRESIDENT, 7, 16)
+            setvar(VAR_FIRST_CUTSCENE, 1)
+        }  
+    }
+    elif(var(VAR_MAIN_STORY) == 0) {
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 3 face_right))
+        waitmovement(0)
+        special(SpawnCameraObject)
+        applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right * 2))
+        waitmovement(0)
+        delay(20)
+        opendoor(14, 5)
+        waitdooranim
+        clearflag(FLAG_PRESIDENT_START)
+        addobject(1)
+        applymovement(1, moves(walk_down))
+        waitmovement(0)
+        closedoor(14, 5)
+        waitdooranim
+        delay(20)
+        applymovement(1, moves(walk_down * 3 face_left))
+        waitmovement(0)
+        delay(20)
+        playbgm(MUS_ENCOUNTER_CHAMPION, TRUE)
+        namebox("Pres.")
+        msgbox(format("{PLAYER}, it is with great honour that I welcome you on top of the most prestigious place in Thura: the Pokémon League. I heard you defeated every single member of the Council... Very good. See, I followed your career with great interest, ever since you earned your first emblem. I never doubted that someday, we would meet. And that day has finally come! Now, let's begin. Let's see which one of us is the strongest trainer of Thura!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_fast_right))
+        applymovement(1, moves(walk_fast_left))
+        waitmovement(0)
+        delay(40)
+        fadeoutbgm(0)
+        //playfanfare(MUS_TOO_BAD)
+        namebox("???")
+        msgbox(format("Not so fast!!"))
+        closemessage
+        hidenamebox
+        playbgm(MUS_AQUA_MAGMA_HIDEOUT, TRUE)
+        delay(20)
+        applymovement(1, moves(face_up delay_16 face_down delay_16 emote_question_mark))
+        waitmovement(0)
+        delay(40)
+        namebox("Pres.")
+        msgbox(format("What was that?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("???")
+        msgbox(format("We've surronded the building. Resistance will be futile!"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(emote_question_mark))
+        waitmovement(0)
+        delay(40)
+        namebox("Pres.")
+        msgbox(format("Who are you? What is the meaning of all this?"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(face_left))
+        waitmovement(0)
+        delay(20)
+        namebox("Pres.")
+        msgbox(format("{PLAYER}, do you have something to do with this masquerade?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("???")
+        msgbox(format("Silence! You'll soon find out!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("???")
+        msgbox(format("Steelix, use Earthquake!"))
+        closemessage
+        hidenamebox
+        call(ScreenShake)
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark face_up delay_16 face_left delay_16 face_down))
+        applymovement(1, moves(emote_exclamation_mark face_right delay_16 face_up delay_16 face_left))
+        call(ScreenShake)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right delay_16 face_up delay_16 face_left))
+        applymovement(1, moves(face_up delay_16 face_left delay_16 face_down))
+        call(ScreenShake)
+        waitmovement(0)
+        special(RemoveCameraObject)
+        //fadescreen(FADE_TO_BLACK)
+        //delay(40)
+        warpsilent(MAP_DEEP_SEAS, 3, 4)
+        setvar(VAR_FIRST_CUTSCENE, 1)
+    }
+    else {
+        setvar(VAR_HALL_OF_FAME, 0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 3 walk_right * 2 face_down))
+        waitmovement(0)
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right * 3 walk_up * 3))
+        waitmovement(0)
+        delay(20)
+        opendoor(14, 5)
+        waitdooranim
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+        waitmovement(0)
+        setflag(FLAG_BERNARD_PRESIDENT)
+        warp(MAP_COUNCIL_HQ_PRESIDENT, 7, 16)
+        setvar(VAR_FIRST_CUTSCENE, 1)
+    }
+    release
+    end
+}
+
+script ScreenShake {
+    setvar(VAR_0x8004, 5)
+    setvar(VAR_0x8005, 10)
+    setvar(VAR_0x8006, 10)
+    setvar(VAR_0x8007, 5)
+    special(ShakeCamera)
+    waitstate
+}
+
+text SamFinal1 {
+    format("...Woah. What a fight! Bravo, {PLAYER}!! You truly deserve to be the President!")
+}

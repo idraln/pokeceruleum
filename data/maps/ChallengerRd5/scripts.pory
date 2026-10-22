@@ -1,0 +1,113 @@
+raw `
+ChallengerRd5_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, ChallengerRd5_OnLoad
+	.byte 0
+`
+
+script ChallengerRd5_OnLoad {
+    if(flag(FLAG_CHALL_SWITCH_1) && flag(FLAG_CHALL_SWITCH_2) && flag(FLAG_CHALL_SWITCH_3) && flag(FLAG_CHALL_SWITCH_4)) {
+        setmetatile(30, 5, METATILE_Cave_EntranceLeftDown, TRUE)
+        setmetatile(30, 4, METATILE_Cave_EntranceLeftUp, TRUE)
+        setmetatile(31, 5, METATILE_Cave_EntranceCenterDown, FALSE)
+        setmetatile(31, 4, METATILE_Cave_EntranceCenterUp, TRUE)
+        setmetatile(32, 5, METATILE_Cave_EntranceRightDown, TRUE)
+        setmetatile(32, 4, METATILE_Cave_EntranceRightUp, TRUE)
+        special(DrawWholeMapView)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_1, 27, 7)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_2, 31, 11)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_3, 35, 12)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_4, 29, 15)
+    }
+}
+
+script ChallengerRd5_Door {
+    lock
+    getobjectxy(LOCALID_CHALL_BOULDER_1, CURRENT_POSITION, VAR_TEMP_0, VAR_TEMP_1)
+    getobjectxy(LOCALID_CHALL_BOULDER_2, CURRENT_POSITION, VAR_TEMP_2, VAR_TEMP_3)
+    getobjectxy(LOCALID_CHALL_BOULDER_3, CURRENT_POSITION, VAR_TEMP_4, VAR_TEMP_5)
+    getobjectxy(LOCALID_CHALL_BOULDER_4, CURRENT_POSITION, VAR_TEMP_6, VAR_TEMP_7)
+    if(var(VAR_TEMP_0) == 27 && var(VAR_TEMP_1) == 7 || var(VAR_TEMP_0) == 31 && var(VAR_TEMP_1) == 11 || var(VAR_TEMP_0) == 35 && var(VAR_TEMP_1) == 12 || var(VAR_TEMP_0) == 29 && var(VAR_TEMP_1) == 15) {
+        setflag(FLAG_CHALL_SWITCH_1)
+    }
+    if(var(VAR_TEMP_2) == 27 && var(VAR_TEMP_3) == 7 || var(VAR_TEMP_2) == 31 && var(VAR_TEMP_3) == 11 || var(VAR_TEMP_2) == 35 && var(VAR_TEMP_3) == 12 || var(VAR_TEMP_2) == 29 && var(VAR_TEMP_3) == 15) {
+        setflag(FLAG_CHALL_SWITCH_2)
+    }
+    if(var(VAR_TEMP_4) == 27 && var(VAR_TEMP_5) == 7 || var(VAR_TEMP_4) == 31 && var(VAR_TEMP_5) == 11 || var(VAR_TEMP_4) == 35 && var(VAR_TEMP_5) == 12 || var(VAR_TEMP_4) == 29 && var(VAR_TEMP_5) == 15) {
+        setflag(FLAG_CHALL_SWITCH_3)
+    }
+    if(var(VAR_TEMP_6) == 27 && var(VAR_TEMP_7) == 7 || var(VAR_TEMP_6) == 31 && var(VAR_TEMP_7) == 11 || var(VAR_TEMP_6) == 35 && var(VAR_TEMP_7) == 12 || var(VAR_TEMP_6) == 29 && var(VAR_TEMP_7) == 15) {
+        setflag(FLAG_CHALL_SWITCH_4)
+    }
+    if(flag(FLAG_CHALL_SWITCH_1) && flag(FLAG_CHALL_SWITCH_2) && flag(FLAG_CHALL_SWITCH_3) && flag(FLAG_CHALL_SWITCH_4)) {
+        playse(SE_BREAKABLE_DOOR)
+        waitse
+        setmetatile(30, 5, METATILE_Cave_EntranceLeftDown, TRUE)
+        setmetatile(30, 4, METATILE_Cave_EntranceLeftUp, TRUE)
+        setmetatile(31, 5, METATILE_Cave_EntranceCenterDown, FALSE)
+        setmetatile(31, 4, METATILE_Cave_EntranceCenterUp, TRUE)
+        setmetatile(32, 5, METATILE_Cave_EntranceRightDown, TRUE)
+        setmetatile(32, 4, METATILE_Cave_EntranceRightUp, TRUE)
+        special(DrawWholeMapView)
+        msgbox(format("An opening has just appeared!"))
+        closemessage
+        setobjectxyperm(LOCALID_CHALL_BOULDER_1, 27, 7)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_2, 31, 11)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_3, 35, 12)
+        setobjectxyperm(LOCALID_CHALL_BOULDER_4, 29, 15)
+        setvar(VAR_CHALL_SWITCH_1, 1)
+    }
+    release
+    end
+}
+
+script ChallengerRd5_Nurse {
+    lock
+    faceplayer
+    msgbox(format("Hello there! You've made a lot of progress. Would you like me to heal your party?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Gotcha. Just relax..."))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("Here you go, fully healed!"))
+    }
+    else {
+        msgbox(format("Gotcha. Good luck!"))
+    }
+    release
+    end
+}
+
+script ChallengerRd5_Dominique {
+    trainerbattle_single(TRAINER_CHALL_6, Dominique1, Dominique2)
+    msgbox(format("I can't let a stupid puzzle refrain me from my dream! Come on Dom, think..."))
+    release
+    end
+}
+
+text Dominique1 {
+    format("I can't wrap my head around that puzzle, raaah!")
+}
+
+text Dominique2 {
+    format("What??")
+}
+
+script ChallengerRd5_Item {
+    lock
+    removeobject(7)
+    giveitem(ITEM_MAGMARIZER)
+    setflag(FLAG_ITEM_CHALL_4)
+    release
+    end
+}
+
+script ChallengerRd5_SignPost {
+    lockall
+    msgbox(format("You messed up the puzzle? Pushed the boulders a little too far? Go to the pond to your left, come back to the puzzle, and poof! The boulders will magically be back at their original place."))
+    releaseall
+    end
+}

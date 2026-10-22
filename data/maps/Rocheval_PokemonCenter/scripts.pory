@@ -1,0 +1,82 @@
+raw `
+Rocheval_PokemonCenter_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Rocheval_PokemonCenter_OnTransition
+	.byte 0
+`
+
+script Rocheval_PokemonCenter_OnTransition {
+    setrespawn(HEAL_LOCATION_ROCHEVAL)
+    end
+}
+
+script Rocheval_PC_Boy {
+    lock
+    faceplayer
+    msgbox(format("I just began playing this game, Pizza Tower. Man is it good! I love pizzas."))
+    release
+    end    
+}
+
+script Rocheval_PC_Old {
+    lock
+    faceplayer
+    msgbox(format("I settled in this town with my wife, something like 20 years ago. She's long gone now, so I stay here and try to chit-chat with the tourists."))
+    release
+    end
+}
+
+script Rocheval_PC_Nurse {
+    if(flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        faceplayer
+        setvar(VAR_0x8004, 0)
+        msgbox(format("Hey there, welcome to Rocheval's Pokémon Center! How's it going? Would you like to heal your party?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            incrementgamestat(GAME_STAT_USED_POKECENTER)
+            msgbox(format("Okay, let me take your Pokémons."))
+            hidefollower(0)
+            applymovement(1, PkmnCenter_NurseTurn)
+            waitmovement(0)
+            dofieldeffect(FLDEFF_POKECENTER_HEAL)
+            waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+            applymovement(1, PkmnCenter_NurseReTurn)
+            waitmovement(0)
+            special(HealPlayerParty)
+            msgbox(format("Here you go, your Pokémons are fully healed!"))
+            waitmessage
+            applymovement(1, PkmnCenter_NurseBow)
+            waitmovement(0)
+            msgbox(format("We hope to see you soon!"))
+            release
+            end
+        }
+        else {
+            msgbox(format("No worries! Come back soon!"))
+            release
+            end
+        }
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("Hi! Welcome to Rocheval's Pokémon Center. Do you want to heal your Pokémons? Well, you need some in the first place! Come back later. \nSee you!"))
+        release
+        end
+    }
+}
+
+movement PkmnCenter_NurseTurn {
+    walk_in_place_faster_left
+    step_end
+}
+
+movement PkmnCenter_NurseReTurn {
+    walk_in_place_faster_down
+    step_end
+}
+
+movement PkmnCenter_NurseBow {
+    nurse_joy_bow
+    delay_4
+    step_end
+}

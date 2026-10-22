@@ -1,0 +1,27 @@
+raw `
+Passwacan_House2_MapScripts::
+	.byte 0
+`
+
+script Passwacan_House2_Woman {
+    lock
+    faceplayer
+    msgbox(format("Since he was born, he hasn't stopped laughing. What could possibly be wrong with him?"))
+    release
+    end
+}
+
+script Passwacan_House2_Kid {
+    lock
+    faceplayer
+    checkitem(ITEM_TM05)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Hahahaha! Haha!"))
+    }
+    else {
+        msgbox(format("Haha! Hahaha! Check this out!"))
+        giveitem(ITEM_TM05)
+    }
+    release
+    end    
+}

@@ -1,0 +1,354 @@
+raw `
+Frux_Gym_MapScripts::
+	.byte 0
+`
+
+script Frux_Gym_Bruce {
+    if(var(VAR_MAIN_STORY) > 45) {
+        lock
+        faceplayer
+        namebox("Bruce")
+        msgbox(format("{PLAYER}! What a pleasure to see you. Wanna practice? I'm in a fighting mood!"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            namebox("Bruce")
+            msgbox(format("Haha, I knew it! Bring it on!"))
+            hidenamebox
+            closemessage
+            trainerbattle_no_intro(TRAINER_BRUCE_REMATCH, BruceRematch)
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("Yes! That's what I'm talking about! Thanks, {PLAYER}. Every time I see you, it's like I'm reliving my youth! Here, let me heal your party."))
+            hidenamebox
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            playfanfare(MUS_HEAL)
+            special(HealPlayerParty)
+            waitfanfare
+            fadescreen(FADE_FROM_BLACK)
+            namebox("Bruce")
+            msgbox(format("Until next time!"))
+            hidenamebox
+            closemessage
+            turnobject(1, DIR_NORTH)
+            cleartrainerflag(TRAINER_BRUCE_REMATCH)
+            release
+            end
+        }
+        else {
+            namebox("Bruce")
+            msgbox(format("Oh, you just wanted to say hi! Well, hello {PLAYER}! Hahaha."))
+            hidenamebox
+            closemessage
+            turnobject(1, DIR_NORTH)
+            release
+            end
+        }
+    }
+    elif(flag(FLAG_FRUX_GYM_QUESTION_1) && flag(FLAG_FRUX_GYM_QUESTION_2) && flag(FLAG_FRUX_GYM_QUESTION_3) && var(VAR_MAIN_STORY) == 25) {
+        lock
+        faceplayer
+        namebox("Bruce")
+        msgbox(format("Ah, you're back! I hope the guys didn't cause you too much trouble. Now, it's time for your final test! Bring it on!"))
+        hidenamebox
+        closemessage
+        trainerbattle_no_intro(TRAINER_BRUCE, Bruce1)
+        namebox("Bruce")
+        msgbox(format("Haha, great job! That was hard as steel! You fully deserve that big, shiny emblem. Here you go-"))
+        closemessage
+        hidenamebox
+        playse(SE_POKENAV_CALL)
+        waitse
+        delay(20)
+        namebox("Bruce")
+        msgbox(format("Oops, if you'll excuse me. I have to take this call."))
+        closemessage
+        hidenamebox
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_1) == 7) {
+            applymovement(1, moves(walk_left))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("Oi oi, what's up?"))
+            closemessage
+            hidenamebox
+            delay(40)
+            applymovement(1, moves(jump_in_place_right))
+            waitmovement(0)
+            delay(40)
+            namebox("Bruce")
+            msgbox(format("WHAT?? I'm coming right now, don't move a muscle!"))
+            closemessage
+            hidenamebox
+            delay(40)
+            applymovement(1, moves(walk_fast_right face_down))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("Something terrible happened in the Ironair. You're a strong trainer, so meet me there. It's the big volcano behind Frux. Quick!"))
+            closemessage
+            hidenamebox
+            applymovement(1, moves(walk_fast_right walk_fast_down * 7))
+            waitmovement(0)
+            removeobject(1)
+            setflag(FLAG_BRUCE_LEFT_GYM)
+            clearflag(FLAG_BEFORE_ATTACK)
+            clearflag(FLAG_BRUCE_IRONAIR)
+            setflag(FLAG_AFTER_ATTACK_NO_BRUCE)
+            setvar(VAR_MAIN_STORY, 26)
+            release
+            end
+        }
+        else {
+            applymovement(1, moves(walk_down))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("Oi oi, what's up?"))
+            closemessage
+            hidenamebox
+            delay(40)
+            applymovement(1, moves(jump_in_place_down))
+            waitmovement(0)
+            delay(40)
+            namebox("Bruce")
+            msgbox(format("WHAT?? I'm coming right now, don't move a muscle!"))
+            closemessage
+            hidenamebox
+            delay(40)
+            applymovement(1, moves(walk_fast_up face_player))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("Something terrible happened in the Ironair. You're a strong trainer, so meet me there. It's the big volcano behind Frux. Quick!"))
+            closemessage
+            hidenamebox
+            applymovement(1, moves(walk_fast_down * 7))
+            waitmovement(0)
+            removeobject(1)
+            setflag(FLAG_BRUCE_LEFT_GYM)
+            clearflag(FLAG_BEFORE_ATTACK)
+            clearflag(FLAG_BRUCE_IRONAIR)
+            setflag(FLAG_AFTER_ATTACK_NO_BRUCE)
+            setvar(VAR_MAIN_STORY, 26)
+            release
+            end
+        }
+    }
+    elif(var(VAR_MAIN_STORY) == 25) {
+        lock
+        faceplayer
+        namebox("Bruce")
+        msgbox(format("So, have you talked to all my employees yet?"))
+        hidenamebox
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        namebox("Bruce")
+        msgbox(format("...Hmm? What's that?"))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Bruce")
+        msgbox(format("{PLAYER}! Yes! I'm so glad to see that you're alive! I've heard of what happened to you, are you OK?"))
+        hidenamebox
+        msgbox("...")
+        namebox("Bruce")
+        msgbox(format("...You're here for the challenge? Woah, well, uh, you know the rules: go see my employees and come back once you've talked to all of them. I hope you're well prepared, because they're some of my best guys!"))
+        hidenamebox
+        turnobject(1, DIR_NORTH)
+        setvar(VAR_MAIN_STORY, 25)
+        release
+        end 
+    }
+}
+
+text Bruce1 {
+    format("Now that's what I call a fight!")
+}
+
+text BruceRematch {
+    format("Impressive, as always!")    
+}
+
+script Frux_Gym_Clarence {
+    if(flag(FLAG_FRUX_GYM_QUESTION_1) || var(VAR_MAIN_STORY) == 24) {
+        lock
+        faceplayer
+        msgbox(format("...So hungry...\n...Ugh..."))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("...I'm hungry. Can you make me a sandwich?"))
+        multichoice(0, 0, MULTI_NO, TRUE)
+        switch(var(VAR_RESULT)) {
+            case 0:
+                msgbox(format("...Hmmm. Wrong answer."))
+                closemessage
+                trainerbattle_no_intro(TRAINER_FRUX_GYM_1, Clarence1)
+                msgbox(format("Ok. I'll tell Bruce that you didn't want to make me sandwich."))
+                setflag(FLAG_FRUX_GYM_QUESTION_1)
+                release
+                end
+            case 1:
+                msgbox(format("...Hmmm. Wrong answer."))
+                closemessage
+                trainerbattle_no_intro(TRAINER_FRUX_GYM_1, Clarence1)
+                msgbox(format("Ok. I'll tell Bruce that you didn't want to make me sandwich."))
+                setflag(FLAG_FRUX_GYM_QUESTION_1)
+                release
+                end
+        }
+    }
+}
+
+text Clarence1 {
+    format("Hmmm... So no sandwich?")
+}
+
+script Frux_Gym_Gisele {
+    if(flag(FLAG_FRUX_GYM_QUESTION_2) || var(VAR_MAIN_STORY) == 24) {
+        lock
+        faceplayer
+        msgbox(format("Beware! If you stay too long in front of the ovens, you might get burned!"))
+        turnobject(3, DIR_NORTH)
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("Oi oi, welcome new challenger!"))
+        closemessage
+        delay(20)
+        turnobject(3, DIR_NORTH)
+        delay(20)
+        msgbox(format("Those are special ovens, and we use'em to melt the iron that we mined in the Ironair. As you can feel, they are extra hot!"))
+        closemessage
+        delay(20)
+        applymovement(3, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("But, how hot do they need to be?"))
+        multichoice(0, 0, MULTI_IRONMELT, TRUE)
+        switch(var(VAR_RESULT)) {
+            case 0:
+                msgbox(format("Nuh-uh! That's 2800 degF. You'll have to fight me!"))
+                closemessage
+                trainerbattle_no_intro(TRAINER_FRUX_GYM_2, Gisele1)
+                msgbox(format("Haha, thanks for that great fight! I'll tell Bruce. You can go now!"))
+                setflag(FLAG_FRUX_GYM_QUESTION_2)
+                release
+                end
+            case 1:
+                msgbox(format("Ding ding! That's right answer! Good job! I'll tell Bruce. You can go now!"))
+                setflag(FLAG_FRUX_GYM_QUESTION_2)
+                release
+                end
+            case 2:
+                msgbox(format("Nuh-uh! That's 2800 degF. You'll have to fight me!"))
+                closemessage
+                trainerbattle_no_intro(TRAINER_FRUX_GYM_2, Gisele1)
+                msgbox(format("Haha, thanks for that great fight! I'll tell Bruce. You can go now!"))
+                setflag(FLAG_FRUX_GYM_QUESTION_2)
+                release
+                end
+        }
+    }
+}
+
+text Gisele1 {
+    format("Scorching hot!")
+}
+
+script Frux_Gym_Peter {
+    if(flag(FLAG_FRUX_GYM_QUESTION_3) || var(VAR_MAIN_STORY) == 24) {
+        lock
+        msgbox(format("...Zzzzz...."))
+        release
+        end
+    }
+    else {
+        lock
+        msgbox(format("...Zzzzz...."))
+        closemessage
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+        delay(20)
+        playse(SE_PIN)
+        applymovement(2, moves(face_left emote_exclamation_mark))
+        waitmovement(0)
+        delay(40)
+        msgbox(format("AH! Where am I?"))
+        closemessage
+        delay(40)
+        msgbox(format("Ah yeah, right, the, uh, challenge. Uh, the question, let me think..."))
+        closemessage
+        applymovement(2, moves(face_right))
+        waitmovement(0)
+        delay(60)
+        applymovement(2, moves(face_left))
+        waitmovement(0)
+        msgbox(format("Ok, I got it: what's the formula for the specific, rusty looking type of iron oxide that we can find in and around the Ironair?"))
+        multichoice(0, 0, MULTI_FORMULA, TRUE)
+        switch(var(VAR_RESULT)) {
+            case 0:
+                msgbox(format("Uh..."))
+                closemessage
+                applymovement(2, moves(face_right))
+                waitmovement(0)
+                delay(40)
+                applymovement(2, moves(face_left))
+                waitmovement(0)
+                msgbox(format("Nope! Wrong answer! You have to face me now, unfortunately."))
+                trainerbattle_no_intro(TRAINER_FRUX_GYM_3, Peter1)
+                msgbox(format("Cool, I'll tell Bruce. Let me sleep now."))
+                closemessage
+                turnobject(2, DIR_EAST)
+                setflag(FLAG_FRUX_GYM_QUESTION_3)
+                release
+                end
+            case 1:
+                msgbox(format("Uh..."))
+                closemessage
+                applymovement(2, moves(face_right))
+                waitmovement(0)
+                delay(40)
+                applymovement(2, moves(face_left))
+                waitmovement(0)
+                msgbox(format("Yep, that's right! I'll tell Bruce. Let me sleep now."))
+                turnobject(2, DIR_EAST)
+                setflag(FLAG_FRUX_GYM_QUESTION_3)
+                release
+                end
+            case 2:
+                msgbox(format("Uh..."))
+                closemessage
+                applymovement(2, moves(face_right))
+                waitmovement(0)
+                delay(40)
+                applymovement(2, moves(face_left))
+                waitmovement(0)
+                msgbox(format("Nope! Wrong answer! You have to face me now, unfortunately."))
+                trainerbattle_no_intro(TRAINER_FRUX_GYM_3, Peter1)
+                msgbox(format("Cool, I'll tell Bruce. Let me sleep now."))
+                closemessage
+                turnobject(2, DIR_EAST)
+                setflag(FLAG_FRUX_GYM_QUESTION_3)
+                release
+                end
+        }
+    }
+}
+
+text Peter1 {
+    format("Hmmm... Too tired...")
+}

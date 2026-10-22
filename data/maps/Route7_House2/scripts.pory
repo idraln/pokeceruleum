@@ -1,0 +1,13 @@
+raw `
+Route7_House2_MapScripts::
+	.byte 0
+`
+
+script Route7_House2_Item {
+    lock
+    removeobject(1)
+    setflag(FLAG_ITEM_GUARD)
+    giveitem(ITEM_TEA)
+    release
+    end
+}

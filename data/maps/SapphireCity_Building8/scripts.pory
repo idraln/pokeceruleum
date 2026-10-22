@@ -1,0 +1,69 @@
+raw `
+SapphireCity_Building8_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building8_Cash {
+    lock
+    faceplayer
+    msgbox(format("What? Stop bothering me, I'm on my lunch break, I have 15 minutes left!"))
+    msgbox(format("..."))
+    msgbox(format("What do you mean, customer service? Are you serious? I'll show you customer service."))
+    trainerbattle_no_intro(TRAINER_SAPPHIRE_CASHIER, SCB8_Cash)
+    msgbox(format("Thank you very much for that, asshole! Now my break is over, and I didn't even finish my sandwich. Try and come to the supermarket and see what happens."))
+    closemessage
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    getobjectxy(2, CURRENT_POSITION, VAR_TEMP_2, VAR_TEMP_3)
+    compare(VAR_TEMP_1, VAR_TEMP_3)
+    goto_if_lt(SapphireCity_Building8_Cash_mvmtSud)
+    goto_if_eq(SapphireCity_Building8_Cash_mvmtSud)
+    goto_if_gt(SapphireCity_Building8_Cash_mvmtNord)
+}
+
+script SapphireCity_Building8_Cash_mvmtSud {
+    applymovement(2, SCB8_Cash_Sud)
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(2)
+    setflag(FLAG_SAPPHIRE_CASHIER)
+    release
+    end
+}
+
+script SapphireCity_Building8_Cash_mvmtNord {
+    applymovement(2, SCB8_Cash_Nord)
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(2)
+    setflag(FLAG_SAPPHIRE_CASHIER)
+    release
+    end
+}
+
+script SapphireCity_Building8_Psychic {
+    lock
+    faceplayer
+    msgbox(format("Don't say a word. I knew you were coming."))
+    msgbox(format("..."))
+    msgbox(format("...Yeah, I'm messing with you. I just heard footsteps outside, and I was a bit curious."))
+    release
+    end
+}
+
+movement SCB8_Cash_Sud {
+    walk_fast_down * 2
+    walk_fast_left * 3
+    walk_fast_up
+    walk_fast_left * 2
+}
+
+movement SCB8_Cash_Nord {
+    walk_fast_up
+    walk_fast_left * 3
+    walk_fast_down
+    walk_fast_left * 2
+}
+
+text SCB8_Cash {
+    format("Oh, great.")
+}

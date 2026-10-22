@@ -1,0 +1,116 @@
+raw `
+Rocheval_TownHall_Heliport_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rocheval_TownHall_Heliport_OnFrame
+	.byte 0
+
+Rocheval_TownHall_Heliport_OnFrame:
+    map_script_2 VAR_TEMP_0, 0, Rocheval_TownHall_Heliport_Arrival
+    .2byte 0
+`
+
+script Rocheval_TownHall_Heliport_Arrival {
+    lock
+    namebox("Sam")
+    msgbox(format("Look! The helicopter is already here! Come!"))
+    closemessage
+    hidenamebox
+    applymovement(3, RTHHSam)
+    applymovement(OBJ_EVENT_ID_PLAYER, RTHHPlayer)
+    waitmovement(0)
+    msgbox(format("..."))
+    closemessage
+    delay(20)
+    namebox("Sam")
+    msgbox(format("Oh wow. Now that we're in front of the beast, I'm not sure I want to get in..."))
+    closemessage
+    hidenamebox
+    applymovement(3, RTHHSam2)
+    waitmovement(0)
+    delay(20)
+    namebox("Sam")
+    msgbox(format("...Come on Sam. You're a grown adult now. Remember what the video said: never give up. Get it together."))
+    closemessage
+    hidenamebox
+    applymovement(3, RTHHSam3)
+    waitmovement(0)
+    delay(20)
+    namebox("Sam")
+    msgbox(format("Ok, let's do this. Quick, because I'm on the verge of passing out."))
+    closemessage
+    hidenamebox
+    applymovement(3, RTHHSam3)
+    applymovement(OBJ_EVENT_ID_PLAYER, RTHHSam3)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+    fwdtime(22, 00)
+    setvar(VAR_0x8004, 37)
+	setvar(VAR_0x8005, 7)
+	special(TeleportCamera)
+    delay(40)
+	fadescreenspeed(FADE_FROM_BLACK, 2)
+    playbgm(MUS_FALLARBOR, TRUE)
+    applymovement(4, moves(walk_fast_left * 10))
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("Hey, this isn't too bad! Look, the trees look so tiny!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Sam")
+    msgbox(format("So, I haven't asked you yet, what do you think happened to your Pokémons?"))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("Sam")
+    msgbox(format("Your... Pokémon? By Pokémon, you mean, one Pokémon? You managed to battle your way through every Council Member with ONE Pokémon? Wow! What was it?"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("Xatu? Never heard of it! Must be a mythical creature from another region."))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("It's not even a legendary? Man, I need to learn more about Pokémons."))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("Anyways, don't worry, I'm sure your Xatu is waiting for you somewhere. You must have huge bonds, there's no way it just flew away!"))
+    hidenamebox
+    closemessage
+    delay(40)
+    namebox("Sam")
+    msgbox(format("Well, let's hope for the best, shall we?"))
+    hidenamebox
+    closemessage
+    applymovement(4, moves(walk_fast_left * 11))
+    waitmovement(0)
+    delay(20)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+    delay(20)
+    namebox("Pilot")
+    msgbox(format("There it is lads, welcome to Sapphire City! I hope you both had a great flight with me. See ya soon, I hope!"))
+    hidenamebox
+    closemessage
+    setvar(VAR_TEMP_0, 1)
+    warpsilent(MAP_SAPPHIRE_CITY_AIRPORT, 3, 9)
+    releaseall
+    end
+}
+
+movement RTHHSam {
+    walk_left * 5
+    face_up
+}
+
+movement RTHHSam2 {
+    walk_down
+}
+
+movement RTHHSam3 {
+    walk_up
+}
+
+movement RTHHPlayer {
+    walk_down
+    walk_left * 4
+    face_up
+}

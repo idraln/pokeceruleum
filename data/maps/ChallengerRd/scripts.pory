@@ -1,0 +1,182 @@
+raw `
+ChallengerRd_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, ChallengerRd_OnFrame
+	.byte 0
+
+ChallengerRd_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 41, ChallengerRd_Welcome
+    .2byte 0
+`
+
+script ChallengerRd_Welcome {
+    lock
+    namebox("Bernard")
+    msgbox(format("{PLAYER}, welcome once again to Challenger Road! The ultimate test before facing the Council, and the Pres- oh..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_SOUTH)
+    delay(40)
+    turnobject(1, DIR_NORTH)
+    delay(20)
+    namebox("Bernard")
+    msgbox(format("...Sorry about that. Force of habit. I'm still getting emotional... Anyway, you know the drill."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_WEST)
+    delay(20)
+    namebox("Bernard")
+    msgbox(format("On your right, a seemingly quiet path towards your goal. Nothing but trainers, and a short hike. Challenging, but not too much."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_EAST)
+    delay(20)
+    namebox("Bernard")
+    msgbox(format("And on your left, a scorching hot path! You'll need patience and a lot of water!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_NORTH)
+    delay(20)
+    namebox("Bernard")
+    msgbox(format("Either way you choose, I'm certain you'll achieve your goal. Now go! And make me proud."))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+    applymovement(1, moves(walk_up * 2))
+    waitmovement(0)
+    removeobject(1)
+    playse(SE_EXIT)
+    setflag(FLAG_BERNARD_CHALL)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_CHALL_SWITCH_1, 0)
+    setvar(VAR_MAIN_STORY, 42)
+    release
+    end
+}
+
+script ChallengerRd_Gregory {
+    trainerbattle_single(TRAINER_CHALL_1, Gregory1, Gregory2)
+    msgbox(format("I still can't decide which way to choose! The battle didn't help me!"))
+    closemessage
+    end
+}
+
+text Gregory1 {
+    format("Which way to choose? Help me!")
+}
+
+text Gregory2 {
+    format("Aaah, I don't know!")
+}
+
+/////////////
+
+script ChallengerRd_Hubert {
+    trainerbattle_single(TRAINER_CHALL_2, Hubert1, Hubert2)
+    msgbox(format("No, I'm not here to complete the challenge. I don't even have the badges required to be here! But don't tell anyone."))
+    closemessage
+    end
+}
+
+text Hubert1 {
+    format("Look at those galleries! Do you think a bunch of Excadrills digged'em?")
+}
+
+text Hubert2 {
+    format("That may be the answer!")
+}
+
+/////////////
+
+script ChallengerRd_Maisie {
+    trainerbattle_single(TRAINER_CHALL_3, Maisie1, Maisie2)
+    msgbox(format("I don't know how to swim, and I don't trust my Pokémon. It's too unpredictable. My dream ends right here, I guess..."))
+    closemessage
+    end
+}
+
+text Maisie1 {
+    format("Water? In a cave! Ugh! Let's fight!")
+}
+
+text Maisie2 {
+    format("This is going from bad to worse...")
+}
+
+/////////////
+
+script ChallengerRd_Tamara {
+    trainerbattle_single(TRAINER_CHALL_4, Tamara1, Tamara2)
+    msgbox(format("Practice is what makes you strong! Look at you!"))
+    closemessage
+    end
+}
+
+text Tamara1 {
+    format("Come and play with me! The water's just fine!")
+}
+
+text Tamara2 {
+    format("Oh, you're already done playing?")
+}
+
+/////////////
+
+script ChallengerRd_Claudie {
+    trainerbattle_single(TRAINER_CHALL_5, Claudie1, Claudie2)
+    msgbox(format("Sometimes, you need to sit down and reflect on what you've done to end up where you are."))
+    closemessage
+    end
+}
+
+text Claudie1 {
+    format("Being up here makes me emotional. Join me in my self-introspection.")
+}
+
+text Claudie2 {
+    format("I see what you've been through...")
+}
+
+/////////////
+
+script ChallengerRd_Nurse {
+    lock
+    faceplayer
+    msgbox(format("Hello there! Would you like me to heal your party?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Gotcha. Just relax..."))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("Here you go, fully healed!"))
+    }
+    else {
+        msgbox(format("Gotcha. Good luck!"))
+    }
+    release
+    end
+}
+
+script ChallengerRd_Item {
+    lock
+    removeobject(8)
+    giveitem(ITEM_FOCUS_SASH)
+    setflag(FLAG_ITEM_CHALL_1)
+    release
+    end
+}
+
+script ChallengerRd_Item2 {
+    lock
+    removeobject(9)
+    giveitem(ITEM_TM25)
+    setflag(FLAG_ITEM_CHALL_2)
+    release
+    end
+}

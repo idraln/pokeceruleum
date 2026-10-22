@@ -1,0 +1,11 @@
+raw `
+Glorray_House2_MapScripts::
+	.byte 0
+`
+
+script Glorray_House2_Letter {
+    lockall
+    msgbox(format("'{PLAYER}, if you read this letter, it might be too late. Ulrich ultimately came back, but he didn't behave, as I hoped. Instead, he and his Steelix wreaked havoc and destroyed our village and everything around it. I'm the last person standing, and I don't have much energy to keep on going. I'm so proud of you, and what you've achieved. Please, take care of yourself and be extremely cautious. Ulrich might come to find you. I don't want him to hurt you.' - Grandma Aisha"))
+    releaseall
+    end  
+}

@@ -1,0 +1,57 @@
+raw `
+LittoralRd_MapScripts::
+	.byte 0
+`
+
+script LittoralRd_Scout1 {
+    lock
+    faceplayer
+    msgbox(format("The sea breeze makes this road the perfect place for delicious mushrooms to grow huge! We're collecting some with my girl. If you happen to find one that is ultra big, please show it to me!"))
+    release
+    end
+}
+
+script LittoralRd_Scout2 {
+    lock
+    faceplayer
+    msgbox(format("Ugh... I hate mushrooms. My boyfriend is passionate about them... Maybe a bit too much. We could camp on some of the most beautiful spots of Thura, but instead he insists that we come here every day to forage for mushrooms..."))
+    release
+    end
+}
+
+script LittoralRd_Silke {
+    trainerbattle_single(TRAINER_LITTORAL_1, Silke1, Silke2)
+    msgbox(format("Have you ever tried your luck at the Triathlon? It's truly something to experience once in you life!"))
+    closemessage
+    end
+}
+
+script LittoralRd_Cory {
+    trainerbattle_single(TRAINER_LITTORAL_2, Cory1, Cory2)
+    msgbox(format("We're almost ready to dominate this Triathlon we've been training for!"))
+    closemessage
+    end
+}
+
+script LittoralRd_Sign {
+    lockall
+    msgbox(format("{UP_ARROW} Pastoral Rd.\n{DOWN_ARROW} Cali"))
+    releaseall
+    end
+}
+
+text Silke1 {
+    format("Seven days until our biggest competition! Join us in our training!")
+}
+
+text Silke2 {
+    format("Yes, that's what I'm talking about!")
+}
+
+text Cory1 {
+    format("You'll do for the perfect recovery after a hefty session!")
+}
+
+text Cory2 {
+    format("Oh yeah. Time to stretch now!")
+}

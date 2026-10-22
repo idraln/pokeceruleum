@@ -240,6 +240,7 @@ void EvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u
 
     InitBattleBgsVideo();
     LoadBattleTextboxAndBackground();
+    FillPalette(RGB_BLACK, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
     ResetSpriteData();
     ScanlineEffect_Stop();
     ResetTasks();
@@ -346,6 +347,7 @@ static void CB2_EvolutionSceneLoadGraphics(void)
 
     InitBattleBgsVideo();
     LoadBattleTextboxAndBackground();
+    FillPalette(RGB_BLACK, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
     ResetSpriteData();
     FreeAllSpritePalettes();
     gReservedSpritePaletteCount = 4;

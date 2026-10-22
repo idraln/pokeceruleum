@@ -1,0 +1,11 @@
+raw `
+Route7_House1_MapScripts::
+	.byte 0
+`
+
+script Route7_House1_Old {
+    lock
+    msgbox(format("Hmmm, is that a fork? Where is my knife? Hmmm..."))
+    release
+    end
+}

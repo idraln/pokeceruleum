@@ -1,0 +1,41 @@
+raw `
+JangalaRd_Retreat_MapScripts::
+	.byte 0
+`
+
+script JangalaRd_Retreat_Owner {
+    lock
+    faceplayer
+    msgbox(format("Hello, dear. Welcome in. Do you want me to rest your weary Pokémons?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Very well, then."))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("Don't hesitate."))
+    }
+    else {
+        msgbox(format("It's okay. If you change your mind, come see me again."))
+    }
+    release
+    end
+}
+
+script JangalaRd_Retreat_Lass {
+    lock
+    faceplayer
+    msgbox(format("Wow! Beautiful road, but how the hell is it that hot and humid? Do you think it's because of the volcano in the north?"))
+    release
+    end
+}
+
+script JangalaRd_Retreat_Hiker {
+    lock
+    faceplayer
+    msgbox(format("Thank you, centuries of progress and inventions, for bringing us air conditioning. I couldn't imagine living here a hundred years ago."))
+    release
+    end
+}

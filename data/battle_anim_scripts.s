@@ -30395,6 +30395,9 @@ gBattleAnimMove_SecretPower::
 	jumpargeq 0, BATTLE_ENVIRONMENT_DISTORTION_WORLD, gBattleAnimMove_Pound
 	jumpargeq 0, BATTLE_ENVIRONMENT_SPACE,          gBattleAnimMove_Swift
 	jumpargeq 0, BATTLE_ENVIRONMENT_ULTRA_SPACE,    gBattleAnimMove_Psywave
+	jumpargeq 0, BATTLE_ENVIRONMENT_VINE,           gBattleAnimMove_VineWhip
+	jumpargeq 0, BATTLE_ENVIRONMENT_BOIS,           gBattleAnimMove_DazzlingGleam
+	jumpargeq 0, BATTLE_ENVIRONMENT_RETRO,          gBattleAnimMove_Tackle
 .if B_SECRET_POWER_ANIMATION >= GEN_7
 	jumpargeq 0, BATTLE_ENVIRONMENT_SNOW,           gBattleAnimMove_IceShard
 	jumpargeq 0, BATTLE_ENVIRONMENT_BUILDING,       gBattleAnimMove_SpitUp

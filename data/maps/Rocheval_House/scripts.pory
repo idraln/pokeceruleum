@@ -1,0 +1,12 @@
+raw `
+Rocheval_House_MapScripts::
+	.byte 0
+`
+
+script Rocheval_House_Old {
+    lock
+    faceplayer
+    msgbox(format("Isn't this town ever so charming? The tourists are a bit annoying, but it brings a little bit of life here."))
+    release
+    end
+}

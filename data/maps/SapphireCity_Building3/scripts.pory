@@ -1,0 +1,60 @@
+raw `
+SapphireCity_Building3_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building3_Girl {
+    lock
+    msgbox(format("..."))
+    msgbox(format("..."))
+    msgbox(format("...What do you mean you won't go? You know how much it's important to me! UGH!"))
+    msgbox(format("..."))
+    faceplayer
+    msgbox(format("Uh, excuse me? Can I help you? Don't you know it's very impolite to listen to other people's conversations on the telephone?"))
+    release
+    end
+}
+
+script SapphireCity_Building3_Dishes {
+    lock
+    msgbox(format("Always me. Always John, on dish duty. In the restaurant, and now at home. Why?"))
+    release
+    end
+}
+
+script SapphireCity_Building3_Drowsy {
+    lock
+    if(flag(FLAG_DROWSY_SAPPHIRE)) {
+        msgbox(format("...uuuuh...\n...sleep..."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Bed... Not now... But sleep... Bed..."))
+        faceplayer
+        applymovement(2, SCB3_Drowsy)
+        waitmovement(0)
+        delay(10)
+        msgbox(format("AH!! For Arceus' sake, you scared me so bad! You'll pay for that!"))
+        trainerbattle_no_intro(TRAINER_SAPPHIRE_DROWSY, SCB3_Drowsy_Defeat)
+        setflag(FLAG_DROWSY_SAPPHIRE)
+        release
+        end
+    }
+}
+
+script SapphireCity_Building3_Beauty {
+    lock
+    faceplayer
+    msgbox(format("Howdy! I feel great today. I don't know why, but I feel great. Someone entering my home without my permission isn't even bothering me!... Yes, I'm talking about you."))
+    release
+    end
+}
+
+movement SCB3_Drowsy {
+    emote_double_exclamation_mark
+}
+
+text SCB3_Drowsy_Defeat {
+    format("...mbllost?....mmmh...")
+}

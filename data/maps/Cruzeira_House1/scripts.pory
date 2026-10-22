@@ -1,0 +1,22 @@
+raw `
+Cruzeira_House1_MapScripts::
+	.byte 0
+`
+
+script Cruzeira_House1_Boy {
+    lock
+    faceplayer
+    msgbox(format("See the girl by the TV? It's fascinating. We get to live in a town like Cruzeira, there are plenty of things to do, and all she does is watch the damn TV."))
+    release
+    end
+}
+
+script Cruzeira_House1_Girl {
+    lock
+    msgbox(format("...mhm... HAHA!!"))
+    faceplayer
+    msgbox(format("...What? He told you what? I don't care. My TV is my one and only friend."))
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}

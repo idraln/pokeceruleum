@@ -1,0 +1,49 @@
+raw `
+Bammobo_PC_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Bammobo_PC_OnTransition
+    .byte 0
+`
+
+script Bammobo_PC_OnTransition {
+    setrespawn(HEAL_LOCATION_BAMMOBO)
+    end
+}
+
+script Bammobo_PC_Nurse {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	msgbox(format("Hello dear, and welcome to Bammobo's Pokémon Center. Would you like me to heal your party?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        msgbox(format("Okay, let me take your Pokémons."))
+        hidefollower(0)
+        applymovement(1, PkmnCenter_NurseTurn)
+        waitmovement(0)
+        dofieldeffect(FLDEFF_POKECENTER_HEAL)
+        waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+        applymovement(1, PkmnCenter_NurseReTurn)
+        waitmovement(0)
+        special(HealPlayerParty)
+        msgbox(format("Here you go, your Pokémons are fully healed."))
+        waitmessage
+        applymovement(1, PkmnCenter_NurseBow)
+        waitmovement(0)
+        msgbox(format("We hope to see you soon."))
+        release
+        end
+    }
+    else {
+        msgbox(format("Do not hesitate. see you soon, I hope."))
+        release
+        end
+    }
+}
+
+script Bammobo_PC_Picnicker {
+    lock
+    faceplayer
+    msgbox(format("Bammobo used to be a safe haven for campers, rangers, and many more people. But since the Fandango Band has established their quarters in that place they call Virimante, it's not been the same..."))
+    release
+    end
+}

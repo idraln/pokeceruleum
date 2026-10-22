@@ -1,0 +1,176 @@
+raw `
+VineGrotto_MapScripts::
+	.byte 0
+`
+
+script VineGrotto_BugCatcher {
+    lock
+    faceplayer
+    msgbox(format("The refuge is great, but there are lots of Pokémons that are just as interesting here! If not more."))
+    release
+    end
+}
+
+script VineGrotto_LostMan {
+    lock
+    faceplayer
+    msgbox(format("I'm lost. You gotta help me, I don't do well in caves. Where should I go?"))
+    multichoice(0, 6, MULTI_VINEGROTTO, TRUE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            msgbox(format("Hmmm... You're sure? It looks darker that way... Oh well, I guess I don't have a choice, do I?"))
+            closemessage
+            getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_0) == 16 || var(VAR_TEMP_0) == 14 || var(VAR_TEMP_1) == 16) {
+                applymovement(4, moves(walk_up * 3 delay_16 * 2 walk_fast_left * 4 walk_fast_up * 3))
+                waitmovement(0)
+                removeobject(4)
+                setvar(VAR_BLOCKED_ROAD, 7)
+                setflag(FLAG_MAN_VINEGROTTO)
+                clearflag(FLAG_ANGRY_VINEGROTTO)
+                addobject(7)
+                release
+                end
+            }
+            else {
+                applymovement(4, moves(walk_left walk_up * 3 delay_16 * 2 walk_fast_left * 3 walk_fast_up * 5))
+                waitmovement(0)
+                removeobject(4)
+                setvar(VAR_BLOCKED_ROAD, 7)
+                setflag(FLAG_MAN_VINEGROTTO)
+                clearflag(FLAG_ANGRY_VINEGROTTO)
+                addobject(7)
+                release
+                end
+            }
+            release
+            end
+        case 1:
+            msgbox(format("Dude, you're a legend! Thank you so much!"))
+            closemessage
+            getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_0) == 16 || var(VAR_TEMP_0) == 14 || var(VAR_TEMP_1) == 14) {
+                applymovement(4, moves(walk_down * 6))
+                waitmovement(0)
+                removeobject(4)
+                setflag(FLAG_MAN_VINEGROTTO)
+                release
+                end
+            }
+            else {
+                applymovement(4, moves(walk_left walk_down * 7))
+                waitmovement(0)
+                removeobject(4)
+                setflag(FLAG_MAN_VINEGROTTO)
+                release
+                end
+            }
+        case 2:
+            msgbox(format("Come on, please! I'm on the verge of tears right here! Help me!"))
+            release
+            end
+    }
+}
+
+script VineGrotto_Dexter {
+    trainerbattle_single(TRAINER_VINE_GROTTO_1, Dexter1, Dexter2)
+    msgbox(format("You always gotta chase that high! Keep on training!"))
+    closemessage
+    end
+}
+
+text Dexter1 {
+    format("The humidity is doing wonders to my battle skills! See for yourself!")
+}
+
+text Dexter2 {
+    format("Great execution! How did you do that?")
+}
+
+script VineGrotto_Elsie {
+    trainerbattle_single(TRAINER_VINE_GROTTO_2, Elsie1, Elsie2)
+    msgbox(format("How the hell do trees grow on rocks? Don't they need soil?"))
+    closemessage
+    end
+}
+
+text Elsie1 {
+    format("The biology of that cave makes no sense. Help me understand it better.")
+}
+
+text Elsie2 {
+    format("I still don't have answers to my questions? What was the point of that?")
+}
+
+script VineGrotto_Angry {
+    lock
+    delay(20)
+    playse(SE_PIN)
+    applymovement(7, moves(face_down emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+    if(var(VAR_TEMP_4) == 9) {
+        applymovement(7, moves(walk_down * 2 walk_right))
+        waitmovement(0)
+        msgbox(format("YOU! You TRICKED ME!! This is not at all the exit of the cave! Do you think it's funny to play with a man's emotions?"))
+        trainerbattle_no_intro(TRAINER_VINE_GROTTO_3, Haris1)
+        setvar(VAR_BLOCKED_ROAD, 8)
+        applymovement(7, moves(walk_up * 2))
+        waitmovement(0)
+        turnobject(7, DIR_NORTH)
+    }
+    else {
+        applymovement(7, moves(walk_down * 3 walk_right))
+        waitmovement(0)
+        msgbox(format("YOU! You TRICKED ME!! This is not at all the exit of the cave! Do you think it's funny to play with a man's emotions?"))
+        trainerbattle_no_intro(TRAINER_VINE_GROTTO_3, Haris1)
+        setvar(VAR_BLOCKED_ROAD, 8)
+        applymovement(7, moves(walk_up * 3))
+        waitmovement(0)
+        turnobject(7, DIR_NORTH)
+    }
+    release
+    end
+}
+
+text Haris1 {
+    format("I don't feel well, I think I'm gonna pass out...")
+}
+
+script VineGrotto_Haris {
+    lock
+    msgbox(format("...Maybe if I dig with my own hands, will I be able to get out? God, why did I get myself into this mess?..."))
+    release
+    end
+}
+
+script VineGrotto_Brett {
+    trainerbattle_single(TRAINER_VINE_GROTTO_4, Brett1, Brett2)
+    msgbox(format("The look of fear on the trainers I face, you should see them!"))
+    release
+    end
+}
+
+text Brett1 {
+    format("Aha! Bet you didn't see me there, did you?")
+}
+
+text Brett2 {
+    format("Hmm. Back to my hiding spot.")
+}
+
+script VineGrotto_Mildred {
+    trainerbattle_single(TRAINER_VINE_GROTTO_5, Mildred1, Mildred2)
+    msgbox(format("I've gone through a lot of changes in my life. I couldn't be happier now, I finally feel like my true self."))
+    release
+    end
+}
+
+text Mildred1 {
+    format("Let me teach you about love, young one.")
+}
+
+text Mildred2 {
+    format("Well, seeing you battle, you already know more about love than I thought!")
+}

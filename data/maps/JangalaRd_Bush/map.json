@@ -1,0 +1,87 @@
+{
+  "id": "MAP_JANGALA_RD_BUSH",
+  "name": "JangalaRd_Bush",
+  "layout": "LAYOUT_JANGALA_RD_BUSH",
+  "music": "MUS_RG_VIRIDIAN_FOREST",
+  "region_map_section": "MAPSEC_JANGALA_RD",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ERMITE",
+      "x": 13,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JangalaRd_Bush_Hermit",
+      "flag": "FLAG_HERMIT_JANGALA_BUSH"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 24,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SCEPTILITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_BUSH"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TREVENANT)",
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TREVENANT_BUSH"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_JANGALA_RD1",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_QUEST_HERMIT",
+      "var_value": "5",
+      "script": "JangalaRd_Bush_Encounter"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_QUEST_HERMIT",
+      "var_value": "5",
+      "script": "JangalaRd_Bush_DontGo"
+    }
+  ],
+  "bg_events": []
+}

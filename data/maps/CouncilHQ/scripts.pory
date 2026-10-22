@@ -1,0 +1,9 @@
+raw `
+CouncilHQ_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, CouncilHQ_OnTransition
+	.byte 0
+`
+
+script CouncilHQ_OnTransition {
+    setflag(FLAG_VISITED_COUNCIL_HQ)
+}

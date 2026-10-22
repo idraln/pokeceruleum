@@ -123,6 +123,17 @@
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_BERRY_PLOT                   114
+#define MULTI_ROCHEVAL                     115
+#define MULTI_BOTANIC                      116
+#define MULTI_CUTSCENE                     117
+#define MULTI_VINEGROTTO                   118
+#define MULTI_VIKKIE                       119
+#define MULTI_IRONMELT                     120
+#define MULTI_NO                           121
+#define MULTI_FORMULA                      122
+#define MULTI_WHERE                        123
+#define MULTI_CASINO                       124
+#define MULTI_PRIZES                       125
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

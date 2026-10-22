@@ -1,0 +1,404 @@
+raw `
+PebbleCross_MapScripts::
+	.byte 0
+`
+
+script PebbleCross_Sam {
+    lock
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 13) {
+        turnobject(1, DIR_EAST)
+        namebox("Sam")
+        msgbox(format("Hey, {PLAYER}!"))
+        closemessage
+        hidenamebox
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_left * 2))
+        waitmovement(0) 
+        namebox("Sam")
+        msgbox(format("Before I unveil my ground-breaking discovery to you, let's have a bit of fun, eh?"))
+        hidenamebox
+        closemessage
+        setflag(FLAG_TRAINERBATTLE)
+        trainerbattle_no_intro(TRAINER_SAM_PEBBLE, Sam5)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Check this out. See those rocky walls?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        //applymovement(1, moves(walk_left))
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        turnobject(1, DIR_SOUTH)
+        delay(20)
+        namebox("Sam")
+        msgbox(format("You can actually climb them!... Well, not you in particular, but your Pokémons. And for that, you'll need this!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        applymovement(1, moves(face_right))
+        waitmovement(0)
+        giveitem(ITEM_TM49)
+        closemessage
+        delay(20)
+        applymovement(1, moves(emote_question_mark))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("...What? You say that you can Rock Climb without the TM? You only need an emblem? Damn, ok, I guess you already know everything! Anyway, that's a huge part of Thura that becomes available to us!"))
+        closemessage
+        hidenamebox
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Gotta go. Talk to you soon!"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(walk_fast_left * 11))
+        waitmovement(0)
+        removeobject(1)
+        setflag(FLAG_SAM_PEBBLE)
+        setvar(VAR_MAIN_STORY, 24)
+    }
+    else {
+        turnobject(1, DIR_EAST)
+        namebox("Sam")
+        msgbox(format("Hey, {PLAYER}!"))
+        closemessage
+        hidenamebox
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2))
+        waitmovement(0) 
+        namebox("Sam")
+        msgbox(format("Before I unveil my ground-breaking discovery to you, let's have a bit of fun, eh?"))
+        hidenamebox
+        closemessage
+        setflag(FLAG_TRAINERBATTLE)
+        trainerbattle_no_intro(TRAINER_SAM_PEBBLE, Sam5)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Check this out. See those rocky walls?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        //applymovement(1, moves(walk_left))
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        turnobject(1, DIR_SOUTH)
+        delay(20)
+        namebox("Sam")
+        msgbox(format("You can actually climb them!... Well, not you in particular, but your Pokémons. And for that, you'll need this!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        applymovement(1, moves(face_right))
+        waitmovement(0)
+        giveitem(ITEM_TM49)
+        closemessage
+        delay(20)
+        delay(40)
+        applymovement(1, moves(emote_question_mark))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("...What? You say that you can Rock Climb without the TM? You only need an emblem? Damn, ok, I guess you already know everything! Anyway, that's a huge part of Thura that becomes available to us!"))
+        closemessage
+        hidenamebox
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Gotta go. Talk to you soon!"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(walk_fast_left * 11))
+        waitmovement(0)
+        removeobject(1)
+        setflag(FLAG_SAM_PEBBLE)
+        setvar(VAR_MAIN_STORY, 24)
+    }
+    release
+    end
+}
+
+script PebbleCross_Interaction {
+    
+}
+
+text Sam5 {
+    format("How are you already that strong? Teach me!")
+}
+
+script PebbleCross_Lover {
+    lock
+    faceplayer
+    msgbox(format("See that girl down there?"))
+    closemessage
+    turnobject(13, DIR_NORTH)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement(0)
+    delay(20)
+    msgbox(format("She's literally the cutest. But I'm stuck here because I don't have any Pokémon that can Rock Climb. Maybe I need to climb down by myself..."))
+    release
+    end
+}
+
+script PebbleCross_Boy {
+    lock
+    faceplayer
+    msgbox(format("I can't climb down, so I will jump from here and land on those comfortable looking trees down there! Surely that's a great idea!!"))
+    turnobject(18, DIR_SOUTH)
+    release
+    end
+}
+
+script PebbleCross_Picnicker {
+    lock
+    faceplayer
+    msgbox(format("What a wonderful landscape! I love how the two soils blend together!"))
+    release
+    end
+}
+
+script PebbleCross_Hunter {
+    trainerbattle_single(TRAINER_PEBBLE_1, Hunter1, Hunter2)
+    msgbox(format("If you're a fan of hiking, you'll enjoy the next hours. Otherwise, I would advise you to go back to the big city."))
+    closemessage
+    end
+}
+
+text Hunter1 {
+    format("Hey! You! How did you get down there?")
+}
+
+text Hunter2 {
+    format("Yup, just like me!")
+}
+
+script PebbleCross_Camper {
+    lock
+    faceplayer
+    msgbox(format("Nature is perfect. Why would you live in a big tower made out of concrete when you can hang your hammock wherever you want?"))
+    release
+    end
+}
+
+script PebbleCross_Selma {
+    trainerbattle_single(TRAINER_PEBBLE_2, Selma1, Selma2)
+    msgbox(format("People don't realise that we live in one of the lushest place on Earth. How lucky we are!"))
+    closemessage
+    end
+}
+
+text Selma1 {
+    format("Wanna share some berries with me? I just picked some!")
+}
+
+text Selma2 {
+    format("You could've just said no...")
+}
+
+script PebbleCross_Sign {
+    lockall
+    msgbox(format("{LEFT_ARROW} Frux\n{RIGHT_ARROW} Pkmn League HQ"))
+    releaseall
+    end
+}
+
+script PebbleCross_Toby {
+    trainerbattle_single(TRAINER_PEBBLE_3, Toby1, Toby2)
+    msgbox(format("I've been told of another kind of bug Pokémon that likes heat, but I don't remember its name..."))
+    closemessage
+    end
+}
+
+text Toby1 {
+    format("I'll show you something you've never seen before!")
+}
+
+text Toby2 {
+    format("Like, how? Not cool, man. I just caught it.")
+}
+
+script PebbleCross_Matilda {
+    trainerbattle_single(TRAINER_PEBBLE_4, Matilda1, Matilda2)
+    msgbox(format("The heat is doing wonders to my feet. No more pain!"))
+    closemessage
+    end
+}
+
+text Matilda1 {
+    format("Have you ever heard of the benefits of heat therapy to your body?")
+}
+
+text Matilda2 {
+    format("I see, you already know your science!")
+}
+
+script PebbleCross_Justine {
+    trainerbattle_single(TRAINER_PEBBLE_5, Justine1, Justine2)
+    msgbox(format("Back in my country, there's no volcano. It's huge!"))
+    closemessage
+    end
+}
+
+text Justine1 {
+    format("I come from a dry, hot place. I'm in my element!")
+}
+
+text Justine2 {
+    format("Woah, do you also live in a desert or something?")
+}
+
+script PebbleCross_Ninja {
+    lock
+    faceplayer
+    msgbox(format("To complete my training, I have to hide in one of those sand dunes. But I'm claustrophobic. I'm never going to pass my exams..."))
+    release
+    end
+}
+
+script PebbleCross_Harald {
+    trainerbattle_single(TRAINER_PEBBLE_6, Harald1, Harald2)
+    if(var(VAR_DISAPPEARANCE) == 3) {
+        msgbox(format("Arceus has listened to our prayers! I'm catching fishes again!"))
+    }
+    else {
+        msgbox(format("Damn, no fish to be found, even in here. We might actually be doomed."))
+    }
+    closemessage
+    end
+}
+
+text Harald1 {
+    format("Nothing. No-thing. Sorry bud, you're talking to me at the worst possible moment...")
+}
+
+text Harald2 {
+    format("Great. Fantastic, even.")
+}
+
+script PebbleCross_Botanist {
+    lock
+    msgbox(format("...Hmmm, yes, this is indeed a tree. That looks like every other tree in here. Interesting..."))
+    release
+    end
+}
+
+script PebbleCross_Swimmer {
+    lock
+    faceplayer
+    if(flag(FLAG_QUEST_SHARDS_COMPLETE) && flag(FLAG_QUEST_SHARDS)) {
+        msgbox(format("Look! I've made a cute necklace!"))
+        release
+        end
+    }
+    if(flag(FLAG_QUEST_SHARDS)) {
+        msgbox(format("Do you have the shards?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            checkitem(ITEM_GREEN_SHARD)
+            if(var(VAR_RESULT) == YES) {
+                checkitem(ITEM_RED_SHARD)
+                if(var(VAR_RESULT) == YES) {
+                    checkitem(ITEM_BLUE_SHARD)
+                    if(var(VAR_RESULT) == YES) {
+                        checkitem(ITEM_YELLOW_SHARD)
+                        if(var(VAR_RESULT) == YES) {
+                            msgbox(format("Woah! They look so pretty! Thank you so much! As promised, here's your gift."))
+                            giveitem(ITEM_RING_TARGET)
+                            removeitem(ITEM_GREEN_SHARD, 1)
+                            removeitem(ITEM_BLUE_SHARD, 1)
+                            removeitem(ITEM_YELLOW_SHARD, 1)
+                            removeitem(ITEM_RED_SHARD, 1)
+                            completequest(QUEST_SHARDS)
+                            setflag(FLAG_QUEST_SHARDS_COMPLETE)
+                            release
+                            end
+                        }
+                        else {
+                            msgbox(format("You don't have enough shards! Please, I need them!"))
+                            release
+                            end
+                        }
+                    }
+                    else {
+                        msgbox(format("You don't have enough shards! Please, I need them!"))
+                        release
+                        end
+                    }
+                }
+                else {
+                    msgbox(format("You don't have enough shards! Please, I need them!"))
+                    release
+                    end
+                }
+            }
+            else {
+                msgbox(format("You don't have enough shards! Please, I need them!"))
+                release
+                end
+            }
+        }
+        else {
+            msgbox(format("Please! I need them so much!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("You know what I need right now? Shards! Yeah, shards! I heard you can mine them in The Ironair, but I don't have any tools... Can you please mine me some shards? One of each colour, please. I'll give you something in return, promise!"))
+        startquest(QUEST_SHARDS)
+        setflag(FLAG_QUEST_SHARDS)
+        release
+        end
+    }
+}
+
+script PebbleCross_Chloe {
+    trainerbattle_single(TRAINER_PEBBLE_7, Chloe1, Chloe2)
+    msgbox(format("I've been applying to work in Bruce's foundry for months, but they say I'm not qualified enough. Of course! That's why I want to work with you guys, so that I can learn!"))
+    closemessage
+    end
+}
+
+text Chloe1 {
+    format("Don't be scared! I'm trying to show my worth to Bruce!")
+}
+
+text Chloe2 {
+    format("Ok, back to the drawing board.")
+}
+
+script PebbleCross_Cyclist {
+    lock
+    faceplayer
+    msgbox(format("I'm absolutely exhausted. Riding all the way from Ohulinn to Frux wasn't a good idea, and now I think I injured myself."))
+    release
+    end
+}
+
+script PebbleCross_MKandAsh {
+    trainerbattle_double(TRAINER_PEBBLE_8, MKandAsh1, MKandAsh2, MKandAshNotEnough)
+    msgbox(format("We've settled just outside of Frux, so that exhausted trainers lose against us and give us all of their money! Very clever! Just like our big bro somewhere around Ohulinn."))
+    closemessage
+    end
+}
+
+script PebbleCross_Item {
+    lock
+    removeobject(19)
+    giveitem(ITEM_TM21)
+    setflag(FLAG_ITEM_PEBBLE)
+    release
+    end
+}
+
+text MKandAsh1 {
+    format("Heehee, you're trapped! You must be veeeery tired, right?")
+}
+
+text MKandAsh2 {
+    format("Nooo! That can't be!!")
+}
+
+text MKandAshNotEnough {
+    format("Teehee, we're meanies, but not to the point to attack a trainer with only one Pokémon.")
+}

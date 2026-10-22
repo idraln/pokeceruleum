@@ -62,6 +62,8 @@
 #include "constants/union_room.h"
 #include "constants/vars.h"
 #include "constants/weather.h"
+#include "constants/rgb.h"
+#include "constants/quests.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -598,10 +600,7 @@ EventScript_AfterWhiteOutHeal::
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
-	call_if_unset FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsgPreRoxanne
-	call_if_set FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsg
-	applymovement VAR_LAST_TALKED, Movement_PkmnCenterNurse_Bow
-	waitmovement 0
+	call EventScript_AfterWhiteOutHealMsg
 	fadedefaultbgm
 	releaseall
 	end
@@ -884,11 +883,11 @@ Common_EventScript_PlayerHandedOverTheItem::
 @ The below and surf.inc could be split into some text/notices.inc
 gText_PokemartSign::
 	.string "“Selected items for your convenience!”\n"
-	.string "POKéMON MART$"
+	.string "PokéMart$"
 
 gText_PokemonCenterSign::
 	.string "“Rejuvenate your tired partners!”\n"
-	.string "POKéMON CENTER$"
+	.string "PokéCenter$"
 
 gText_MomOrDadMightLikeThisProgram::
 	.string "{STR_VAR_1} might like this program.\n"
@@ -904,8 +903,8 @@ gText_SandstormIsVicious::
 	.string "It's impossible to keep going.$"
 
 gText_SelectWithoutRegisteredItem::
-	.string "An item in the BAG can be\n"
-	.string "registered to SELECT for easy use.$"
+	.string "An item in the bag can be\n"
+	.string "registered to Select for easy use.$"
 
 gText_PokemonTrainerSchoolEmail::
 	.string "There's an e-mail from POKéMON TRAINER\n"
@@ -1158,3 +1157,411 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/ArrayRetro/scripts.inc"
+
+	.include "data/maps/CeruleanCoast/scripts.inc"
+
+	.include "data/maps/Array/scripts.inc"
+
+	.include "data/maps/CeruleanCoastN/scripts.inc"
+
+	.include "data/maps/PokemonLeague_LastLobby/scripts.inc"
+
+	.include "data/maps/PokemonLeague_RoofTop/scripts.inc"
+
+	.include "data/maps/DeepSeas/scripts.inc"
+
+	.include "data/maps/Rocheval/scripts.inc"
+
+	.include "data/maps/CapeEast/scripts.inc"
+
+	.include "data/maps/Rocheval_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Rocheval_Mart/scripts.inc"
+
+	.include "data/maps/Rocheval_House/scripts.inc"
+
+	.include "data/maps/Rocheval_Motel/scripts.inc"
+
+	.include "data/maps/Rocheval_LeisureHall_Entrance/scripts.inc"
+
+	.include "data/maps/Rocheval_TownHall/scripts.inc"
+
+	.include "data/maps/Rocheval_TownHallB1F/scripts.inc"
+
+	.include "data/maps/Rocheval_TownHall_Heliport/scripts.inc"
+
+	.include "data/maps/CapeEast_House/scripts.inc"
+
+	.include "data/maps/Rocheval_LeisureHallStage/scripts.inc"
+
+	.include "data/maps/HelicopterCutscene/scripts.inc"
+
+	.include "data/maps/SapphireCity/scripts.inc"
+
+	.include "data/maps/SapphireCity_Airport/scripts.inc"
+
+	.include "data/maps/SapphireCity_BuildingLobbies/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building1/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building2/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building3/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building4/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building5/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building6/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building7/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building8/scripts.inc"
+
+	.include "data/maps/SapphireCity_Building9/scripts.inc"
+
+	.include "data/maps/SapphireCity_Shop1F/scripts.inc"
+
+	.include "data/maps/SapphireCity_Shop2F/scripts.inc"
+
+	.include "data/maps/SapphireCity_Shop3F/scripts.inc"
+
+	.include "data/maps/SapphireCity_ShopElevator/scripts.inc"
+
+	.include "data/maps/SapphireCity_PokemonCenter/scripts.inc"
+
+	.include "data/maps/SapphireCity_AirportRestaurant/scripts.inc"
+
+	.include "data/maps/SapphireCity_GamingShop/scripts.inc"
+
+	.include "data/maps/ThirtiethRoad/scripts.inc"
+
+	.include "data/maps/PetalPass/scripts.inc"
+
+	.include "data/maps/Cruzeira/scripts.inc"
+
+	.include "data/maps/PkmnLeagueHQ/scripts.inc"
+
+	.include "data/maps/PkmnLeagueHQ_Lobby/scripts.inc"
+
+	.include "data/maps/Cruzeira_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Cruzeira_Mart/scripts.inc"
+
+	.include "data/maps/Cruzeira_Gym/scripts.inc"
+
+	.include "data/maps/Cruzeira_BotanicSchool/scripts.inc"
+
+	.include "data/maps/Cruzeira_House1/scripts.inc"
+
+	.include "data/maps/Cruzeira_House2/scripts.inc"
+
+	.include "data/maps/PastoralRd/scripts.inc"
+
+	.include "data/maps/PastoralRd_Sawmill/scripts.inc"
+
+	.include "data/maps/PastoralRd_OakRetreat/scripts.inc"
+
+	.include "data/maps/VineGrotto/scripts.inc"
+
+	.include "data/maps/Ohulinn/scripts.inc"
+
+	.include "data/maps/Ohulinn_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Ohulinn_Mart/scripts.inc"
+
+	.include "data/maps/Ohulinn_House1/scripts.inc"
+
+	.include "data/maps/Ohulinn_House2/scripts.inc"
+
+	.include "data/maps/Ohulinn_Gym/scripts.inc"
+
+	.include "data/maps/LittoralRd/scripts.inc"
+
+	.include "data/maps/Cali/scripts.inc"
+
+	.include "data/maps/Cali_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Cali_House1/scripts.inc"
+
+	.include "data/maps/Cali_House2/scripts.inc"
+
+	.include "data/maps/BlackstoneRd/scripts.inc"
+
+	.include "data/maps/ObsidianPath/scripts.inc"
+
+	.include "data/maps/BlackstoneRdEast/scripts.inc"
+
+	.include "data/maps/Glasville/scripts.inc"
+
+	.include "data/maps/FiestaRd/scripts.inc"
+
+	.include "data/maps/Vikkelson/scripts.inc"
+
+	.include "data/maps/Glasville_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Glasville_Mart/scripts.inc"
+
+	.include "data/maps/Glasville_House1/scripts.inc"
+
+	.include "data/maps/Glasville_House2/scripts.inc"
+
+	.include "data/maps/Glasville_House3/scripts.inc"
+
+	.include "data/maps/Vikkelson_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Vikkelson_Mart/scripts.inc"
+
+	.include "data/maps/Vikkelson_House1/scripts.inc"
+
+	.include "data/maps/Vikkelson_House2/scripts.inc"
+
+	.include "data/maps/Vikkelson_Mansion1F/scripts.inc"
+
+	.include "data/maps/Vikkelson_Mansion2F/scripts.inc"
+
+	.include "data/maps/Glasville_PC/scripts.inc"
+
+	.include "data/maps/Glasville_PMart/scripts.inc"
+
+	.include "data/maps/Glasville_HouseA/scripts.inc"
+
+	.include "data/maps/Glasville_HouseB/scripts.inc"
+
+	.include "data/maps/Glasville_HouseC/scripts.inc"
+
+	.include "data/maps/Vikkelson_PC/scripts.inc"
+
+	.include "data/maps/Vikkelson_PMart/scripts.inc"
+
+	.include "data/maps/Vikkelson_HouseA/scripts.inc"
+
+	.include "data/maps/Vikkelson_HouseB/scripts.inc"
+
+	.include "data/maps/Vikkelson_Mansion1stFloor/scripts.inc"
+
+	.include "data/maps/Vikkelson_Mansion2ndFloor/scripts.inc"
+
+	.include "data/maps/Vikkelson_DanceHall/scripts.inc"
+
+	.include "data/maps/VikkelsonCinematique/scripts.inc"
+
+	.include "data/maps/PebbleCross/scripts.inc"
+
+	.include "data/maps/Frux/scripts.inc"
+
+	.include "data/maps/Frux_PC/scripts.inc"
+
+	.include "data/maps/Frux_Mart/scripts.inc"
+
+	.include "data/maps/Frux_House1/scripts.inc"
+
+	.include "data/maps/Frux_House2/scripts.inc"
+
+	.include "data/maps/Frux_Gym/scripts.inc"
+
+	.include "data/maps/OxideTrail/scripts.inc"
+
+	.include "data/maps/TheIronaur/scripts.inc"
+
+	.include "data/maps/TheIronairB1F/scripts.inc"
+
+	.include "data/maps/IndigoChannel/scripts.inc"
+
+	.include "data/maps/JangalaRd/scripts.inc"
+
+	.include "data/maps/JangalaRd1/scripts.inc"
+
+	.include "data/maps/JangalaRd_Retreat/scripts.inc"
+
+	.include "data/maps/Bammobo/scripts.inc"
+
+	.include "data/maps/Bammobo_PC/scripts.inc"
+
+	.include "data/maps/Bammobo_Mart/scripts.inc"
+
+	.include "data/maps/Bammobo_Center/scripts.inc"
+
+	.include "data/maps/Bammobo_Bush/scripts.inc"
+
+	.include "data/maps/PassaquaWy/scripts.inc"
+
+	.include "data/maps/PassaquaWySouth/scripts.inc"
+
+	.include "data/maps/PassaquaWyS/scripts.inc"
+
+	.include "data/maps/Passwacan/scripts.inc"
+
+	.include "data/maps/Passwacan_PC/scripts.inc"
+
+	.include "data/maps/Passwacan_Mart/scripts.inc"
+
+	.include "data/maps/Passwacan_House1/scripts.inc"
+
+	.include "data/maps/Passwacan_House2/scripts.inc"
+
+	.include "data/maps/Passwacan_Gym/scripts.inc"
+
+	.include "data/maps/BoisEsprit/scripts.inc"
+
+	.include "data/maps/BoisEsprit_House/scripts.inc"
+
+	.include "data/maps/AzurChannel/scripts.inc"
+
+	.include "data/maps/AzurChannel2/scripts.inc"
+
+	.include "data/maps/Oparque/scripts.inc"
+
+	.include "data/maps/Oparque_PC/scripts.inc"
+
+	.include "data/maps/Oparque_Hut/scripts.inc"
+
+	.include "data/maps/NavyChannel/scripts.inc"
+
+	.include "data/maps/UltramarineChannel/scripts.inc"
+
+	.include "data/maps/HerronPrairie/scripts.inc"
+
+	.include "data/maps/XatusNest/scripts.inc"
+
+	.include "data/maps/Glorray_PC/scripts.inc"
+
+	.include "data/maps/Glorray_House1/scripts.inc"
+
+	.include "data/maps/Glorray_House2/scripts.inc"
+
+	.include "data/maps/Glorray_Gym/scripts.inc"
+
+	.include "data/maps/Xatu_Tent1/scripts.inc"
+
+	.include "data/maps/Xatu_Tent2/scripts.inc"
+
+	.include "data/maps/Xatu_Tent3/scripts.inc"
+
+	.include "data/maps/GlorrayRetro/scripts.inc"
+
+	.include "data/maps/HerronPrairieRetro/scripts.inc"
+
+	.include "data/maps/HerronPrairieRetro1/scripts.inc"
+
+	.include "data/maps/XatusNestRetro/scripts.inc"
+
+	.include "data/maps/CeruleanCoastRetro/scripts.inc"
+
+	.include "data/maps/GlorrayRetro_PC/scripts.inc"
+
+	.include "data/maps/GlorrayRetro_PMart/scripts.inc"
+
+	.include "data/maps/GlorrayRetro_House1/scripts.inc"
+
+	.include "data/maps/GlorrayRetro_House2/scripts.inc"
+
+	.include "data/maps/GlorrayRetro_Gym/scripts.inc"
+
+	.include "data/maps/BerylChannel/scripts.inc"
+
+	.include "data/maps/Virimante/scripts.inc"
+
+	.include "data/maps/Virimante_PC/scripts.inc"
+
+	.include "data/maps/Virimante_Gym/scripts.inc"
+
+	.include "data/maps/Virimante_GymRoom/scripts.inc"
+
+	.include "data/maps/Virimante_House1/scripts.inc"
+
+	.include "data/maps/Virimante_House2/scripts.inc"
+
+	.include "data/maps/Virimante_House3/scripts.inc"
+
+	.include "data/maps/XatusCaveRetro/scripts.inc"
+
+	.include "data/maps/MellowAbysses/scripts.inc"
+
+	.include "data/maps/MellowAbysses2/scripts.inc"
+
+	.include "data/maps/MellowAbyssesDown/scripts.inc"
+
+	.include "data/maps/Hydropolis/scripts.inc"
+
+	.include "data/maps/TheIronairB2F/scripts.inc"
+
+	.include "data/maps/ChallengerRd/scripts.inc"
+
+	.include "data/maps/ChallengerRd2/scripts.inc"
+
+	.include "data/maps/ChallengerRd3/scripts.inc"
+
+	.include "data/maps/ChallengerRd4/scripts.inc"
+
+	.include "data/maps/ChallengerRd5/scripts.inc"
+
+	.include "data/maps/ChallengerRd6/scripts.inc"
+
+	.include "data/maps/ChallengerRd7/scripts.inc"
+
+	.include "data/maps/ChallengerRd8/scripts.inc"
+
+	.include "data/maps/CouncilHQ/scripts.inc"
+
+	.include "data/maps/CouncilHQ_Lobby/scripts.inc"
+
+	.include "data/maps/CouncilHQ_MainRoom/scripts.inc"
+
+	.include "data/maps/Council_MainRoom/scripts.inc"
+
+	.include "data/maps/CouncilHQ_Ice/scripts.inc"
+
+	.include "data/maps/CouncilHQ_Fighting/scripts.inc"
+
+	.include "data/maps/CouncilHQ_Fire/scripts.inc"
+
+	.include "data/maps/CouncilHQ_GroundRock/scripts.inc"
+
+	.include "data/maps/CouncilHQ_President/scripts.inc"
+
+	.include "data/maps/VineGrotto_Fossil/scripts.inc"
+
+	.include "data/maps/SapphireCity_Shop3F_TM/scripts.inc"
+
+	.include "data/maps/SapphireCity_Shop3F_Attack/scripts.inc"
+
+	.include "data/maps/SapphireCity_Shop3F_Evo/scripts.inc"
+
+	.include "data/maps/ObsidianPath2/scripts.inc"
+
+	.include "data/maps/ObsidianPathCave/scripts.inc"
+
+	.include "data/maps/JangalaRd_Bush/scripts.inc"
+
+	.include "data/maps/JangalaCanal/scripts.inc"
+
+	.include "data/maps/BleakRift/scripts.inc"
+
+	.include "data/maps/MistraltonCity/scripts.inc"
+
+	.include "data/maps/Route7/scripts.inc"
+
+	.include "data/maps/TwistMountain/scripts.inc"
+
+	.include "data/maps/MistraltonCity_PC/scripts.inc"
+
+	.include "data/maps/MistraltonCity_House1/scripts.inc"
+
+	.include "data/maps/MistraltonCity_House2/scripts.inc"
+
+	.include "data/maps/MistraltonCity_CargoService/scripts.inc"
+
+	.include "data/maps/Route7_House1/scripts.inc"
+
+	.include "data/maps/Route7_House2/scripts.inc"
+
+	.include "data/maps/CelestialTower/scripts.inc"
+
+	.include "data/maps/MistraltonCity_Airport/scripts.inc"
+
+	.include "data/maps/Vikkelson_MansionB1F/scripts.inc"
+
+	.include "data/maps/CelestialTower_2F/scripts.inc"

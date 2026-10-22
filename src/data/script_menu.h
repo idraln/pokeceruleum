@@ -210,9 +210,9 @@ static const struct MenuAction MultichoiceList_Mechadoll5_Q3[] =
 
 static const struct MenuAction MultichoiceList_VendingMachine[] =
 {
-    {COMPOUND_STRING("FRESH WATER{CLEAR_TO 0x48}¥200")},
-    {COMPOUND_STRING("SODA POP{CLEAR_TO 0x48}¥300")},
-    {COMPOUND_STRING("LEMONADE{CLEAR_TO 0x48}¥350")},
+    {COMPOUND_STRING("Fresh Water{CLEAR_TO 0x48}¥200")},
+    {COMPOUND_STRING("Soda Pop{CLEAR_TO 0x48}¥300")},
+    {COMPOUND_STRING("Lemonade{CLEAR_TO 0x48}¥350")},
     {gText_Exit},
 };
 
@@ -316,8 +316,6 @@ static const struct MenuAction MultichoiceList_SSTidalSlateportNoBF[] =
 
 static const struct MenuAction MultichoiceList_Floors[] =
 {
-    {gText_5F},
-    {gText_4F},
     {gText_3F},
     {gText_2F},
     {gText_1F},
@@ -778,6 +776,81 @@ static const struct MenuAction MultichoiceList_BerryPlot[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_Rocheval[] =
+{
+    {gText_History},
+    {gText_Travel},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_Botanic[] =
+{
+    {gText_NotStudent},
+    {gText_Sorry2},
+};
+
+static const struct MenuAction MultichoiceList_Cutscene[] =
+{
+    {gText_HCXatu1},
+    {gText_HCXatu2},
+};
+
+static const struct MenuAction MultichoiceList_VineGrotto[] =
+{
+    {gText_North},
+    {gText_South},
+    {gText_HCIdk},
+};
+
+static const struct MenuAction MultichoiceList_Vikkie[] =
+{
+    {gText_Vikkie1},
+    {gText_Vikkie2},
+};
+
+static const struct MenuAction MultichoiceList_IronMelt[] =
+{
+    {gText_1800F},
+    {gText_2800F},
+    {gText_3800F},
+};
+
+static const struct MenuAction MultichoiceList_Formula[] =
+{
+    {gText_FeO},
+    {gText_Fe2O3},
+    {gText_Fe3O4},
+};
+
+static const struct MenuAction MultichoiceList_No[] =
+{
+    {gText_No},
+    {gText_No},
+};
+
+static const struct MenuAction MultichoiceList_Where[] =
+{
+    {gText_Ohulinn},
+    {gText_Vikkelson},
+    {gText_Virimante},
+};
+
+static const struct MenuAction MultichoiceList_Casino[] =
+{
+    {gText_10Coins},
+    {gText_100Coins},
+    {gText_1000Coins},
+    {gText_NoThanks},
+};
+
+static const struct MenuAction MultichoiceList_Prizes[] =
+{
+    {gText_TMThunderbolt},
+    {gText_TMEarthquake},
+    {gText_TMEruption},
+    {gText_NoThanks},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -906,6 +979,17 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
+    [MULTI_ROCHEVAL]                   = MULTICHOICE(MultichoiceList_Rocheval),
+    [MULTI_CUTSCENE]                   = MULTICHOICE(MultichoiceList_Cutscene),
+    [MULTI_BOTANIC]                    = MULTICHOICE(MultichoiceList_Botanic),
+    [MULTI_VINEGROTTO]                 = MULTICHOICE(MultichoiceList_VineGrotto),
+    [MULTI_VIKKIE]                     = MULTICHOICE(MultichoiceList_Vikkie),
+    [MULTI_IRONMELT]                   = MULTICHOICE(MultichoiceList_IronMelt),
+    [MULTI_NO]                         = MULTICHOICE(MultichoiceList_No),
+    [MULTI_FORMULA]                    = MULTICHOICE(MultichoiceList_Formula),
+    [MULTI_WHERE]                      = MULTICHOICE(MultichoiceList_Where),
+    [MULTI_CASINO]                      = MULTICHOICE(MultichoiceList_Casino),
+    [MULTI_PRIZES]                      = MULTICHOICE(MultichoiceList_Prizes),
 };
 
 const u8 *const gStdStrings[] =

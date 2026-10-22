@@ -38,6 +38,14 @@ static void TilesetAnim_BattleFrontierOutsideEast(u16);
 static void TilesetAnim_Underwater(u16);
 static void TilesetAnim_SootopolisGym(u16);
 static void TilesetAnim_Cave(u16);
+static void TilesetAnim_Rocheval(u16);
+static void TilesetAnim_VikkiesMansion(u16);
+static void TilesetAnim_Fiesta(u16);
+static void TilesetAnim_Retro(u16);
+static void TilesetAnim_Hydro(u16);
+static void TilesetAnim_League(u16);
+static void TilesetAnim_Office(u16);
+static void TilesetAnim_GamingShop(u16);
 static void TilesetAnim_EliteFour(u16);
 static void TilesetAnim_MauvilleGym(u16);
 static void TilesetAnim_BikeShop(u16);
@@ -73,6 +81,26 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+static void QueueAnimTiles_Cave_Waterfall(u16);
+static void QueueAnimTiles_Rocheval_Upper(u16);
+static void QueueAnimTiles_Rocheval_Lower(u16);
+static void QueueAnimTiles_VikkiesMansion_Campfire(u16);
+static void QueueAnimTiles_Fiesta_Balloons(u16);
+static void QueueAnimTiles_Retro_Water(u16);
+static void QueueAnimTiles_Retro_Flowers(u16);
+static void QueueAnimTiles_Underwater_Sponge(u16);
+static void QueueAnimTiles_Hydro_Top(u16);
+static void QueueAnimTiles_Hydro_Big(u16);
+static void QueueAnimTiles_Hydro_Small(u16);
+static void QueueAnimTiles_Hydro_Sponge(u16);
+static void QueueAnimTiles_Hydro_Water(u16);
+static void QueueAnimTiles_League_Sign(u16);
+static void QueueAnimTiles_Office_Waterfall(u16);
+static void QueueAnimTiles_Office_Lava(u16);
+static void QueueAnimTiles_GamingShop_Light1(u16);
+static void QueueAnimTiles_GamingShop_Light2(u16);
+static void QueueAnimTiles_GamingShop_Dark1(u16);
+static void QueueAnimTiles_GamingShop_Dark2(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -544,6 +572,284 @@ static const u16 *const sTilesetAnims_BattleDomeFloorLightPals[] = {
     gTilesetAnims_BattleDomePals0_3,
 };
 
+const u16 gTilesetAnims_Cave_Waterfall_Frame0[] = INCBIN_U16("data/tilesets/secondary/cave/anim/waterfall/0.4bpp");
+const u16 gTilesetAnims_Cave_Waterfall_Frame1[] = INCBIN_U16("data/tilesets/secondary/cave/anim/waterfall/1.4bpp");
+const u16 gTilesetAnims_Cave_Waterfall_Frame2[] = INCBIN_U16("data/tilesets/secondary/cave/anim/waterfall/2.4bpp");
+const u16 gTilesetAnims_Cave_Waterfall_Frame3[] = INCBIN_U16("data/tilesets/secondary/cave/anim/waterfall/3.4bpp");
+
+const u16 *const gTilesetAnims_Cave_Waterfall[] = {
+    gTilesetAnims_Cave_Waterfall_Frame0,
+    gTilesetAnims_Cave_Waterfall_Frame1,
+    gTilesetAnims_Cave_Waterfall_Frame2,
+    gTilesetAnims_Cave_Waterfall_Frame3
+};
+
+const u16 gTilesetAnims_Rocheval_Upper_Frame0[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/0.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame1[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/1.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame2[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/2.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame3[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/3.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame4[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/4.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame5[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/5.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame6[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/6.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame7[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/7.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame8[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/8.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame9[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/9.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame10[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/10.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame11[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/11.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame12[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/12.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame13[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/13.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame14[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/14.4bpp");
+const u16 gTilesetAnims_Rocheval_Upper_Frame15[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/upper/15.4bpp");
+
+const u16 *const gTilesetAnims_Rocheval_Upper[] = {
+    gTilesetAnims_Rocheval_Upper_Frame0,
+    gTilesetAnims_Rocheval_Upper_Frame1,
+    gTilesetAnims_Rocheval_Upper_Frame2,
+    gTilesetAnims_Rocheval_Upper_Frame3,
+    gTilesetAnims_Rocheval_Upper_Frame4,
+    gTilesetAnims_Rocheval_Upper_Frame5,
+    gTilesetAnims_Rocheval_Upper_Frame6,
+    gTilesetAnims_Rocheval_Upper_Frame7,
+    gTilesetAnims_Rocheval_Upper_Frame8,
+    gTilesetAnims_Rocheval_Upper_Frame9,
+    gTilesetAnims_Rocheval_Upper_Frame10,
+    gTilesetAnims_Rocheval_Upper_Frame11,
+    gTilesetAnims_Rocheval_Upper_Frame12,
+    gTilesetAnims_Rocheval_Upper_Frame13,
+    gTilesetAnims_Rocheval_Upper_Frame14,
+    gTilesetAnims_Rocheval_Upper_Frame15
+};
+
+const u16 gTilesetAnims_Rocheval_Lower_Frame0[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/0.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame1[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/1.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame2[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/2.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame3[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/3.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame4[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/4.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame5[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/5.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame6[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/6.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame7[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/7.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame8[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/8.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame9[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/9.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame10[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/10.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame11[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/11.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame12[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/12.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame13[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/13.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame14[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/14.4bpp");
+const u16 gTilesetAnims_Rocheval_Lower_Frame15[] = INCBIN_U16("data/tilesets/secondary/rocheval/anim/lower/15.4bpp");
+
+const u16 *const gTilesetAnims_Rocheval_Lower[] = {
+    gTilesetAnims_Rocheval_Lower_Frame0,
+    gTilesetAnims_Rocheval_Lower_Frame1,
+    gTilesetAnims_Rocheval_Lower_Frame2,
+    gTilesetAnims_Rocheval_Lower_Frame3,
+    gTilesetAnims_Rocheval_Lower_Frame4,
+    gTilesetAnims_Rocheval_Lower_Frame5,
+    gTilesetAnims_Rocheval_Lower_Frame6,
+    gTilesetAnims_Rocheval_Lower_Frame7,
+    gTilesetAnims_Rocheval_Lower_Frame8,
+    gTilesetAnims_Rocheval_Lower_Frame9,
+    gTilesetAnims_Rocheval_Lower_Frame10,
+    gTilesetAnims_Rocheval_Lower_Frame11,
+    gTilesetAnims_Rocheval_Lower_Frame12,
+    gTilesetAnims_Rocheval_Lower_Frame13,
+    gTilesetAnims_Rocheval_Lower_Frame14,
+    gTilesetAnims_Rocheval_Lower_Frame15
+};
+
+const u16 gTilesetAnims_VikkiesMansion_Campfire_Frame0[] = INCBIN_U16("data/tilesets/secondary/vikkies_mansion/anim/0.4bpp");
+const u16 gTilesetAnims_VikkiesMansion_Campfire_Frame1[] = INCBIN_U16("data/tilesets/secondary/vikkies_mansion/anim/1.4bpp");
+const u16 gTilesetAnims_VikkiesMansion_Campfire_Frame2[] = INCBIN_U16("data/tilesets/secondary/vikkies_mansion/anim/2.4bpp");
+const u16 gTilesetAnims_VikkiesMansion_Campfire_Frame3[] = INCBIN_U16("data/tilesets/secondary/vikkies_mansion/anim/3.4bpp");
+
+const u16 *const gTilesetAnims_VikkiesMansion_Campfire[] = {
+    gTilesetAnims_VikkiesMansion_Campfire_Frame0,
+    gTilesetAnims_VikkiesMansion_Campfire_Frame1,
+    gTilesetAnims_VikkiesMansion_Campfire_Frame2,
+    gTilesetAnims_VikkiesMansion_Campfire_Frame3
+};
+
+const u16 gTilesetAnims_Fiesta_Balloons_Frame0[] = INCBIN_U16("data/tilesets/secondary/fiesta/anim/0.4bpp");
+const u16 gTilesetAnims_Fiesta_Balloons_Frame1[] = INCBIN_U16("data/tilesets/secondary/fiesta/anim/1.4bpp");
+const u16 gTilesetAnims_Fiesta_Balloons_Frame2[] = INCBIN_U16("data/tilesets/secondary/fiesta/anim/2.4bpp");
+const u16 gTilesetAnims_Fiesta_Balloons_Frame3[] = INCBIN_U16("data/tilesets/secondary/fiesta/anim/3.4bpp");
+
+const u16 *const gTilesetAnims_Fiesta_Balloons[] = {
+    gTilesetAnims_Fiesta_Balloons_Frame0,
+    gTilesetAnims_Fiesta_Balloons_Frame1,
+    gTilesetAnims_Fiesta_Balloons_Frame2,
+    gTilesetAnims_Fiesta_Balloons_Frame3
+};
+
+const u16 gTilesetAnims_Retro_Water_Frame0[] = INCBIN_U16("data/tilesets/secondary/retro/anim/0.4bpp");
+const u16 gTilesetAnims_Retro_Water_Frame1[] = INCBIN_U16("data/tilesets/secondary/retro/anim/1.4bpp");
+const u16 gTilesetAnims_Retro_Water_Frame2[] = INCBIN_U16("data/tilesets/secondary/retro/anim/2.4bpp");
+const u16 gTilesetAnims_Retro_Water_Frame3[] = INCBIN_U16("data/tilesets/secondary/retro/anim/3.4bpp");
+
+const u16 *const gTilesetAnims_Retro_Water[] = {
+    gTilesetAnims_Retro_Water_Frame0,
+    gTilesetAnims_Retro_Water_Frame1,
+    gTilesetAnims_Retro_Water_Frame2,
+    gTilesetAnims_Retro_Water_Frame3
+};
+
+const u16 gTilesetAnims_Retro_Flowers_Frame0[] = INCBIN_U16("data/tilesets/secondary/retro/anim/flowers/0.4bpp");
+const u16 gTilesetAnims_Retro_Flowers_Frame1[] = INCBIN_U16("data/tilesets/secondary/retro/anim/flowers/1.4bpp");
+const u16 gTilesetAnims_Retro_Flowers_Frame2[] = INCBIN_U16("data/tilesets/secondary/retro/anim/flowers/2.4bpp");
+const u16 gTilesetAnims_Retro_Flowers_Frame3[] = INCBIN_U16("data/tilesets/secondary/retro/anim/flowers/3.4bpp");
+
+const u16 *const gTilesetAnims_Retro_Flowers[] = {
+    gTilesetAnims_Retro_Flowers_Frame0,
+    gTilesetAnims_Retro_Flowers_Frame1,
+    gTilesetAnims_Retro_Flowers_Frame2,
+    gTilesetAnims_Retro_Flowers_Frame3
+};
+
+const u16 gTilesetAnims_Underwater_Sponge_Frame0[] = INCBIN_U16("data/tilesets/secondary/underwater/anim/sponge/0.4bpp");
+const u16 gTilesetAnims_Underwater_Sponge_Frame1[] = INCBIN_U16("data/tilesets/secondary/underwater/anim/sponge/1.4bpp");
+const u16 gTilesetAnims_Underwater_Sponge_Frame2[] = INCBIN_U16("data/tilesets/secondary/underwater/anim/sponge/2.4bpp");
+const u16 gTilesetAnims_Underwater_Sponge_Frame3[] = INCBIN_U16("data/tilesets/secondary/underwater/anim/sponge/3.4bpp");
+
+const u16 *const gTilesetAnims_Underwater_Sponge[] = {
+    gTilesetAnims_Underwater_Sponge_Frame0,
+    gTilesetAnims_Underwater_Sponge_Frame1,
+    gTilesetAnims_Underwater_Sponge_Frame2,
+    gTilesetAnims_Underwater_Sponge_Frame3
+};
+
+const u16 gTilesetAnims_Hydro_Top_Frame0[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/top/0.4bpp");
+const u16 gTilesetAnims_Hydro_Top_Frame1[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/top/1.4bpp");
+const u16 gTilesetAnims_Hydro_Top_Frame2[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/top/2.4bpp");
+const u16 gTilesetAnims_Hydro_Top_Frame3[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/top/3.4bpp");
+
+const u16 *const gTilesetAnims_Hydro_Top[] = {
+    gTilesetAnims_Hydro_Top_Frame0,
+    gTilesetAnims_Hydro_Top_Frame1,
+    gTilesetAnims_Hydro_Top_Frame2,
+    gTilesetAnims_Hydro_Top_Frame3
+};
+
+const u16 gTilesetAnims_Hydro_Big_Frame0[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/big/0.4bpp");
+const u16 gTilesetAnims_Hydro_Big_Frame1[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/big/1.4bpp");
+const u16 gTilesetAnims_Hydro_Big_Frame2[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/big/2.4bpp");
+const u16 gTilesetAnims_Hydro_Big_Frame3[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/big/3.4bpp");
+
+const u16 *const gTilesetAnims_Hydro_Big[] = {
+    gTilesetAnims_Hydro_Big_Frame0,
+    gTilesetAnims_Hydro_Big_Frame1,
+    gTilesetAnims_Hydro_Big_Frame2,
+    gTilesetAnims_Hydro_Big_Frame3
+};
+
+const u16 gTilesetAnims_Hydro_Small_Frame0[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/small/0.4bpp");
+const u16 gTilesetAnims_Hydro_Small_Frame1[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/small/1.4bpp");
+const u16 gTilesetAnims_Hydro_Small_Frame2[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/small/2.4bpp");
+const u16 gTilesetAnims_Hydro_Small_Frame3[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/small/3.4bpp");
+
+const u16 *const gTilesetAnims_Hydro_Small[] = {
+    gTilesetAnims_Hydro_Small_Frame0,
+    gTilesetAnims_Hydro_Small_Frame1,
+    gTilesetAnims_Hydro_Small_Frame2,
+    gTilesetAnims_Hydro_Small_Frame3
+};
+
+const u16 gTilesetAnims_Hydro_Sponge_Frame0[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/sponge/0.4bpp");
+const u16 gTilesetAnims_Hydro_Sponge_Frame1[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/sponge/1.4bpp");
+const u16 gTilesetAnims_Hydro_Sponge_Frame2[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/sponge/2.4bpp");
+const u16 gTilesetAnims_Hydro_Sponge_Frame3[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/sponge/3.4bpp");
+
+const u16 *const gTilesetAnims_Hydro_Sponge[] = {
+    gTilesetAnims_Hydro_Sponge_Frame0,
+    gTilesetAnims_Hydro_Sponge_Frame1,
+    gTilesetAnims_Hydro_Sponge_Frame2,
+    gTilesetAnims_Hydro_Sponge_Frame3
+};
+
+const u16 gTilesetAnims_Hydro_Water_Frame0[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/water/0.4bpp");
+const u16 gTilesetAnims_Hydro_Water_Frame1[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/water/1.4bpp");
+const u16 gTilesetAnims_Hydro_Water_Frame2[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/water/2.4bpp");
+const u16 gTilesetAnims_Hydro_Water_Frame3[] = INCBIN_U16("data/tilesets/secondary/hydro/anim/water/3.4bpp");
+
+const u16 *const gTilesetAnims_Hydro_Water[] = {
+    gTilesetAnims_Hydro_Water_Frame0,
+    gTilesetAnims_Hydro_Water_Frame1,
+    gTilesetAnims_Hydro_Water_Frame2,
+    gTilesetAnims_Hydro_Water_Frame3
+};
+
+const u16 gTilesetAnims_League_Sign_Frame0[] = INCBIN_U16("data/tilesets/secondary/league/anim/0.4bpp");
+const u16 gTilesetAnims_League_Sign_Frame1[] = INCBIN_U16("data/tilesets/secondary/league/anim/1.4bpp");
+const u16 gTilesetAnims_League_Sign_Frame2[] = INCBIN_U16("data/tilesets/secondary/league/anim/2.4bpp");
+const u16 gTilesetAnims_League_Sign_Frame3[] = INCBIN_U16("data/tilesets/secondary/league/anim/3.4bpp");
+
+const u16 *const gTilesetAnims_League_Sign[] = {
+    gTilesetAnims_League_Sign_Frame0,
+    gTilesetAnims_League_Sign_Frame1,
+    gTilesetAnims_League_Sign_Frame2,
+    gTilesetAnims_League_Sign_Frame3
+};
+
+const u16 gTilesetAnims_Office_Waterfall_Frame0[] = INCBIN_U16("data/tilesets/secondary/office/anim/0.4bpp");
+const u16 gTilesetAnims_Office_Waterfall_Frame1[] = INCBIN_U16("data/tilesets/secondary/office/anim/1.4bpp");
+const u16 gTilesetAnims_Office_Waterfall_Frame2[] = INCBIN_U16("data/tilesets/secondary/office/anim/2.4bpp");
+
+const u16 *const gTilesetAnims_Office_Waterfall[] = {
+    gTilesetAnims_Office_Waterfall_Frame0,
+    gTilesetAnims_Office_Waterfall_Frame1,
+    gTilesetAnims_Office_Waterfall_Frame2
+};
+
+const u16 gTilesetAnims_Office_Lava_Frame0[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/0.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame1[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/1.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame2[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/2.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame3[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/3.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame4[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/4.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame5[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/5.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame6[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/6.4bpp");
+const u16 gTilesetAnims_Office_Lava_Frame7[] = INCBIN_U16("data/tilesets/secondary/office/anim/lava/7.4bpp");
+
+const u16 *const gTilesetAnims_Office_Lava[] = {
+    gTilesetAnims_Office_Lava_Frame0,
+    gTilesetAnims_Office_Lava_Frame1,
+    gTilesetAnims_Office_Lava_Frame2,
+    gTilesetAnims_Office_Lava_Frame3,
+    gTilesetAnims_Office_Lava_Frame4,
+    gTilesetAnims_Office_Lava_Frame5,
+    gTilesetAnims_Office_Lava_Frame6,
+    gTilesetAnims_Office_Lava_Frame7
+};
+
+const u16 gTilesetAnims_GamingShop_Light1_Frame0[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/light1/0.4bpp");
+const u16 gTilesetAnims_GamingShop_Light1_Frame1[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/light1/1.4bpp");
+
+const u16 *const gTilesetAnims_GamingShop_Light1[] = {
+    gTilesetAnims_GamingShop_Light1_Frame0,
+    gTilesetAnims_GamingShop_Light1_Frame1
+};
+
+const u16 gTilesetAnims_GamingShop_Light2_Frame0[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/light2/0.4bpp");
+const u16 gTilesetAnims_GamingShop_Light2_Frame1[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/light2/1.4bpp");
+
+const u16 *const gTilesetAnims_GamingShop_Light2[] = {
+    gTilesetAnims_GamingShop_Light2_Frame0,
+    gTilesetAnims_GamingShop_Light2_Frame1
+};
+
+const u16 gTilesetAnims_GamingShop_Dark1_Frame0[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/dark1/0.4bpp");
+const u16 gTilesetAnims_GamingShop_Dark1_Frame1[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/dark1/1.4bpp");
+
+const u16 *const gTilesetAnims_GamingShop_Dark1[] = {
+    gTilesetAnims_GamingShop_Dark1_Frame0,
+    gTilesetAnims_GamingShop_Dark1_Frame1
+};
+
+const u16 gTilesetAnims_GamingShop_Dark2_Frame0[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/dark2/0.4bpp");
+const u16 gTilesetAnims_GamingShop_Dark2_Frame1[] = INCBIN_U16("data/tilesets/secondary/gaming_shop/anim/dark2/1.4bpp");
+
+const u16 *const gTilesetAnims_GamingShop_Dark2[] = {
+    gTilesetAnims_GamingShop_Dark2_Frame0,
+    gTilesetAnims_GamingShop_Dark2_Frame1
+};
+
 static void ResetTilesetAnimBuffer(void)
 {
     sTilesetDMA3TransferBufferSize = 0;
@@ -799,6 +1105,62 @@ void InitTilesetAnim_Cave(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_Cave;
 }
 
+void InitTilesetAnim_Rocheval(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Rocheval;
+}
+
+void InitTilesetAnim_VikkiesMansion(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_VikkiesMansion;
+}
+
+void InitTilesetAnim_Fiesta(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Fiesta;
+}
+
+void InitTilesetAnim_Retro(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Retro;
+}
+
+void InitTilesetAnim_Hydro(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Hydro;
+}
+
+void InitTilesetAnim_League(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_League;
+}
+
+void InitTilesetAnim_Office(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Office;
+}
+
+void InitTilesetAnim_GamingShop(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_GamingShop;
+}
+
 void InitTilesetAnim_EliteFour(void)
 {
     sSecondaryTilesetAnimCounter = 0;
@@ -935,12 +1297,86 @@ static void TilesetAnim_Underwater(u16 timer)
 {
     if (timer % 16 == 0)
         QueueAnimTiles_Underwater_Seaweed(timer / 16);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Underwater_Sponge(timer / 16);
 }
 
 static void TilesetAnim_Cave(u16 timer)
 {
     if (timer % 16 == 1)
         QueueAnimTiles_Cave_Lava(timer / 16);
+    if (timer % 16 == 2)
+        QueueAnimTiles_Cave_Waterfall(timer / 16);
+}
+
+static void TilesetAnim_Rocheval(u16 timer)
+{
+    if (timer % 4 == 1)
+        QueueAnimTiles_Rocheval_Upper(timer / 4);
+    if (timer % 4 == 2)
+        QueueAnimTiles_Rocheval_Lower(timer / 4);
+}
+
+static void TilesetAnim_VikkiesMansion(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_VikkiesMansion_Campfire(timer / 16);
+}
+
+static void TilesetAnim_Fiesta(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Fiesta_Balloons(timer / 16);
+}
+
+static void TilesetAnim_Retro(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Retro_Water(timer / 16);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Retro_Flowers(timer / 16);
+}
+
+static void TilesetAnim_Hydro(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Hydro_Top(timer / 16);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Hydro_Small(timer / 16);
+    if (timer % 16 == 2)
+        QueueAnimTiles_Hydro_Big(timer / 16);
+    if (timer % 16 == 3)
+        QueueAnimTiles_Hydro_Sponge(timer / 16);
+    if (timer % 16 == 4)
+        QueueAnimTiles_Hydro_Water(timer / 16);
+}
+
+static void TilesetAnim_League(u16 timer)
+{
+    if (timer % 32 == 0)
+        QueueAnimTiles_League_Sign(timer / 32);
+}
+
+static void TilesetAnim_Office(u16 timer)
+{
+    if (timer % 8 == 0)
+        QueueAnimTiles_Office_Waterfall(timer / 8);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Office_Lava(timer / 16);
+}
+
+static void TilesetAnim_GamingShop(u16 timer)
+{
+    if (timer % 32 == 0)
+    {
+        QueueAnimTiles_GamingShop_Light1(timer / 32);
+        QueueAnimTiles_GamingShop_Dark1(timer / 32);
+    }
+    if (timer % 32 == 1)
+    {
+        QueueAnimTiles_GamingShop_Light2(timer / 32);
+        QueueAnimTiles_GamingShop_Dark2(timer / 32);
+    }
 }
 
 static void TilesetAnim_BattleFrontierOutsideWest(u16 timer)
@@ -981,6 +1417,88 @@ static void QueueAnimTiles_Underwater_Seaweed(u8 timer)
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_Underwater_Seaweed);
     AppendTilesetAnimToBuffer(gTilesetAnims_Underwater_Seaweed[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 496)), 4 * TILE_SIZE_4BPP);
 }
+
+static void QueueAnimTiles_Underwater_Sponge(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Underwater_Sponge);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Underwater_Sponge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(824)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Hydro_Small(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Hydro_Small);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Hydro_Small[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(736)), 8 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Hydro_Top(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Hydro_Top);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Hydro_Top[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(752)), 2 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Hydro_Sponge(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Hydro_Sponge);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Hydro_Sponge[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(768)), 6 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Hydro_Big(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Hydro_Big);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Hydro_Big[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(912)), 8 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Hydro_Water(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Hydro_Water);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Hydro_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(853)), 1 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_League_Sign(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_League_Sign);
+    AppendTilesetAnimToBuffer(gTilesetAnims_League_Sign[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(576)), 16 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Office_Waterfall(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Office_Waterfall);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Office_Waterfall[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(672)), 20 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Office_Lava(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Office_Lava);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Office_Lava[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(667)), 4 * TILE_SIZE_4BPP);
+}
+
+///
+
+static void QueueAnimTiles_GamingShop_Light1(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_GamingShop_Light1);
+    AppendTilesetAnimToBuffer(gTilesetAnims_GamingShop_Light1[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(514)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_GamingShop_Light2(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_GamingShop_Light2);
+    AppendTilesetAnimToBuffer(gTilesetAnims_GamingShop_Light2[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(546)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_GamingShop_Dark1(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_GamingShop_Dark1);
+    AppendTilesetAnimToBuffer(gTilesetAnims_GamingShop_Dark1[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(530)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_GamingShop_Dark2(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_GamingShop_Dark2);
+    AppendTilesetAnimToBuffer(gTilesetAnims_GamingShop_Dark2[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(562)), 4 * TILE_SIZE_4BPP);
+}
+
+///
 
 static void QueueAnimTiles_Pacifidlog_WaterCurrents(u8 timer)
 {
@@ -1037,6 +1555,48 @@ static void QueueAnimTiles_Cave_Lava(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Lavaridge_Cave_Lava);
     AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Cave_Lava[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 416)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Cave_Waterfall(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Cave_Waterfall);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Cave_Waterfall[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(842)), 6 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Rocheval_Upper(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Rocheval_Upper);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Rocheval_Upper[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(516)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Rocheval_Lower(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Rocheval_Lower);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Rocheval_Lower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(548)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_VikkiesMansion_Campfire(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_VikkiesMansion_Campfire);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VikkiesMansion_Campfire[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(880)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Fiesta_Balloons(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Fiesta_Balloons);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Fiesta_Balloons[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(518)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Retro_Water(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Retro_Water);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Retro_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(540)), 2 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Retro_Flowers(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Retro_Flowers);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Retro_Flowers[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(595)), 1 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_Dewford_Flag(u16 timer)

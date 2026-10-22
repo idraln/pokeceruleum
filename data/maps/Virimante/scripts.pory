@@ -1,0 +1,150 @@
+raw `
+Virimante_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Virimante_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Virimante_OnFrame
+	.byte 0
+
+Virimante_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 31, Virimante_KAM
+    .2byte 0
+`
+script Virimante_KAM {
+    lockall
+    delay(40)
+    namebox("K.A.M.")
+    msgbox(format("...Hey."))
+    closemessage
+    hidenamebox
+    delay(20)
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 7) {
+        applymovement(4, moves(walk_left * 3))
+        waitmovement(0)
+    }
+    else {
+        applymovement(4, moves(walk_left * 2))
+        waitmovement(0)
+    }
+    namebox("K.A.M.")
+    msgbox(format("I know, I just told you I was leaving, but I couldn't help myself to reconsider. I need to make amends with all the chaos we provoked in the region... It was fun, but I kinda feel guilty. And I mostly don't want to get caught leaving the region and spend the rest of my life in prison."))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("So, yeah, that means I'll help you, I guess. I'll give it a try, anyway. So... What next?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("Now that I think about it, there was something strange that happened to me right after what happened at the League..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(4, moves(face_down))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("There was this woman, Vikkie, I think... She called me and asked me if I was interested in a top secret project. It had something to do with sapphires, I reckon? She didn't seem worried or troubled with what happened at the League?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(4, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("...There are sapphires in the Ironair? Hah, so the explosion the old man spoke about earlier, that must've been them. What's his name? Bruce? I need to speak to him. I'll go to Frux. But before that, wait here."))
+    closemessage
+    hidenamebox
+    if(var(VAR_TEMP_0) == 7) {
+        applymovement(4, moves(walk_up))
+        waitmovement(0)
+        removeobject(4)
+        playse(SE_EXIT)
+        setflag(FLAG_KAM_VIRIMANTE)
+        delay(80)
+        addobject(4)
+        setobjectxy(4, 8, 17)
+        clearflag(FLAG_KAM_VIRIMANTE)
+        playse(SE_EXIT)
+        applymovement(4, moves(walk_down face_left))
+        waitmovement(0)
+    }
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+        applymovement(4, moves(walk_left walk_up))
+        waitmovement(0)
+        removeobject(4)
+        playse(SE_EXIT)
+        setflag(FLAG_KAM_VIRIMANTE)
+        delay(80)
+        addobject(4)
+        setobjectxy(4, 8, 17)
+        clearflag(FLAG_KAM_VIRIMANTE)
+        playse(SE_EXIT)
+        applymovement(4, moves(walk_down face_left))
+        waitmovement(0)
+    }
+    namebox("K.A.M.")
+    msgbox(format("You know this was an old gym, right? Well, I've always wanted to be a Gym leader back in Hoenn, but I couldn't, I wasn't strong enough. Visibly, I'm still not strong enough, since you kicked my ass! So, here is a token of your victory earlier. You deserve it, and it makes me feel like a genuine Gym leader."))
+    closemessage
+    hidenamebox
+    delay(20)
+    setflag(FLAG_BADGE07_GET)
+    playfanfare(MUS_OBTAIN_BADGE)
+    msgbox(format("You just received the Frozen Emblem."))
+    waitfanfare
+    closemessage
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("I also think this Emblem gives you the possibility to dive? There are a lot of deep waters in Hoenn, but I've always been scared shitless of depths, hah."))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("K.A.M.")
+    msgbox(format("Ok, time for me to go see Bruce. I hope he'll forgive me, so that we can guard the Ironair together. Take care!"))
+    closemessage
+    hidenamebox
+    applymovement(4, moves(walk_right * 6 walk_up walk_right * 2))
+    waitmovement(0)
+    removeobject(4)
+    setflag(FLAG_VIKKIE_VIRIMANTE)
+    setflag(FLAG_KAM_VIRIMANTE)
+    setflag(FLAG_DIVERS_TRAINERS)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_MAIN_STORY, 32)
+    releaseall
+    end
+}
+
+script Virimante_OnTransition {
+    setflag(FLAG_VISITED_VIRIMANTE)
+}
+
+script Virimante_GruntF {
+    lock
+    faceplayer
+    msgbox(format("This is unacceptable! Just because we're a bunch of outlaws, does that mean we have to soil everything? And I'm the one cleaning everything up."))
+    turnobject(3, DIR_NORTH)
+    release
+    end
+}
+
+script Virimante_GruntM {
+    lock
+    faceplayer
+    msgbox(format("This town used to be a safe haven for fishermen. But since every fish in the ocean decided to go on a vacation somewhere else, every living soul left for places where they could fish again. It's actually sad when you think about it..."))
+    release
+    end
+}
+
+script Virimante_Admin {
+    lock
+    faceplayer
+    msgbox(format("I'm on smoko, so leave me alone."))
+    release
+    end
+}

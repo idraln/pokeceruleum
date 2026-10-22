@@ -1,0 +1,48 @@
+raw `
+SapphireCity_Shop2F_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Shop2F_ShyNerd {
+    lock
+    msgbox(format("I'm dying to go there and play with the others, but I'm too shy to speak to people."))
+    release
+    end
+}
+
+script SapphireCity_Shop2F_Dad {
+    lock
+    faceplayer
+    msgbox(format("Hell, how exhausting it is to have twins! This one's been running non-stop for over 10 minutes, and the other one keeps leaning over the ledge."))
+    closemessage
+    delay(20)
+    applymovement(4, moves(jump_in_place_right * 2))
+    waitmovement(0)
+    msgbox(format("KEVIN! Come back here! You'll hurt yourself!"))
+    release
+    end
+}
+
+script SapphireCity_Shop2F_KidG {
+    lock
+    faceplayer
+    msgbox(format("Haha! Hahahah! Hahaha!"))
+    release
+    end
+}
+
+script SapphireCity_Shop2F_KidB {
+    lock
+    faceplayer
+    msgbox(format("Everyone is so small from up here! This is so fun!"))
+    release
+    end
+}
+
+script SapphireCity_Shop2F_Tired {
+    lock
+    faceplayer
+    msgbox(format("Man, I only went up a flight of stairs, and I'm already out of breath. I really need to work out more."))
+    release
+    end
+}

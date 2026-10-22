@@ -1,0 +1,36 @@
+raw `
+BoisEsprit_House_MapScripts::
+	.byte 0
+`
+
+script BoisEsprit_House_Grunt1 {
+    lock
+    faceplayer
+    msgbox(format("Piss off! I'm tryna watch the news, I stole a Pokémon from a kid. Am I famous yet?"))
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}
+
+script BoisEsprit_House_Grunt2 {
+    lock
+    faceplayer
+    checkitem(ITEM_TM12)
+    if(var(VAR_RESULT) == TRUE) {
+        msgbox(format("So, have you tried it yet?"))
+    }
+    else {
+        msgbox(format("Do you know what's the most important quality you need to be a valuable grunt? That's right! You must to be able to provoke anyone. Try it yourself!"))
+        giveitem(ITEM_TM12)
+    }
+    release
+    end
+}
+
+script BoisEsprit_House_Grunt3 {
+    lock
+    faceplayer
+    msgbox(format("If I keep looking away, maybe he'll stop staring at me. Damn, what a creep!"))
+    release
+    end
+}

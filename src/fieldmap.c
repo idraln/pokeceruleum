@@ -12,11 +12,14 @@
 #include "pokenav.h"
 #include "script.h"
 #include "secret_base.h"
+#include "task.h"
 #include "trainer_hill.h"
 #include "tv.h"
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
 #include "wild_encounter.h"
+#include "event_object_movement.h"
+#include "util.h"
 
 struct ConnectionFlags
 {
@@ -881,25 +884,40 @@ static void UNUSED ApplyGlobalTintToPaletteSlot(u8 slot, u8 count)
 
 static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u16 size, bool8 skipFaded)
 {
+
+    u16 black = RGB_BLACK;
+
     if (tileset)
     {
         if (tileset->isSecondary == FALSE)
         {
             if (skipFaded)
+            {
                 CpuFastCopy(tileset->palettes, &gPlttBufferUnfaded[destOffset], size); // always word-aligned
+            }  
             else
+            {
                 LoadPaletteFast(tileset->palettes, destOffset, size);
-            gPlttBufferFaded[destOffset] = gPlttBufferUnfaded[destOffset] = RGB_BLACK;
+            }
+            //gPlttBufferFaded[destOffset] = gPlttBufferUnfaded[destOffset] = RGB_BLACK;
+            LoadPalette(&black, destOffset, 2);
+            LoadPalette(((u16*)tileset->palettes) + 1, destOffset + 1, size - 2);
             ApplyGlobalTintToPaletteEntries(destOffset + 1, (size - 2) >> 1);
         }
         else if (tileset->isSecondary == TRUE)
         {
             // All 'gTilesetPalettes_' arrays should have ALIGNED(4) in them,
             // but we use SmartCopy here just in case they don't
-            if (skipFaded)
+            if (skipFaded) 
+            {
                 CpuCopy16(tileset->palettes[NUM_PALS_IN_PRIMARY], &gPlttBufferUnfaded[destOffset], size);
+            }  
             else
+            {
                 LoadPaletteFast(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
+            }
+            LoadPalette(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size);
+            ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
         }
         else
         {

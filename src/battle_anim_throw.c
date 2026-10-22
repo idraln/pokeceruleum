@@ -845,7 +845,7 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
     {
         gTasks[taskId].data[0] = 0;
         paletteNum = IndexOfSpritePaletteTag(TAG_HEALTHBOX_PALS_1);
-        colorOffset = gTasks[taskId].data[10] == 0 ? 6 : 2;
+        colorOffset = gTasks[taskId].data[10] == 0 ? 5 : 2;
         switch (gTasks[taskId].data[1])
         {
         case 0:

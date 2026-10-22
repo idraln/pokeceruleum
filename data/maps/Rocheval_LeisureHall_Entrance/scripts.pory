@@ -1,0 +1,266 @@
+raw `
+Rocheval_LeisureHall_Entrance_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Rocheval_LeisureHallEntrance_OnFrame
+	.byte 0
+
+    Rocheval_LeisureHallEntrance_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 6, Rocheval_LeisureHallEntrance_Prize
+   .2byte 0
+`
+
+script Rocheval_LeisureHallEntrance_Prize {
+    if(var(VAR_MAIN_STORY) == 6) {
+        delay(1)
+        lock
+        applymovement(OBJ_EVENT_ID_PLAYER, RLHENorth)
+        msgbox(format("Thanks for participating! Here's your prize."))
+        closemessage
+        if(var(VAR_TRAINER_CONTEST_PRIZE) == 1) {
+            giveitem(ITEM_POTION, 1)
+            closemessage
+            clearflag(FLAG_SAM_CONTEST)
+            call(Rocheval_LeisureHallEntrance_Sam)
+        }
+        elif(var(VAR_TRAINER_CONTEST_PRIZE) == 2) {
+            addmoney(1000)
+            playfanfare(MUS_LEVEL_UP)
+            msgbox(format("You received ¥1 000!"))
+            waitfanfare
+            closemessage
+            clearflag(FLAG_SAM_CONTEST)
+            call(Rocheval_LeisureHallEntrance_Sam)
+        }
+        elif(var(VAR_TRAINER_CONTEST_PRIZE) == 3) {
+            addmoney(2000)
+            playfanfare(MUS_LEVEL_UP)
+            msgbox(format("You received ¥2 000!"))
+            waitfanfare
+            closemessage
+            clearflag(FLAG_SAM_CONTEST)
+            call(Rocheval_LeisureHallEntrance_Sam)
+        }
+    }
+    release
+    end
+}
+
+script Rocheval_LeisureHallEntrance_Sam {
+    lock
+    addobject(1)
+    applymovement(1, SamWinner)
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, RLHEEast)
+    if(var(VAR_TRAINER_CONTEST_PRIZE) == 1) {
+        namebox("Sam")
+        msgbox(format("Hey {PLAYER}! How did you do?"))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Sam")
+        msgbox(format("You lost? Well, it happens, don't sweat it! Once you get yourself together, meet me at the Town Hall, I have a surprise for you!"))
+        closemessage
+        hidenamebox
+        applymovement(1, SamLeavingToHall)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        delay(60)
+        removeobject(1)
+        playse(SE_EXIT)
+        setvar(VAR_MAIN_STORY, 7)
+        setflag(FLAG_SAM_NOT_HOUSE)
+        setflag(FLAG_BOAT)
+        clearflag(FLAG_SAM_TOWN_HALL)
+        release
+        end
+    }    
+    elif(var(VAR_TRAINER_CONTEST_PRIZE) == 2) {
+        namebox("Sam")
+        msgbox(format("Hey {PLAYER}! I think I'm finally becoming a real trainer! Sorry for defeating you though. Anyway, meet me at the Town Hall, I have a surprise for you!"))
+        closemessage
+        hidenamebox
+        applymovement(1, SamLeavingToHall)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        delay(60)
+        removeobject(1)
+        playse(SE_EXIT)
+        setvar(VAR_MAIN_STORY, 7)
+        setflag(FLAG_SAM_NOT_HOUSE)
+        setflag(FLAG_BOAT)
+        clearflag(FLAG_SAM_TOWN_HALL)
+        release
+        end
+    }
+    elif(var(VAR_TRAINER_CONTEST_PRIZE) == 3) {
+        namebox("Sam")
+        msgbox(format("Hey {PLAYER}! You didn't lie, you really are a special trainer! The way you and your POKéMON battle... It feels like you know each other since forever! Anyway, meet me at the Town Hall, I have a surprise for you!"))
+        closemessage 
+        hidenamebox
+        applymovement(1, SamLeavingToHall)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        delay(60)
+        removeobject(1)
+        playse(SE_EXIT)
+        setvar(VAR_MAIN_STORY, 7)
+        setflag(FLAG_SAM_NOT_HOUSE)
+        setflag(FLAG_BOAT)
+        clearflag(FLAG_SAM_TOWN_HALL)
+        release
+        end
+    }
+}
+
+script Rocheval_LeisureHallEntrance_Hostess {
+    if(var(VAR_MAIN_STORY) == 4) {
+        lockall
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerSpeakingLeisure)
+        waitmovement(0)
+        msgbox(format("Welcome to Rocheval's Leisure Hall! Do you want to register for the Trainer's Contest?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Very well then, can I have your name please?"))
+            msgbox(format("..."))
+            msgbox(format("{PLAYER}, you're all set! Please proceed."))
+            closemessage
+            setvar(VAR_MAIN_STORY, 5)
+            setflag(FLAG_TRAINER_CONTEST1)
+            setflag(FLAG_TRAINER_CONTEST2)
+            setflag(FLAG_TRAINER_CONTEST3)
+            applymovement(OBJ_EVENT_ID_PLAYER, PlayerAcceptedLeisure)
+            waitmovement(0)
+            releaseall
+            end
+        }
+        else {
+            msgbox(format("Okay, come back when you feel ready! We hope to see you very soon."))
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, PlayerRejectedLeisure)
+            waitmovement(0)
+            releaseall
+            end
+        }
+    }
+    elif(var(VAR_MAIN_STORY) == 5) {
+        lockall
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerSpeakingLeisure)
+        waitmovement(0)
+        msgbox(format("{PLAYER}, everyone's waiting for you!"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerAcceptedLeisure)
+        waitmovement(0)
+        releaseall
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 7) {
+        lockall
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerSpeakingLeisure)
+        waitmovement(0)
+        msgbox(format("Welcome to Rocheval's Leisure Hall! The next Trainer's Contest will take place in exactly 1 month."))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerRejectedLeisure)
+        waitmovement(0)
+        releaseall
+        end
+    }
+    else {
+        lockall
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerSpeakingLeisure)
+        waitmovement(0)
+        msgbox(format("Welcome to Rocheval's Leisure Hall!\pYou want to register for the Trainer's Contest? I'm afraid the registrations aren't open yet. Come back soon!"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerRejectedLeisure)
+        waitmovement(0)
+        releaseall
+        end
+    }
+}
+
+script Rocheval_LeisureHallEntrance_Nurse {
+    lockall
+    faceplayer
+    msgbox(format("Welcome to Rocheval's Leisure Hall! We hope you have a great time here."))
+	releaseall
+	end
+}
+
+script Rocheval_LeisureHallEntrance_Trainer1 {
+    if(var(VAR_MAIN_STORY) == 7) {
+        lockall
+        faceplayer
+        msgbox(format("Doesn't matter. Doesn't count. I wasn't that ready. Next time though. Next time..."))
+        releaseall
+        end
+    }
+    else {
+        lockall
+        faceplayer
+        msgbox(format("I've prepared and practiced every day for the past month. I've killed almost every Wingull on Cape East. I'm more than ready."))
+        releaseall
+        end
+    }
+}
+
+script Rocheval_LeisureHallEntrance_Trainer2 {
+    if(var(VAR_MAIN_STORY) == 7) {
+        lockall
+        faceplayer
+        msgbox(format("Oh... Toto doesn't look like he's doing so good..."))
+        releaseall
+        end
+    }
+    else {
+        lockall
+        faceplayer
+        msgbox(format("Oh man, I'm so excited! This is my first contest! I hope me and Toto will do good! Toto is the name of my Magnemite by the way."))
+        releaseall
+        end
+    }
+}
+
+script Rocheval_LeisureHallEntrance_Toto {
+    if(var(VAR_MAIN_STORY) == 7) {
+        lockall
+        faceplayer
+        playmoncry(SPECIES_MAGNEMITE, CRY_MODE_FAINT)
+        msgbox(format("...bzzt..."))
+        releaseall
+        end
+    }
+    else {
+        lockall
+        faceplayer
+        playmoncry(SPECIES_MAGNEMITE, CRY_MODE_NORMAL)
+        msgbox(format("BZZZZT! BZZZZZT!"))
+        releaseall
+        end
+    }
+}
+
+movement PlayerRejectedLeisure {
+    walk_down
+}
+
+movement PlayerAcceptedLeisure {
+    walk_up
+}
+
+movement PlayerSpeakingLeisure {
+    face_right
+}
+
+movement SamWinner {
+    walk_down * 6
+    walk_left * 3
+    face_left
+}
+
+movement SamLeavingToHall {
+    walk_down * 4
+}
+
+movement RLHENorth {
+    face_up
+}
+
+movement RLHEEast {
+    face_right
+}

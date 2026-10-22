@@ -1,0 +1,122 @@
+raw `
+JangalaRd_Bush_MapScripts::
+	.byte 0
+`
+
+script JangalaRd_Bush_Hermit {
+    lock
+    if(var(VAR_QUEST_HERMIT) > 4) {
+        faceplayer
+        namebox("Hermit")
+        msgbox(format("So? Are we moving or what?"))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
+    else {
+        namebox("Hermit")
+        msgbox(format("You take the lead. I'm too scared."))
+        closemessage
+        hidenamebox
+        setfollowernpc(1, FNPC_LEAVE_ROUTE, 0, 0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 2))
+        waitmovement(0)
+        setvar(VAR_QUEST_HERMIT, 5)
+        release
+        end
+    }
+}
+
+script JangalaRd_Bush_DontGo {
+    lock
+    namebox("Hermit")
+    msgbox(format("DON'T LEAVE ME HERE!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    release
+    end
+}
+
+script JangalaRd_Bush_Encounter {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 3 walk_up * 2))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_up walk_left * 2 walk_up * 2))
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 4))
+    waitmovement(0)
+    delay(20)
+    applymovement(3, moves(face_down emote_exclamation_mark))
+    waitmovement(0)
+    playse(SE_PIN)
+    delay(40)
+    applymovement(3, moves(walk_fast_right walk_fast_down * 2))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_right walk_fast_down * 2))
+    waitmovement(0)
+    playmoncry(SPECIES_TREVENANT, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(20)
+    applymovement(1, moves(jump_in_place_up * 2))
+    waitmovement(0)
+    namebox("Hermit")
+    msgbox(format("AAAAH!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_fast_down walk_fast_left * 2 walk_fast_up face_right))
+    waitmovement(0)
+    delay(20)
+    applymovement(3, moves(walk_fast_down * 2 face_left))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_down * 2 walk_left))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    setwildbattle(SPECIES_TREVENANT, 40)
+    waitse
+    playmoncry(SPECIES_TREVENANT, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    fadescreen(FADE_TO_BLACK)
+    delay(40)
+    setflag(FLAG_TREVENANT_BUSH)
+    removeobject(3)
+    fadescreen(FADE_FROM_BLACK)
+    delay(40)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+    waitmovement(0)
+    namebox("Hermit")
+    msgbox(format("Is this it? Is it gone?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Hermit")
+    msgbox(format("Thank you... I'm finally free. I'm leaving to Sapphire City, now. Thank you again, my friend. Take this."))
+    closemessage
+    hidenamebox
+    giveitem(ITEM_ORAN_BERRY)
+    closemessage
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down * 2 walk_right * 4 walk_down * 3 walk_right * 5))
+    waitmovement(0)
+    destroyfollowernpc
+    setflag(FLAG_HERMIT_JANGALA_BUSH)
+    completequest(QUEST_HERMIT)
+    setvar(VAR_QUEST_HERMIT, 6)
+    release
+    end
+}
+
+script JangalaRd_Bush_Item {
+    lock
+    removeobject(2)
+    setflag(FLAG_ITEM_BUSH)
+    giveitem(ITEM_ENERGY_ROOT)
+    release
+    end
+}

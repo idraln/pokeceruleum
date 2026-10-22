@@ -1,0 +1,35 @@
+raw `
+Bammobo_Mart_MapScripts::
+	.byte 0
+`
+
+script Bammobo_Mart_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Bammobo's mart! How can I help you today?"))
+    waitmessage
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thanks for shopping with us! We hope you come back soon!"))
+    release
+    end
+}
+
+script Bammobo_Mart_Customer {
+    lock
+    faceplayer
+    msgbox(format("We live in a world filled with fabulous Pokémon, but noone will tell you about freaking mosquitoes! I've literally been assaulted on Jangala Road!"))
+    release
+    end
+}

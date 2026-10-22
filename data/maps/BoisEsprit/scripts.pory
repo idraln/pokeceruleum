@@ -1,0 +1,250 @@
+raw `
+BoisEsprit_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, BoisEsprit_OnLoad
+    .byte 0
+`
+
+script BoisEsprit_OnLoad {
+    if(var(VAR_MAIN_STORY) == 29) {
+        setflag(FLAG_ADMINS_BOIS)
+        removeobject(7)
+        removeobject(8)
+    }
+    end
+}
+
+script BoisEsprit_Grunt1 {
+    trainerbattle_single(TRAINER_BOIS_1, BoisGrunt1, BoisGrunt2)
+    msgbox(format("Don't listen to anyone else, we're actually the good guys. We're the ones protecting the forest."))
+    closemessage
+    end
+}
+
+text BoisGrunt1 {
+    format("Hey! This forest is ours, go away!")
+}
+
+text BoisGrunt2 {
+    format("No, this can't be!")
+}
+
+/////////
+
+script BoisEsprit_Grunt2 {
+    trainerbattle_single(TRAINER_BOIS_2, BoisGrunt3, BoisGrunt4)
+    msgbox(format("An old naked man tried to block me from entering the forest. I had to teach him a lesson."))
+    closemessage
+    end
+}
+
+text BoisGrunt3 {
+    format("I'm sorry pal, the refuge is Fandangoes only.")
+}
+
+text BoisGrunt4 {
+    format("We can make an exception...")
+}
+
+/////////
+
+script BoisEsprit_Grunt3 {
+    trainerbattle_single(TRAINER_BOIS_3, BoisGrunt5, BoisGrunt6)
+    msgbox(format("What am I doing with my life? I followed her because I'm so in love with her. Love is truly blind..."))
+    closemessage
+    end
+}
+
+text BoisGrunt5 {
+    format("Please, take me with you, wherever you go. I don't wanna be here anymore.")
+}
+
+text BoisGrunt6 {
+    format("Yes! Thank you!")
+}
+
+/////////
+
+script BoisEsprit_Grunt4 {
+    trainerbattle_single(TRAINER_BOIS_4, BoisGrunt7, BoisGrunt8)
+    msgbox(format("My boyfriend won't stop whining. Dude, look at all the paper we're doing!"))
+    closemessage
+    end
+}
+
+text BoisGrunt7 {
+    format("Ugh. Yeah, let's fight, I guess.")
+}
+
+text BoisGrunt8 {
+    format("Fighting is not my forte, as you saw.")
+}
+
+/////////
+
+script BoisEsprit_Grunt5 {
+    trainerbattle_single(TRAINER_BOIS_5, BoisGrunt9, BoisGrunt10)
+    msgbox(format("I can't seem to grasp the basics of Psychic typed Pokémon. Am I doing the right thing?"))
+    closemessage
+    end
+}
+
+text BoisGrunt9 {
+    format("I'll show you how we do it, Fandango style!")
+}
+
+text BoisGrunt10 {
+    format("Hmm. This isn't how it was supposed to go...")
+}
+
+/////////
+
+script BoisEsprit_Grunt6 {
+    trainerbattle_single(TRAINER_BOIS_6, BoisGrunt11, BoisGrunt12)
+    msgbox(format("I would be so pleased to be here if I could only breathe, just a little. Damn pollen allergy."))
+    closemessage
+    end
+}
+
+text BoisGrunt11 {
+    format("Achoo!")
+}
+
+text BoisGrunt12 {
+    format("Sniff... My eyes... They burn like hell...")
+}
+
+/////////
+
+script BoisEsprit_DoubleAdmin {
+    lock
+    playbgm(MUS_ENCOUNTER_AQUA, TRUE)
+    namebox("???")
+    msgbox(format("Hold it! Don't move!"))
+    closemessage
+    hidenamebox
+    clearflag(FLAG_ADMINS_BOIS)
+    addobject(7)
+    addobject(8)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement(0)
+    if(var(VAR_TEMP_0) == 24) {
+        applymovement(7, moves(walk_down * 3 walk_right * 3 walk_down * 2))
+        applymovement(8, moves(walk_down * 3 walk_right * 3 walk_down * 3 face_right))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_0) == 25) {
+        applymovement(7, moves(walk_down * 3 walk_right * 4 walk_down * 2))
+        applymovement(8, moves(walk_down * 3 walk_right * 4 walk_down * 3 face_right))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+        waitmovement(0)
+    }
+    else {
+        applymovement(7, moves(walk_down * 3 walk_right * 5 walk_down * 2))
+        applymovement(8, moves(walk_down * 3 walk_right * 5 walk_down * 3 face_right))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+        waitmovement(0)
+    }
+    namebox("Barbara")
+    msgbox(format("Hold on... Aren't you the kid that shooed me away from Cruzeira's gym? Hahaha! We've been told that there was a gym leader wreaking havoc in the forest, but this is miles better! I've been dwelling on that moment ever since you beat me... Now is the time for revenge! Hahaha!!"))
+    hidenamebox
+    closemessage
+    trainerbattle_no_intro(TRAINER_BOIS_ADMIN_1, BarbaraBois1)
+    namebox("Barbara")
+    msgbox(format("Dammit! DAMN IT!!"))
+    closemessage
+    hidenamebox
+    turnobject(7, DIR_NORTH)
+    delay(40)
+    turnobject(8, DIR_NORTH)
+    applymovement(8, moves(walk_in_place_up))
+    waitmovement(0)
+    namebox("Maurice")
+    msgbox(format("Well, isn't it a shame. After all these hours you spent 'training', you couldn't beat a stupid kid? Twice? Let me show you how it's done."))
+    closemessage
+    hidenamebox
+    turnobject(8, DIR_EAST)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+    waitmovement(0)
+    namebox("Maurice")
+    msgbox(format("Hope you're ready, because I sure am."))
+    hidenamebox
+    closemessage
+    trainerbattle_no_intro(TRAINER_BOIS_ADMIN_2, MauriceBois1)
+    namebox("Maurice")
+    msgbox(format("Hmmm. We've no time to spare here. Barbara, come. Let's see K.A.M. and tell them what's happened."))
+    closemessage
+    hidenamebox
+    if(var(VAR_TEMP_0) == 24) {
+        applymovement(7, moves(walk_fast_right walk_fast_down * 2))
+        applymovement(8, moves(walk_up walk_right * 2 walk_down * 2))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_0) == 25) {
+        applymovement(7, moves(walk_fast_right walk_fast_down * 2))
+        applymovement(8, moves(walk_down))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+    }
+    else {
+        applymovement(7, moves(walk_fast_left walk_fast_down * 2))
+        applymovement(8, moves(walk_down))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+    }
+    removeobject(7)
+    removeobject(8)
+    playse(SE_EXIT)
+    delay(40)
+    fadeoutbgm(1)
+    playbgm(MUS_RG_VIRIDIAN_FOREST, TRUE)
+    setflag(FLAG_ADMINS_BOIS)
+    setvar(VAR_MAIN_STORY, 30)
+    release
+    end
+}
+
+text BarbaraBois1 {
+    format("NOOOO!!")
+}
+
+text MauriceBois1 {
+    format("Uhm... What? How?")
+}
+
+/////////
+
+script BoisEsprit_GruntNPC1 {
+    lock
+    faceplayer
+    msgbox(format("I cannot fight anymore because some bald small dude literally annihilated my Pokémons. It's your lucky day, I guess."))
+    release
+    end
+}
+
+script BoisEsprit_GruntNPC2 {
+    lock
+    faceplayer
+    msgbox(format("Oh, no, no. I'm not a trainer. I'm actually in charge of accounting in the band! Did you know that it's actually harder to keep counts in an organisation like this?"))
+    release
+    end
+}
+
+/////////
+
+script BoisEsprit_Item {
+    lock
+    removeobject(11)
+    giveitem(ITEM_TM20)
+    setflag(FLAG_ITEM_BOIS_1)
+    release
+    end
+}

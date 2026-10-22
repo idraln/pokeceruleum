@@ -28,6 +28,8 @@
 #include "constants/battle_anim.h"
 #include "constants/battle_partner.h"
 #include "data/battle_environment.h"
+#include "event_data.h"
+#include "constants/flags.h"
 
 // .rodata
 
@@ -658,8 +660,6 @@ static u8 GetBattleEnvironmentOverride(void)
         {
         case SPECIES_GROUDON:
             return BATTLE_ENVIRONMENT_GROUDON;
-        case SPECIES_KYOGRE:
-            return BATTLE_ENVIRONMENT_KYOGRE;
         case SPECIES_RAYQUAZA:
             return BATTLE_ENVIRONMENT_RAYQUAZA;
         default:
@@ -735,10 +735,32 @@ void DrawMainBattleBackground(void)
 
 void LoadBattleTextboxAndBackground(void)
 {
-    DecompressDataWithHeaderVram(gBattleTextboxTiles, (void *)(BG_CHAR_ADDR(0)));
-    CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
+    if (FlagGet(FLAG_RETRO_INIT))
+    {
+        DecompressDataWithHeaderVram(gBattleTextboxRetroTiles, (void *)(BG_CHAR_ADDR(0)));
+    }
+    else
+    {
+        DecompressDataWithHeaderVram(gBattleTextboxTiles, (void *)(BG_CHAR_ADDR(0)));
+    }
+    if (FlagGet(FLAG_RETRO_INIT))
+    {
+        CopyToBgTilemapBuffer(0, gBattleTextboxRetroTilemap, 0, 0);
+    }
+    else
+    {
+        CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
+    }
     CopyBgTilemapBufferToVram(0);
-    LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    if (FlagGet(FLAG_RETRO_INIT))
+    {
+        LoadPalette(gBattleTextboxRetroPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    }
+    
     LoadBattleMenuWindowGfx();
     if (B_TERRAIN_BG_CHANGE == TRUE)
         DrawTerrainTypeBattleBackground();
@@ -1045,9 +1067,6 @@ void DrawBattleEntryBackground(void)
         case SPECIES_GROUDON:
             LoadBattleEnvironmentEntryGfx(BATTLE_ENVIRONMENT_CAVE);
             break;
-        case SPECIES_KYOGRE:
-            LoadBattleEnvironmentEntryGfx(BATTLE_ENVIRONMENT_UNDERWATER);
-            break;
         case SPECIES_RAYQUAZA:
             LoadBattleEnvironmentEntryGfx(BATTLE_ENVIRONMENT_RAYQUAZA);
             break;
@@ -1092,14 +1111,37 @@ bool8 LoadChosenBattleElement(u8 caseId)
     switch (caseId)
     {
     case 0:
-        DecompressDataWithHeaderVram(gBattleTextboxTiles, (void *)(BG_CHAR_ADDR(0)));
+        if (FlagGet(FLAG_RETRO_INIT))
+        {
+            DecompressDataWithHeaderVram(gBattleTextboxRetroTiles, (void *)(BG_CHAR_ADDR(0)));
+        }
+        else
+        {
+            DecompressDataWithHeaderVram(gBattleTextboxTiles, (void *)(BG_CHAR_ADDR(0)));
+        }
         break;
     case 1:
-        CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
-        CopyBgTilemapBufferToVram(0);
+        if (FlagGet(FLAG_RETRO_INIT))
+        {
+            CopyToBgTilemapBuffer(0, gBattleTextboxRetroTilemap, 0, 0);
+            CopyBgTilemapBufferToVram(0);
+        }
+        else
+        {
+            CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
+            CopyBgTilemapBufferToVram(0);
+        }
         break;
     case 2:
-        LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        if (FlagGet(FLAG_RETRO_INIT)) 
+        {
+            LoadPalette(gBattleTextboxRetroPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        }
+        else
+        {
+            LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        }
+        
         break;
     case 3:
         DecompressDataWithHeaderVram(gBattleEnvironmentInfo[GetBattleEnvironmentOverride()].background.tileset, (void *)(BG_CHAR_ADDR(2)));

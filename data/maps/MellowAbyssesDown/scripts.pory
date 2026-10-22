@@ -1,0 +1,52 @@
+raw `
+MellowAbyssesDown_MapScripts::
+	.byte 0
+`
+
+script MellowAbysses_DiverNPC4 {
+    lock
+    faceplayer
+    msgbox(format("I'm on the MEF project... And it's proabably the most complicated subject I've ever worked on. And I've been a biologist for 20 years..."))
+    release
+    end
+}
+
+script MellowAbysses_Diver4 {
+    trainerbattle_single(TRAINER_ABYSS_4, Diver4_1, Diver4_2)
+    msgbox(format("We still haven't figured out why almost every fish in the ocean decided to die. But we think it must have something to do with pollution and mass fishing."))
+    closemessage
+    end
+}
+
+text Diver4_1 {
+    format("Don't panic, you're almost back to the surface!")
+}
+
+text Diver4_2 {
+    format("I see, you're totally relaxed!")
+}
+
+/////////
+
+script MellowAbysses_DiverNPC5 {
+    lock
+    faceplayer
+    msgbox(format("What you see here is like a lagoon, but underwater! Gorgeous, isn't it?"))
+    release
+    end
+}
+
+script MellowAbysses_Diver5 {
+    trainerbattle_single(TRAINER_ABYSS_5, Diver5_1, Diver5_2)
+    msgbox(format("In our base, we study marine biology. Not only do we learn about the flora and fauna of the ocean, but we also answer some climate issues that are becoming more and more important."))
+    closemessage
+    end
+}
+
+text Diver5_1 {
+    format("I'm starting to think that I took the wrong way to the base...")
+}
+
+text Diver5_2 {
+    format("Dammit, I knew I was lost!")
+}

@@ -307,15 +307,15 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
                 // Player is standing on a correct space, set the corresponding bit
                 if (i < 16)
                 {
-                    u16 val = VarGet(VAR_REGICE_STEPS_1);
+                    u16 val = VarGet(VAR_OHULINN_SWITCH_3);
                     val |= 1 << i;
-                    VarSet(VAR_REGICE_STEPS_1, val);
+                    VarSet(VAR_OHULINN_SWITCH_3, val);
                 }
                 else if (i < 32)
                 {
-                    u16 val = VarGet(VAR_REGICE_STEPS_2);
+                    u16 val = VarGet(VAR_LOST_BOY_2);
                     val |= 1 << (i - 16);
-                    VarSet(VAR_REGICE_STEPS_2, val);
+                    VarSet(VAR_LOST_BOY_2, val);
                 }
                 else
                 {
@@ -325,7 +325,7 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
                 }
 
                 // Make sure a full lap has been completed. There are 36 steps in a lap, so 16+16+4 bits to check across the 3 vars.
-                if (VarGet(VAR_REGICE_STEPS_1) != 0xFFFF || VarGet(VAR_REGICE_STEPS_2) != 0xFFFF || VarGet(VAR_REGICE_STEPS_3) != 0xF)
+                if (VarGet(VAR_OHULINN_SWITCH_3) != 0xFFFF || VarGet(VAR_LOST_BOY_2) != 0xFFFF || VarGet(VAR_REGICE_STEPS_3) != 0xF)
                     return FALSE;
 
                 // A lap has been completed, the puzzle is complete when the player returns to the braille message.

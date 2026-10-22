@@ -69,6 +69,7 @@
 #include "data/battle_move_effects.h"
 #include "follower_npc.h"
 #include "load_save.h"
+#include "constants/flags.h"
 
 // table to avoid ugly powing on gba (courtesy of doesnt)
 // this returns (i^2.5)/4
@@ -4632,7 +4633,12 @@ static void Cmd_getexp(void)
                     && !gBattleStruct->wildVictorySong)
                 {
                     BattleStopLowHpSound();
-                    PlayBGM(MUS_VICTORY_WILD);
+                    if (FlagGet(FLAG_RETRO_INIT)) {
+                        PlayBGM(MUS_GSC_VICTORY_WILD);
+                    }
+                    else {
+                        PlayBGM(MUS_VICTORY_WILD);
+                    }
                     gBattleStruct->wildVictorySong++;
                 }
 
@@ -17183,7 +17189,12 @@ void BS_SetTeleportOutcome(void)
 void BS_PlayTrainerDefeatedMusic(void)
 {
     NATIVE_ARGS();
-    BtlController_EmitPlayFanfareOrBGM(gBattlerAttacker, B_COMM_TO_CONTROLLER, MUS_VICTORY_TRAINER, TRUE);
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        BtlController_EmitPlayFanfareOrBGM(gBattlerAttacker, B_COMM_TO_CONTROLLER, MUS_GSC_VICTORY_BATTLE, TRUE);
+    }
+    else {
+        BtlController_EmitPlayFanfareOrBGM(gBattlerAttacker, B_COMM_TO_CONTROLLER, MUS_VICTORY_TRAINER, TRUE);
+    }
     MarkBattlerForControllerExec(gBattlerAttacker);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

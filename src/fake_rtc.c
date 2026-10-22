@@ -111,7 +111,7 @@ void FakeRtc_ManuallySetTime(u32 day, u32 hour, u32 minute, u32 second)
 u32 FakeRtc_GetSecondsRatio(void)
 {
     return (OW_ALTERED_TIME_RATIO == GEN_8_PLA)   ? 60 :
-           (OW_ALTERED_TIME_RATIO == GEN_9)       ? 20 :
+           (OW_ALTERED_TIME_RATIO == GEN_9)       ? 60 :
            (OW_ALTERED_TIME_RATIO == TIME_DEBUG)  ?  1 :
                                                      1;
 }
@@ -137,4 +137,10 @@ void Script_ToggleFakeRtc(void)
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
     FlagToggle(OW_FLAG_PAUSE_TIME);
+}
+
+bool8 IsSaturday(void)
+{
+    struct SiiRtcInfo *rtc = FakeRtc_GetCurrentTime();
+    return (rtc->dayOfWeek == 6);
 }

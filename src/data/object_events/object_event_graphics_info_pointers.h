@@ -236,6 +236,122 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphir
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Helicopter;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Laila;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GruntM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GruntF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AdminM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AdminF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AfricanAmericanW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sam;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Corinna;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkerM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkerF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bruce;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ermite;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ManRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WomanRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KidRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LassRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BugRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrandmaRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BroRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NurseRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KAM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Andre;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ArmyMan;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BroMasked;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldManRetro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GruntFSwim;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GruntMSwim;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NatuEgg;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diver;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Remoraid2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScientistF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Anais;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PersianOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_XatuOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_XatuCorrupted;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DiancieOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pastoral;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Colleen;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Martin;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pomme;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gary;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Policeman;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldLightWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldLightRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldLightSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldLightFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldLightField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortLightWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortLightRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortLightSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortLightFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortLightField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongLightWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongLightRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongLightSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongLightFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongLightField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldMediumWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldMediumRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldMediumSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldMediumFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldMediumField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortMediumWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortMediumRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortMediumSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortMediumFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortMediumField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongMediumWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongMediumRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongMediumSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongMediumFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongMediumField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldDarkWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldDarkRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldDarkSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldDarkFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldDarkField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortDarkWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortDarkRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortDarkSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortDarkFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortDarkField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongDarkWalking;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongDarkRunning;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongDarkSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongDarkFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongDarkField;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroBaldUnderwater;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroShortUnderwater;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLongUnderwater;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroLightAcro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroMediumAcro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroDarkAcro;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroRetroLightShort;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroRetroLightLong;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroRetroMediumShort;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroRetroMediumLong;
+//
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroRetroDarkShort;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeroRetroDarkLong;
+
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -492,6 +608,121 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
     [OBJ_EVENT_GFX_LIGHT_SPRITE] =             &gObjectEventGraphicsInfo_BallLight,
+    [OBJ_EVENT_GFX_HELICOPTER] =               &gObjectEventGraphicsInfo_Helicopter,
+    [OBJ_EVENT_GFX_LAILA] =                    &gObjectEventGraphicsInfo_Laila,
+    [OBJ_EVENT_GFX_GRUNTM] =                   &gObjectEventGraphicsInfo_GruntM,
+    [OBJ_EVENT_GFX_GRUNTF] =                   &gObjectEventGraphicsInfo_GruntF,
+    [OBJ_EVENT_GFX_ADMINM] =                   &gObjectEventGraphicsInfo_AdminM,
+    [OBJ_EVENT_GFX_ADMINF] =                   &gObjectEventGraphicsInfo_AdminF,
+    [OBJ_EVENT_GFX_AFRICANAMERICANW] =         &gObjectEventGraphicsInfo_AfricanAmericanW,
+    [OBJ_EVENT_GFX_SAM] =                      &gObjectEventGraphicsInfo_Sam,
+    [OBJ_EVENT_GFX_CORINNA] =                  &gObjectEventGraphicsInfo_Corinna,
+    [OBJ_EVENT_GFX_WORKERM] =                  &gObjectEventGraphicsInfo_WorkerM,
+    [OBJ_EVENT_GFX_WORKERF] =                  &gObjectEventGraphicsInfo_WorkerF,
+    [OBJ_EVENT_GFX_BRUCE] =                    &gObjectEventGraphicsInfo_Bruce,
+    [OBJ_EVENT_GFX_ERMITE] =                   &gObjectEventGraphicsInfo_Ermite,
+    [OBJ_EVENT_GFX_MANRETRO] =                 &gObjectEventGraphicsInfo_ManRetro,
+    [OBJ_EVENT_GFX_WOMANRETRO] =               &gObjectEventGraphicsInfo_WomanRetro,
+    [OBJ_EVENT_GFX_KIDRETRO] =                 &gObjectEventGraphicsInfo_KidRetro,
+    [OBJ_EVENT_GFX_LASSRETRO] =                &gObjectEventGraphicsInfo_LassRetro,
+    [OBJ_EVENT_GFX_BUGRETRO] =                 &gObjectEventGraphicsInfo_BugRetro,
+    [OBJ_EVENT_GFX_GRANDMARETRO] =             &gObjectEventGraphicsInfo_GrandmaRetro,
+    [OBJ_EVENT_GFX_BRORETRO] =                 &gObjectEventGraphicsInfo_BroRetro,
+    [OBJ_EVENT_GFX_NURSERETRO] =               &gObjectEventGraphicsInfo_NurseRetro,
+    [OBJ_EVENT_GFX_KAM] =                      &gObjectEventGraphicsInfo_KAM,
+    [OBJ_EVENT_GFX_ANDRE] =                    &gObjectEventGraphicsInfo_Andre,
+    [OBJ_EVENT_GFX_ARMYMAN] =                  &gObjectEventGraphicsInfo_ArmyMan,
+    [OBJ_EVENT_GFX_BROMASKED] =                &gObjectEventGraphicsInfo_BroMasked,
+    [OBJ_EVENT_GFX_BRO] =                      &gObjectEventGraphicsInfo_Bro,
+    [OBJ_EVENT_GFX_OLDMANRETRO] =              &gObjectEventGraphicsInfo_OldManRetro,
+    [OBJ_EVENT_GFX_GRUNTFSWIM] =               &gObjectEventGraphicsInfo_GruntFSwim,
+    [OBJ_EVENT_GFX_GRUNTMSWIM] =               &gObjectEventGraphicsInfo_GruntMSwim,
+    [OBJ_EVENT_GFX_NATUEGG] =                  &gObjectEventGraphicsInfo_NatuEgg,
+    [OBJ_EVENT_GFX_DIVER] =                    &gObjectEventGraphicsInfo_Diver,
+    [OBJ_EVENT_GFX_REMORAID2] =                &gObjectEventGraphicsInfo_Remoraid2,
+    [OBJ_EVENT_GFX_SCIENTISTF] =               &gObjectEventGraphicsInfo_ScientistF,
+    [OBJ_EVENT_GFX_ANAIS] =                    &gObjectEventGraphicsInfo_Anais,
+    [OBJ_EVENT_GFX_PERSIANOW] =                &gObjectEventGraphicsInfo_PersianOW,
+    [OBJ_EVENT_GFX_XATUOW] =                   &gObjectEventGraphicsInfo_XatuOW,
+    [OBJ_EVENT_GFX_XATUCORRUPTED] =            &gObjectEventGraphicsInfo_XatuCorrupted,
+    [OBJ_EVENT_GFX_DIANCIEOW] =                &gObjectEventGraphicsInfo_DiancieOW,
+    [OBJ_EVENT_GFX_PASTORAL] =                 &gObjectEventGraphicsInfo_Pastoral,
+    [OBJ_EVENT_GFX_COLLEEN] =                  &gObjectEventGraphicsInfo_Colleen,
+    [OBJ_EVENT_GFX_MARTIN] =                   &gObjectEventGraphicsInfo_Martin,
+    [OBJ_EVENT_GFX_POMME] =                    &gObjectEventGraphicsInfo_Pomme,
+    [OBJ_EVENT_GFX_GARY] =                     &gObjectEventGraphicsInfo_Gary,
+    [OBJ_EVENT_GFX_POLICEMAN] =                     &gObjectEventGraphicsInfo_Policeman,
+    //
+    [OBJ_EVENT_GFX_HERO_BALD_LIGHT_WALKING] =                     &gObjectEventGraphicsInfo_HeroBaldLightWalking,
+    [OBJ_EVENT_GFX_HERO_BALD_LIGHT_RUNNING] =                     &gObjectEventGraphicsInfo_HeroBaldLightRunning,
+    [OBJ_EVENT_GFX_HERO_BALD_LIGHT_SURFING] =                     &gObjectEventGraphicsInfo_HeroBaldLightSurfing,
+    [OBJ_EVENT_GFX_HERO_BALD_LIGHT_FISHING] =                     &gObjectEventGraphicsInfo_HeroBaldLightFishing,
+    [OBJ_EVENT_GFX_HERO_BALD_LIGHT_FIELD] =                     &gObjectEventGraphicsInfo_HeroBaldLightField,
+    //
+    [OBJ_EVENT_GFX_HERO_SHORT_LIGHT_WALKING] =                     &gObjectEventGraphicsInfo_HeroShortLightWalking,
+    [OBJ_EVENT_GFX_HERO_SHORT_LIGHT_RUNNING] =                     &gObjectEventGraphicsInfo_HeroShortLightRunning,
+    [OBJ_EVENT_GFX_HERO_SHORT_LIGHT_SURFING] =                     &gObjectEventGraphicsInfo_HeroShortLightSurfing,
+    [OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FISHING] =                     &gObjectEventGraphicsInfo_HeroShortLightFishing,
+    [OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FIELD] =                     &gObjectEventGraphicsInfo_HeroShortLightField,
+    //
+    [OBJ_EVENT_GFX_HERO_LONG_LIGHT_WALKING] =                     &gObjectEventGraphicsInfo_HeroLongLightWalking,
+    [OBJ_EVENT_GFX_HERO_LONG_LIGHT_RUNNING] =                     &gObjectEventGraphicsInfo_HeroLongLightRunning,
+    [OBJ_EVENT_GFX_HERO_LONG_LIGHT_SURFING] =                     &gObjectEventGraphicsInfo_HeroLongLightSurfing,
+    [OBJ_EVENT_GFX_HERO_LONG_LIGHT_FISHING] =                     &gObjectEventGraphicsInfo_HeroLongLightFishing,
+    [OBJ_EVENT_GFX_HERO_LONG_LIGHT_FIELD] =                     &gObjectEventGraphicsInfo_HeroLongLightField,
+    //
+    [OBJ_EVENT_GFX_HERO_BALD_MEDIUM_WALKING] =                     &gObjectEventGraphicsInfo_HeroBaldMediumWalking,
+    [OBJ_EVENT_GFX_HERO_BALD_MEDIUM_RUNNING] =                     &gObjectEventGraphicsInfo_HeroBaldMediumRunning,
+    [OBJ_EVENT_GFX_HERO_BALD_MEDIUM_SURFING] =                     &gObjectEventGraphicsInfo_HeroBaldMediumSurfing,
+    [OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FISHING] =                     &gObjectEventGraphicsInfo_HeroBaldMediumFishing,
+    [OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FIELD] =                     &gObjectEventGraphicsInfo_HeroBaldMediumField,
+    //
+    [OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_WALKING] =                     &gObjectEventGraphicsInfo_HeroShortMediumWalking,
+    [OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_RUNNING] =                     &gObjectEventGraphicsInfo_HeroShortMediumRunning,
+    [OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_SURFING] =                     &gObjectEventGraphicsInfo_HeroShortMediumSurfing,
+    [OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FISHING] =                     &gObjectEventGraphicsInfo_HeroShortMediumFishing,
+    [OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FIELD] =                     &gObjectEventGraphicsInfo_HeroShortMediumField,
+    //
+    [OBJ_EVENT_GFX_HERO_LONG_MEDIUM_WALKING] =                     &gObjectEventGraphicsInfo_HeroLongMediumWalking,
+    [OBJ_EVENT_GFX_HERO_LONG_MEDIUM_RUNNING] =                     &gObjectEventGraphicsInfo_HeroLongMediumRunning,
+    [OBJ_EVENT_GFX_HERO_LONG_MEDIUM_SURFING] =                     &gObjectEventGraphicsInfo_HeroLongMediumSurfing,
+    [OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FISHING] =                     &gObjectEventGraphicsInfo_HeroLongMediumFishing,
+    [OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FIELD] =                     &gObjectEventGraphicsInfo_HeroLongMediumField,
+    //
+    [OBJ_EVENT_GFX_HERO_BALD_DARK_WALKING] =                     &gObjectEventGraphicsInfo_HeroBaldDarkWalking,
+    [OBJ_EVENT_GFX_HERO_BALD_DARK_RUNNING] =                     &gObjectEventGraphicsInfo_HeroBaldDarkRunning,
+    [OBJ_EVENT_GFX_HERO_BALD_DARK_SURFING] =                     &gObjectEventGraphicsInfo_HeroBaldDarkSurfing,
+    [OBJ_EVENT_GFX_HERO_BALD_DARK_FISHING] =                     &gObjectEventGraphicsInfo_HeroBaldDarkFishing,
+    [OBJ_EVENT_GFX_HERO_BALD_DARK_FIELD] =                     &gObjectEventGraphicsInfo_HeroBaldDarkField,
+    //
+    [OBJ_EVENT_GFX_HERO_SHORT_DARK_WALKING] =                     &gObjectEventGraphicsInfo_HeroShortDarkWalking,
+    [OBJ_EVENT_GFX_HERO_SHORT_DARK_RUNNING] =                     &gObjectEventGraphicsInfo_HeroShortDarkRunning,
+    [OBJ_EVENT_GFX_HERO_SHORT_DARK_SURFING] =                     &gObjectEventGraphicsInfo_HeroShortDarkSurfing,
+    [OBJ_EVENT_GFX_HERO_SHORT_DARK_FISHING] =                     &gObjectEventGraphicsInfo_HeroShortDarkFishing,
+    [OBJ_EVENT_GFX_HERO_SHORT_DARK_FIELD] =                     &gObjectEventGraphicsInfo_HeroShortDarkField,
+    //
+    [OBJ_EVENT_GFX_HERO_LONG_DARK_WALKING] =                     &gObjectEventGraphicsInfo_HeroLongDarkWalking,
+    [OBJ_EVENT_GFX_HERO_LONG_DARK_RUNNING] =                     &gObjectEventGraphicsInfo_HeroLongDarkRunning,
+    [OBJ_EVENT_GFX_HERO_LONG_DARK_SURFING] =                     &gObjectEventGraphicsInfo_HeroLongDarkSurfing,
+    [OBJ_EVENT_GFX_HERO_LONG_DARK_FISHING] =                     &gObjectEventGraphicsInfo_HeroLongDarkFishing,
+    [OBJ_EVENT_GFX_HERO_LONG_DARK_FIELD] =                     &gObjectEventGraphicsInfo_HeroLongDarkField,
+    //
+    [OBJ_EVENT_GFX_HERO_BALD_UNDERWATER] =                     &gObjectEventGraphicsInfo_HeroBaldUnderwater,
+    [OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER] =                     &gObjectEventGraphicsInfo_HeroShortUnderwater,
+    [OBJ_EVENT_GFX_HERO_LONG_UNDERWATER] =                     &gObjectEventGraphicsInfo_HeroLongUnderwater,
+    //
+    [OBJ_EVENT_GFX_HERO_LIGHT_ACRO] =                     &gObjectEventGraphicsInfo_HeroLightAcro,
+    [OBJ_EVENT_GFX_HERO_MEDIUM_ACRO] =                     &gObjectEventGraphicsInfo_HeroMediumAcro,
+    [OBJ_EVENT_GFX_HERO_DARK_ACRO] =                     &gObjectEventGraphicsInfo_HeroDarkAcro,
+    //
+    [OBJ_EVENT_GFX_HERO_RETRO_LIGHT_SHORT] =                     &gObjectEventGraphicsInfo_HeroRetroLightShort,
+    [OBJ_EVENT_GFX_HERO_RETRO_LIGHT_LONG] =                     &gObjectEventGraphicsInfo_HeroRetroLightLong,
+    //
+    [OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_SHORT] =                     &gObjectEventGraphicsInfo_HeroRetroMediumShort,
+    [OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_LONG] =                     &gObjectEventGraphicsInfo_HeroRetroMediumLong,
+    //
+    [OBJ_EVENT_GFX_HERO_RETRO_DARK_SHORT] =                     &gObjectEventGraphicsInfo_HeroRetroDarkShort,
+    [OBJ_EVENT_GFX_HERO_RETRO_DARK_LONG] =                     &gObjectEventGraphicsInfo_HeroRetroDarkLong,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

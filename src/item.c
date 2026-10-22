@@ -50,8 +50,8 @@ const struct TmHmIndexKey gTMHMItemMoveIds[NUM_ALL_MACHINES + 1] =
     /*
      * Expands to the following:
      *
-     * [1] = { ITEM_TM_FOCUS_PUNCH, MOVE_FOCUS_PUNCH },
-     * [2] = { ITEM_TM_DRAGON_CLAW, MOVE_DRAGON_CLAW },
+     * [1] = { ITEM_TM_ME_FIRST, MOVE_FOCUS_PUNCH },
+     * [2] = { ITEM_TM_HEADBUTT, MOVE_DRAGON_CLAW },
      * [3] = { ITEM_TM_WATER_PULSE, MOVE_WATER_PULSE },
      * etc etc
     */
@@ -184,6 +184,11 @@ u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
         u8 *end = StringCopy(dst, GetItemName(itemId));
         return StringCopy(end, sText_s);
     }
+}
+
+bool8 IsUsingNormalBag(void)
+{
+    return CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE && !FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG);
 }
 
 bool32 IsBagPocketNonEmpty(enum Pocket pocketId)
@@ -940,4 +945,15 @@ bool32 IsHoldEffectChoice(enum ItemHoldEffect holdEffect)
     return holdEffect == HOLD_EFFECT_CHOICE_BAND
         || holdEffect == HOLD_EFFECT_CHOICE_SCARF
         || holdEffect == HOLD_EFFECT_CHOICE_SPECS;
+}
+
+bool8 CheckAllTMs(void)
+{
+    u16 i;
+    for (i = ITEM_TM01; i <= ITEM_TM50; i++)
+    {
+        if (!CheckBagHasItem(i, 1))
+            return FALSE;
+    }
+    return TRUE;
 }

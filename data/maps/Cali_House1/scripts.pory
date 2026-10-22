@@ -1,0 +1,135 @@
+raw `
+Cali_House1_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Cali_House1_OnFrame
+	.byte 0
+
+Cali_House1_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 13, Cali_House1_Arrival
+    .2byte 0
+`
+
+script Cali_House1_Arrival {
+    lock
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 3))
+    waitmovement(0)
+    playbgm(MUS_AQUA_MAGMA_HIDEOUT, TRUE)
+    namebox("Grunt 1")
+    msgbox(format("You absolute moron. Why did you have to steal this boy's scarf? Don't you remember? We need to take the gym, not a stupid scarf!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down))
+    waitmovement(0)
+    applymovement(2, moves(walk_in_place_up))
+    waitmovement(0)
+    namebox("Grunt 2")
+    msgbox(format("Man, you know how I be! I can't help myself, I constantly need to steal stuff!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up))
+    waitmovement(0)
+    namebox("Grunt 1")
+    msgbox(format("Well, now, we can't go back there because everyone saw us! We have to wait here until everybody forgets about us, all of that because of you! Congratulations!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down))
+    waitmovement(0)
+    namebox("Grunt 2")
+    msgbox(format("Ah thanks man! I knew you would... Wait, that was sarcasm, wasn't it? Whatever."))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up))
+    waitmovement(0)
+    delay(20)
+    playse(SE_PIN)
+    applymovement(1, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(30)
+    namebox("Grunt 1")
+    msgbox(format("Shut up! There's someone there!"))
+    closemessage
+    hidenamebox
+    applymovement(1, moves(walk_left walk_down * 3 face_right))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left walk_down * 3 walk_right))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    namebox("Grunt 1")
+    msgbox(format("Hey, uh, can we help you?"))
+    closemessage
+    hidenamebox
+    delay(30)
+    namebox("Grunt 1")
+    msgbox(format("A scarf you say? I don't know what you're talking about, haha!"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Grunt 1")
+    msgbox(format("...You heard us? Dammit. I'm sorry kid, but you leave us no choice."))
+    hidenamebox
+    closemessage
+    applymovement(2, moves(walk_down))
+    waitmovement
+    namebox("Grunt 1")
+    msgbox(format("We're gonna have to take care of you. And not in the nice, comforting way."))
+    hidenamebox
+    trainerbattle_no_intro(TRAINER_CALI_GRUNT_1, CaliGrunt2)
+    goto(Cali_House1_2ndBattle) 
+}
+
+text CaliGrunt2 {
+    format("...This is a disaster...")
+}
+
+script Cali_House1_2ndBattle {
+    applymovement(1, moves(face_up))
+    waitmovement(0)
+    namebox("Grunt 1")
+    msgbox(format("Hey, this is your fault! You take care of this!"))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_in_place_down))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement(0)
+    namebox("Grunt 2")
+    msgbox(format("Uh... Uh... Okay, here it comes, I guess?"))
+    hidenamebox
+    trainerbattle_no_intro(TRAINER_CALI_GRUNT_2, CaliGrunt4)
+    goto(Cali_House1_Defeat)
+}
+
+text CaliGrunt4 {
+    format("Noooo....")
+}
+
+script Cali_House1_Defeat {
+    applymovement(1, moves(walk_in_place_up))
+    waitmovement(0)
+    namebox("Grunt 1")
+    msgbox(format("Great work, you nutjob. Let's get out of here, if we don't want our butts to get sorer. Damn it, we'll swim to Virimante."))
+    closemessage
+    hidenamebox
+    turnobject(1, DIR_SOUTH)
+    removeobject(1)
+    applymovement(2, moves(walk_fast_left walk_fast_down))
+    waitmovement(0)
+    removeobject(2)
+    playse(SE_EXIT)
+    setflag(FLAG_CALI_GRUNTS)
+    setvar(VAR_MAIN_STORY, 14)
+    fadeoutbgm(1)
+    playbgm(MUS_OLDALE, TRUE)
+    release
+    end
+}
+
+script Cali_House1_Scarf {
+    lock
+    removeobject(3)
+    giveitem(ITEM_RED_SCARF)
+    setflag(FLAG_EKA_SCARF)
+    release
+    end
+}

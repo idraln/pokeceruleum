@@ -1,0 +1,79 @@
+raw `
+JangalaCanal_MapScripts::
+	.byte 0
+`
+
+script JangalaCanal_Alfie {
+    trainerbattle_single(TRAINER_ALFIE, Alfie1, Alfie2)
+    msgbox(format("Screw you! I'm going to lose the Triathlon because of you!"))
+    closemessage
+    end
+}
+
+text Alfie1 {
+    format("Haha! You're trapped! I'm going to slow you down!")
+}
+
+text Alfie2 {
+    format("Noo! How?")
+}
+
+script JangalaCanal_Nelly {
+    trainerbattle_single(TRAINER_NELLY, Nelly1, Nelly2)
+    msgbox(format("I don't care. I'm lucky to swim in that luscious river!"))
+    closemessage
+    end
+}
+
+text Nelly1 {
+    format("Oh? You're competing in the Triathlon?")
+}
+
+text Nelly2 {
+    format("You're going too fast! Relax!")
+}
+
+script JangalaCanal_Rose {
+    trainerbattle_single(TRAINER_ROSE, Rose1, Rose2)
+    msgbox(format("Uh, maybe next time, I guess?"))
+    closemessage
+    end
+}
+
+text Rose1 {
+    format("This is my first event! I'm so stressed!")
+}
+
+text Rose2 {
+    format("Of course I had to fight you...")
+}
+
+script JangalaCanal_Takao {
+    trainerbattle_single(TRAINER_TAKAO, Takao1, Takao2)
+    msgbox(format("No problemo! I'll just swim as fast as I can!"))
+    closemessage
+    end
+}
+
+text Takao1 {
+    format("Water isn't my element, but I'll do anything to win!")
+}
+
+text Takao2 {
+    format("I knew I should've chosen Water type Pokémons!")
+}
+
+script JangalaCanal_Fumiko {
+    trainerbattle_single(TRAINER_FUMIKO, Fumiko1, Fumiko2)
+    msgbox(format("I guess I have no choice other than to swim eh?"))
+    closemessage
+    end
+}
+
+text Fumiko1 {
+    format("Please, get me out of this river!")
+}
+
+text Fumiko2 {
+    format("So you're gonna let me die here?!")
+}

@@ -14,5 +14,6 @@ u32 FakeRtc_GetSecondsRatio(void);
 void Script_PauseFakeRtc(void);
 void Script_ResumeFakeRtc(void);
 void Script_ToggleFakeRtc(void);
+bool8 IsSaturday(void);
 
 #endif // GUARD_FAKE_RTC_UTIL_H

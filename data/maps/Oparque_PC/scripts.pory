@@ -1,0 +1,47 @@
+raw `
+Oparque_PC_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Oparque_PC_OnTransition
+    .byte 0
+`
+
+script Oparque_PC_OnTransition {
+    setrespawn(HEAL_LOCATION_OPARQUE)
+    end
+}
+
+script Oparque_PC_Nurse {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+    msgbox(format("Zzzz...\nZzzz..."))
+    closemessage
+    delay(20)
+    playse(SE_PIN)
+    applymovement(1, moves(emote_exclamation_mark))
+    delay(40)
+	msgbox(format("Huh? Sorry! I haven't seen a soul in here for so long, I just started to nap. Anyways, would you like me to heal your party?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        msgbox(format("You got it."))
+        hidefollower(0)
+        applymovement(1, PkmnCenter_NurseTurn)
+        waitmovement(0)
+        dofieldeffect(FLDEFF_POKECENTER_HEAL)
+        waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+        applymovement(1, PkmnCenter_NurseReTurn)
+        waitmovement(0)
+        special(HealPlayerParty)
+        msgbox(format("Here you go!"))
+        waitmessage
+        applymovement(1, PkmnCenter_NurseBow)
+        waitmovement(0)
+        msgbox(format("Now if you'll excuse me, I've got a dream to finish."))
+        release
+        end
+    }
+    else {
+        msgbox(format("So you woke me up for nothing? Way to go, dude. Come back soon, but only if you actually need something from me."))
+        release
+        end
+    }
+}

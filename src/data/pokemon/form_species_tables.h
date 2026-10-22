@@ -203,6 +203,9 @@ static const u16 sMeowthFormSpeciesIdTable[] = {
 
 static const u16 sPersianFormSpeciesIdTable[] = {
     SPECIES_PERSIAN,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_PERSIAN_MEGA,
+#endif
 #if P_ALOLAN_FORMS
     SPECIES_PERSIAN_ALOLA,
 #endif

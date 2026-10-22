@@ -29,6 +29,8 @@
 #include "constants/battle_palace.h"
 #include "constants/battle_move_effects.h"
 #include "constants/event_objects.h" // only for SHADOW_SIZE constants
+#include "event_data.h"
+#include "constants/flags.h"
 
 // this file's functions
 static u8 GetBattlePalaceMoveGroup(u8 battler, u16 move);
@@ -45,9 +47,19 @@ static const struct CompressedSpriteSheet sSpriteSheet_SinglesPlayerHealthbox =
     gHealthboxSinglesPlayerGfx, 0x1000, TAG_HEALTHBOX_PLAYER1_TILE
 };
 
+static const struct CompressedSpriteSheet sSpriteSheet_SinglesPlayerRetroHealthbox =
+{
+    gHealthboxSinglesPlayerRetroGfx, 0x1000, TAG_HEALTHBOX_PLAYER1_TILE
+};
+
 static const struct CompressedSpriteSheet sSpriteSheet_SinglesOpponentHealthbox =
 {
     gHealthboxSinglesOpponentGfx, 0x1000, TAG_HEALTHBOX_OPPONENT1_TILE
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_SinglesOpponentRetroHealthbox =
+{
+    gHealthboxSinglesOpponentRetroGfx, 0x1000, TAG_HEALTHBOX_OPPONENT1_TILE
 };
 
 static const struct CompressedSpriteSheet sSpriteSheets_DoublesPlayerHealthbox[2] =
@@ -77,7 +89,7 @@ static const struct CompressedSpriteSheet sSpriteSheets_HealthBar[MAX_BATTLERS_C
 
 const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
 {
-    {gBattleInterface_BallStatusBarPal, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_NewBattlePal, TAG_HEALTHBOX_PAL},
     {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
 };
 
@@ -753,12 +765,21 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
                     LoadCompressedSpriteSheet(&sSpriteSheet_SafariHealthbox);
+                else if (FlagGet(FLAG_RETRO_INIT))
+                    LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerRetroHealthbox);
                 else
                     LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerHealthbox);
             }
             else if (state == 3)
             {
-                LoadCompressedSpriteSheet(&sSpriteSheet_SinglesOpponentHealthbox);
+                if (FlagGet(FLAG_RETRO_INIT))
+                {
+                    LoadCompressedSpriteSheet(&sSpriteSheet_SinglesOpponentRetroHealthbox);
+                }
+                else
+                {
+                    LoadCompressedSpriteSheet(&sSpriteSheet_SinglesOpponentHealthbox);
+                }
             }
             else if (state == 4)
             {
@@ -783,7 +804,14 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
                     LoadCompressedSpriteSheet(&sSpriteSheets_DoublesPlayerHealthbox[0]);
                     break;
                 case BATTLE_COORDS_SINGLES:
-                    LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerHealthbox);
+                    if (FlagGet(FLAG_RETRO_INIT))
+                    {
+                        LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerRetroHealthbox);
+                    }
+                    else
+                    {
+                        LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerHealthbox);
+                    }
                     break;
                 }
             }

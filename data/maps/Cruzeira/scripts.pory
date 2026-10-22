@@ -1,0 +1,307 @@
+raw `
+Cruzeira_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Cruzeira_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Cruzeira_OnFrame
+	.byte 0
+
+Cruzeira_OnFrame:
+    map_script_2 VAR_SHOP_UPDATE, 1, Cruzeira_ShopUpdate
+    .2byte 0
+`
+
+script Cruzeira_OnTransition {
+    setflag(FLAG_VISITED_CRUZEIRA)
+    setflag(FLAG_PASTORAL_SAM)
+    if(flag(FLAG_GRUNT_POS_CRUZ)) {
+        addobject(4)
+        setobjectxyperm(4, 6, 13)
+    }
+    end
+}
+
+script Cruzeira_ShopUpdate {
+    lockall
+    faceplayer
+    pokenavcall(Cruzeria_Shop_Text)
+    waitmessage
+    setvar(VAR_SHOP_UPDATE, 2)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    releaseall
+    end
+}
+
+script Cruzeira_OldLady {
+    lock
+    faceplayer
+    msgbox(format("The life here is everything you could ask for: tranquility, nature, and respectful people. Perfect for an old soul like mine!"))
+    release
+    end
+}
+
+script Cruzeira_Girl {
+    lock
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 20 && var(VAR_TEMP_1) == 18) {
+        faceplayer
+        msgbox(format("Watch out! You're stepping on the flowers!!"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, CruzFlowers)
+        waitmovement(0)
+        setvar(VAR_TEMP_0, 0)
+        setvar(VAR_TEMP_1, 0)
+        release
+        end
+    }
+    else {
+        faceplayer
+        msgbox(format("Look at these flowers! So pretty! How do they exist? I want to go to the botanic school, but they say I'm too young."))
+        release
+        end
+    }
+}
+
+script Cruzeira_Boy {
+    lock
+    faceplayer
+    msgbox(format("Here is the botanic school. If you want to learn everything about plants, from flowers to trees, this is the place to be."))
+    release
+    end
+}
+
+script Cruzeira_Student {
+    lock
+    faceplayer
+    msgbox(format("I'm on flower counting duty! It's a long process, but a very fulfilling one. You get to see all sorts of species!"))
+    release
+    end
+}
+
+script Cruzeira_GymGrunt {
+    if(var(VAR_MAIN_STORY) < 11) {
+        lock
+        faceplayer
+        namebox("???")
+        msgbox(format("What do you want? Don't you see? The gym is closed. Go play somewhere else before I kick your ass."))
+        hidenamebox
+        setvar(VAR_BLOCKED_ROAD, 4)
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        namebox("???")
+        msgbox(format("Huh? What's that? Ooooh, isn't this cute! You want to avenge the girl! Is she your lover? Haha. Either way, I'll make you regret bothering me. Come inside, and try me."))
+        closemessage
+        hidenamebox
+        delay(20)
+        turnobject(4, DIR_NORTH)
+        opendoor(6, 12)
+        waitdooranim
+        applymovement(4, CruzGruntGym)
+        waitmovement(0)
+        removeobject(4)
+        closedoor(6, 12)
+        waitdooranim
+        setflag(FLAG_GRUNT_CRUZEIRA)
+        setflag(FLAG_CRUZ_GYM_LAILA)
+        release
+        end
+    }
+
+}
+
+script Cruzeira_LailaSad {
+    lock
+    opendoor(6, 12)
+    waitdooranim
+    clearflag(FLAG_LAILA_STORMING)
+    addobject(5)
+    applymovement(5, CruzLailaStorming)
+    waitmovement(0)
+    removeobject(5)
+    setflag(FLAG_LAILA_STORMING)
+    clearflag(FLAG_GRUNT_CRUZEIRA)
+    addobject(4)
+    applymovement(4, CruzGrunt)
+    waitmovement(0)
+    namebox("???")
+    msgbox(format("You call yourself a Council member? With those battle skills? Hah, you're pathetic! Go cry somewhere else!"))
+    closemessage
+    hidenamebox
+    applymovement(4, CruzGuard)
+    waitmovement(0)
+    closedoor(6, 12)
+    waitdooranim
+    setflag(FLAG_GRUNT_POS_CRUZ)
+    setflag(FLAG_GRANDMA_CRUZ)
+    setvar(VAR_BLOCKED_ROAD, 3)
+    release
+    end
+}
+
+script Cruzeira_Grandma {
+    lock
+    clearflag(FLAG_LAILA_GRANDMA)
+    addobject(6)
+    getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+    if(var(VAR_TEMP_3) == 13) {
+        applymovement(6, CruzGM13)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, CruzPlayerDown)
+        waitmovement(0)
+        call(Cruzeira_GrandmaSpeaks)
+        applymovement(6, CruzGM13Leave)
+        waitmovement(0)
+        removeobject(6)
+        setflag(FLAG_LAILA_GRANDMA)
+        clearflag(FLAG_GRANDMA_CRUZ)
+        setvar(VAR_BLOCKED_ROAD, 5)
+        setvar(VAR_MAIN_STORY, 11)
+    }
+    elif(var(VAR_TEMP_3) == 14) {
+        applymovement(6, CruzGM14)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, CruzPlayerDown)
+        waitmovement(0)
+        call(Cruzeira_GrandmaSpeaks)
+        applymovement(6, CruzGM14Leave)
+        waitmovement(0)
+        removeobject(6)
+        setflag(FLAG_LAILA_GRANDMA)
+        clearflag(FLAG_GRANDMA_CRUZ)
+        setvar(VAR_BLOCKED_ROAD, 5)
+        setvar(VAR_MAIN_STORY, 11)
+    }
+    elif(var(VAR_TEMP_3) == 15) {
+        applymovement(6, CruzGM15)
+        waitmovement(0)
+        call(Cruzeira_GrandmaSpeaks)
+        applymovement(6, CruzGM15Leave)
+        waitmovement(0)
+        removeobject(6)
+        setflag(FLAG_LAILA_GRANDMA)
+        clearflag(FLAG_GRANDMA_CRUZ)
+        setvar(VAR_BLOCKED_ROAD, 5)
+        setvar(VAR_MAIN_STORY, 11)
+    }
+    startquest(QUEST_INTRUDER)
+    release
+    end
+}
+
+script Cruzeira_GrandmaSpeaks {
+    msgbox(format("Hello, young one. Sorry to bother you, but you look like a trainer, am I mistaken?"))
+    msgbox(format("..."))
+    msgbox(format("Very well. See, my granddaughter, Laila, was just appointed as a member of the Council. She's not a seasoned trainer; in fact, she just began her career, as the previous Council member, my daughter, went on to the Pokémon League due to the recent events."))
+    msgbox(format("..."))
+    closemessage
+    playse(SE_PIN)
+    applymovement(6, CruzGMExclamation)
+    waitmovement(0)
+    delay(20)
+    msgbox(format("You were going to face the President as the said events occured, you say? Hoho, I knew you reminded me of someone!"))
+    msgbox(format("..."))
+    msgbox(format("Well, this makes things much easier. As I said, my poor Laila, she's still a novice. And some ill-minded people..."))
+    closemessage
+    turnobject(6, DIR_WEST)
+    delay(20)
+    msgbox(format("...took the gym hostage and chased her away."))
+    closemessage
+    turnobject(6, DIR_NORTH)
+    delay(20)
+    msgbox(format("Please, could you do something? I'm old, and can't fight as I used to. In the meantime, I will try to confort her. Please, once you have done the deed, come by my house. It's the second one to the left."))
+    closemessage
+}
+
+script Cruzeira_TownSign {
+    lockall
+    msgbox("Cruzeira \nThe green heart of Thura.")
+    releaseall
+}
+
+script Cruzeira_BotanicSign {
+    lockall
+    msgbox("Cruzeira's Botanic School")
+    releaseall
+}
+
+text Cruzeria_Shop_Text {
+    "You just received a new\n"
+    "text message from:\l"
+    "Thura's Mart Association\l"
+    "'Hello, dear customer!\l"
+    "We'd like to inform you\l"
+    "that our stores are evolving!\l"
+    "Our selection is expanding to\l"
+    "include all-new products,\l"
+    "such as Super Potions,\l"
+    "Great Balls, and much more!\l"
+    "Come by and see by yourself!'"
+}
+
+
+movement CruzFlowers {
+    walk_up
+}
+
+movement CruzLailaStorming {
+    walk_down * 2
+    face_up
+    delay_8 * 3
+    walk_fast_right * 7
+    walk_fast_down * 2
+    walk_fast_right * 8
+}
+
+movement CruzGrunt {
+    walk_down * 2
+    walk_right * 5
+}
+
+movement CruzGuard {
+    walk_left * 5
+    walk_up
+    face_down
+}
+
+movement CruzGM13 {
+    walk_left * 8
+    walk_up
+}
+
+movement CruzGM14 {
+    walk_left * 8
+    face_up
+}
+
+movement CruzGM15 {
+    walk_left * 7
+}
+
+movement CruzGM13Leave {
+    walk_down
+    walk_right * 8
+}
+
+movement CruzGM14Leave {
+    walk_right * 8
+}
+
+movement CruzGM15Leave {
+    walk_right * 7
+}
+
+
+movement CruzPlayerDown {
+    face_down
+}
+
+movement CruzGMExclamation {
+    emote_exclamation_mark
+}
+
+movement CruzGruntGym {
+    face_up
+    walk_up
+}

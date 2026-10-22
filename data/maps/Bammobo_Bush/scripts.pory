@@ -1,0 +1,145 @@
+raw `
+Bammobo_Bush_MapScripts::
+	.byte 0
+`
+
+script Bammobo_Bush_Hermit {
+    lock
+    if(flag(FLAG_QUEST_HERMIT) && var(VAR_QUEST_HERMIT) == 1) {
+        namebox("Hermit")
+        msgbox("...Mmmh...\n...Hnngh...\l...AAAH!!...")
+        hidenamebox
+        release
+        end
+    }
+    if(flag(FLAG_QUEST_HERMIT) && var(VAR_QUEST_HERMIT) == 2) {
+        namebox("Hermit")
+        msgbox("...Hnngh...")
+        closemessage
+        hidenamebox
+        delay(20)
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark jump_in_place_down * 2))
+        waitmovement(0)
+        delay(40)
+        applymovement(1, moves(face_player))
+        waitmovement(0)
+        namebox("Hermit")
+        msgbox(format("WHAT DID YOU JUST SAY?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        namebox("Hermit")
+        msgbox(format("MY WIFE? HOW DO YOU KNOW ABOUT HER?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        namebox("Hermit")
+        msgbox(format("She... wonders how I'm doing?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(1, moves(face_away_player))
+        waitmovement(0)
+        delay(20)
+        namebox("Hermit")
+        msgbox(format("This is none of her business. I'm doing very well. I've got all the modern comfort here."))
+        closemessage
+        hidenamebox
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark jump_in_place_down * 2 face_player))
+        waitmovement(0)
+        delay(40)
+        namebox("Hermit")
+        msgbox(format("My kids!! They must all be grown up now!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(1, moves(face_away_player))
+        waitmovement(0)
+        delay(20)
+        namebox("Hermit")
+        msgbox(format("Ok. I'll go back to the city. But first, you've got to help me."))
+        closemessage
+        hidenamebox
+        delay(20)
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(1, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        namebox("Hermit")
+        msgbox(format("There's a spirit that's been messing with me. I know I'm not crazy. I fear it's going to follow me anywhere I go. Help me get rid of it. Meet me upnorth, at night."))
+        closemessage
+        hidenamebox
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_1) == 2) {
+            applymovement(1, moves(walk_down * 2))
+            waitmovement(0)
+            removeobject(1)
+            playse(SE_EXIT)
+            setflag(FLAG_HERMIT_BUSH)
+            clearflag(FLAG_HERMIT_JANGALA)
+        }
+        else {
+            applymovement(1, moves(walk_left walk_down * 2 walk_right face_down))
+            waitmovement(0)
+            removeobject(1)
+            playse(SE_EXIT)
+            setflag(FLAG_HERMIT_BUSH)
+            clearflag(FLAG_HERMIT_JANGALA)
+        }
+        setvar(VAR_QUEST_HERMIT, 3)
+        release
+        end
+    }
+    else {
+        namebox("Hermit")
+        msgbox("...Mmmh...\n...Hnngh...\l...AAAH!!...")
+        hidenamebox
+        startquest(QUEST_HERMIT)
+        setflag(FLAG_QUEST_HERMIT)
+        setvar(VAR_QUEST_HERMIT, 1)
+        release
+        end
+    }
+    
+}
+
+script Bammobo_Bush_Journal1 {
+    lock
+    msgbox(format("May 8th, 1994 ---------------------- That's it. I lost my job at the restaurant's airport. I'm so ashamed I can't face my wife and kids anymore. What am I going to do?..."))
+    release
+    end
+}
+
+script Bammobo_Bush_Journal2 {
+    lock
+    msgbox(format("November 12th, 1994 ---------------- I finally learned to fish! I can finally eat something else other than berries. I was beginning to lose my mind... Oh, I wonder how my wife and kids are doing... How I miss them... I don't know if I can go any longer."))
+    release
+    end
+}
+
+script Bammobo_Bush_Journal3 {
+    lock
+    msgbox(format("????????? ??th, 199? --------------- I saw it. The shade. AGAIN! WHY ME? I'm sure it whispered something. I haven't slept for days. I need to look for another place to fish and harvest berries, the route upnorth is cursed..."))
+    release
+    end
+}

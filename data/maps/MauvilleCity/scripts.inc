@@ -3,11 +3,11 @@ MauvilleCity_MapScripts::
 	.byte 0
 
 MauvilleCity_OnTransition:
-	setflag FLAG_VISITED_MAUVILLE_CITY
+	setflag FLAG_VISITED_OPARQUE
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	clearflag FLAG_HIDE_SLATEPORT_MUSEUM_POPULATION
 	setflag FLAG_SYS_TV_START
-	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
+	clearflag FLAG_BRUCE_IRONAIR
 	setvar VAR_MAUVILLE_GYM_STATE, 0
 	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
 	end
@@ -15,7 +15,7 @@ MauvilleCity_OnTransition:
 MauvilleCity_EventScript_MoveWattsonBackToGym::
 	clearflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
 	setflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
-	setflag FLAG_WATTSON_REMATCH_AVAILABLE
+	setflag FLAG_SCIENTIST_GLASVILLE
 	return
 
 MauvilleCity_EventScript_Boy::
@@ -53,9 +53,9 @@ MauvilleCity_EventScript_GameCornerSign::
 MauvilleCity_EventScript_SchoolKidM::
 	lock
 	faceplayer
-	goto_if_set FLAG_TV_EXPLAINED, MauvilleCity_EventScript_TVExplained
+	goto_if_set FLAG_BRUCE_LEFT_GYM, MauvilleCity_EventScript_TVExplained
 	msgbox MauvilleCity_Text_ExplainTV, MSGBOX_DEFAULT
-	setflag FLAG_TV_EXPLAINED
+	setflag FLAG_BRUCE_LEFT_GYM
 	release
 	end
 

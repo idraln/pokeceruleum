@@ -1,0 +1,299 @@
+raw `
+Passwacan_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Passwacan_Gym_OnLoad
+	.byte 0
+`
+
+script Passwacan_Gym_OnLoad {
+    if(flag(FLAG_BADGE05_GET)) {
+        setmetatile(5, 15, METATILE_Misc1_FloorLeft, FALSE)
+        setmetatile(5, 16, METATILE_Misc1_BlueGateTopLeft, FALSE)
+        setmetatile(6, 15, METATILE_Misc1_FloorRight, FALSE)
+        setmetatile(6, 16, METATILE_Misc1_BlueGateTopRight, FALSE)
+        setmetatile(13, 15, METATILE_Misc1_FloorLeft, FALSE)
+        setmetatile(13, 16, METATILE_Misc1_GreenGateTopLeft, FALSE)
+        setmetatile(14, 15, METATILE_Misc1_FloorRight, FALSE)
+        setmetatile(14, 16, METATILE_Misc1_GreenGateTopRight, FALSE)
+        setmetatile(9, 15, METATILE_Misc1_FloorLeft, FALSE)
+        setmetatile(9, 16, METATILE_Misc1_RedGateTopLeft, FALSE)
+        setmetatile(10, 15, METATILE_Misc1_FloorRight, FALSE)
+        setmetatile(10, 16, METATILE_Misc1_RedGateTopRight, FALSE)
+        special(DrawWholeMapView)    
+        end
+    }
+    else {
+        setflashlevel(7)
+        if(var(VAR_PASSWACAN_BLUE) == 2) {
+            setmetatile(1, 24, METATILE_Misc1_BlueSwitchOpen, TRUE)
+            setmetatile(5, 15, METATILE_Misc1_FloorLeft, FALSE)
+            setmetatile(5, 16, METATILE_Misc1_BlueGateTopLeft, FALSE)
+            setmetatile(6, 15, METATILE_Misc1_FloorRight, FALSE)
+            setmetatile(6, 16, METATILE_Misc1_BlueGateTopRight, FALSE)
+        }
+        if(var(VAR_PASSWACAN_GREEN) == 2) {
+            setmetatile(18, 24, METATILE_Misc1_GreenSwitchOpen, TRUE)
+            setmetatile(13, 15, METATILE_Misc1_FloorLeft, FALSE)
+            setmetatile(13, 16, METATILE_Misc1_GreenGateTopLeft, FALSE)
+            setmetatile(14, 15, METATILE_Misc1_FloorRight, FALSE)
+            setmetatile(14, 16, METATILE_Misc1_GreenGateTopRight, FALSE)
+        }
+        if(var(VAR_PASSWACAN_RED) == 2) {
+            setmetatile(1, 7, METATILE_Misc1_RedSwitchOpen, TRUE)
+            setmetatile(18, 7, METATILE_Misc1_RedSwitchOpen, TRUE)
+            setmetatile(9, 15, METATILE_Misc1_FloorLeft, FALSE)
+            setmetatile(9, 16, METATILE_Misc1_RedGateTopLeft, FALSE)
+            setmetatile(10, 15, METATILE_Misc1_FloorRight, FALSE)
+            setmetatile(10, 16, METATILE_Misc1_RedGateTopRight, FALSE)
+            setflashlevel(0)
+        }
+        special(DrawWholeMapView)
+    }
+}
+
+script Passwacan_Gym_Totem {
+    lockall
+    msgbox(format("Passwacan's Gym\nCouncil member: Andre"))
+    releaseall
+    end
+}
+
+script Passwacan_Gym_BlueSwitch {
+    lockall
+    if(var(VAR_PASSWACAN_BLUE) == 2) {
+        msgbox(format("The switch has already been activated."))
+    }
+    else {
+        msgbox(format("It's a blue switch. Activate it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            playse(SE_CLICK)
+            setmetatile(1, 24, METATILE_Misc1_BlueSwitchOpen, TRUE)
+            setmetatile(5, 15, METATILE_Misc1_FloorLeft, FALSE)
+            setmetatile(5, 16, METATILE_Misc1_BlueGateTopLeft, FALSE)
+            setmetatile(6, 15, METATILE_Misc1_FloorRight, FALSE)
+            setmetatile(6, 16, METATILE_Misc1_BlueGateTopRight, FALSE)
+            special(DrawWholeMapView)
+            delay(30)
+            setvar(VAR_PASSWACAN_BLUE, 2)
+            msgbox(format("Switch activated!"))
+        }
+        else {
+            msgbox(format("Better take some time to think about it."))
+        }
+    }
+    releaseall
+    end
+}
+
+script Passwacan_Gym_GreenSwitch {
+    lockall
+    if(var(VAR_PASSWACAN_GREEN) == 2) {
+        msgbox(format("The switch has already been activated."))
+    }
+    else {
+        msgbox(format("It's a green switch. Activate it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            playse(SE_CLICK)
+            setmetatile(18, 24, METATILE_Misc1_GreenSwitchOpen, TRUE)
+            setmetatile(13, 15, METATILE_Misc1_FloorLeft, FALSE)
+            setmetatile(13, 16, METATILE_Misc1_GreenGateTopLeft, FALSE)
+            setmetatile(14, 15, METATILE_Misc1_FloorRight, FALSE)
+            setmetatile(14, 16, METATILE_Misc1_GreenGateTopRight, FALSE)
+            special(DrawWholeMapView)
+            delay(30)
+            setvar(VAR_PASSWACAN_GREEN, 2)
+            msgbox(format("Switch activated!"))
+        }
+        else {
+            msgbox(format("Better take some time to think about it."))
+        }
+    }
+    
+    releaseall
+    end
+}
+
+script Passwacan_Gym_RedSwitch1 {
+    lockall
+    if(var(VAR_PASSWACAN_RED1) == 2) {
+        msgbox(format("The switch has already been activated."))
+    }
+    else {
+        msgbox(format("It's a red switch. Activate it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            playse(SE_CLICK)
+            setmetatile(1, 7, METATILE_Misc1_RedSwitchOpen, TRUE)
+            special(DrawWholeMapView)
+            delay(30)
+            setvar(VAR_PASSWACAN_RED1, 2)
+            msgbox(format("Switch activated!"))
+            if(var(VAR_PASSWACAN_RED1) == 2 && var(VAR_PASSWACAN_RED2) == 2) {
+                setmetatile(9, 15, METATILE_Misc1_FloorLeft, FALSE)
+                setmetatile(9, 16, METATILE_Misc1_RedGateTopLeft, FALSE)
+                setmetatile(10, 15, METATILE_Misc1_FloorRight, FALSE)
+                setmetatile(10, 16, METATILE_Misc1_RedGateTopRight, FALSE)
+                special(DrawWholeMapView)
+                delay(30)
+                animateflash(0)
+                setvar(VAR_PASSWACAN_RED, 2)
+                playse(MUS_LEVEL_UP)
+                msgbox(format("The path to the Council Member is now open!"))
+            }   
+        }
+        else {
+            msgbox(format("Better take some time to think about it."))
+        }
+    }
+    releaseall
+    end
+}
+
+script Passwacan_Gym_RedSwitch2 {
+    lockall
+    if(var(VAR_PASSWACAN_RED2) == 2) {
+        msgbox(format("The switch has already been activated."))
+    }
+    else {
+        msgbox(format("It's a red switch. Activate it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            playse(SE_CLICK)
+            setmetatile(18, 7, METATILE_Misc1_RedSwitchOpen, TRUE)
+            special(DrawWholeMapView)
+            delay(30)
+            setvar(VAR_PASSWACAN_RED2, 2)
+            msgbox(format("Switch activated!"))
+            if(var(VAR_PASSWACAN_RED1) == 2 && var(VAR_PASSWACAN_RED2) == 2) {
+                setmetatile(9, 15, METATILE_Misc1_FloorLeft, FALSE)
+                setmetatile(9, 16, METATILE_Misc1_RedGateTopLeft, FALSE)
+                setmetatile(10, 15, METATILE_Misc1_FloorRight, FALSE)
+                setmetatile(10, 16, METATILE_Misc1_RedGateTopRight, FALSE)
+                special(DrawWholeMapView)
+                delay(30)
+                animateflash(0)
+                setvar(VAR_PASSWACAN_RED, 2)
+                playse(MUS_LEVEL_UP)
+                msgbox(format("The path to the Council Member is now open!"))
+            }   
+        }
+        else {
+            msgbox(format("Better take some time to think about it."))
+        }
+    }
+    releaseall
+    end
+}
+
+script Passwacan_Gym_Joris {
+    trainerbattle_single(TRAINER_PASSWACAN_GYM_1, Joris1, Joris2)
+    msgbox(format("Doesn't the usual 4/4 rhythm feel boring? What do you think?"))
+    closemessage
+    end
+}
+
+text Joris1 {
+    format("Feel the power of rock'n roll in your veins!")
+}
+
+text Joris2 {
+    format("Woah, nice chords bro!")
+}
+
+script Passwacan_Gym_Azalea {
+    trainerbattle_single(TRAINER_PASSWACAN_GYM_2, Azalea1, Azalea2)
+    msgbox(format("We're in a power plant, and somehow the lights are always off. What's the point?"))
+    closemessage
+    end
+}
+
+text Azalea1 {
+    format("Aaah! Who are you??")
+}
+
+text Azalea2 {
+    format("Man, I hate the dark...")
+}
+
+script Passwacan_Gym_Zoe {
+    trainerbattle_single(TRAINER_PASSWACAN_GYM_3, Zoe1, Zoe2)
+    msgbox(format("After 8 years working at Bruce's foundry, I've finally secured a spot in the power plant! Close to the sea!"))
+    closemessage
+    end
+}
+
+text Zoe1 {
+    format("This is my first day here! I'm so excited!")
+}
+
+text Zoe2 {
+    format("Haha, I've been told that the level would be higher here!")
+}
+
+script Passwacan_Gym_Boris {
+    trainerbattle_single(TRAINER_PASSWACAN_GYM_4, Boris1, Boris2)
+    msgbox(format("Some chords are easier to play than some others. I'd rather stick to the classics."))
+    closemessage
+    end
+}
+
+text Boris1 {
+    format("Have you ever heard of Green Day?")
+}
+
+text Boris2 {
+    format("Playing their songs is easier than battling.")
+}
+
+script Passwacan_Gym_Andre {
+    if(flag(FLAG_BADGE05_GET)) {
+        lock
+        faceplayer
+        namebox("Andre")
+        msgbox(format("Oh, another battle, already? I'm afraid I've not fully recovered from the last time, haha!"))
+        hidenamebox
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        namebox("Andre")
+        msgbox(format("Oh, I remember you! You're the kid with the Xatu, right? You're taking the Challenge once again? Hell yeah, I've been dreading revenge! Do you remember this gym? It used to be a waste treatment plant, I turned it into a power plant! Bring it on!"))
+        hidenamebox
+        closemessage
+        trainerbattle_no_intro(TRAINER_ANDRE, Andre1)
+        namebox("Andre")
+        msgbox(format("...What happened to your Xatu?"))
+        hidenamebox
+        msgbox(format("..."))
+        closemessage
+        delay(40)
+        namebox("Andre")
+        msgbox(format("...Woah. I'm sorry to hear. I hope you guys meet each other very soon."))
+        closemessage
+        hidenamebox
+        delay(40)
+        namebox("Andre")
+        msgbox(format("Anyway! You know the drill. Take that Emblem."))
+        hidenamebox
+        setflag(FLAG_BADGE05_GET)
+        setvar(VAR_SIDE_STORY_PASSWACAN, 1)
+        playfanfare(MUS_OBTAIN_BADGE)
+        msgbox(format("You've earned the Sludge Emblem!"))
+        waitfanfare
+        closemessage
+        delay(20)
+        namebox("Andre")
+        msgbox(format("You also earned the right to this TM! And it's different from last time, what a treat!"))
+        hidenamebox
+        giveitem(ITEM_TM45)
+        namebox("Andre")
+        msgbox(format("Please, keep me updated. I really hope you'll find your Xatu soon."))
+        hidenamebox
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        release
+        end
+    }
+}
+
+text Andre1 {
+    format("...Huh?")
+}

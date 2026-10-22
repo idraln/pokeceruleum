@@ -47,6 +47,8 @@
 #include "pokemon_summary_screen.h"
 #include "type_icons.h"
 #include "pokedex.h"
+#include "event_data.h"
+#include "constants/flags.h"
 
 static void PlayerHandleLoadMonSprite(u32 battler);
 static void PlayerHandleDrawTrainerPic(u32 battler);
@@ -1836,26 +1838,174 @@ u32 LinkPlayerGetTrainerPicId(u32 multiplayerId)
 
     u8 gender = gLinkPlayers[multiplayerId].gender;
     u8 version = gLinkPlayers[multiplayerId].version & 0xFF;
+    u8 skin = VarGet(VAR_SKIN_COMPLEXION);
+    u8 hair = VarGet(VAR_HAIRCUT);
 
     if (version == VERSION_FIRE_RED || version == VERSION_LEAF_GREEN)
         trainerPicId = gender + TRAINER_BACK_PIC_RED;
     else if (version == VERSION_RUBY || version == VERSION_SAPPHIRE)
         trainerPicId = gender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
     else
-        trainerPicId = gender + TRAINER_BACK_PIC_BRENDAN;
-
+        if(skin == 0 && hair == 0)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_LIGHT;
+            }
+            else 
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_BALD_LIGHT;
+            }
+        else if(skin == 0 && hair == 1)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_LIGHT;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_LIGHT;
+            }
+        else if(skin == 0 && hair == 2)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_LONG_LIGHT;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_LONG_LIGHT;
+            }
+        else if(skin == 1 && hair == 0)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_MEDIUM;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_BALD_MEDIUM;
+            }
+        else if(skin == 1 && hair == 1)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_MEDIUM;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_MEDIUM;
+            }
+        else if(skin == 1 && hair == 2)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_LONG_MEDIUM;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_LONG_MEDIUM;
+            }
+        else if(skin == 2 && hair == 0)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_DARK;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_BALD_DARK;
+            }
+        else if(skin == 2 && hair == 1)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_DARK;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_DARK;
+            }
+        else
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_LONG_DARK;
+            }   
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_LONG_DARK;
+            }
+        
     return trainerPicId;
 }
 
 static u32 PlayerGetTrainerBackPicId(void)
 {
     u32 trainerPicId;
+    u8 skin = VarGet(VAR_SKIN_COMPLEXION);
+    u8 hair = VarGet(VAR_HAIRCUT);
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         trainerPicId = LinkPlayerGetTrainerPicId(GetMultiplayerId());
     else
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
-
+        //trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+        if(skin == 0 && hair == 0)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_LIGHT;
+            }
+            else 
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_BALD_LIGHT;
+            }
+        else if(skin == 0 && hair == 1)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_LIGHT;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_LIGHT;
+            }
+        else if(skin == 0 && hair == 2)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_LONG_LIGHT;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_LONG_LIGHT;
+            }
+        else if(skin == 1 && hair == 0)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_MEDIUM;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_BALD_MEDIUM;
+            }
+        else if(skin == 1 && hair == 1)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_MEDIUM;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_MEDIUM;
+            }
+        else if(skin == 1 && hair == 2)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_LONG_MEDIUM;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_LONG_MEDIUM;
+            }
+        else if(skin == 2 && hair == 0)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_DARK;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_BALD_DARK;
+            }
+        else if(skin == 2 && hair == 1)
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_SHORT_DARK;
+            }
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_DARK;
+            }
+        else
+            if (FlagGet(FLAG_RETRO_INIT))
+            {
+                trainerPicId = TRAINER_BACK_PIC_HERO_RETRO_LONG_DARK;
+            }   
+            else {
+                trainerPicId = TRAINER_BACK_PIC_HERO_LONG_DARK;
+            }
     return trainerPicId;
 }
 

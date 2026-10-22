@@ -1,0 +1,198 @@
+raw `
+Virimante_Gym_MapScripts::
+	.byte 0
+`
+
+script Virimante_Gym_GruntM {
+    if(var(VAR_MAIN_STORY) == 31) {
+        lock
+        faceplayer
+        msgbox(format("K.A.M. just stormed out of the room. What happened?"))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("I'm on guarding duty while K.A.M. fights that Gym leader from Frux or wherever he's from..."))
+        closemessage
+        applymovement(7, moves(face_up delay_16 * 4 face_player))
+        waitmovement
+        delay(20)
+        msgbox(format("...And dude, that old man is getting railed. I've never seen anything like that."))
+        release
+        end
+    }
+}
+
+script Virimante_Gym_DoorBlocked {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement(0)
+    msgbox(format("Some rumbling noises can be heard from the other side... But the door is locked."))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+//////////////
+
+script Virimante_Gym_Grunt1 {
+    trainerbattle_single(TRAINER_VIRIMANTE_1, VGrunt11, VGrunt12)
+    msgbox(format("K.A.M. could've at least turned the heating on. It's freezing!"))
+    closemessage
+    end
+}
+
+text VGrunt11 {
+    format("Hey! This is a private area, leave immediately!")
+}
+
+text VGrunt12 {
+    format("Okay, you can hang around, I guess...")
+}
+
+//////////////
+
+script Virimante_Gym_Grunt2 {
+    trainerbattle_single(TRAINER_VIRIMANTE_2, VGrunt21, VGrunt22)
+    msgbox(format("Standing up without moving for 8 hours a day isn't great for my knees. But at least, the pay is good."))
+    closemessage
+    end
+}
+
+text VGrunt21 {
+    format("Delivered to me, like the snack I'm gonna devour. Hahaha!")
+}
+
+text VGrunt22 {
+    format("Huh? Since when snacks got attitude?")
+}
+
+//////////////
+
+script Virimante_Gym_Grunt3 {
+    trainerbattle_single(TRAINER_VIRIMANTE_3, VGrunt31, VGrunt32)
+    msgbox(format("Not much usually happens around here... Until you came in. So thanks for the entertainment, I guess..."))
+    closemessage
+    end
+}
+
+text VGrunt31 {
+    format("Tired yet?")
+}
+
+text VGrunt32 {
+    format("Nope! Still in great shape!")
+}
+
+//////////////
+
+script Virimante_Gym_Grunt4 {
+    trainerbattle_single(TRAINER_VIRIMANTE_4, VGrunt41, VGrunt42)
+    msgbox(format("Think that the others are bored? Think again. No one comes through me. You're the first person I spoke to in a week."))
+    closemessage
+    end
+}
+
+text VGrunt41 {
+    format("Oh! You took the wrong turn? Bad luck!")
+}
+
+text VGrunt42 {
+    format("I've had my share of bad luck too...")
+}
+
+//////////////
+
+script Virimante_Gym_Grunt5 {
+    trainerbattle_single(TRAINER_VIRIMANTE_5, VGrunt51, VGrunt52)
+    msgbox(format("You deserve to go and talk to K.A.M. I hope you're ready."))
+    closemessage
+    end
+}
+
+text VGrunt51 {
+    format("Don't worry, I'm the last one. I'll make it as quick as possible.")
+}
+
+text VGrunt52 {
+    format("It did go quick! Wow!")
+}
+
+//////////////
+
+script Virimante_Gym_AdminFight {
+    trainerbattle_double(TRAINER_VIRIMANTE_6, VGAdmin1, VGAdmin2, VGAdmin3, Virimante_Gym_AfterFight)
+}
+
+text VGAdmin1 {
+    format("You again... This time, we're facing you both at the same time. 2v1. Screw the rules. Bring it on!")
+}
+
+text VGAdmin2 {
+    format("Incomprehensible...")
+}
+
+text VGAdmin3 {
+    format("Come on... You've only got one Pokémon. Have a bit of self-esteem.")
+}
+
+script Virimante_Gym_AfterFight {
+    delay(20)
+    turnobject(8, DIR_WEST)
+    delay(20)
+    namebox("Barbara")
+    msgbox(format("...I don't understand. Beaten not once, not twice, but thrice? By a mere kid?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(8, DIR_EAST)
+    delay(20)
+    namebox("Barbara")
+    msgbox(format("...You know what, Maurice? I quit. Ciao."))
+    closemessage
+    hidenamebox
+    delay(20)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 2) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+        applymovement(8, moves(walk_up * 5 walk_right * 2 walk_up walk_right * 8))
+        waitmovement(0)
+    }
+    else {
+        applymovement(8, moves(walk_up * 5 walk_right * 2 walk_up walk_right * 8))
+        waitmovement(0)
+    }
+    removeobject(8)
+    delay(40)
+    namebox("Maurice")
+    msgbox(format("Barbara! Wait!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    if(var(VAR_TEMP_0) == 3) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right face_left))
+        applymovement(6, moves(walk_up * 5 walk_right walk_up walk_right * 7))
+        waitmovement(0)
+    }
+    else {
+        applymovement(6, moves(walk_up * 5 walk_right walk_up walk_right * 7))
+        waitmovement(0)
+    }
+    removeobject(6)
+    setflag(FLAG_ADMINS_VIRIMANTE_GYM)
+    release
+    end
+}
+
+script Virimante_Gym_Item {
+    lock
+    removeobject(1)
+    giveitem(ITEM_TM29)
+    setflag(FLAG_ITEM_VIRIMANTE_GYM)
+    release
+    end
+}

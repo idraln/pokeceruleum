@@ -1,0 +1,121 @@
+raw `
+PetalPass_MapScripts::
+	.byte 0
+`
+
+script PetalPass_Theo {
+    trainerbattle_single(TRAINER_PETAL_1, Theo1, Theo2)
+    msgbox(format("I'm only at the beginning of my training. My objective is to become as strong as Koga!"))
+    closemessage
+    end
+}
+
+script PetalPass_Clara {
+    trainerbattle_single(TRAINER_PETAL_2, Clara1, Clara2)
+    msgbox(format("I've almost gathered every single flower species of this road!"))
+    closemessage
+    end
+}
+
+script PetalPass_Girl {
+    lock
+    faceplayer
+    msgbox(format("This route is my happy place. I stay here for hours watching the cute Goldeens swim."))
+    release
+    end
+}
+
+script PetalPass_Student {
+    lock
+    faceplayer 
+    msgbox(format("See this kind of sediment deposit? Where can that come from? The rocks here look like they leak fluid that explains the deposit."))
+    release
+    end
+}
+
+script PetalPass_LittleLad {
+    lock   
+    faceplayer
+    msgbox(format("I'm late for lunch! My mum is gonna kill me!!"))
+    release
+    end
+}
+
+script PetalPass_Signpost {
+    lock
+    faceplayer
+    msgbox(format("{UP_ARROW} Sapphire City\n{DOWN_ARROW} Cruzeira"))
+    release
+    end
+}
+
+script PetalPass_Item {
+    lock
+    removeobject(7)
+    giveitem(ITEM_TM19)
+    setflag(FLAG_ITEM_PETAL)
+    release
+    end
+}
+
+script PetalPass_CantPass {
+    if(var(VAR_MAIN_STORY) < 10) {
+        lock
+        turnobject(6, DIR_NORTH)
+        msgbox(format("Please, don't go further! I'm almost done picking flowers! It's for an important project, just give me a few minutes!"))
+        closemessage
+        turnobject(6, DIR_EAST)
+        applymovement(OBJ_EVENT_ID_PLAYER, PP_CantPass)
+        waitmovement(0)
+        release
+        end
+    }
+    else {
+        end
+    }
+}
+
+//script PetalPass_Flabebe1 {
+//    lock
+//    faceplayer
+//    setwildbattle(SPECIES_FLABEBE_YELLOW, 8)
+//    waitse
+//    playmoncry(SPECIES_FLABEBE_YELLOW, CRY_MODE_ENCOUNTER)
+//    delay(40)
+//    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+//    dowildbattle
+//    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+//    specialvar(VAR_RESULT, GetBattleOutcome)
+//    goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PetalPass_Flabebe1Defeated)
+//    goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PetalPass_Flabebe1Defeated)
+//    goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PetalPass_Flabebe1Defeated)
+//    setflag(FLAG_FLABEBE1)
+//    release
+//    end
+//}
+
+//script PetalPass_Flabebe1Defeated {
+//    setflag(FLAG_FLABEBE1)
+//    goto(Common_EventScript_RemoveStaticPokemon)
+//    end
+//}
+
+text Theo1 {
+    format("Haha! Get ready to taste my newly acquired skills!")
+}
+
+text Theo2 {
+    format("Well, I still have to practice my moves.")
+}
+
+text Clara1 {
+    format("I just got accepted into Cruzeira's Botanic School! You'll be a perfect first subject of study!")
+}
+
+text Clara2 {
+    format("Ah, very interesting! How did you do that?")
+}
+
+movement PP_CantPass {
+    walk_up
+}

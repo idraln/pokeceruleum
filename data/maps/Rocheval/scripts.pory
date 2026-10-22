@@ -1,0 +1,223 @@
+raw `
+Rocheval_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Rocheval_OnFrame
+	.byte 0
+
+Rocheval_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 2, Rocheval_Starter
+    .2byte 0
+`
+
+script Rocheval_Starter {
+    lock
+    savebgm(MUS_FOLLOW_ME)
+    playbgm(MUS_FOLLOW_ME, TRUE)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    msgbox(format("...There you are."))
+    closemessage
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 32) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+        waitmovement(0)
+    }
+    msgbox(format("...Come on now, I don't have much time."))
+    closemessage
+    special(LoadWallyZigzagoon)
+    //special(SavePlayerParty)
+    applymovement(LOCALID_EMPLOYEE, moves(walk_right * 16))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right * 16))
+    waitmovement(0)
+    applymovement(LOCALID_EMPLOYEE, moves(face_up), MAP_ROCHEVAL)
+    waitmovement(LOCALID_EMPLOYEE, MAP_ROCHEVAL)
+    msgbox(format("...Ok, get ready. But don't get too excited, the Pokémons on this route are pretty weak."))
+    closemessage
+    special(StartWallyTutorialBattle)
+    waitstate
+    callnative(ClearPlayerParty)
+    fadedefaultbgm()
+    applymovement(LOCALID_EMPLOYEE, moves(face_left), MAP_ROCHEVAL)
+    waitmovement(LOCALID_EMPLOYEE, MAP_ROCHEVAL)
+    if(var(VAR_FAV_TYPE) == 0) {
+        msgbox(format("What the hell??? I've been on this route a million times and I've never encountered a Treecko!! I'll trade you my Eevee for it. Please."), MSGBOX_YESNO)
+    }
+    elif(var(VAR_FAV_TYPE) == 1) {
+        msgbox(format("What the hell??? I've been on this route a million times and I've never encountered a Torchic!! I'll trade you my Eevee for it. Please."), MSGBOX_YESNO)
+    }
+    elif(var(VAR_FAV_TYPE) == 2) {
+        msgbox(format("What the hell??? I've been on this route a million times and I've never encountered a Mudkip!! I'll trade you my Eevee for it. Please."), MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == YES) {
+        closemessage
+        playse(SE_PIN)
+        applymovement(LOCALID_EMPLOYEE, moves(emote_exclamation_mark), MAP_ROCHEVAL)
+        waitmovement(LOCALID_EMPLOYEE, MAP_ROCHEVAL)
+        delay(40)
+        msgbox(format("...You're a legend. Thank you so much. Here, take my Eevee."))
+        closemessage
+        givemon(SPECIES_EEVEE, 5)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            setflag(FLAG_SYS_POKEMON_GET)
+            playfanfare(MUS_LEVEL_UP)
+            msgbox(format("You've just received an Eevee!"))
+            waitfanfare
+            call(NicknamePokemon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+            setflag(FLAG_SYS_POKEMON_GET)
+            playfanfare(MUS_LEVEL_UP)
+            msgbox(format("You've just received an Eevee!"))
+            waitfanfare
+            call(NicknameBoxmon)
+        }
+        closemessage
+        delay(40)
+        msgbox(format("...I'll never forget what you did. Very cool. See you around."))
+        setvar(VAR_WAKINGUP, 2)
+        closemessage
+    }
+    else {
+        closemessage
+        delay(40)
+        msgbox(format("...Wow. I see how it is. Nevermind, I don't need it."))
+        closemessage
+        if(var(VAR_FAV_TYPE) == 0) {
+            givemon(SPECIES_TREECKO, 5)
+            if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+                setflag(FLAG_SYS_POKEMON_GET)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(format("You've just received a Treecko!"))
+                waitfanfare
+                call(NicknamePokemon)
+            }
+            elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+                setflag(FLAG_SYS_POKEMON_GET)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(format("You've just received a Treecko!"))
+                waitfanfare
+                call(NicknameBoxmon)
+            }
+        }
+        elif(var(VAR_FAV_TYPE) == 1) {
+            givemon(SPECIES_TORCHIC, 5)
+            if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+                setflag(FLAG_SYS_POKEMON_GET)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(format("You've just received a Torchic!"))
+                waitfanfare
+                call(NicknamePokemon)
+            }
+            elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+                setflag(FLAG_SYS_POKEMON_GET)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(format("You've just received a Torchic!"))
+                waitfanfare
+                call(NicknameBoxmon)
+            }
+        }
+        elif(var(VAR_FAV_TYPE) == 2) {
+            givemon(SPECIES_MUDKIP, 5)
+            if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+                setflag(FLAG_SYS_POKEMON_GET)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(format("You've just received a Mudkip!"))
+                waitfanfare
+                call(NicknamePokemon)
+            }
+            elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+                setflag(FLAG_SYS_POKEMON_GET)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(format("You've just received a Mudkip!"))
+                waitfanfare
+                call(NicknameBoxmon)
+            }
+        }
+        closemessage
+        delay(40)
+        msgbox(format("...Not cool."))
+        setvar(VAR_WAKINGUP, 3)
+        closemessage
+    }
+    applymovement(LOCALID_EMPLOYEE, moves(walk_down walk_left * 10), MAP_ROCHEVAL)
+    waitmovement(LOCALID_EMPLOYEE, MAP_ROCHEVAL)
+    removeobject(LOCALID_EMPLOYEE, MAP_ROCHEVAL)
+    setflag(FLAG_STARTER)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_BLOCKED_ROAD, 1)
+    setvar(VAR_MAIN_STORY, 3)
+    release
+    end
+}
+
+script Rocheval_TownHallSign {
+    lockall
+    msgbox(format("Rocheval's Town Hall"))
+    releaseall
+}
+
+script Rocheval_TownSign {
+    lockall
+    msgbox("Rocheval \nThe charming seaside town.")
+    releaseall
+}
+
+script Rocheval_Tourist {
+    lock
+    faceplayer
+    msgbox(format("The mountains on this island are mental! I almost broke my leg hiking those summits. Worth it though."))
+    release
+    end
+}
+
+script Rocheval_LittleGirl {
+    if(var(VAR_MAIN_STORY) != 7) {
+        lock
+        faceplayer
+        msgbox(format("I heard that a new battle contest is taking place soon! I wish they'll accept me this time."))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("That was so fun!! I hope I'll get further next time!"))
+        release
+        end
+    }
+}
+
+script Rocheval_Grandma {
+    lock
+    faceplayer
+    msgbox(format("I came here to retire, and to be at peace with Mother Nature. And then, those so-called artists come and disrupt our tranquility. One of them even called me 'old'."))
+    release
+    end
+}
+
+script Rocheval_Teenager {
+    lock
+    faceplayer
+    msgbox(format("Do you think someone could swim up that waterfall? Well, I tried once and I almost went all the way up. I swear!"))
+    release
+    end
+}
+
+script Rocheval_Artist {
+    lock
+    faceplayer
+    msgbox(format("Ah, yes, I get it! The inspiration! Look at those flowers, those trees. Mmmh, yes. Even that old lady by the Town Hall. Everything makes sense. Yes!"))
+    release
+    end
+}
+
+script Rocheval_Woman {
+    lock
+    faceplayer
+    msgbox(format("Everything smells good here. Even the tourists who come back from their hike. That's the power of that town, I'll tell you what."))
+    release
+    end
+}
+
+movement LittleGirlRocheval {
+    face_up
+}

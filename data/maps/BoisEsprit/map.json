@@ -1,0 +1,264 @@
+{
+  "id": "MAP_BOIS_ESPRIT",
+  "name": "BoisEsprit",
+  "layout": "LAYOUT_BOIS_ESPRIT",
+  "music": "MUS_RG_VIRIDIAN_FOREST",
+  "region_map_section": "MAPSEC_BOIS_ESPRIT",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTF",
+      "x": 19,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "BoisEsprit_Grunt6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTF",
+      "x": 46,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BoisEsprit_GruntNPC2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTM",
+      "x": 56,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "BoisEsprit_Grunt5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTM",
+      "x": 50,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "BoisEsprit_Grunt3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTF",
+      "x": 46,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "BoisEsprit_Grunt4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTM",
+      "x": 47,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "BoisEsprit_Grunt1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ADMINF",
+      "x": 21,
+      "y": 54,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ADMINS_BOIS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ADMINM",
+      "x": 20,
+      "y": 54,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ADMINS_BOIS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTF",
+      "x": 29,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "7",
+      "script": "BoisEsprit_Grunt2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTM",
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BoisEsprit_GruntNPC1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 32,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM20",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_BOIS_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_GARDEVOIRITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_GARDEVOIRITE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 46,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BAMMOBO",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 47,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BAMMOBO",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 45,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BAMMOBO",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 26,
+      "y": 61,
+      "elevation": 0,
+      "dest_map": "MAP_BERYL_CHANNEL",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 61,
+      "elevation": 0,
+      "dest_map": "MAP_BERYL_CHANNEL",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 61,
+      "elevation": 0,
+      "dest_map": "MAP_BERYL_CHANNEL",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 16,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_BOIS_ESPRIT_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "29",
+      "script": "BoisEsprit_DoubleAdmin"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "29",
+      "script": "BoisEsprit_DoubleAdmin"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "29",
+      "script": "BoisEsprit_DoubleAdmin"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 41,
+      "y": 35,
+      "elevation": 0,
+      "item": "ITEM_WHIPPED_DREAM",
+      "flag": "FLAG_ITEM_BOIS_2"
+    }
+  ]
+}

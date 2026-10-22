@@ -1,0 +1,13 @@
+raw `
+Ohulinn_House2_MapScripts::
+	.byte 0
+`
+
+script Ohulinn_House2_Old {
+    lock
+    faceplayer
+    msgbox(format("What a beautiful day... Cherish every moment you live, young one. Life'll be over way sooner than you would expect."))
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}

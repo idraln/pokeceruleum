@@ -564,3 +564,19 @@ gSpecials::
 	def_special EnterCode
 	def_special GetCodeFeedback
 	def_special SetHiddenNature
+	def_special HeadbuttWildEncounter
+	def_special TeleportCamera
+	def_special ReturnCameraToPlayer
+	def_special BackupPlayerState
+	def_special InitFlashbackState
+	def_special RestorePlayerState
+	def_special SetLastEggOneStep
+	def_special EnterHydropolisPokemon
+	def_special GetPokemonFeedback
+	def_special Excavation_ItemUseCB
+	def_special CheckAllTMs
+	def_special IsSaturday
+	def_special GetOnBikeOxideTrail
+	def_special StartTriathlonTimer
+	def_special StopTriathlonTimer
+	def_special DebugCountTasks

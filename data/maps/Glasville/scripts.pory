@@ -1,0 +1,145 @@
+raw `
+Glasville_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Glasville_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Glasville_OnFrame
+	.byte 0
+
+Glasville_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 22, Glasville_SamCall
+    .2byte 0
+`
+
+script Glasville_OnTransition {
+    setflag(FLAG_VISITED_GLASVILLE)
+}
+
+script Glasville_SamCall {
+    lockall
+    faceplayer
+    pokenavcall(GlasvilleCall)
+    waitmessage
+    setvar(VAR_MAIN_STORY, 23)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    clearflag(FLAG_SAM_PEBBLE)
+    setflag(FLAG_BRUCE_IRONAIR)
+    setflag(FLAG_BEFORE_ATTACK)
+    clearflag(FLAG_AFTER_ATTACK_BRUCE)
+    clearflag(FLAG_FRUX_GYM_QUESTION_1)
+    clearflag(FLAG_FRUX_GYM_QUESTION_2)
+    clearflag(FLAG_FRUX_GYM_QUESTION_3)
+    releaseall
+    end
+}
+
+script Glasville_LockedDoor {
+    lock
+    checkitem(ITEM_BIKE_VOUCHER)
+    if(var(VAR_RESULT) == TRUE) {
+        release
+        end
+    }
+    else {
+        if(flag(FLAG_QUEST_HOUSE)) {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+            waitmovement(0)
+            msgbox(format("The door is locked. It'll need a key to open."))
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+            waitmovement(0)
+        }
+        else {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+            waitmovement(0)
+            msgbox(format("The door is locked. It'll need a key to open."))
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+            waitmovement(0)
+            startquest(QUEST_EMPTY_HOUSE)
+            setflag(FLAG_QUEST_HOUSE)
+        }
+        release
+        end
+    }
+}
+
+script Glasville_OldMan {
+    lock
+    msgbox(format("..."))
+    faceplayer
+    msgbox(format("The water flows for a reason. We must not disturb it. Have you ever wondered why there aren't as many fish in the sea as there used to be?"))
+    closemessage
+    turnobject(2, DIR_NORTH)
+    delay(20)
+    msgbox(format("The answer is simple, and it's before our very eyes."))
+    release
+    end
+}
+
+script Glasville_OldWoman {
+    lock
+    faceplayer
+    msgbox(format("Corinna, may she rest in peace, turned this hollow land into a place where the souls can rest forever. She did a great job at it."))
+    release
+    end
+}
+
+script Glasville_Cosplayer {
+    lock
+    faceplayer
+    msgbox(format("I'm a big fan of Halloween and everything that is scary, so this town is the perfect place for me!"))
+    release
+    end
+}
+
+script Glasville_Sign {
+    lockall
+    msgbox(format("Glasville\nThura's eternal resting place."))
+    releaseall
+    end
+}
+
+script Glasville_Gym {
+    lockall
+    if(var(VAR_MAIN_STORY) <= 17) {
+        msgbox(format("To every challenger\nDue to Corinna's death, the gym is closed until further notice."))
+        closemessage
+        delay(40)
+        clearflag(FLAG_SCIENTIST_GLASVILLE)
+        addobject(4)
+        applymovement(4, moves(walk_right * 4))
+        waitmovement(0)
+        delay(20)
+        applymovement(4, moves(face_up delay_16 face_left delay_16))
+        waitmovement(0)
+        delay(20)
+        applymovement(4, moves(walk_fast_right * 2 walk_fast_down walk_fast_right))
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        waitmovement(0)
+        msgbox(format("...Hey. You're doing the Council Challenge, right? Corinna died a few days ago, what a bummer... But worry not, challenger. I may have just the right thing for you to progress in your quest. Meet me in my house. You go left from the gym, and it's in front of the vertical bridge. If someone asks you, we don't know each other."))
+        closemessage
+        applymovement(4, moves(walk_left * 3 walk_up))
+        waitmovement(0)
+        delay(20)
+        applymovement(4, moves(walk_fast_left * 7))
+        waitmovement(0)
+        removeobject(4)
+        setflag(FLAG_SCIENTIST_GLASVILLE)
+        setvar(VAR_MAIN_STORY, 18)    
+    }
+    else {
+        msgbox(format("To every challenger\nDue to Corinna's death, the gym is closed until further notice."))  
+    }
+    releaseall
+    end
+}
+
+text GlasvilleCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Sam: Hiya {PLAYER}! Sup?\p"
+    "… … … … … …\p"
+    "Meet me in Pebble Cross!\n"
+    "There's something neat I want\l"
+    "to show you. Don't be late!\p"
+    "… … … … … …\n… … … … … Click!"
+}

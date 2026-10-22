@@ -1,0 +1,107 @@
+raw `
+PassaquaWy_MapScripts::
+	.byte 0
+`
+
+script PassaquaWy_ShowNameLocation {
+    special(ShowMapNamePopup)
+    setvar(VAR_TEMP_0, 1)
+}
+
+script PassaquaWy_VarTemp1 {
+    setvar(VAR_TEMP_0, 1)
+}
+
+script PassaquaWy_Bonnie {
+    trainerbattle_single(TRAINER_PASSWACAN_1, Bonnie1, Bonnie2)
+    msgbox(format("This part of Thura is getting interesting. Not too hard, like Challenger Road, but not too soft. I can train here for hours."))
+    closemessage
+    end
+}
+
+text Bonnie1 {
+    format("You're only wearing a shirt? With this rain? You must be drenched!")
+}
+
+text Bonnie2 {
+    format("You sure know how to stay dry!")
+}
+
+script PassaquaWy_Josephine {
+    trainerbattle_single(TRAINER_PASSWACAN_2, Josephine1, Josephine2)
+    msgbox(format("This zip line is going to be twice as long as the one on Jangala Road. Can't wait!"))
+    closemessage
+    end
+}
+
+text Josephine1 {
+    format("The zip line isn't ready yet. In the meantime, let's fight!")
+}
+
+text Josephine2 {
+    format("Inspiring!")
+}
+
+script PassaquaWy_Luke {
+    trainerbattle_single(TRAINER_PASSWACAN_3, Luke1, Luke2)
+    msgbox(format("I wonder if there's any Bug/Psychic Pokémons out there, especially in Bois-Esprit. But I'm too afraid to go there..."))
+    closemessage
+    end
+}
+
+text Luke1 {
+    format("Look at my bugs! Look!")
+}
+
+text Luke2 {
+    format("Hey, not cool! You almost squished them!")
+}
+
+script PassaquaWy_Noemie {
+    trainerbattle_single(TRAINER_PASSWACAN_4, Noemie1, Noemie2)
+    msgbox(format("Is the rain ever going to stop? I don't want to go camp anywhere else."))
+    closemessage
+    end
+}
+
+text Noemie1 {
+    format("Lush vegetation, like my fighting style!")
+}
+
+text Noemie2 {
+    format("You're like a fire that scorched my style...")
+}
+
+script PassaquaWy_Woman {
+    lock
+    faceplayer
+    msgbox(format("Do you think jumping from this height would hurt? I saw some high diving on the telly and wanted to try it."))
+    release
+    end
+}
+
+script PassaquaWy_Man {
+    lock
+    faceplayer
+    msgbox(format("After a long day of work at the plant, I like to come here and feel the wind caress my cheeks. The ones on my face."))
+    release
+    end
+}
+
+script PassaquaWy_Item1 {
+    lock
+    removeobject(7)
+    giveitem(ITEM_CARBOS)
+    setflag(FLAG_ITEM_PASS_1)
+    release
+    end
+}
+
+script PassaquaWy_Item2 {
+    lock
+    removeobject(8)
+    giveitem(ITEM_NEST_BALL)
+    setflag(FLAG_ITEM_PASS_2)
+    release
+    end
+}

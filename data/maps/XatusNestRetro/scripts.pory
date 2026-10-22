@@ -1,0 +1,208 @@
+raw `
+XatusNestRetro_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, XatusNestRetro_OnFrame
+	.byte 0
+
+XatusNestRetro_OnFrame:
+    map_script_2 VAR_SIDE_STORY_RETRO, 2, XatusNestRetro_Arrival
+    .2byte 0
+`
+
+script XatusNestRetro_Arrival {
+    lock
+    setrespawn(HEAL_LOCATION_GLORRAY_RETRO)
+    clearflag(FLAG_SYS_POKENAV_GET)
+    clearflag(FLAG_DEXNAV_GET)
+    setvar(VAR_LEVELS, 12)
+    namebox("Ulrich")
+    msgbox(format("Hey! I'm right here!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    delay(40)
+    namebox("Ulrich")
+    msgbox(format("...Were you lost in your thoughts again? Dude. I'll never get you. Nevermind. Let's go, we might miss the laying."))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_fast_up * 11 face_left))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 11 face_right))
+    waitmovement(0)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("...You know what the laying means, right? Xatu comes once a year and lays her eggs in the nest. That means we'll get a Pokémon! I'll finally become a trainer, about time... Every 18 year old in the region already has at least a Pokémon, and I'm the only idiot without one..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    msgbox(format("..."))
+    closemessage
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("...Still nothing? Aren't you excited? Whatever. Come on."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(walk_fast_up * 7 walk_fast_right walk_fast_up * 3 face_left))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 7 walk_right walk_up * 3 face_right))
+    waitmovement(0)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("...We're closing in! Brace yourself!"))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(walk_up * 6))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 6))
+    waitmovement(0)
+    delay(40)
+    namebox("Ulrich")
+    msgbox(format("...Great. We missed the laying, because of your slow legs."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_left delay_16 * 2 face_right delay_16 * 2 face_up))
+    waitmovement(0)
+    namebox("Ulrich")
+    msgbox(format("...But... Only one egg? That's it?"))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("Ulrich")
+    msgbox(format("...There must be a problem. Maybe we came in a bit too early? Let's check the nest later."))
+    closemessage
+    hidenamebox
+    clearflag(FLAG_GRANDMA_NEST)
+    addobject(1)
+    applymovement(2, moves(walk_down * 2))
+    applymovement(1, moves(walk_up * 3))
+    waitmovement(0)
+    delay(40)
+    playse(SE_PIN)
+    applymovement(2, moves(emote_exclamation_mark))
+    waitmovement(0)
+    namebox("Ulrich")
+    msgbox(format("...Grandma! There's something wrong in the nest."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(walk_right face_left))
+    applymovement(1, moves(walk_up * 3))
+    waitmovement(0)
+    applymovement(1, moves(face_up))
+    applymovement(2, moves(face_up))
+    waitmovement(0)
+    delay(40)
+    namebox("Grandma")
+    msgbox(format("...Indeed. Xatu has only provided us one egg, this year..."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(1, moves(walk_right walk_up * 2 face_left))
+    waitmovement(0)
+    delay(40)
+    removeobject(3)
+    delay(40)
+    setflag(FLAG_EGG_NEST)
+    applymovement(1, moves(walk_down * 2 walk_left))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    delay(40)
+    namebox("Grandma")
+    msgbox(format("{PLAYER}, I want you to have it."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(jump_in_place_up))
+    waitmovement(0)
+    namebox("Ulrich")
+    msgbox(format("WHAT???"))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(walk_fast_left * 2 walk_fast_up))
+    waitmovement(0)
+    applymovement(2, moves(walk_fast_up face_right))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+    waitmovement(0)
+    namebox("Ulrich")
+    msgbox(format("You're giving the egg to {PLAYER}?? I've been waiting all these years, only to wait another one?? HUH??"))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("Grandma")
+    msgbox(format("...You're not ready. Another year learning about what it takes to become a trainer won't hurt you."))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("Ulrich")
+    msgbox(format("This is BULLSHIT!! SCREW YOU!!"))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(face_left))
+    waitmovement(0)
+    delay(20)
+    namebox("Ulrich")
+    msgbox(format("SCREW YOU TOO!!"))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(walk_fast_down * 6))
+    applymovement(1, moves(face_down))
+    waitmovement(0)
+    delay(60)
+    removeobject(2)
+    setflag(FLAG_BRO_NEST)
+    delay(40)
+    applymovement(1, moves(walk_left))
+    waitmovement(0)
+    namebox("Grandma")
+    msgbox(format("He'll be fine. He always behaves... sort of."))
+    closemessage
+    hidenamebox
+    delay(40)
+    playse(SE_PIN)
+    applymovement(1, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    namebox("Grandma")
+    msgbox(format("...Would you look at that! The egg has hatched. What a beautiful little Natu..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Grandma")
+    msgbox(format("Here, take it. You will have to honor it. You need to tie strong bonds with your new companion. You need to spend time with it, read about it, partake in battles with it. You need to give it love, and friendship."))
+    closemessage
+    hidenamebox
+    delay(20)
+    givemon(SPECIES_BULBASAUR, 5)
+    msgbox(format("You just received a freshly hatched Natu!"))
+    closemessage
+    delay(20)
+    namebox("Grandma")
+    msgbox(format("Please, take also those. You won't ever be an achieved trainer unless you surround yourself with several loving companions. Natu alone won't help you achieve your goals."))
+    closemessage
+    hidenamebox
+    giveitem(ITEM_POKE_BALL, 5)
+    namebox("Grandma")
+    msgbox(format("Once you feel ready, come to the gym and try your skills against me. I won't be easy on you, so be well prepared."))
+    closemessage
+    hidenamebox
+    applymovement(1, moves(walk_down * 6))
+    waitmovement(0)
+    removeobject(1)
+    setflag(FLAG_GRANDMA_NEST)
+    setvar(VAR_SIDE_STORY_RETRO, 3)
+    release
+    end
+}
+
+script XatusNestRetro_Guardian {
+    lock
+    faceplayer
+    namebox("Guard")
+    msgbox(format("Great to see you, {PLAYER}. I see you've finally got your own Pokémon? Be sure to give it plenty of love."))
+    hidenamebox
+    turnobject(4, DIR_SOUTH)
+    release
+    end
+}

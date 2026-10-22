@@ -1,0 +1,89 @@
+raw `
+Vikkelson_DanceHall_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_DanceHall_Owner {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Vikkelson's Nightclub, generously funded by Miss Vikkie herself! The entry is free, so sit down, relax and enjoy some sick beats by our DJ, G-EZ."))
+    release
+    end
+}
+
+script Vikkelson_DanceHall_Woman1_Table1 {
+    lock
+    faceplayer
+    msgbox(format("Are you the waiter? I need a drink! I need it NOW! Me, now!"))
+    turnobject(5, DIR_EAST)
+    release
+    end
+}
+
+script Vikkelson_DanceHall_Woman2_Table1 {
+    lock
+    msgbox(format("...Shush! Everyone's looking at us!"))
+    release
+    end
+}
+
+script Vikkelson_DanceHall_TM {
+    lock
+    removeobject(10)
+    setflag(FLAG_ITEM_DANCEHALL)
+    giveitem(ITEM_TM01)
+    release
+    end
+}
+
+script Vikkelson_DanceHall_Woman_Table2 {
+    lock
+    faceplayer
+    msgbox(format("Hah, look at that weirdo, spazzing around all sweaty. I get that the music is good, but that much?"))
+    release
+    end
+}
+
+script Vikkelson_DanceHall_Man_Table2 {
+    lock
+    faceplayer
+    msgbox(format("Excuse me, where are our drinks? We ordered them like an hour ago."))
+    msgbox(format("..."))
+    msgbox(format("Oh you don't work here? Sorry."))
+    release
+    end
+}
+
+script Vikkelson_DanceHall_Old {
+    lock
+    msgbox(format("...Come on, last coin. I'm so close to the jackpot."))
+    release
+    end
+}
+
+script Vikkelson_DanceHall_BoyDancing {
+    if(var(VAR_LOST_BOY_2) == 0) {
+        lock
+        faceplayer
+        msgbox(format("Oh yeah! Sick beats, man!"))
+        release
+        end
+    }
+    elif(var(VAR_LOST_BOY_2) == 1) {
+        lock
+        faceplayer
+        msgbox(format("Oh yeah! Sick beats, man!"))
+        msgbox(format("..."))
+        msgbox(format("Huh? My dad is looking for me? I'm too busy dancing my life away, I don't care."))
+        setvar(VAR_LOST_BOY_2, 2)
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("Hey! Hey! Hey! I love this song!!"))
+        release
+        end
+    }
+}

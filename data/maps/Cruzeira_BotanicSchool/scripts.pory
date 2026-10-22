@@ -1,0 +1,517 @@
+raw `
+Cruzeira_BotanicSchool_MapScripts::
+	.byte 0
+`
+
+script Cruzeira_BotanicSchool_Teacher1 {
+    lock
+    faceplayer
+    if(flag(FLAG_POKEDEX_COMPLETED)) {
+        gettimeofday
+        if(var(VAR_0x8000) == 0) {
+            msgbox(format("Oh, it's the most amazing trainer of all Thura, {PLAYER}! How are you doing on this fine morning?"))
+            release
+            end
+        }
+        elif(var(VAR_0x8000) == 1) {
+            msgbox(format("Oh, it's the most amazing trainer of all Thura, {PLAYER}! How are you doing on this fine day?"))
+            release
+            end
+        }
+        elif(var(VAR_0x8000) == 2) {
+            msgbox(format("Oh, it's the most amazing trainer of all Thura, {PLAYER}! How are you doing on this fine evening?"))
+            release
+            end
+        }
+        else {
+            msgbox(format("Oh, it's the most amazing trainer of all Thura, {PLAYER}! How are you doing on this fine night?"))
+            release
+            end
+        }
+    }
+    elif(flag(FLAG_QUEST_POKEDEX)) {
+        msgbox(format("Hi, {PLAYER}. Have you completed your Pokédex yet?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Let me check, then."))
+            closemessage
+            playse(SE_POKENAV_ON)
+            delay(20)
+            specialvar(VAR_RESULT, HasAllHoennMons)
+            delay(40)
+            if(var(VAR_RESULT) == TRUE) {
+                msgbox(format("...Oh, my! How wonderful! You even managed to get info on Diancie, the mythical guardian of the Ironair!"))
+                closemessage
+                delay(20)
+                playse(SE_POKENAV_OFF)
+                delay(20)
+                msgbox(format("For a job very well done, here is a diploma with your name on it. I'll hang it in the lobby, so that everyone can see how wonderful of a trainer you are."))
+                closemessage
+                completequest(QUEST_POKEDEX)
+                setflag(FLAG_POKEDEX_COMPLETED)
+                clearflag(FLAG_QUEST_POKEDEX)
+                special(Special_ShowDiploma)
+                waitstate
+                release
+                end
+            }
+            else {
+                playse(SE_POKENAV_OFF)
+                delay(20)
+                msgbox(format("...Hmm. You're not quite here yet. Try a bit harder!"))
+                release
+                end
+            }
+        }
+        else {
+            msgbox(format("That's fine, {PLAYER}. You're young, you've got a lot of time ahead of you."))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Oh, you have a Pokédex feature on your Phone! That's a rarity, these days. How lucky you are! I'll tell you what: if you manage to complete the whole Pokédex of Thura, come back and see me. I'll have the most beautiful reward for you."))
+        startquest(QUEST_POKEDEX)
+        setflag(FLAG_QUEST_POKEDEX)
+        release
+        end
+    }
+}
+
+script Cruzeira_BotanicSchool_Student1 {
+    lock
+    msgbox(format("Oh, so angiosperms can also rely on abiotic pollination? Very interesting..."))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student2 {
+    lock
+    faceplayer
+    msgbox(format("See the boy at the desk to my left? I have a massive crush on him. He seems so passionate about plants... Maybe a bit too much. I wish he could notice me."))
+    turnobject(10, DIR_WEST)
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student3 {
+    lock
+    faceplayer
+    msgbox(format("Shhh, I'm trying to finish my game, don't blow my cover!"))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student4 {
+    lock
+    msgbox(format("Zzzz... Zzzz..."))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Son {
+    lock
+    faceplayer
+    msgbox(format("My mom and dad own this school! I don't understand anything about flowers, but boy are they beautiful!"))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Daughter {
+    lock
+    msgbox(format("Drink, beautiful flowers, drink! I have prepared a special mixture for you, you'll love it!"))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student5 {
+    lock
+    faceplayer
+    msgbox(format("I don't understand... Every plant that I touch seems to die within hours... Maybe I'm not cut out to be a botanist..."))
+    turnobject(13, DIR_WEST)
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Mom {
+    lock
+    faceplayer
+    msgbox(format("Welcome to our botanic school! Feel free to speak to the students and teachers. You'll learn a lot about plants."))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Dad {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Cruzeira's botanic school! We founded it together with my beautiful wife 10 years ago, and look at it now. It's thriving!"))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student6 {
+    lock
+    faceplayer
+    msgbox(format("I can't see anything, these desks are too high! Can you tell me what's written on the black board?"))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student7 {
+    lock
+    msgbox(format("Flower..."))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student8 {
+    lock
+    faceplayer
+    msgbox(format("Ok, ok, all these lectures are great, but when are we going outside to practice?"))
+    release
+    end
+}
+
+script Cruzeira_BotanicSchool_Student9 {
+    lock
+    faceplayer
+    if(flag(FLAG_BOT_STUDENTS)) {
+        msgbox(format("Huh? Where is everyone? I didn't listen to what the old man said."))
+        release
+        end
+    }
+    else {    
+        msgbox(format("This is so boring... I wish my parents had enrolled me in a training school, not here."))
+        release
+        end
+    }
+}
+
+script Cruzeira_BotanicSchool_Teacher2 {
+    lock
+    faceplayer
+    if(flag(FLAG_BOT_HOMEWORK)) {
+        msgbox(format("Aren't plants fascinating?"))
+        turnobject(5, DIR_NORTH)
+        release
+        end
+    }
+    elif(flag(FLAG_BOT_STUDENTS)) {
+        msgbox(format("Hello, {PLAYER}. Have you completed your homework yet?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Very well, then. Let's see."))
+            checkitem(ITEM_FLOWER_SWEET, 3)
+            if(var(VAR_RESULT) == TRUE) {
+                msgbox(format("..."))
+                msgbox(format("Ah yes! These are the exact species I talked about! Well done, {PLAYER}. Here is a little reward for a job well done."))
+                giveitem(ITEM_MIRACLE_SEED)
+                msgbox(format("If you give this seed to a Pokémon, it will boost the power of its grass-type moves. Very useful!"))
+                completequest(QUEST_ASSIGNMENT)
+                setflag(FLAG_BOT_HOMEWORK)
+                release
+                end
+            }
+            else {
+                msgbox(format("..."))
+                msgbox(format("You cheeky one! You haven't completed the homework yet! Come back when you have."))
+                release
+                end
+            }
+        }
+        else {
+            msgbox(format("It's okay, you have plenty of time. Remember, you'll find the daisies I spoke about on Petal Pass, and we recognise them thanks to their vibrant yellow or blue tint."))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("What's that? Why aren't you seated, like all the other students?"))
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        multichoice(0, 8, MULTI_BOTANIC, FALSE)
+        switch(var(VAR_RESULT)) {
+            case 0: 
+                msgbox(format("What? Nonsense! Seat down this instant!"))
+                closemessage
+                if(var(VAR_TEMP_0) == 18) {
+                    applymovement(OBJ_EVENT_ID_PLAYER, Botanic18)
+                    waitmovement(0)
+                    applymovement(5, BotanicTeacher)
+                    waitmovement(0)
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher)
+                    waitmovement(0)
+                    delay(10)
+                    msgbox(format("Alright class, before I give you your homework, can someone remind me of the various species of daisies?"))
+                    closemessage
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamClass)
+                    waitmovement(0)
+                    msgbox(format("..."))
+                    turnobject(8, DIR_EAST)
+                    turnobject(7, DIR_WEST)
+                    msgbox(format("Uhm... What are they?"))
+                    delay(10)
+                    turnobject(4, DIR_WEST)
+                    turnobject(7, DIR_EAST)
+                    msgbox(format("Ah, I swear I know the answer, it's on the tip of my tongue..."))
+                    delay(10)
+                    closemessage
+                    turnobject(8, DIR_NORTH)
+                    turnobject(7, DIR_NORTH)
+                    turnobject(4, DIR_NORTH)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2)
+                    waitmovement(0)
+                    msgbox(format("Haha! This was a trick question. We haven't seen them yet! That's the subject of your next homework."))
+                    closemessage
+                    applymovement(5, BotanicTeacher2)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicTeacher2)
+                    waitmovement(0)
+                    msgbox(format("On Petal Pass, just north of this charming town that is Cruzeira, you'll find various species of flowers. Some of which are daisies! Now, you can recognise the species specific to Thura by its colors: the petals are either yellow, or blue. Your mission is to collect 3 daisies, and bring them back here. But, remember! When you pick up the daisies, be gentle. No pulling! Now, go."))
+                    closemessage
+                    applymovement(7, BotanicStudent6)
+                    applymovement(4, BotanicStudent7)
+                    applymovement(8, BotanicStudent8)
+                    waitmovement(0)
+                    removeobject(7)
+                    removeobject(4)
+                    removeobject(8)
+                    setflag(FLAG_BOT_STUDENTS)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamPlayer)
+                    waitmovement(0)
+                    special(RemoveCameraObject)
+                    startquest(QUEST_ASSIGNMENT)
+                    release
+                    end
+                }
+                elif(var(VAR_TEMP_0) == 20) {
+                    applymovement(OBJ_EVENT_ID_PLAYER, Botanic20)
+                    waitmovement(0)
+                    applymovement(5, BotanicTeacher)
+                    waitmovement(0)
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher)
+                    waitmovement(0)
+                    delay(10)
+                    msgbox(format("Alright class, before I give you your homework, can someone remind me of the various species of daisies?"))
+                    closemessage
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamClass)
+                    waitmovement(0)
+                    msgbox(format("..."))
+                    turnobject(8, DIR_EAST)
+                    turnobject(7, DIR_WEST)
+                    msgbox(format("Uhm... What are they?"))
+                    delay(10)
+                    turnobject(4, DIR_WEST)
+                    turnobject(7, DIR_EAST)
+                    msgbox(format("Ah, I swear I know the answer, it's on the tip of my tongue..."))
+                    delay(10)
+                    closemessage
+                    turnobject(8, DIR_NORTH)
+                    turnobject(7, DIR_NORTH)
+                    turnobject(4, DIR_NORTH)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2)
+                    waitmovement(0)
+                    msgbox(format("Haha! This was a trick question. We haven't seen them yet! That's the subject of your next homework."))
+                    closemessage
+                    applymovement(5, BotanicTeacher2)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicTeacher2)
+                    waitmovement(0)
+                    msgbox(format("On Petal Pass, just north of this charming town that is Cruzeira, you'll find various species of flowers. Some of which are daisies! Now, you can recognise the species specific to Thura by its colors: the petals are either yellow, or blue. Your mission is to collect 3 daisies, and bring them back here. But, remember! When you pick up the daisies, be gentle. No pulling! Now, go."))
+                    closemessage
+                    applymovement(7, BotanicStudent6)
+                    applymovement(4, BotanicStudent7)
+                    applymovement(8, BotanicStudent8)
+                    waitmovement(0)
+                    removeobject(7)
+                    removeobject(4)
+                    removeobject(8)
+                    setflag(FLAG_BOT_STUDENTS)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamPlayer)
+                    waitmovement(0)
+                    special(RemoveCameraObject)
+                    startquest(QUEST_ASSIGNMENT)
+                    release
+                    end
+                }
+            case 1:
+                msgbox(format("It's okay. Quick, we don't have much time left."))
+                closemessage
+                if(var(VAR_TEMP_0) == 18) {
+                    applymovement(OBJ_EVENT_ID_PLAYER, Botanic18)
+                    waitmovement(0)
+                    applymovement(5, BotanicTeacher)
+                    waitmovement(0)
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher)
+                    waitmovement(0)
+                    delay(10)
+                    msgbox(format("Alright class, before I give you your homework, can someone remind me of the various species of daisies?"))
+                    closemessage
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamClass)
+                    waitmovement(0)
+                    msgbox(format("..."))
+                    turnobject(8, DIR_EAST)
+                    turnobject(7, DIR_WEST)
+                    msgbox(format("Uhm... What are they?"))
+                    delay(10)
+                    turnobject(4, DIR_WEST)
+                    turnobject(7, DIR_EAST)
+                    msgbox(format("Ah, I swear I know the answer, it's on the tip of my tongue..."))
+                    delay(10)
+                    closemessage
+                    turnobject(8, DIR_NORTH)
+                    turnobject(7, DIR_NORTH)
+                    turnobject(4, DIR_NORTH)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2)
+                    waitmovement(0)
+                    msgbox(format("Haha! This was a trick question. We haven't seen them yet! That's the subject of your next homework."))
+                    closemessage
+                    applymovement(5, BotanicTeacher2)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicTeacher2)
+                    waitmovement(0)
+                    msgbox(format("On Petal Pass, just north of this charming town that is Cruzeira, you'll find various species of flowers. Some of which are daisies! Now, you can recognise the species specific to Thura by its colors: the petals are either yellow, or blue. Your mission is to collect 3 daisies, and bring them back here. But, remember! When you pick up the daisies, be gentle. No pulling! Now, go."))
+                    closemessage
+                    applymovement(7, BotanicStudent6)
+                    applymovement(4, BotanicStudent7)
+                    applymovement(8, BotanicStudent8)
+                    waitmovement(0)
+                    removeobject(7)
+                    removeobject(4)
+                    removeobject(8)
+                    setflag(FLAG_BOT_STUDENTS)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamPlayer)
+                    waitmovement(0)
+                    special(RemoveCameraObject)
+                    startquest(QUEST_ASSIGNMENT)
+                    release
+                    end
+                }
+                elif(var(VAR_TEMP_0) == 20) {
+                    applymovement(OBJ_EVENT_ID_PLAYER, Botanic20)
+                    waitmovement(0)
+                    applymovement(5, BotanicTeacher)
+                    waitmovement(0)
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher)
+                    waitmovement(0)
+                    delay(10)
+                    msgbox(format("Alright class, before I give you your homework, can someone remind me of the various species of daisies?"))
+                    closemessage
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamClass)
+                    waitmovement(0)
+                    msgbox(format("..."))
+                    turnobject(8, DIR_EAST)
+                    turnobject(7, DIR_WEST)
+                    msgbox(format("Uhm... What are they?"))
+                    delay(10)
+                    turnobject(4, DIR_WEST)
+                    turnobject(7, DIR_EAST)
+                    msgbox(format("Ah, I swear I know the answer, it's on the tip of my tongue..."))
+                    delay(10)
+                    closemessage
+                    turnobject(8, DIR_NORTH)
+                    turnobject(7, DIR_NORTH)
+                    turnobject(4, DIR_NORTH)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2)
+                    waitmovement(0)
+                    msgbox(format("Haha! This was a trick question. We haven't seen them yet! That's the subject of your next homework."))
+                    closemessage
+                    applymovement(5, BotanicTeacher2)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicTeacher2)
+                    waitmovement(0)
+                    msgbox(format("On Petal Pass, just north of this charming town that is Cruzeira, you'll find various species of flowers. Some of which are daisies! Now, you can recognise the species specific to Thura by its colors: the petals are either yellow, or blue. Your mission is to collect 3 daisies, and bring them back here. But, remember! When you pick up the daisies, be gentle. No pulling! Now, go."))
+                    closemessage
+                    applymovement(7, BotanicStudent6)
+                    applymovement(4, BotanicStudent7)
+                    applymovement(8, BotanicStudent8)
+                    waitmovement(0)
+                    removeobject(7)
+                    removeobject(4)
+                    removeobject(8)
+                    setflag(FLAG_BOT_STUDENTS)
+                    applymovement(OBJ_EVENT_ID_CAMERA, BotanicCamPlayer)
+                    waitmovement(0)
+                    special(RemoveCameraObject)
+                    startquest(QUEST_ASSIGNMENT)
+                    release
+                    end
+                }
+        }
+    }
+}
+
+script Cruzeira_BotanicSchool_Diploma {
+    lock
+    if(flag(FLAG_POKEDEX_COMPLETED)) {
+        special(Special_ShowDiploma)
+        release
+        end
+    }
+    else {
+        msgbox(format("This is a blank frame."))
+        release
+        end
+    }
+}
+
+movement Botanic18 {
+    walk_left
+    walk_down * 4
+    walk_right * 2
+    face_up
+}
+
+movement Botanic20 {
+    walk_right * 2
+    walk_down * 2
+    walk_left * 4
+    walk_down * 2
+    walk_right
+    face_up
+}
+
+movement BotanicTeacher {
+    walk_left * 2
+    walk_down * 2
+    walk_right * 2
+    face_down
+}
+
+movement BotanicCamTeacher {
+    walk_up * 2
+}
+
+movement BotanicCamClass {
+    walk_down * 3
+}
+
+movement BotanicCamTeacher2 {
+    walk_up * 3
+}
+
+movement BotanicTeacher2 {
+    walk_right * 2
+    delay_16
+    walk_left * 3
+    face_down
+}
+
+movement BotanicStudent6 {
+    walk_fast_right * 2
+    walk_fast_down * 8
+}
+
+movement BotanicStudent7 {
+    walk_slow_right
+    delay_16
+    walk_slow_left * 3
+    walk_slow_down * 5
+}
+
+movement BotanicStudent8 {
+    walk_right * 6
+    walk_down * 5
+}
+
+movement BotanicCamPlayer {
+    walk_down * 2
+    walk_right
+}

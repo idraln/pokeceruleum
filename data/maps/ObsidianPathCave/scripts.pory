@@ -1,0 +1,42 @@
+raw `
+ObsidianPathCave_MapScripts::
+	.byte 0
+`
+
+script ObsidianPathCave_Item {
+    lock
+    removeobject(3)
+    setflag(FLAG_ITEM_OBSIDIAN_CAVE)
+    giveitem(ITEM_BIKE_VOUCHER)
+    setvar(VAR_HOUSE_GLASVILLE, 1)
+    release
+    end
+}
+
+script ObsidianPathCave_Dusknoir {
+    lock
+    faceplayer
+    delay(20)
+    applymovement(4, moves(emote_exclamation_mark))
+    waitmovement(0)
+    playse(SE_PIN)
+    delay(40)
+    setwildbattle(SPECIES_DUSKNOIR, 40)
+    waitse
+    playmoncry(SPECIES_DUSKNOIR, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    playmoncry(SPECIES_DUSKNOIR, CRY_MODE_FAINT)
+    waitmoncry
+    fadescreen(FADE_TO_BLACK)
+    delay(40)
+    setflag(FLAG_DUSKNOIR_OBSIDIAN)
+    removeobject(4)
+    fadescreen(FADE_FROM_BLACK)
+    release
+    end
+}

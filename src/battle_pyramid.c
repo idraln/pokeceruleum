@@ -2176,8 +2176,8 @@ static void InitPyramidBagItems(u8 lvlMode)
         gSaveBlock2Ptr->frontier.pyramidBag.quantity[lvlMode][i] = ITEM_NONE;
     }
 
-    AddPyramidBagItem(ITEM_HYPER_POTION, 1);
-    AddPyramidBagItem(ITEM_ETHER, 1);
+    //AddPyramidBagItem(ITEM_HYPER_POTION, 1);
+    //AddPyramidBagItem(ITEM_ETHER, 1);
 }
 
 u16 GetBattlePyramidPickupItemId(void)

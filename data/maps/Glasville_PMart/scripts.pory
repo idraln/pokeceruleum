@@ -1,0 +1,45 @@
+raw `
+Glasville_PMart_MapScripts::
+	.byte 0
+`
+
+script Glasville_PMart_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Glasville's mart! How can I help you today?"))
+    waitmessage
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thanks for shopping with us! We hope you come back soon!"))
+    release
+    end
+}
+
+script Glasville_PMart_Old {
+    lock
+    faceplayer
+    msgbox(format("Back in my days, there wasn't as much choice as there is today..."))
+    release
+    end
+}
+
+mart Glasville_PMart_Items {
+    ITEM_SUPER_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+}

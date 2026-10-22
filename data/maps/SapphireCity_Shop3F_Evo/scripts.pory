@@ -1,0 +1,55 @@
+raw `
+SapphireCity_Shop3F_Evo_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Shop3F_Evo_Clerk_1 {
+    lock
+    faceplayer
+    if(var(VAR_SHOP_UPDATE) > 3) {
+        msgbox(format("Hello, and welcome to the Evolution Department! How can I help you today?"))
+        waitmessage
+        pokemart(MartTMEvo1)
+        msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    }
+    else {
+        msgbox(format("Hello there! Unfortunately, our department is still under construction. Come back later!"))
+    }
+    release
+    end
+}
+
+mart MartTMEvo1 {
+    ITEM_WATER_STONE
+    ITEM_LEAF_STONE
+    ITEM_FIRE_STONE
+    ITEM_THUNDER_STONE
+    ITEM_MOON_STONE
+    ITEM_SUN_STONE
+    ITEM_ICE_STONE
+    ITEM_SHINY_STONE
+    ITEM_DUSK_STONE
+}
+
+script SapphireCity_Shop3F_Evo_Clerk_2 {
+    lock
+    faceplayer
+    if(var(VAR_SHOP_UPDATE) > 3) {
+        msgbox(format("Hello, and welcome to the Evolution Department! How can I help you today?"))
+        waitmessage
+        pokemart(MartTMEvo2)
+        msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    }
+    else {
+        msgbox(format("Hello there! Unfortunately, our department is still under construction. Come back later!"))
+    }
+    release
+    end
+}
+
+mart MartTMEvo2 {
+    ITEM_METAL_COAT
+    ITEM_RAZOR_CLAW
+    ITEM_DEEP_SEA_SCALE
+    ITEM_DEEP_SEA_TOOTH
+}

@@ -1,0 +1,11 @@
+raw `
+GlorrayRetro_House2_MapScripts::
+	.byte 0
+`
+
+script GlorrayRetro_House2_Woman {
+    lock
+    msgbox(format("...Dammit, where is that damn book?... I'm sure I left it here..."))
+    release
+    end
+}

@@ -1,0 +1,35 @@
+{
+  "id": "MAP_XATU_TENT2",
+  "name": "Xatu_Tent2",
+  "layout": "LAYOUT_XATU_TENT2",
+  "music": "MUS_GSC_ROUTE38",
+  "region_map_section": "MAPSEC_XATUS_NEST",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_XATUS_NEST",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_XATUS_NEST",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

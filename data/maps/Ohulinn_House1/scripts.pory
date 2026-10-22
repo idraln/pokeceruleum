@@ -1,0 +1,13 @@
+raw `
+Ohulinn_House1_MapScripts::
+	.byte 0
+`
+
+script Ohulinn_House1_Man {
+    lock
+    faceplayer
+    msgbox(format("How does he do that? I mean, why does he put the sugar first and then the water? I don't get those cooking shows."))
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}

@@ -2129,6 +2129,14 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
+#if P_MEGA_EVOLUTIONS
+    const u32 gMonFrontPic_PersianMega[] = INCBIN_U32("graphics/pokemon/persian/mega/front.4bpp.smol");
+    const u16 gMonPalette_PersianMega[] = INCBIN_U16("graphics/pokemon/persian/mega/normal.gbapal");
+    const u32 gMonBackPic_PersianMega[] = INCBIN_U32("graphics/pokemon/persian/mega/back.4bpp.smol");
+    const u16 gMonShinyPalette_PersianMega[] = INCBIN_U16("graphics/pokemon/persian/mega/shiny.gbapal");
+    const u8 gMonIcon_PersianMega[] = INCBIN_U8("graphics/pokemon/persian/mega/icon.4bpp");
+#endif //P_MEGA_EVOLUTIONS
+
 #if P_ALOLAN_FORMS
     const u32 gMonFrontPic_MeowthAlola[] = INCBIN_U32("graphics/pokemon/meowth/alola/front.4bpp.smol");
     const u16 gMonPalette_MeowthAlola[] = INCBIN_U16("graphics/pokemon/meowth/alola/normal.gbapal");

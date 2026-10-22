@@ -1,0 +1,72 @@
+raw `
+HerronPrairie_MapScripts::
+	.byte 0
+`
+
+script HerronPrairie_SoldierMike {
+	trainerbattle_single(TRAINER_HERRON_1, Mike1, Mike2)
+	msgbox(format("Enrolling in the army has given me a purpose in life. It also gave me anxiety."))
+	closemessage
+	end
+}
+
+text Mike1 {
+	format("What'd you think of the machine, kid?")
+}
+
+text Mike2 {
+	format("I hope to test it one day!")
+}
+
+/////////////////
+
+script HerronPrairie_SoldierGuy {
+	trainerbattle_single(TRAINER_HERRON_2, Guy1, Guy2)
+	msgbox(format("You know, you could join our troops, you'll make a great addition..."))
+	closemessage
+	end
+}
+
+text Guy1 {
+	format("You! Ten push ups, now!")
+}
+
+text Guy2 {
+	format("You took it like a champ...")
+}
+
+/////////////////
+
+script HerronPrairie_SoldierFrank {
+	trainerbattle_single(TRAINER_HERRON_3, Frank1, Frank2)
+	msgbox(format("What am I even doing here? What are we trying to find?"))
+	closemessage
+	end
+}
+
+text Frank1 {
+	format("I'm so bored, help me!")
+}
+
+text Frank2 {
+	format("Already over?")
+}
+
+/////////////////
+
+script HerronPrairie_SoldierPaul {
+	trainerbattle_single(TRAINER_HERRON_4, Paul1, Paul2)
+	msgbox(format("Come on, I said sorry. You didn't have to blast my Pokémons like that."))
+	closemessage
+	end
+}
+
+text Paul1 {
+	format("Sorry for abducting you earlier bud.")
+}
+
+text Paul2 {
+	format("What? You don't accept my apologies?")
+}
+
+/////////////////

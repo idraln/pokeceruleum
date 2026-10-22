@@ -57,6 +57,11 @@
 #include "constants/union_room.h"
 #include "constants/weather.h"
 
+static inline bool8 IsHelicopterGfxId(u8 gfxId)
+{
+    return gfxId == OBJ_EVENT_GFX_HELICOPTER;
+}
+
 #define SPECIAL_LOCALIDS_START (min(LOCALID_CAMERA, \
                                 min(LOCALID_PLAYER, \
                                     LOCALID_BERRY_BLENDER_PLAYER_END - MAX_RFU_PLAYERS + 1)))
@@ -143,12 +148,18 @@ static void ObjectEventUpdateMetatileBehaviors(struct ObjectEvent *);
 static void GetGroundEffectFlags_Reflection(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_TallGrassOnSpawn(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_LongGrassOnSpawn(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_PastoralLongGrassOnSpawn(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_RetroGrassOnSpawn(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_SnowGrassOnSpawn(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_SandHeap(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_HotSprings(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_TallGrassOnBeginStep(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_PastoralLongGrassOnBeginStep(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_RetroGrassOnBeginStep(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_SnowGrassOnBeginStep(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Puddle(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Ripple(struct ObjectEvent *, u32 *);
@@ -524,6 +535,123 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
+    {gObjectEventPal_Helicopter,            OBJ_EVENT_PAL_HELICOPTER},
+    {gObjectEventPal_Laila,                 OBJ_EVENT_PAL_LAILA},
+    {gObjectEventPal_GruntM,                OBJ_EVENT_PAL_GRUNTM},
+    {gObjectEventPal_GruntF,                OBJ_EVENT_PAL_GRUNTF},
+    {gObjectEventPal_AdminM,                OBJ_EVENT_PAL_ADMINM},
+    {gObjectEventPal_AdminF,                OBJ_EVENT_PAL_ADMINF},
+    {gObjectEventPal_AfricanAmericanW,      OBJ_EVENT_PAL_AFRICANAMERICANW},
+    {gObjectEventPal_Sam,                   OBJ_EVENT_PAL_SAM},
+    {gObjectEventPal_Corinna,               OBJ_EVENT_PAL_CORINNA},
+    {gObjectEventPal_WorkerM,               OBJ_EVENT_PAL_WORKERM},
+    {gObjectEventPal_WorkerF,               OBJ_EVENT_PAL_WORKERF},
+    {gObjectEventPal_Bruce,                 OBJ_EVENT_PAL_BRUCE},
+    {gObjectEventPal_Ermite,                OBJ_EVENT_PAL_ERMITE},
+    {gObjectEventPal_ManRetro,              OBJ_EVENT_PAL_MANRETRO},
+    {gObjectEventPal_WomanRetro,            OBJ_EVENT_PAL_WOMANRETRO},
+    {gObjectEventPal_KidRetro,              OBJ_EVENT_PAL_KIDRETRO},
+    {gObjectEventPal_LassRetro,             OBJ_EVENT_PAL_LASSRETRO},
+    {gObjectEventPal_BugRetro,              OBJ_EVENT_PAL_BUGRETRO},
+    {gObjectEventPal_GrandmaRetro,          OBJ_EVENT_PAL_GRANDMARETRO},
+    {gObjectEventPal_BroRetro,              OBJ_EVENT_PAL_BRORETRO},
+    {gObjectEventPal_NurseRetro,            OBJ_EVENT_PAL_NURSERETRO},
+    {gObjectEventPal_KAM,                   OBJ_EVENT_PAL_KAM},
+    {gObjectEventPal_Andre,                 OBJ_EVENT_PAL_ANDRE},
+    {gObjectEventPal_ArmyMan,               OBJ_EVENT_PAL_ARMYMAN},
+    {gObjectEventPal_BroMasked,             OBJ_EVENT_PAL_BROMASKED},
+    {gObjectEventPal_Bro,                   OBJ_EVENT_PAL_BRO},
+    {gObjectEventPal_OldManRetro,           OBJ_EVENT_PAL_OLDMANRETRO},
+    {gObjectEventPal_GruntFSwim,            OBJ_EVENT_PAL_GRUNTFSWIM},
+    {gObjectEventPal_GruntMSwim,            OBJ_EVENT_PAL_GRUNTMSWIM},
+    {gObjectEventPal_NatuEgg,               OBJ_EVENT_PAL_NATUEGG},
+    {gObjectEventPal_Diver,                 OBJ_EVENT_PAL_DIVER},
+    {gObjectEventPal_Remoraid2,             OBJ_EVENT_PAL_REMORAID2},
+    {gObjectEventPal_ScientistF,            OBJ_EVENT_PAL_SCIENTISTF},
+    {gObjectEventPal_Anais,                 OBJ_EVENT_PAL_ANAIS},
+    {gObjectEventPal_PersianOW,             OBJ_EVENT_PAL_PERSIANOW},
+    {gObjectEventPal_XatuOW,                OBJ_EVENT_PAL_XATUOW},
+    {gObjectEventPal_XatuCorrupted,         OBJ_EVENT_PAL_XATUCORRUPTED},
+    {gObjectEventPal_DiancieOW,             OBJ_EVENT_PAL_DIANCIEOW},
+    {gObjectEventPal_Pastoral,              OBJ_EVENT_PAL_PASTORAL},
+    {gObjectEventPal_Colleen,               OBJ_EVENT_PAL_COLLEEN},
+    {gObjectEventPal_Martin,                OBJ_EVENT_PAL_MARTIN},
+    {gObjectEventPal_Pomme,                 OBJ_EVENT_PAL_POMME},
+    {gObjectEventPal_Gary,                  OBJ_EVENT_PAL_GARY},
+    {gObjectEventPal_Policeman,                  OBJ_EVENT_PAL_POLICEMAN},
+    /////
+    {gObjectEventPal_HeroBaldLightWalking,                  OBJ_EVENT_PAL_HERO_BALD_LIGHT_WALKING},
+    {gObjectEventPal_HeroBaldLightRunning,                  OBJ_EVENT_PAL_HERO_BALD_LIGHT_RUNNING},
+    {gObjectEventPal_HeroBaldLightSurfing,                  OBJ_EVENT_PAL_HERO_BALD_LIGHT_SURFING},
+    {gObjectEventPal_HeroBaldLightFishing,                  OBJ_EVENT_PAL_HERO_BALD_LIGHT_FISHING},
+    {gObjectEventPal_HeroBaldLightField,                  OBJ_EVENT_PAL_HERO_BALD_LIGHT_FIELD},
+    /////
+    {gObjectEventPal_HeroShortLightWalking,                  OBJ_EVENT_PAL_HERO_SHORT_LIGHT_WALKING},
+    {gObjectEventPal_HeroShortLightRunning,                  OBJ_EVENT_PAL_HERO_SHORT_LIGHT_RUNNING},
+    {gObjectEventPal_HeroShortLightSurfing,                  OBJ_EVENT_PAL_HERO_SHORT_LIGHT_SURFING},
+    {gObjectEventPal_HeroShortLightFishing,                  OBJ_EVENT_PAL_HERO_SHORT_LIGHT_FISHING},
+    {gObjectEventPal_HeroShortLightField,                  OBJ_EVENT_PAL_HERO_SHORT_LIGHT_FIELD},
+    /////
+    {gObjectEventPal_HeroLongLightWalking,                  OBJ_EVENT_PAL_HERO_LONG_LIGHT_WALKING},
+    {gObjectEventPal_HeroLongLightRunning,                  OBJ_EVENT_PAL_HERO_LONG_LIGHT_RUNNING},
+    {gObjectEventPal_HeroLongLightSurfing,                  OBJ_EVENT_PAL_HERO_LONG_LIGHT_SURFING},
+    {gObjectEventPal_HeroLongLightFishing,                  OBJ_EVENT_PAL_HERO_LONG_LIGHT_FISHING},
+    {gObjectEventPal_HeroLongLightField,                  OBJ_EVENT_PAL_HERO_LONG_LIGHT_FIELD},
+    /////
+    /////
+    {gObjectEventPal_HeroBaldMediumWalking,                  OBJ_EVENT_PAL_HERO_BALD_MEDIUM_WALKING},
+    {gObjectEventPal_HeroBaldMediumRunning,                  OBJ_EVENT_PAL_HERO_BALD_MEDIUM_RUNNING},
+    {gObjectEventPal_HeroBaldMediumSurfing,                  OBJ_EVENT_PAL_HERO_BALD_MEDIUM_SURFING},
+    {gObjectEventPal_HeroBaldMediumFishing,                  OBJ_EVENT_PAL_HERO_BALD_MEDIUM_FISHING},
+    {gObjectEventPal_HeroBaldMediumField,                  OBJ_EVENT_PAL_HERO_BALD_MEDIUM_FIELD},
+    /////
+    {gObjectEventPal_HeroShortMediumWalking,                  OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_WALKING},
+    {gObjectEventPal_HeroShortMediumRunning,                  OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_RUNNING},
+    {gObjectEventPal_HeroShortMediumSurfing,                  OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_SURFING},
+    {gObjectEventPal_HeroShortMediumFishing,                  OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_FISHING},
+    {gObjectEventPal_HeroShortMediumField,                  OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_FIELD},
+    /////
+    {gObjectEventPal_HeroLongMediumWalking,                  OBJ_EVENT_PAL_HERO_LONG_MEDIUM_WALKING},
+    {gObjectEventPal_HeroLongMediumRunning,                  OBJ_EVENT_PAL_HERO_LONG_MEDIUM_RUNNING},
+    {gObjectEventPal_HeroLongMediumSurfing,                  OBJ_EVENT_PAL_HERO_LONG_MEDIUM_SURFING},
+    {gObjectEventPal_HeroLongMediumFishing,                  OBJ_EVENT_PAL_HERO_LONG_MEDIUM_FISHING},
+    {gObjectEventPal_HeroLongMediumField,                  OBJ_EVENT_PAL_HERO_LONG_MEDIUM_FIELD},
+    /////
+    /////
+    {gObjectEventPal_HeroBaldDarkWalking,                  OBJ_EVENT_PAL_HERO_BALD_DARK_WALKING},
+    {gObjectEventPal_HeroBaldDarkRunning,                  OBJ_EVENT_PAL_HERO_BALD_DARK_RUNNING},
+    {gObjectEventPal_HeroBaldDarkSurfing,                  OBJ_EVENT_PAL_HERO_BALD_DARK_SURFING},
+    {gObjectEventPal_HeroBaldDarkFishing,                  OBJ_EVENT_PAL_HERO_BALD_DARK_FISHING},
+    {gObjectEventPal_HeroBaldDarkField,                  OBJ_EVENT_PAL_HERO_BALD_DARK_FIELD},
+    /////
+    {gObjectEventPal_HeroShortDarkWalking,                  OBJ_EVENT_PAL_HERO_SHORT_DARK_WALKING},
+    {gObjectEventPal_HeroShortDarkRunning,                  OBJ_EVENT_PAL_HERO_SHORT_DARK_RUNNING},
+    {gObjectEventPal_HeroShortDarkSurfing,                  OBJ_EVENT_PAL_HERO_SHORT_DARK_SURFING},
+    {gObjectEventPal_HeroShortDarkFishing,                  OBJ_EVENT_PAL_HERO_SHORT_DARK_FISHING},
+    {gObjectEventPal_HeroShortDarkField,                  OBJ_EVENT_PAL_HERO_SHORT_DARK_FIELD},
+    /////
+    {gObjectEventPal_HeroLongDarkWalking,                  OBJ_EVENT_PAL_HERO_LONG_DARK_WALKING},
+    {gObjectEventPal_HeroLongDarkRunning,                  OBJ_EVENT_PAL_HERO_LONG_DARK_RUNNING},
+    {gObjectEventPal_HeroLongDarkSurfing,                  OBJ_EVENT_PAL_HERO_LONG_DARK_SURFING},
+    {gObjectEventPal_HeroLongDarkFishing,                  OBJ_EVENT_PAL_HERO_LONG_DARK_FISHING},
+    {gObjectEventPal_HeroLongDarkField,                  OBJ_EVENT_PAL_HERO_LONG_DARK_FIELD},
+    /////
+    {gObjectEventPal_HeroBaldUnderwater,                  OBJ_EVENT_PAL_HERO_BALD_UNDERWATER},
+    {gObjectEventPal_HeroShortUnderwater,                  OBJ_EVENT_PAL_HERO_SHORT_UNDERWATER},
+    {gObjectEventPal_HeroLongUnderwater,                  OBJ_EVENT_PAL_HERO_LONG_UNDERWATER},
+    /////
+    {gObjectEventPal_HeroLightAcro,                  OBJ_EVENT_PAL_HERO_LIGHT_ACRO},
+    {gObjectEventPal_HeroMediumAcro,                  OBJ_EVENT_PAL_HERO_MEDIUM_ACRO},
+    {gObjectEventPal_HeroDarkAcro,                  OBJ_EVENT_PAL_HERO_DARK_ACRO},
+    /////
+    {gObjectEventPal_HeroRetroLightShort,                  OBJ_EVENT_PAL_HERO_RETRO_LIGHT_SHORT},
+    {gObjectEventPal_HeroRetroLightLong,                  OBJ_EVENT_PAL_HERO_RETRO_LIGHT_LONG},
+    /////
+    {gObjectEventPal_HeroRetroMediumShort,                  OBJ_EVENT_PAL_HERO_RETRO_MEDIUM_SHORT},
+    {gObjectEventPal_HeroRetroMediumLong,                  OBJ_EVENT_PAL_HERO_RETRO_MEDIUM_LONG},
+    /////
+    {gObjectEventPal_HeroRetroDarkShort,                  OBJ_EVENT_PAL_HERO_RETRO_DARK_SHORT},
+    {gObjectEventPal_HeroRetroDarkLong,                  OBJ_EVENT_PAL_HERO_RETRO_DARK_LONG},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
@@ -2479,28 +2607,28 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     {
         switch (gMapHeader.regionMapSectionId)
         {
-        case MAPSEC_RUSTBORO_CITY:
+        case MAPSEC_GLORRAY:
         case MAPSEC_PEWTER_CITY:
             multi = TYPE_ROCK;
             break;
-        case MAPSEC_DEWFORD_TOWN:
+        case MAPSEC_OHULINN:
             multi = TYPE_FIGHTING;
             break;
-        case MAPSEC_MAUVILLE_CITY:
+        case MAPSEC_OPARQUE:
         case MAPSEC_VERMILION_CITY:
             multi = TYPE_ELECTRIC;
             break;
-        case MAPSEC_LAVARIDGE_TOWN:
+        case MAPSEC_CALI:
         case MAPSEC_CINNABAR_ISLAND:
             multi = TYPE_FIRE;
             break;
-        case MAPSEC_PETALBURG_CITY:
+        case MAPSEC_BAMMOBO:
             multi = TYPE_NORMAL;
             break;
-        case MAPSEC_FORTREE_CITY:
+        case MAPSEC_VIRIMANTE:
             multi = TYPE_FLYING;
             break;
-        case MAPSEC_MOSSDEEP_CITY:
+        case MAPSEC_COUNCIL_HQ:
         case MAPSEC_SAFFRON_CITY:
             multi = TYPE_PSYCHIC;
             break;
@@ -3692,13 +3820,18 @@ void InitObjectEventPalettes(u8 reflectionType)
     sCurrentReflectionType = reflectionType;
     if (reflectionType == 1)
     {
-        PatchObjectPaletteRange(sObjectPaletteTagSets[sCurrentReflectionType], PALSLOT_PLAYER, PALSLOT_NPC_4 + 1);
+        PatchObjectPaletteRange(sObjectPaletteTagSets[sCurrentReflectionType], 0, 6);
         gReservedSpritePaletteCount = 8;
     }
     else
     {
-        PatchObjectPaletteRange(sObjectPaletteTagSets[sCurrentReflectionType], PALSLOT_PLAYER, PALSLOT_NPC_4_REFLECTION + 1);
+        PatchObjectPaletteRange(sObjectPaletteTagSets[sCurrentReflectionType], 0, 10);
     }
+}
+
+void RemoveTintFromObjectEventPalettes()
+{
+    PatchObjectPaletteRange(sObjectPaletteTagSets[sCurrentReflectionType], 0, 5);
 }
 
 u16 GetObjectPaletteTag(u8 palSlot)
@@ -9405,6 +9538,34 @@ bool8 MovementAction_StopLevitateAtTop_Step0(struct ObjectEvent *objectEvent, st
     return FALSE;
 }
 
+bool8 MovementAction_HeadbuttShake_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    SetAndStartSpriteAnim(sprite, 1, 0);
+    sprite->sActionFuncId = 1;
+    return FALSE;
+}
+
+bool8 MovementAction_HeadbuttShake_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (SpriteAnimEnded(sprite))
+    {
+        SetMovementDelay(sprite, 32);
+        sprite->sActionFuncId = 2;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_HeadbuttShake_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    objectEvent->invisible ^= TRUE;
+    if (WaitForMovementDelay(sprite))
+    {
+        objectEvent->invisible = TRUE;
+        sprite->sActionFuncId = 3;
+    }
+    return FALSE;
+}
+
 u8 MovementAction_Finish(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     return TRUE;
@@ -9420,6 +9581,11 @@ static void UpdateObjectEventSpriteAnimPause(struct ObjectEvent *objectEvent, st
 {
     if (objectEvent->disableAnim)
         sprite->animPaused = TRUE;
+    
+    if (IsHelicopterGfxId(objectEvent->graphicsId)) {
+    sprite->animPaused = FALSE;   // jamais de pause pour l’hélico
+    return;                       // on saute la logique standard de pause
+    }
 }
 
 static void TryEnableObjectEventAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -9486,6 +9652,9 @@ static void GetAllGroundEffectFlags_OnSpawn(struct ObjectEvent *objEvent, u32 *f
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_PastoralLongGrassOnSpawn(objEvent, flags);
+    GetGroundEffectFlags_RetroGrassOnSpawn(objEvent, flags);
+    GetGroundEffectFlags_SnowGrassOnSpawn(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9500,6 +9669,9 @@ static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u3
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_PastoralLongGrassOnBeginStep(objEvent, flags);
+    GetGroundEffectFlags_RetroGrassOnBeginStep(objEvent, flags);
+    GetGroundEffectFlags_SnowGrassOnBeginStep(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9565,6 +9737,42 @@ static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent *objEve
 {
     if (MetatileBehavior_IsLongGrass(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_LONG_GRASS_ON_MOVE;
+}
+
+static void GetGroundEffectFlags_PastoralLongGrassOnSpawn(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsPastoralLongGrass(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_PASTORAL_GRASS_ON_SPAWN;
+}
+
+static void GetGroundEffectFlags_PastoralLongGrassOnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsPastoralLongGrass(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_PASTORAL_GRASS_ON_MOVE;
+}
+
+static void GetGroundEffectFlags_RetroGrassOnSpawn(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsRetro(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_RETRO_GRASS_ON_SPAWN;
+}
+
+static void GetGroundEffectFlags_RetroGrassOnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsRetro(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_RETRO_GRASS_ON_MOVE;
+}
+
+static void GetGroundEffectFlags_SnowGrassOnSpawn(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsSnow(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_SNOW_GRASS_ON_SPAWN;
+}
+
+static void GetGroundEffectFlags_SnowGrassOnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsSnow(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_SNOW_GRASS_ON_MOVE;
 }
 
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent *objEvent, u32 *flags)
@@ -9939,6 +10147,32 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     FieldEffectStart(FLDEFF_TALL_GRASS);
 }
 
+void GroundEffect_SpawnOnPastoralLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 1;
+    FieldEffectStart(FLDEFF_PASTORAL_GRASS);
+}
+
+void GroundEffect_StepOnPastoralLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 0;
+    FieldEffectStart(FLDEFF_PASTORAL_GRASS);
+}
+
 void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     gFieldEffectArguments[0] = objEvent->currentCoords.x;
@@ -9963,6 +10197,58 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 0;
     FieldEffectStart(FLDEFF_LONG_GRASS);
+}
+
+void GroundEffect_SpawnOnRetroGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 1;
+    FieldEffectStart(FLDEFF_RETRO);
+}
+
+void GroundEffect_StepOnRetroGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 0;
+    FieldEffectStart(FLDEFF_RETRO);
+}
+
+void GroundEffect_SpawnOnSnowGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 1;
+    FieldEffectStart(FLDEFF_SNOW);
+}
+
+void GroundEffect_StepOnSnowGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 0;
+    FieldEffectStart(FLDEFF_SNOW);
 }
 
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -10220,7 +10506,13 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
     GroundEffect_JumpLandingDust,       // GROUND_EFFECT_FLAG_LAND_ON_NORMAL_GROUND
     GroundEffect_ShortGrass,            // GROUND_EFFECT_FLAG_SHORT_GRASS
     GroundEffect_HotSprings,            // GROUND_EFFECT_FLAG_HOT_SPRINGS
-    GroundEffect_Seaweed                // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_Seaweed,                // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_SpawnOnPastoralLongGrass,      // GROUND_EFFECT_FLAG_PASTORAL_GRASS_ON_SPAWN
+    GroundEffect_StepOnPastoralLongGrass,       // GROUND_EFFECT_FLAG_PASTORAL_GRASS_ON_MOVE
+    GroundEffect_SpawnOnRetroGrass,      // GROUND_EFFECT_FLAG_RETRO_GRASS_ON_SPAWN
+    GroundEffect_StepOnRetroGrass,       // GROUND_EFFECT_FLAG_RETRO_GRASS_ON_MOVE
+    GroundEffect_SpawnOnSnowGrass,      // GROUND_EFFECT_FLAG_SNOW_GRASS_ON_SPAWN
+    GroundEffect_StepOnSnowGrass,       // GROUND_EFFECT_FLAG_SNOW_GRASS_ON_MOVE
 };
 
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)
@@ -11533,4 +11825,18 @@ bool8 MovementAction_SurfStillRight_Step1(struct ObjectEvent *objectEvent, struc
         return TRUE;
     }
     return FALSE;
+}
+
+static inline bool8 IsHelicopterGfx(const struct ObjectEvent *obj)
+{
+    return obj->graphicsId == OBJ_EVENT_GFX_HELICOPTER; // ← ton ID
+}
+
+void ObjectEventSetSpriteAnim(struct ObjectEvent *obj, u8 animNum)
+{
+    // Empêche les redémarrages de boucle sur changement de direction
+    if (IsHelicopterGfxId(obj->graphicsId))
+        animNum = 0; // toujours la même anim (sAnim_HeliSpin)
+
+    StartSpriteAnimIfDifferent(&gSprites[obj->spriteId], animNum);
 }

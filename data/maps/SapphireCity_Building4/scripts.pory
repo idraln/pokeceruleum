@@ -1,0 +1,52 @@
+raw `
+SapphireCity_Building4_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building4_Lover1 {
+    lock
+    if(var(VAR_SAPPHIRE_LOVERS) == 0) {
+        msgbox(format("...Where is he? He told me he would be here after work. I'm already stressed out as is..."))
+        faceplayer
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        msgbox(format("Oh! Uhm, did you happen to find a guy around the block? I have a date with him and he doesn't answer the phone... He's also a scientist, he's dressed up in a labcoat."))
+        startquest(QUEST_LOVE)
+        setvar(VAR_SAPPHIRE_LOVERS, 1)
+    }
+    elif(var(VAR_SAPPHIRE_LOVERS) == 1) {
+        faceplayer
+        msgbox(format("Have you told him yet? Please... I'll reward you."))
+    }
+    elif(var(VAR_SAPPHIRE_LOVERS) == 2) {
+        faceplayer
+        msgbox(format("Thank you so much! Have this."))
+        giveitem(ITEM_CHARCOAL)
+        setvar(VAR_SAPPHIRE_LOVERS, 3)
+        msgbox(format("Now, if you'll excuse us..."))
+        completequest(QUEST_LOVE)
+        turnobject(1, DIR_SOUTH)
+    }
+    else {
+        msgbox(format("Thank you again! It's time to leave us alone now."))
+    }
+    release
+    end
+}
+
+script SapphireCity_Building4_Lover2 {
+    lock
+    msgbox(format("God, you're as beautiful as the photos you shared..."))
+    release
+    end
+}
+
+script SapphireCity_Building4_Item {
+    lock
+    removeobject(2)
+    giveitem(ITEM_POKE_DOLL)
+    setflag(FLAG_ITEM_SAPPHIRE_B4)
+    release
+    end
+}

@@ -1,0 +1,116 @@
+raw `
+GlorrayRetro_Gym_MapScripts::
+	.byte 0
+`
+
+script GlorrayRetro_Gym_Aisha {
+    lock
+    faceplayer
+    namebox("Grandma")
+    msgbox(format("...{PLAYER}. Have you finished your training? Do you wish to take your final test?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Very well, then. Show me what you've learned."))
+        trainerbattle_no_intro(TRAINER_AISHA_RETRO, Aisha1)
+        hidenamebox
+        delay(40)
+        namebox("Grandma")
+        msgbox(format("...Very well. I think you're more than ready to try your chance on the continent. Let me just-"))
+        closemessage
+        hidenamebox
+        delay(40)
+        namebox("Ulrich")
+        msgbox(format("GRANDMA!"))
+        closemessage
+        hidenamebox
+        turnobject(1, DIR_SOUTH)
+        delay(40)
+        clearflag(FLAG_BRO_GYM)
+        addobject(2)
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_0) == 5) {
+            applymovement(2, moves(walk_up * 5))
+            waitmovement(0)
+            delay(20)
+            namebox("Ulrich")
+            msgbox(format("...Out of my way, you."))
+            closemessage
+            hidenamebox
+            delay(20)
+            applymovement(2, moves(walk_up))
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right face_left))
+            waitmovement(0)
+        }
+        else {
+            applymovement(2, moves(walk_up * 6))
+            waitmovement(0)
+            delay(20)
+        }
+        namebox("Ulrich")
+        msgbox(format("...I want a battle. Now."))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("Grandma")
+        msgbox(format("With what Pokémon? Ulrich, you don't learn, do you? You need to behave."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(2, moves(walk_down))
+        waitmovement(0)
+        namebox("Ulrich")
+        msgbox(format("...Oh yeah?"))
+        closemessage
+        hidenamebox
+        delay(20)
+        turnobject(2, DIR_NORTH)
+        namebox("Ulrich")
+        msgbox(format("...Tell that to the old fart that guards the cave under Xatu's nest. He'll tell you if I behaved."))
+        closemessage
+        hidenamebox
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(40)
+        turnobject(2, DIR_SOUTH)
+        namebox("Ulrich")
+        msgbox(format("...See you. In another life."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(2, moves(walk_down * 7))
+        waitmovement(0)
+        delay(40)
+        removeobject(2)
+        setflag(FLAG_BRO_GYM)
+        namebox("Grandma")
+        msgbox(format("This can't be..."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(1, moves(walk_down * 2))
+        waitmovement(0)
+        turnobject(1, DIR_NORTH)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+        waitmovement(0)
+        namebox("Grandma")
+        msgbox(format("{PLAYER}, meet me in Xatu's cave. Let's hope that Ulrich hasn't done any damage to the sacred painting."))
+        closemessage
+        hidenamebox
+        delay(20)
+        applymovement(1, moves(walk_down * 4))
+        waitmovement(0)
+        removeobject(1)
+        setflag(FLAG_GRANDMA_GYM)
+        setflag(FLAG_OLDMAN_NEST)
+    }
+    else {
+        msgbox(format("In that case, go and spend more time with your Pokémons. Remember, you don't gain their trust only by having them on your belt."))
+        hidenamebox
+    }
+    release
+    end
+}
+
+text Aisha1 {
+    format("Just as I expected. Well done.")
+}

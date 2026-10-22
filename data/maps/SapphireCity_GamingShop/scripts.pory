@@ -1,0 +1,278 @@
+raw `
+SapphireCity_GamingShop_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SapphireCity_GamingShop_OnFrame
+	.byte 0
+
+SapphireCity_GamingShop_OnFrame:
+    map_script_2 VAR_SAPPHIRE_NERD, 1, SapphireCity_GamingShop_VarQuest
+    .2byte 0
+`
+
+script SapphireCity_GamingShop_VarQuest {
+    if(var(VAR_SAPPHIRE_NERD) == 1) {
+        setvar(VAR_SAPPHIRE_NERD, 2)
+        end
+    }
+    else {
+        end
+    }
+}
+
+script SapphireCity_GamingShop_Arrival {
+    lock
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    msgbox(format("Hello, and welcome to Sapphire City's own Gaming Center! The entry fee is ¥50. We have tons of games and items! Would you like to enter?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        checkmoney(50)
+        if(var(VAR_RESULT) == YES) {
+            removemoney(50)
+            checkitem(ITEM_COIN_CASE)
+            if(var(VAR_RESULT) == YES) {
+                msgbox(format("All right, welcome in! Enjoy yourself!"))
+                setvar(VAR_TEMP_0, 1)
+                release
+                end
+            }
+            else {
+                msgbox(format("Oops, you don't have a coin case! That's okay though, I have one laying around. Here you go! If you need coins, you can buy some at the dispenser up there! And if you want prizes, come see me!"))
+                giveitem(ITEM_COIN_CASE)
+                msgbox(format("Have fun!"))
+                setvar(VAR_TEMP_0, 1)
+                release
+                end
+            }
+        }
+        else {
+            msgbox(format("I'm afraid you don't have enough money... Why won't you go, battle some guys, earn a bit of metal and come see us again?"))
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+            waitmovement(0)
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("It's okay, you can come back later if you're not ready! We're open 24/7. See ya soon!"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        waitmovement(0)
+        release
+        end
+    }
+} 
+
+script SapphireCity_GamingShop_Owner {
+    lock
+    faceplayer
+    msgbox(format("You wanna trade some coins? I've got a lot of nice prizes."))
+    multichoice(0, 0, MULTI_PRIZES, TRUE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            checkcoins(VAR_TEMP_2)
+            if(var(VAR_TEMP_2) > 5000) {
+                checkitem(ITEM_TM24)
+                if(var(VAR_RESULT) == NO) {
+                    removecoins(5000)
+                    msgbox(format("There you go!"))
+                    giveitem(ITEM_TM24)
+                    goto(SapphireCity_GamingShop_Owner)
+                }
+                else {
+                    msgbox(format("You already have that TM!"))
+                    goto(SapphireCity_GamingShop_Owner)
+                }
+            }
+            else {
+                msgbox(format("You don't have enough coins! Go play and grab some more!"))
+                release
+                end
+            }
+        case 1:
+            checkcoins(VAR_TEMP_2)
+            if(var(VAR_TEMP_2) > 5000) {
+                checkitem(ITEM_TM26)
+                if(var(VAR_RESULT) == NO) {
+                    removecoins(5000)
+                    msgbox(format("There you go!"))
+                    giveitem(ITEM_TM26)
+                    goto(SapphireCity_GamingShop_Owner)
+                }
+                else {
+                    msgbox(format("You already have that TM!"))
+                    goto(SapphireCity_GamingShop_Owner)
+                }
+            }
+            else {
+                msgbox(format("You don't have enough coins! Go play and grab some more!"))
+                release
+                end
+            }
+        case 2:
+            checkcoins(VAR_TEMP_2)
+            if(var(VAR_TEMP_2) > 4000) {
+                checkitem(ITEM_TM50)
+                if(var(VAR_RESULT) == NO) {
+                    removecoins(4000)
+                    msgbox(format("There you go!"))
+                    giveitem(ITEM_TM50)
+                    goto(SapphireCity_GamingShop_Owner)
+                }
+                else {
+                    msgbox(format("You already have that TM!"))
+                    goto(SapphireCity_GamingShop_Owner)
+                }
+            }
+            else {
+                msgbox(format("You don't have enough coins! Go play and grab some more!"))
+                release
+                end
+            }
+        case 3:
+            msgbox(format("Alright! Go have some fun then!"))
+            closemessage
+            release
+            end
+    }
+}
+
+script SapphireCity_GamingShop_Employee {
+    lock
+    msgbox(format("HAHA! Yes! I'm getting my money back! I love gambling!"))
+    release
+    end
+}
+
+script SapphireCity_GamingShop_Scientist {
+    lock
+    msgbox(format("With that card, I can retreat my Glalie for 1 coin instead of 2! Ha! You didn't see that coming huh?"))
+    release
+    end
+}
+
+script SapphireCity_GamingShop_Loser {
+    lock
+    msgbox(format("...Damn, am I going to lose another game? He's too strong... But wait, I still have my Blaziken, and I'm only missing a coin... Next turn... Hehehe..."))
+    release
+    end
+}
+
+script SapphireCity_GamingShop_DDP1 {
+    lock
+    faceplayer
+    msgbox(format("Are we sure these machines aren't rigged? I've lost 10 games in a row!"))
+    turnobject(1, DIR_EAST)
+    release
+    end
+}
+
+script SapphireCity_GamingShop_DDP2 {
+    lock
+    turnobject(8, DIR_SOUTH)
+    msgbox(format("Go Daddy! You're the strongest TCG player ever! Yeah!"))
+    turnobject(8, DIR_EAST)
+    release
+    end
+}
+
+script SapphireCity_GamingShop_GM {
+    lock
+    faceplayer
+    msgbox(format("Come on, don't you see I'm fully focused? Not cool."))
+    turnobject(7, DIR_WEST)
+    release
+    end
+}
+
+script SapphireCity_GamingShop_PCNerd2 {
+    lock
+    msgbox(format("Oof, these roulette games sure are exhausting! I need to take a breather!"))
+    release
+    end
+}
+
+script SapphireCity_GamingShop_PCNerd1 {
+    lock
+    faceplayer
+    msgbox(format("I lost everything at the slot machines... I need some more coins!!"))
+    turnobject(5, DIR_NORTH)
+    release
+    end
+}
+
+script SapphireCity_GamingShop_LostDude {
+    lock
+    faceplayer
+    msgbox(format("Thanks again, dude!"))
+    turnobject(10, DIR_WEST)
+    release
+    end
+}
+
+script SapphireCity_GamingShop_CoinDispenser {
+    lockall
+    msgbox(format("It's a coin dispenser. What will you grab?"))
+    multichoice(0, 0, MULTI_CASINO, TRUE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            checkmoney(500)
+            if(var(VAR_RESULT) == YES) {
+                removemoney(500)
+                addcoins(10)
+                playse(SE_RG_SHOP)
+                msgbox(format("You got 10 coins!"))
+                goto(SapphireCity_GamingShop_CoinDispenser)
+            }
+            else {
+                playse(SE_RG_HELP_ERROR)
+                msgbox(format("You don't have enough money!"))
+                goto(SapphireCity_GamingShop_CoinDispenser)
+            }
+        case 1:
+            checkmoney(5000)
+            if(var(VAR_RESULT) == YES) {
+                removemoney(5000)
+                addcoins(100)
+                playse(SE_RG_SHOP)
+                msgbox(format("You got 100 coins!"))
+                goto(SapphireCity_GamingShop_CoinDispenser)
+            }
+            else {
+                playse(SE_RG_HELP_ERROR)
+                msgbox(format("You don't have enough money!"))
+                goto(SapphireCity_GamingShop_CoinDispenser)
+            }
+        case 2:
+            checkmoney(10000)
+            if(var(VAR_RESULT) == YES) {
+                removemoney(10000)
+                addcoins(1000)
+                playse(SE_RG_SHOP)
+                msgbox(format("You got 1000 coins!"))
+                goto(SapphireCity_GamingShop_CoinDispenser)
+            }
+            else {
+                playse(SE_RG_HELP_ERROR)
+                msgbox(format("You don't have enough money!"))
+                goto(SapphireCity_GamingShop_CoinDispenser)
+            }
+        case 3:
+            closemessage
+            releaseall
+            end
+    }
+}
+
+script SapphireCity_GamingShop_CoinTrash {
+    lockall
+    if(flag(FLAG_SAPPHIRE_COINS)) {
+        msgbox(format("It's an empty trash bin."))
+    }
+    else {
+        addcoins(10)
+        playse(MUS_LEVEL_UP)
+        msgbox(format("You found 10 coins!"))
+        setflag(FLAG_SAPPHIRE_COINS)
+    }
+    releaseall
+    end
+}

@@ -1,0 +1,199 @@
+raw `
+Cruzeira_Gym_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Cruzeira_Gym_OnTransition
+	.byte 0
+`
+
+script Cruzeira_Gym_OnTransition {
+    if(flag(FLAG_LAILA_HAPPY)) {
+        addobject(4)
+        setobjectxyperm(4, 8, 2)
+        end
+    }
+}
+
+script Cruzeira_Gym_Grunt1 {
+    trainerbattle_single(TRAINER_CRUZ_GYM_1, CruzGymGrunt1, CruzGymGrunt2)
+    msgbox(format("I have an excuse: I've just been recruited. Fight me in like two weeks, and we'll see who wins."))
+    closemessage
+    end
+}
+
+script Cruzeira_Gym_Grunt2 {
+    trainerbattle_single(TRAINER_CRUZ_GYM_2, CruzGymGrunt3, CruzGymGrunt4)
+    msgbox(format("Doesn't count. I wasn't ready, you took me by surprise."))
+    closemessage
+    end
+}
+
+script Cruzeira_Gym_Admin {
+    lock
+    faceplayer
+    trainerbattle_single(TRAINER_CRUZ_GYM_3, CruzGymAdmin1, CruzGymAdmin2, Cruzeira_Gym_AdminLoss)
+    //call(Cruzeira_Gym_AdminLoss)
+}
+
+script Cruzeira_Gym_AdminLoss {
+    namebox("Barbara")
+    msgbox(format("Remeber our name! We're the Fandango Band, and we're just getting started! We'll soon take over every gym in Thura and dominate the world!... But for now, back to the base. Guys, we're out!"))
+    closemessage
+    hidenamebox
+    fadescreen(FADE_TO_BLACK)
+    delay(40)
+    removeobject(1)
+    removeobject(2)
+    removeobject(3)
+    setflag(FLAG_CRUZ_GYM_GRUNTS)
+    clearflag(FLAG_CRUZ_GYM_LAILA)
+    applymovement(OBJ_EVENT_ID_PLAYER, CruzGymDown)
+    waitmovement(0)
+    addobject(4)
+    fadescreen(FADE_FROM_BLACK)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 8 && var(VAR_TEMP_1) == 3) {
+        delay(20)
+        applymovement(4, Laila83)
+        waitmovement(0)
+        goto(Cruzeira_Gym_Laila)
+    }
+    elif(var(VAR_TEMP_0) == 7 && var(VAR_TEMP_1) == 2) {
+        delay(20)
+        applymovement(4, Laila72)
+        waitmovement(0)
+        goto(Cruzeira_Gym_Laila)
+    }
+    elif(var(VAR_TEMP_0) == 9 && var(VAR_TEMP_1) == 2) {
+        delay(20)
+        applymovement(4, Laila92)
+        waitmovement(0)
+        goto(Cruzeira_Gym_Laila)   
+    }
+}
+
+script Cruzeira_Gym_Laila {
+    delay(20)
+    namebox("Laila")
+    msgbox(format("You... Did you chase the baddies from the gym? You did it for me?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, LailaHeart)
+    waitmovement(0)
+    delay(30)
+    namebox("Laila")
+    msgbox(format("...You're so kind. I was appointed as a Council member only a week ago... And I'm clearly not strong enough. Even when my mom was the gym leader, I knew I couldn't assume her position... How can I repay you?"))
+    closemessage
+    hidenamebox
+    applymovement(1, LailaExc)
+    waitmovement(0)
+    delay(20)
+    namebox("Laila")
+    msgbox(format("Oh, I know! You can take that. For what you've done for me, it's the least I can give you."))
+    closemessage
+    hidenamebox
+    setflag(FLAG_BADGE01_GET)
+    playfanfare(MUS_OBTAIN_BADGE)
+    msgbox(format("You've earned the Petal Emblem!"))
+    waitfanfare
+    closemessage
+    delay(20)
+    namebox("Laila")
+    msgbox(format("Wait, before you go. Let me give you this TM."))
+    hidenamebox
+    giveitem(ITEM_TM33)
+    namebox("Laila")
+    msgbox(format("This TM contains Grass Knot. It's very useful, particularly against heavy Pokémons. And you can teach it to some non-grass Pokémons! Neat, isn't it?"))
+    closemessage
+    hidenamebox
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_0) == 8 && var(VAR_TEMP_1) == 3) {
+        applymovement(4, moves(walk_left walk_up * 2 walk_right face_down))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_0) == 7 && var(VAR_TEMP_1) == 2) {
+        applymovement(4, moves(walk_right walk_up face_down))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_0) == 9 && var(VAR_TEMP_1) == 2) {
+        applymovement(4, moves(walk_left walk_up face_down))
+        waitmovement(0)
+    }
+    setflag(FLAG_LAILA_HAPPY)
+    setflag(FLAG_PASTORAL_GROUP)
+    setvar(VAR_MAIN_STORY, 12)
+    setvar(VAR_SHOP_UPDATE, 1)
+    setflag(FLAG_HIDE_MAP_NAME_POPUP)
+    completequest(QUEST_INTRUDER)
+    setflag(FLAG_QUEST_INTRUDER_COMPLETE)
+    release
+    end
+}
+
+script Cruzeira_Gym_Laila_After {
+    lock
+    faceplayer
+    namebox("Laila")
+    msgbox(format("Hi {PLAYER}! I'm still practicing, I hope to be as strong as you one day!"))
+    hidenamebox
+    release
+    end
+}
+
+text CruzGymGrunt1 {
+    format("Huh? Who are you? Weren't we supposed to let nobody enter?")
+}
+
+text CruzGymGrunt2 {
+    format("I understand now. It's because you're strong.")
+}
+
+text CruzGymGrunt3 {
+    format("That grunt doesn't know jack shit about battles. I'll show you what a real opponent looks like!")
+}
+
+text CruzGymGrunt4 {
+    format("So, it seems that I'm also not a worthy opponent.")
+}
+
+text CruzGymAdmin1 {
+    format("Wow! You managed to get past those useless grunts! Bravo! Unfortunately for you, your promising run ends now. Haha!")
+}
+
+text CruzGymAdmin2 {
+    format("For Arceus' sake...")
+}
+
+movement LailaHeart {
+    emote_heart
+}
+
+movement LailaExc {
+    emote_exclamation_mark
+}
+
+movement Laila83 {
+    walk_up * 2
+    walk_right * 3
+    walk_up * 3
+    walk_left
+    face_up
+}
+
+movement Laila72 {
+    walk_up * 2
+    walk_right * 3
+    walk_up * 3
+    walk_left * 2
+    walk_up
+    face_up
+}
+
+movement Laila92 {
+    walk_up * 2
+    walk_right * 3
+    walk_up * 4
+}
+
+movement CruzGymDown {
+    face_down
+}

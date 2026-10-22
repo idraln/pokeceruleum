@@ -1,0 +1,2372 @@
+{
+  "id": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+  "name": "SapphireCity_BuildingLobbies",
+  "layout": "LAYOUT_SAPPHIRE_CITY_BUILDING_LOBBIES",
+  "music": "MUS_RG_SEVII_67",
+  "region_map_section": "MAPSEC_SAPPHIRE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
+      "x": 26,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_ManB3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_OldB1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
+      "x": 13,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_WomanB2",
+      "flag": "FLAG_WOMAN_SAPPHIRE_B2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 94,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_WomanB8",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
+      "x": 68,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_WomanB6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 82,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PARALYZE_HEAL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_SAPPHIRE_B7"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BARD",
+      "x": 57,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_ThiefB5",
+      "flag": "FLAG_SAPPHIRE_THIEF"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 42,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_FighterB4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
+      "x": 105,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_BuildingLobbies_ManB9",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING1",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING1",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 5,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING1",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 2,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 3,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 1,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 4,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING1",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING1",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 18,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING2",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 15,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 16,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 13,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING2",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 13,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING2",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 17,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 14,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "22"
+    },
+    {
+      "x": 17,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 18,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING2",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING2",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 31,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING3",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 28,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 29,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 30,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "33"
+    },
+    {
+      "x": 26,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING3",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 26,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING3",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 83,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING7",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 83,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING7",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 27,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "36"
+    },
+    {
+      "x": 30,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "27"
+    },
+    {
+      "x": 26,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING3",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 26,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING3",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 27,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "32"
+    },
+    {
+      "x": 41,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 42,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 39,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING4",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING4",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 44,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING4",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 44,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING4",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 43,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "47"
+    },
+    {
+      "x": 39,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING4",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 39,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING4",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 40,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "48"
+    },
+    {
+      "x": 43,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "43"
+    },
+    {
+      "x": 40,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "46"
+    },
+    {
+      "x": 54,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 55,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 57,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING5",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 57,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING5",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 56,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "56"
+    },
+    {
+      "x": 57,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING5",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 57,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING5",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 56,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "53"
+    },
+    {
+      "x": 53,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "60"
+    },
+    {
+      "x": 57,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING5",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 57,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING5",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 53,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "57"
+    },
+    {
+      "x": 68,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 67,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 70,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING6",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 70,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING6",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 69,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "71"
+    },
+    {
+      "x": 70,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING6",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 70,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING6",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 65,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING6",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 65,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING6",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 66,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "72"
+    },
+    {
+      "x": 69,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "65"
+    },
+    {
+      "x": 66,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "70"
+    },
+    {
+      "x": 81,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 80,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 83,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING7",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 83,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING7",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 82,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "81"
+    },
+    {
+      "x": 78,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING7",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 78,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING7",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 79,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "82"
+    },
+    {
+      "x": 82,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "77"
+    },
+    {
+      "x": 79,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "80"
+    },
+    {
+      "x": 93,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 94,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 96,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING8",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 96,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING8",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 95,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "93"
+    },
+    {
+      "x": 91,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING8",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 91,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING8",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 96,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING8",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 96,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING8",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 92,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "94"
+    },
+    {
+      "x": 95,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "87"
+    },
+    {
+      "x": 92,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "92"
+    },
+    {
+      "x": 106,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 107,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 108,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "102"
+    },
+    {
+      "x": 104,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING9",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 104,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING9",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 109,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING9",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 109,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING9",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 108,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "97"
+    },
+    {
+      "x": 105,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "106"
+    },
+    {
+      "x": 104,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING9",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 104,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING9",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 105,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "103"
+    },
+    {
+      "x": 0,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING1",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 104,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 109,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 42,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right_Special"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SapphireCity_BuildingLobbies_CantAccess_Right_Special"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 13,
+      "y": 40,
+      "elevation": 0,
+      "item": "ITEM_SECRET_KEY",
+      "flag": "FLAG_ITEM_SAPPHIRE_B2"
+    }
+  ]
+}

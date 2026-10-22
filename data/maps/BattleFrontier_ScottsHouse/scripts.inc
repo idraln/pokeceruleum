@@ -12,7 +12,7 @@ BattleFrontier_ScottsHouse_EventScript_Scott::
 
 BattleFrontier_ScottsHouse_EventScript_CheckGiveItems::
 	goto_if_unset FLAG_SCOTT_GIVES_BATTLE_POINTS, BattleFrontier_ScottsHouse_EventScript_WelcomeToFrontier
-	goto_if_unset FLAG_COLLECTED_ALL_SILVER_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols
+	goto_if_unset FLAG_DAVE_LEAVING, BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols
 	goto_if_unset FLAG_COLLECTED_ALL_GOLD_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols
 	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveShield
 	end
@@ -34,7 +34,7 @@ BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols::
 	msgbox BattleFrontier_ScottsHouse_Text_YouveCollectedAllSilverSymbols, MSGBOX_DEFAULT
 	giveitem ITEM_LANSAT_BERRY
 	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_BerryPocketFull
-	setflag FLAG_COLLECTED_ALL_SILVER_SYMBOLS
+	setflag FLAG_DAVE_LEAVING
 	setflag FLAG_TEMP_4
 	release
 	end

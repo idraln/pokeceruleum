@@ -1,0 +1,168 @@
+raw `
+Array_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Array_OnTransition
+	.byte 0
+`
+
+script Array_OnTransition {
+    end
+}
+
+script Array_Kidnapping {
+    lock
+    msgbox(format("STOP IT RIGHT THERE!"))
+    closemessage
+    playbgm(MUS_RG_SILPH, TRUE)
+    delay(20)
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 14) {
+        applymovement(1, moves(walk_left * 4 walk_up walk_left * 3))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 15) {
+        applymovement(1, moves(walk_left * 7))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 16) {
+        applymovement(1, moves(walk_down walk_left * 7))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 17) {
+        applymovement(1, moves(walk_down * 2 walk_left * 7))
+        waitmovement(0)
+    }
+    msgbox(format("What are you doing here? Are you one of those outlaws that come here and pillage what remains of this village?"))
+    msgbox(format("..."))
+    msgbox(format("You say you used to live there? Then why come back now and not sooner? I don't believe you..."))
+    msgbox(format("..."))
+    closemessage
+    delay(20)
+    turnobject(1, DIR_EAST)
+    msgbox(format("Boys, seize that punk!"))
+    closemessage
+    delay(20)
+    msgbox(format("SIR! YES SIR!"))
+    closemessage
+    turnobject(1, DIR_WEST)
+    if(var(VAR_TEMP_1) == 14) {
+        applymovement(2, moves(walk_left * 9 face_up))
+        applymovement(3, moves(walk_left * 10 walk_up * 2 face_right))
+        waitmovement(0)
+        delay(60)
+    }
+    elif(var(VAR_TEMP_1) == 15) {
+        applymovement(2, moves(walk_left * 7 walk_up walk_left * 2 face_down))
+        applymovement(3, moves(walk_left * 9 face_up))
+        waitmovement(0)
+        delay(60)
+    }
+    elif(var(VAR_TEMP_1) == 16) {
+        applymovement(2, moves(walk_left * 9 face_down))
+        applymovement(3, moves(walk_down walk_left * 9 face_up))
+        waitmovement(0)
+        delay(60)
+    }
+    elif(var(VAR_TEMP_1) == 17) {
+        applymovement(2, moves(walk_down walk_left * 9 face_down))
+        applymovement(3, moves(walk_left * 10 walk_down face_right))
+        waitmovement(0)
+        delay(60)
+    }
+    setvar(VAR_SIDE_STORY_RETRO, 1)
+    setflag(FLAG_ARMY_GLORRAY)
+    warpsilent(MAP_XATU_TENT3, 0, 3)
+    release
+    end
+}
+
+script Array_HomeSign {
+    lockall
+    msgbox(format("{PLAYER}'s home"))
+    releaseall
+    end
+}
+
+script Array_MartClosed {
+    lockall
+    msgbox(format("The door appears to be stuck. It can't be opened."))
+    releaseall
+    end
+}
+
+script Array_Dave {
+    lock
+    opendoor(17, 8)
+    waitdooranim
+    clearflag(FLAG_DAVE_GLORRAY)
+    addobject(4)
+    applymovement(4, moves(walk_down))
+    waitmovement(0)
+    closedoor(17, 8)
+    waitdooranim
+    applymovement(4, moves(walk_left * 3))
+    waitmovement(0)
+    delay(40)
+    applymovement(4, moves(face_right))
+    waitmovement(0)
+    delay(20)
+    playse(SE_PIN)
+    applymovement(4, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 9) {
+        applymovement(4, moves(walk_right * 3))
+        waitmovement(0)
+    }
+    else {
+        applymovement(4, moves(walk_right * 3 walk_down face_right))
+        waitmovement(0)
+    }
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+    waitmovement(0)
+    namebox("Dave")
+    msgbox(format("Hey, {PLAYER}! Remember me? Dave! I helped you bring Corinna from the after life!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Dave")
+    msgbox(format("...Uh, have you been seeing weird things? ...No? Good. Means that Corinna wasn't that angry after all!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Dave")
+    msgbox(format("One thing about me, I love urbex. And this town... Wow! It's like it's been preserved from 20 years ago! And listen to this: I've been appointed to a super secret project. I shouldn't tell you about that, but I'm so excited! I'll be part of an exploration in The Ironair! You must know Vikkie, right? She's the one that hired me! The team I'm a part of will extract some sapphires and use them to create a special serum! Though I don't know what its purpose is really about, I've just been told to create it... But the money is good!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Dave")
+    msgbox(format("What I'm trying to say, {PLAYER}, is that I could never have landed this gig without you. You gave me back my confidence, back in Glasville. So, I want to gift you this."))
+    hidenamebox
+    playfanfare(MUS_OBTAIN_BADGE)
+    msgbox(format("You just received the Balance Emblem!"))
+    waitfanfare
+    setflag(FLAG_BADGE06_GET)
+    closemessage
+    delay(20)
+    namebox("Dave")
+    msgbox(format("I just found it in that abandoned gym. And you're still on that challenge right? It'll be more use to you rather than me."))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Dave")
+    msgbox(format("{PLAYER}, it's been great seeing you again. Keep it up!"))
+    closemessage
+    hidenamebox
+    applymovement(4, moves(walk_left * 7))
+    waitmovement(0)
+    removeobject(4)
+    setflag(FLAG_DAVE_GLORRAY)
+    setvar(VAR_SIDE_STORY_RETRO, 5)
+    setflag(FLAG_VISITED_GLORRAY)
+    release
+    end
+}

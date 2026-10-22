@@ -1,0 +1,182 @@
+raw `
+Rocheval_TownHallB1F_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Rocheval_TownHallB1F_OnFrame
+	.byte 0
+
+Rocheval_TownHallB1F_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 1, Rocheval_TownHallB1F_Arrival
+    .2byte 0
+
+`
+
+script Rocheval_TownHallB1F_Arrival {
+    if(var(VAR_MAIN_STORY) == 1) {
+        lock
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(40)
+        applymovement(1, moves(walk_right * 3 walk_up * 2))
+        waitmovement(0)
+        msgbox(format("...Are you the one that needs a Pokémon? Alright. I don't have much left, let me check real quick."))
+        closemessage
+        applymovement(1, moves(walk_left * 3 walk_up))
+        waitmovement(0)
+        delay(20)
+        applymovement(1, moves(walk_down walk_right * 7 walk_up))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("...Ah."))
+        closemessage
+        delay(40)
+        applymovement(1, moves(face_left))
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+        msgbox(format("...It appears I actually don't have any Pokémons left. Don't worry, though. Meet me outside, we'll go capture one on Cape East."))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+        waitmovement(0)
+        applymovement(1, moves(walk_left * 4 walk_up))
+        waitmovement(0)
+        hideobjectat(1, MAP_ROCHEVAL_TOWN_HALL_B1F)
+        playse(SE_EXIT)
+        waitse
+        applymovement(1, moves(walk_up))
+        waitmovement(0)
+        clearflag(FLAG_STARTER)
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        setvar(VAR_WALK, 1)
+        setvar(VAR_MAIN_STORY, 2)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }    
+}
+
+
+script Rocheval_TownHallB1F_Pokeball {
+    lockall
+    showmonpic(SPECIES_CYNDAQUIL, 10, 3)
+    msgbox(format("Would you like to take this Cyndaquil?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        givemon(SPECIES_CYNDAQUIL, 5)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            setflag(FLAG_SYS_POKEMON_GET)
+            msgbox(format("You just received a Cyndaquil! How cute."))
+            removeobject(2)
+            setflag(FLAG_STARTER)
+            call(NicknamePokemon)
+            setvar(VAR_MAIN_STORY, 3)
+            setvar(VAR_BLOCKED_ROAD, 1)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+            setflag(FLAG_SYS_POKEMON_GET)
+            msgbox(format("You just received a Cyndaquil! How cute."))
+            removeobject(2)
+            setflag(FLAG_STARTER)
+            call(NicknameBoxmon)
+            setvar(VAR_MAIN_STORY, 3)
+            setvar(VAR_BLOCKED_ROAD, 1)
+        }
+        else {
+            hidemonpic
+            msgbox(format("You don't have any room left!"))
+        }
+    }
+    else {
+        hidemonpic
+        msgbox(format("Think carefully!... Well, it's not like you have much choice anyway."))
+    }
+    waitmessage
+    releaseall
+    end
+}
+
+script Rocheval_TownHallB1F_Worker {
+    if(var(VAR_WAKINGUP) == 2) {
+        lock
+        faceplayer
+        if(var(VAR_FAV_TYPE) == 0) {
+            msgbox(format("...Hey. Treecko is truly one of its kind. Thanks again. You did me a solid..."))
+        }
+        elif(var(VAR_FAV_TYPE) == 1) {
+            msgbox(format("...Hey. Litten is truly one of its kind. Thanks again. You did me a solid..."))
+        }
+        else {
+            msgbox(format("...Hey. Totodile is truly one of its kind. Thanks again. You did me a solid..."))
+        }
+        
+        release
+        end
+    }
+    elif(var(VAR_WAKINGUP) == 3) {
+        lock
+        faceplayer
+        if(var(VAR_FAV_TYPE) == 0) {
+            msgbox(format("...Oh. It's you. How's the Treecko? Which is technically mine, because I captured it? Ugh, life's so unfair..."))
+        }
+        elif(var(VAR_FAV_TYPE) == 1) {
+            msgbox(format("...Oh. It's you. How's the Torchic? Which is technically mine, because I captured it? Ugh, life's so unfair..."))
+        }
+        else {
+            msgbox(format("...Oh. It's you. How's the Mudkip? Which is technically mine, because I captured it? Ugh, life's so unfair..."))
+        }
+        release
+        end
+    }
+}
+
+script NicknamePokemon {
+    msgbox(format("Would you like to give it a nickname?"), MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}
+
+script NicknameBoxmon {
+    msgbox(format("Would you like to give it a nickname?"), MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}
+
+movement WorkerWelcoming {
+    emote_exclamation_mark
+    delay_16
+}
+
+movement WorkerSearching {
+    walk_right * 3
+    walk_up * 2
+    walk_left * 3
+    walk_up
+    delay_16 * 2
+    walk_down
+    walk_right * 7
+    walk_up
+}
+
+movement WorkerPuttingPokeballOnTable {
+    walk_down
+    walk_left * 2
+    face_down
+    delay_16
+}
+
+movement WorkerBackToDesk {
+    walk_left * 2
+    walk_down * 2
+    walk_left * 3
+    face_up
+}
+
+movement PokeballMovingLOL {
+    face_down
+}

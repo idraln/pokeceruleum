@@ -1,0 +1,99 @@
+{
+  "id": "MAP_THE_IRONAIR_B1F",
+  "name": "TheIronairB1F",
+  "layout": "LAYOUT_THE_IRONAIR_B1F",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_IRONAIR",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BRUCE",
+      "x": 18,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_AFTER_ATTACK_BRUCE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 13,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM09",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_IRONAIR_1"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 52,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_THE_IRONAUR",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_THE_IRONAIR_B2F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "27",
+      "script": "TheIronairB1F_Diancie"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "27",
+      "script": "TheIronairB1F_Diancie"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "27",
+      "script": "TheIronairB1F_Diancie"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 52,
+      "y": 9,
+      "elevation": 0,
+      "item": "ITEM_METAGROSSITE",
+      "flag": "FLAG_ITEM_IRONAIR_2"
+    }
+  ]
+}

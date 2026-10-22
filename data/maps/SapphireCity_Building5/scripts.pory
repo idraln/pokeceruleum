@@ -1,0 +1,74 @@
+raw `
+SapphireCity_Building5_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building5_Boy {
+    lock
+    faceplayer
+    msgbox(format("I'm watching the last episode of It's Always Sunny in Mauville City! They really stepped up their game!"))
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}
+
+script SapphireCity_Building5_Woman {
+    lock
+    msgbox(format("Lalalala! Doing dishes is so fun! It smells so good!"))
+    release
+    end
+}
+
+script SapphireCity_Building5_Mom1 {
+    lock
+    msgbox(format("I told you, I don't like seeing our girl watching the TV from this close."))
+    release
+    end
+}
+
+script SapphireCity_Building5_Mom2 {
+    lock
+    msgbox(format("Believe me, I tried telling her multiple times, but she simply won't listen to me!"))
+    release
+    end
+}
+
+script SapphireCity_Building5_Girl {
+    lock
+    faceplayer
+    applymovement(3, SCB5_Girl_Exc)
+    waitmovement(0)
+    delay(10)
+    msgbox(format("AH!!! WHO ARE YOU?"))
+    closemessage
+    playse(SE_PIN)
+    applymovement(3, SCB5_Girl_Afraid)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(5, SCB5_Mom1_Exc)
+    waitmovement(0)
+    msgbox(format("HEY! What are you doing here? This is a private property! Leave this instant!"))
+    closemessage
+    warp(MAP_SAPPHIRE_CITY_BUILDING_LOBBIES, 57, 8)
+    setflag(FLAG_SAPPHIRE_UNAUTHORIZED)
+    release
+    end
+}
+
+movement SCB5_Girl_Exc {
+    emote_exclamation_mark
+}
+
+movement SCB5_Mom1_Exc {
+    emote_exclamation_mark
+    delay_16
+    face_up
+}
+
+
+movement SCB5_Girl_Afraid {
+    jump_2_right
+    walk_fast_down * 5
+    walk_fast_left * 2
+    face_up
+}

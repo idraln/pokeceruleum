@@ -44,3 +44,39 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 - Protect
 - Solar Beam
 - Dragon Claw
+
+=== PARTNER_BRUCE ===
+Name: Bruce
+Class: Council
+Pic: Bruce
+Gender: Male
+Music: Male
+Back Pic: Bruce
+AI: Basic Trainer
+
+Melmetal
+Adamant Nature
+Level: 37
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Protect
+- Thunder Punch
+- Double Iron Bash
+- Earthquake
+
+Excadrill
+Adamant Nature
+Level: 39
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Earthquake
+- Rapid Spin
+- Iron Head
+- Stealth Rock
+
+Magcargo
+Brave Nature
+Level: 38
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Lava Plume
+- Earth Power
+- Amnesia
+- Shell Smash

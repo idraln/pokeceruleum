@@ -1,0 +1,52 @@
+raw `
+Vikkelson_PMart_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_PMart_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Vikkelson's mart! How can I help you today? We don't have any beers left. Sorry."))
+    waitmessage
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thanks for shopping with us! We hope you come back soon!"))
+    release
+    end
+}
+
+script Vikkelson_PMart_Woman {
+    lock
+    msgbox(format("Hmmm... No roots left? Not even organic berries?... Wait, is this the Sapphire supermarket?"))
+    release
+    end
+}
+
+script Vikkelson_PMart_Man {
+    lock
+    faceplayer 
+    msgbox(format("Haha, I won big bucks at the nightclub! I'm gonna treat my Crustle sooo good."))
+    release
+    end
+}
+
+mart Vikkelson_PMart_Items {
+    ITEM_SUPER_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+}

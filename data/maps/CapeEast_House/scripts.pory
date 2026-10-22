@@ -1,0 +1,369 @@
+raw `
+CapeEast_House_MapScripts::
+	.byte 0
+
+`
+script CapeEast_Sam_Intro_Right {
+    lock
+    if(var(VAR_WAKINGUP) == 0) {
+        fwdtime(10, 00)
+        playse(SE_PIN)
+        applymovement(1, SamSurprised)
+        waitmovement(0)
+        delay(40)
+        msgbox(format("Finally, you're awake!"))
+        closemessage
+        applymovement(1, SamToBed)
+        waitmovement(0)
+        delay(20)
+        msgbox(format("You passed out as soon as you got on the boat. What's your name? And what were you doing alone in the deep seas? Were you on some kind of adventure? It's not usual to go there alone, you could've been really hurt."))
+        msgbox(format("..."))
+        msgbox(format("Huh? What's that? You were going to battle the President of Thura? Weird... I don't see any Pokéballs on your belt."))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerSurprised)
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("Oh snap! You lost all your Pokémons while you were stranded at sea? That's a bummer. Is that all you lost?"))
+        msgbox(format("..."))
+        msgbox(format("You lost your ID aswell? Well, in that case, you might have to go to the Town Hall to sort this out. Here, follow me. Let me show you the way."))
+        closemessage
+        applymovement(1, SamOutside)
+        waitmovement(0)
+        hideobjectat(1, MAP_CAPE_EAST_HOUSE)
+        playse(SE_EXIT)
+         
+        applymovement(1, SamDisappear)
+        waitmovement(0)
+        setvar(VAR_WAKINGUP, 1)
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        setflag(FLAG_STARTER)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script CapeEast_Sam_Intro_Left {
+    lock
+    if(var(VAR_WAKINGUP) == 0) {
+        fwdtime(10, 00)
+        playse(SE_PIN)
+        applymovement(1, SamSurprised)
+        waitmovement(0)
+        delay(40)
+        msgbox(format("Finally, you're awake!"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerOutOfBedLeft)
+        applymovement(1, SamToBed)
+        waitmovement(0)
+        delay(50)
+        msgbox(format("You passed out as soon as you got on the boat. What's your name? And what were you doing alone in the deep seas? Were you on some kind of adventure? It's not usual to go there alone, you could've been really hurt."))
+        msgbox(format("..."))
+        msgbox(format("Huh? What's that? You were going to battle the President of Thura? Weird... I don't see any Pokéballs on your belt."))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerSurprised)
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(30)
+        msgbox(format("Oh snap! You lost all your Pokémons while you were stranded at sea? That's a bummer. Is that all you lost?"))
+        msgbox(format("..."))
+        msgbox(format("You lost your ID aswell? Well, in that case, you might have to go to the Town Hall to sort this out. Here, follow me. Let me show you the way."))
+        closemessage
+        applymovement(1, SamOutside)
+        waitmovement(0)
+        hideobjectat(1, MAP_CAPE_EAST_HOUSE)
+        playse(SE_EXIT)
+         
+        applymovement(1, SamDisappear)
+        waitmovement(0)
+        setvar(VAR_WAKINGUP, 1)
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        setflag(FLAG_STARTER)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script CapeEast_Sam_After {
+    if(var(VAR_MAIN_STORY) == 3) {
+        lock
+        faceplayer
+        namebox("Sam")
+        msgbox(format("So, have you talked to the guys at the Town Hall yet?"))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Sam")
+        msgbox(format("Oh, they gave you a new Pokémon! What a cutie!!"))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Sam")
+        msgbox(format("...Listen, maybe now is not the time, maybe you're too tired, but would you like to battle me? I've got Pokémons of my own, but I've never battled anyone. I guess there's a first to everything eh? Alright, let's do it!"))
+        hidenamebox
+        closemessage
+        setflag(FLAG_TRAINERBATTLE)
+        trainerbattle_no_intro(TRAINER_SAM_1, SamBattle2)
+        goto(CapeEast_SamsHouse_AfterCombat)
+    }
+    else {
+        lock
+        faceplayer
+        namebox("Sam")
+        msgbox(format("{PLAYER}! Any news to share?"))
+        hidenamebox
+        release
+        end
+    }
+}
+
+script CapeEast_SamsHouse_AfterCombat {
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        call(CapeEast_SamsHouse_AfterCombatDialog)
+    }
+    else {
+        call(CapeEast_SamsHouse_AfterCombatDialog)
+    }
+}
+
+script CapeEast_SamsHouse_AfterCombatDialog {
+    special(HealPlayerParty)
+    namebox("Sam")
+    msgbox(format("I can't believe it! My first Pokémon battle! It was so exciting! Here, let me heal your party."))
+    closemessage
+    hidenamebox
+    fadescreen(FADE_TO_BLACK)
+    playfanfare(MUS_HEAL)
+    waitfanfare
+    fadescreen(FADE_FROM_BLACK)
+    namebox("Sam")
+    msgbox(format("Anyways. What else did they tell you at the Town Hall?"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("¥5 000 to go back to the continent? Damn, that is so much money... I would love to take you back myself, but my boat is on the verge of falling apart, plus I don't have much money left for fuel. Well, I guess you're stuck here! Haha!... Uhm."))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("...Actually, wait. I received a brochure not that long ago. Let me find it real quick."))
+    hidenamebox
+    closemessage
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 3) {
+        applymovement(1, SamBrochureY3)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("...Not here..."))
+        closemessage
+        hidenamebox
+        applymovement(1, SamBrochureY32)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(30)
+        namebox("Sam")
+        msgbox(format("There it is!"))
+        closemessage
+        hidenamebox
+        applymovement(1, SamBrochure3)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down*2 face_right))
+        waitmovement(0)
+        namebox("Sam")
+        msgbox(format("...Blah blah blah...\p...Rocheval's Country Fest... No...\pAh! I knew it!\pIt says right here that there's a contest coming soon at the Leisure Hall! And guess what? It's today! There's even a prize pool: ¥2 000 for the winner, ¥1 000 for the finalist, and a Potion for everyone else. Anyway, you said that you were one of the best trainers of Thura right? Go register for the contest and get that money baby! I'll register too, so we have even more chance to get you that ticket!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 4)
+        applymovement(1, SamRegister)
+        waitmovement
+        removeobject(1)
+        playse(SE_EXIT)
+        setflag(FLAG_SAM_NOT_HOUSE)
+        release
+        end
+    }
+    elif(var(VAR_TEMP_0) == 4) {
+        applymovement(1, SamBrochure1)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("...Not here..."))
+        closemessage
+        hidenamebox
+        applymovement(1, SamBrochure2)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(30)
+        namebox("Sam")
+        msgbox(format("There it is!"))
+        closemessage
+        hidenamebox
+        applymovement(1, SamBrochure3)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down walk_right))
+        waitmovement(0)
+        namebox("Sam")
+        msgbox(format("...Blah blah blah...\p...Rocheval's Country Fest... No...\pAh! I knew it!\pIt says right here that there's a contest coming soon at the Leisure Hall! And guess what? It's today! There's even a prize pool: ¥2 000 for the winner, ¥1 000 for the finalist, and a Potion for everyone else. Anyway, you said that you were one of the best trainers of Thura right? Go register for the contest and get that money baby! I'll register too, so we have even more chance to get you that ticket!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 4)
+        applymovement(1, SamRegister)
+        waitmovement
+        removeobject(1)
+        playse(SE_EXIT)
+         
+        setflag(FLAG_SAM_NOT_HOUSE)
+        release
+        end
+    }
+    else {
+        applymovement(1, SamBrochure1)
+        waitmovement(0)
+        namebox("Sam")
+        msgbox(format("...Not here..."))
+        closemessage
+        hidenamebox
+        applymovement(1, SamBrochure2)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(30)
+        namebox("Sam")
+        msgbox(format("There it is!"))
+        closemessage
+        hidenamebox
+        applymovement(1, SamBrochure3)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerFacesSamHouse)
+        waitmovement(0)
+        namebox("Sam")
+        msgbox(format("...Blah blah blah...\p...Rocheval's Country Fest... No...\pAh! I knew it!\pIt says right here that there's a contest coming soon at the Leisure Hall! And guess what? It's today! There's even a prize pool: ¥2 000 for the winner, ¥1 000 for the finalist, and a Potion for everyone else. Anyway, you said that you were one of the best trainers of Thura right? Go register for the contest and get that money baby! I'll register too, so we have even more chance to get you that ticket!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 4)
+        applymovement(1, SamRegister)
+        waitmovement
+        removeobject(1)
+        playse(SE_EXIT)
+         
+        setflag(FLAG_SAM_NOT_HOUSE)
+        release
+        end
+    }
+}
+
+movement SamSurprised {
+    emote_exclamation_mark
+    face_left
+}
+
+movement SamToBed {
+    walk_fast_left * 2
+}
+
+movement PlayerSurprised {
+    face_down
+    delay_8
+    face_right
+    delay_8
+    face_up
+    delay_8
+    face_left
+    delay_8
+    face_right
+    delay_8
+    delay_16
+}
+
+movement PlayerOutOfBedLeft {
+    walk_up
+    walk_right * 2
+    walk_down
+    face_right
+}
+
+movement SamOutside {
+    walk_fast_down * 2
+    walk_fast_right * 4
+    walk_fast_down * 2
+}
+
+movement SamDisappear {
+    walk_down
+}
+
+movement SamBrochure1 {
+    walk_up * 2
+    walk_left
+    face_up
+    delay_16 * 2
+}
+
+movement SamBrochure2 {
+    walk_down
+    walk_right * 6
+    walk_up
+    delay_16 * 2
+}
+
+movement SamBrochure3 {
+    walk_down
+    walk_left * 2
+    walk_down * 2
+    face_player
+}
+
+movement SamRegister {
+    walk_fast_down * 2
+    walk_fast_left
+    walk_fast_down
+}
+
+movement PlayerFacesSamHouse {
+    face_right
+}
+
+movement SamBrochureY3 {
+    walk_left
+    walk_up * 2
+}
+
+movement SamBrochureY32 {
+    walk_right * 2
+    walk_down
+    walk_right * 4
+    walk_up
+}
+
+
+
+text SamBattle1 {
+    format("...Listen, maybe now is not the time, maybe you're too tired, but would you like to battle me? I've got Pokémons of my own, but I've never battled anyone. I guess there's a first to everything eh? Alright, let's do it!")
+}
+
+text SamBattle2 {
+    "Wow! That was so intense!"
+}

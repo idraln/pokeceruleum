@@ -1,0 +1,186 @@
+raw `
+TheIronairB1F_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, TheIronairB1F_OnLoad
+	.byte 0
+`
+
+script TheIronairB1F_OnLoad {
+    if(flag(FLAG_BADGE08_GET)) {
+        setmetatile(18, 6, METATILE_Cave_CaveFloor, FALSE)
+        setmetatile(19, 6, METATILE_Cave_CaveFloor, FALSE)
+        setmetatile(19, 7, METATILE_Cave_CaveFloor, FALSE)
+        setmetatile(17, 7, METATILE_Cave_CaveFloor, FALSE)
+        setmetatile(18, 8, METATILE_Cave_CaveFloor, FALSE)
+        special(DrawWholeMapView)
+    }
+}
+
+script TheIronairB1F_Diancie {
+    lock
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 9) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 10) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2 walk_up face_left))
+        waitmovement(0)
+    }
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2 walk_up * 2 face_left))
+        waitmovement(0)
+    }
+    namebox("Bruce")
+    msgbox(format("...Thank god. The entrance is still blocked."))
+    closemessage
+    hidenamebox
+    delay(40)
+    turnobject(1, DIR_EAST)
+    namebox("Bruce")
+    msgbox(format("You must ask yourself: why does he worry about a simple cave? There are thousands of them all across Thura."))
+    closemessage
+    hidenamebox
+    delay(40)
+    turnobject(1, DIR_NORTH)
+    namebox("Bruce")
+    msgbox(format("You couldn't be more wrong. This one is unique. Inside lives a very rare Pokémon that is the guardian of the Ironair."))
+    closemessage
+    hidenamebox
+    delay(40)
+    turnobject(1, DIR_EAST)
+    namebox("Bruce")
+    msgbox(format("That Pokémon is called Diancie. It has lived in here for centuries, long before humans even settled in Thura."))
+    closemessage
+    hidenamebox
+    delay(40)
+    turnobject(1, DIR_SOUTH)
+    namebox("Bruce")
+    msgbox(format("As you may see all around yourself, this cave is filled with inestimable gemstones. Thus, it attracts the envy of many brigands and evil-doers."))
+    closemessage
+    hidenamebox
+    delay(40)
+    turnobject(1, DIR_EAST)
+    namebox("Bruce")
+    msgbox(format("When I settled here 20 years ago, I met Diancie. It was the most beautiful sight I've ever witnessed."))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("I then made a vow to Diancie, that I will protect with all my heart and soul the cave and the stones from anyone who wanted to pillage this place."))
+    closemessage
+    hidenamebox
+    delay(20)
+    turnobject(1, DIR_NORTH)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("Since then, Diancie lets us extract all the iron we want from the Ironair, as long as we are respectful of our surroundings, and we keep anyone outside its cave."))
+    closemessage
+    hidenamebox
+    delay(40)
+    turnobject(1, DIR_EAST)
+    namebox("Bruce")
+    msgbox(format("Now, you understand why I'm extremely worried. Our guard was one of our strongest trainers, and it seems like he was taken out in one fell swoop. Who could ever come here and defeat my boy like that? Why?"))
+    hidenamebox
+    msgbox(format("..."))
+    closemessage
+    playse(SE_PIN)
+    applymovement(1, moves(jump_in_place_right emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    namebox("Bruce")
+    msgbox(format("...What? You're right! Vikkie warned me about those pink punks! I knew it! Who else other than them? This time, I'm gonna make them pay! They tried to take over my foundry 2 weeks ago, but couldn't succeed! I guess they didn't take it well."))
+    closemessage
+    hidenamebox
+    applymovement(1, moves(walk_down))
+    waitmovement(0)
+    delay(40)
+    goto(TheIronairB1F_Choice)
+}
+
+script TheIronairB1F_Choice {
+    namebox("Bruce")
+    msgbox(format("...Where do you think they've settled?"))
+    multichoice(0, 0, MULTI_WHERE, TRUE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            closemessage
+            delay(40)
+            namebox("Bruce")
+            msgbox(format("Ohulinn? No... I don't think that's right. You must have gone there, it's small and even if Eka can act weird sometimes, he wouldn't let that happen in his town."))
+            hidenamebox
+            goto(TheIronairB1F_Choice)
+        case 1:
+            closemessage
+            delay(40)
+            namebox("Bruce")
+            msgbox(format("Eh... Could be possible, but Vikkie knows everything, and she would have called if something was going on in there."))
+            hidenamebox
+            goto(TheIronairB1F_Choice)
+        case 2:
+            closemessage
+            playse(SE_PIN)
+            applymovement(1, moves(emote_exclamation_mark))
+            waitmovement(0)
+            delay(40)
+            applymovement(1, moves(walk_up face_right))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("...Virimante? That barren land? I should have known better! Of course!! Let's go there!"))
+            closemessage
+            hidenamebox
+            applymovement(1, moves(walk_fast_down walk_fast_right * 5))
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+            waitmovement(0)
+            delay(40)
+            playse(SE_PIN)
+            applymovement(1, moves(emote_exclamation_mark))
+            waitmovement(0)
+            delay(40)
+            applymovement(1, moves(walk_fast_left * 4 face_up))
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+            waitmovement(0)
+            namebox("Bruce")
+            msgbox(format("Wait, before I go. I was supposed to give you the Ingot Emblem. Take this."))
+            hidenamebox
+            setflag(FLAG_BADGE04_GET)
+            playfanfare(MUS_OBTAIN_BADGE)
+            msgbox(format("You just received the Ingot Emblem!"))
+            waitfanfare
+            closemessage
+            delay(20)
+            namebox("Bruce")
+            msgbox(format("With that emblem, you'll be able to cross the river south of Frux. It's way better than trying to swim through it, and believe me, I tried."))
+            hidenamebox
+            msgbox(format("..."))
+            namebox("Bruce")
+            msgbox(format("Alright, there's no more time to lose! Let's whoop those punks!"))
+            closemessage
+            hidenamebox
+            applymovement(1, moves(walk_fast_right * 5 walk_fast_down * 3 walk_fast_right * 3))
+            waitmovement(0)
+            removeobject(1)
+            setflag(FLAG_AFTER_ATTACK_BRUCE)
+            setflag(FLAG_HERMIT_BUSH)
+            setflag(FLAG_SAM_KIDNAPPED)
+            setflag(FLAG_ADMINS_BOIS)
+            setvar(VAR_SIDE_STORY_BRO, 0)
+            setvar(VAR_SIDE_STORY_RETRO, 0)
+            setvar(VAR_MAIN_STORY, 28)
+            setvar(VAR_SHOP_UPDATE, 3)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            startquest(QUEST_FANDANGO)
+            release
+            end
+    }
+}
+
+script TheIronairB1F_Item {
+    lock
+    removeobject(2)
+    giveitem(ITEM_TM09)
+    setflag(FLAG_ITEM_IRONAIR_1)
+    release
+    end
+}

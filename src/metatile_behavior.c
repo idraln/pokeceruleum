@@ -134,6 +134,22 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_SIDEWAYS_STAIRS_LEFT_SIDE_BOTTOM]   = TILE_FLAG_UNUSED,
     [MB_ROCK_STAIRS]                        = TILE_FLAG_UNUSED,
     [MB_ROCK_CLIMB]                         = TILE_FLAG_UNUSED,
+    [MB_VINE]                               = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_BOIS]                               = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_RETRO]                              = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_ROCHEVAL]                           = TILE_FLAG_UNUSED,
+    [MB_IRONAIR_1]                          = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_IRONAIR_2]                          = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_SNOW]                               = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_FRUX]                               = TILE_FLAG_UNUSED,
+    [MB_OHULINN]                            = TILE_FLAG_UNUSED,
+    [MB_RETRO_NE]                           = TILE_FLAG_UNUSED,
+    [MB_PASTORAL_GRASS]                     = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_BOIS_NE]                            = TILE_FLAG_UNUSED,
+    [MB_SNOW_NE]                         = TILE_FLAG_UNUSED,
+    [MB_JANGALA]                         = TILE_FLAG_UNUSED,
+    [MB_OBSIDIAN]                     = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_PEBBLE]                         = TILE_FLAG_UNUSED,
 };
 
 bool8 MetatileBehavior_IsATile(u8 metatileBehavior)
@@ -252,13 +268,13 @@ bool8 MetatileBehavior_IsEscalator(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 Unref_MetatileBehavior_IsUnused04(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_UNUSED_04)
-        return TRUE;
-    else
-        return FALSE;
-}
+//bool8 Unref_MetatileBehavior_IsUnused04(u8 metatileBehavior)
+//{
+//    if (metatileBehavior == MB_UNUSED_04)
+//        return TRUE;
+//    else
+//        return FALSE;
+//}
 
 bool8 MetatileBehavior_IsLadder(u8 metatileBehavior)
 {
@@ -738,6 +754,150 @@ bool8 MetatileBehavior_IsPuddle(u8 metatileBehavior)
 bool8 MetatileBehavior_IsTallGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_TALL_GRASS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsVine(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_VINE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsBois(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BOIS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsBoisNE(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BOIS_NE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRetro(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_RETRO)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRetroNE(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_RETRO_NE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRocheval(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_ROCHEVAL)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsIronair1(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_IRONAIR_1)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsIronair2(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_IRONAIR_2)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSnow(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SNOW)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsFrux(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_FRUX)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsOhulinn(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_OHULINN)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsPastoralLongGrass(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_PASTORAL_GRASS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSnowNE(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SNOW_NE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsFighting(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_FIGHTING)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRooftop(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_ROOFTOP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsJangala(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JANGALA)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsObsidian(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_OBSIDIAN)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsPebble(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_PEBBLE)
         return TRUE;
     else
         return FALSE;
@@ -1268,6 +1428,7 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_NO_RUNNING
      || metatileBehavior == MB_LONG_GRASS
+     || metatileBehavior == MB_PASTORAL_GRASS
      || metatileBehavior == MB_HOT_SPRINGS
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
@@ -1547,6 +1708,14 @@ bool8 MetatileBehavior_IsRockStairs(u8 metatileBehavior)
 bool8 MetatileBehavior_IsRockClimbable(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_ROCK_CLIMB)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsHeadbuttTree(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_HEADBUTT)
         return TRUE;
     else
         return FALSE;

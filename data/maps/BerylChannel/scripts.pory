@@ -1,0 +1,145 @@
+raw `
+BerylChannel_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, BerylChannel_OnLoad
+	.byte 0
+`
+
+script BerylChannel_OnLoad {
+    if(var(VAR_SIDE_STORY_BRO) == 2 && var(VAR_SIDE_STORY_PASSWACAN) == 2 && var(VAR_SIDE_STORY_RETRO) == 5) {
+        setmetatile(32, 13, METATILE_Virimante_Stairs, FALSE)
+        setmetatile(32, 14, METATILE_Virimante_Stairs, FALSE)
+        setmetatile(32, 15, METATILE_Virimante_Stairs, FALSE)
+        setmetatile(32, 16, METATILE_Virimante_Stairs, FALSE)
+        setmetatile(32, 17, METATILE_Virimante_Stairs, FALSE)
+        special(DrawWholeMapView)
+        setflag(FLAG_BRUCE_BERYL)
+    }
+}
+
+script BerylChannel_Bruce {
+    lock
+    faceplayer
+    namebox("Bruce")
+    msgbox(format("{PLAYER}! You're finally here! What took you so long? Whatever. We're almost in Virimante, but there's one issue..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
+    applymovement(7, moves(face_down))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down * 5))
+    waitmovement(0)
+    delay(20)
+    namebox("Bruce")
+    msgbox(format("...The cliff is too steep, and I don't know about you, but I'm not diving from this height."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 5))
+    waitmovement(0)
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    applymovement(7, moves(face_left))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    namebox("Bruce")
+    msgbox(format("I'll put some of my boys to carve some stairs into that cliff. It shouldn't take long, so in the meantime, try to gather some more information about these brigands."))
+    hidenamebox
+    release
+    end
+}
+
+///////////
+
+script BerylChannel_Grunt1 {
+    trainerbattle_single(TRAINER_BERYL_1, BerylGrunt11, BerylGrunt12)
+    msgbox(format("I shouldn't have jumped! The water's freezing!!"))
+    closemessage
+    end
+}
+
+text BerylGrunt11 {
+    format("Aaaah! I'm so cold! Let's fight so I can warm up!")
+}
+
+text BerylGrunt12 {
+    format("This didn't warm me up at all!")
+}
+
+////////////
+
+script BerylChannel_Grunt2 {
+    trainerbattle_single(TRAINER_BERYL_2, BerylGrunt21, BerylGrunt22)
+    msgbox(format("If I'd known you could ride your Pokémon instead of swimming, I wouldn't have gotten wet. Dammit!"))
+    closemessage
+    end
+}
+
+text BerylGrunt21 {
+    format("Hey! You're not swimming! You're riding a Pokémon? We can do that?")
+}
+
+text BerylGrunt22 {
+    format("Oh wow!")
+}
+
+////////////
+
+script BerylChannel_Grunt3 {
+    trainerbattle_single(TRAINER_BERYL_3, BerylGrunt31, BerylGrunt32)
+    msgbox(format("Maybe this is the hypothermia speaking, but I feel real good."))
+    closemessage
+    end
+}
+
+text BerylGrunt31 {
+    format("Hmmm... I've achieved a sense of fullness. Let me show you.")
+}
+
+text BerylGrunt32 {
+    format("Yeah...")
+}
+
+////////////
+
+script BerylChannel_GruntF {
+    lock
+    faceplayer
+    msgbox(format("I don't know how these guys can swim in a sea that cold, but I sure won't get wet. Nuh uh. Even if it means that I'll never leave Virimante."))
+    release
+    end
+}
+
+script BerylChannel_GruntM {
+    lock
+    msgbox(format("Hehehe... No one has tagged this boat... Everyone will now my name!"))
+    release
+    end
+}
+
+script BerylChannel_Admin {
+    lock
+    faceplayer
+    msgbox(format("Haha, are you the kid Barbara was complaining about? You look so frail! I can't believe she let herself get beaten by a scrawny kid like you! Haha! This is golden!"))
+    release
+    end
+}
+
+script BerylChannel_Blocked {
+    lock
+    msgbox(format("(The currents are too strong, it wouldn't be safe going that way.)"))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
+    waitmovement(0)
+    release
+    end
+}
+
+script BerylChannel_Item {
+    lock
+    removeobject(8)
+    giveitem(ITEM_TM07)
+    setflag(FLAG_ITEM_BERYL_1)
+    release
+    end
+}

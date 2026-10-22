@@ -1,0 +1,88 @@
+{
+  "id": "MAP_XATUS_NEST",
+  "name": "XatusNest",
+  "layout": "LAYOUT_XATUS_NEST",
+  "music": "MUS_GSC_ROUTE38",
+  "region_map_section": "MAPSEC_XATUS_NEST",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_HERRON_PRAIRIE",
+      "offset": 20,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ARMYMAN",
+      "x": 23,
+      "y": 51,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ARMY_HERRON"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM38",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_NEST"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NATUEGG",
+      "x": 18,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "XatusNest_Egg",
+      "flag": "FLAG_NATU_EGG_LEAGUE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 6,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_XATU_TENT1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_XATU_TENT2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_XATU_TENT3",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

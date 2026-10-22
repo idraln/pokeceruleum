@@ -1,0 +1,20 @@
+raw `
+VineGrotto_Fossil_MapScripts::
+	.byte 0
+`
+
+script VineGrotto_Fossil_Fossil {
+    lock
+    msgbox(format("This looks like an old fossil. Take it?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        removeobject(1)
+        giveitem(ITEM_ROOT_FOSSIL)
+        setflag(FLAG_FOSSIL_VINE)
+        startquest(QUEST_FOSSIL)
+    }
+    else {
+        msgbox(format("Decided against it."))
+    }
+    release
+    end
+}

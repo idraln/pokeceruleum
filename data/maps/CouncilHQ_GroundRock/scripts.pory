@@ -1,0 +1,75 @@
+raw `
+CouncilHQ_GroundRock_MapScripts::
+	.byte 0
+`
+script CouncilHQ_GroundRock_Battle {
+    lock
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 6) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 7) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right walk_up face_right))
+        waitmovement(0)
+    }
+    playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+    namebox("Gary")
+    msgbox(format("I can't see a thing! I forgot my goggles! Whatever, let's do it! I won't be bothered by my carelessness!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    setflag(FLAG_TRAINERBATTLE)
+    if(var(VAR_MAIN_STORY) < 56) {
+        trainerbattle_no_intro(TRAINER_COUNCIL_ROCK, Gary2)
+    }
+    else {
+        trainerbattle_no_intro(TRAINER_COUNCIL_ROCK_2, Gary2)
+    }
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        namebox("Gary")
+        msgbox(format("Is the fight over? My eyes burn!"))
+        closemessage
+        hidenamebox
+        special(HealPlayerParty)
+        setvar(VAR_COUNCIL_TRIES, 1)
+        setvar(VAR_COUNCIL_FIGHT, 0)
+        setvar(VAR_COUNCIL_ICE, 0)
+        setvar(VAR_COUNCIL_FIRE, 0)
+        setvar(VAR_COUNCIL_ROCK, 0)
+        clearflag(FLAG_COUNCIL_ICE)
+        clearflag(FLAG_COUNCIL_ROCK)
+        clearflag(FLAG_COUNCIL_FIRE)
+        clearflag(FLAG_COUNCIL_FIGHT)
+        warpsilent(MAP_COUNCIL_HQ_LOBBY, 3, 11)
+        releaseall
+        end
+    }
+    else {
+        namebox("Gary")
+        msgbox(format("Great job! Now go, because I'm eating sand everytime I open my mouth."))
+        hidenamebox
+        setvar(VAR_COUNCIL_ROCK, 1)
+        setflag(FLAG_COUNCIL_ROCK)
+        releaseall
+        end
+    }
+}
+
+script CouncilHQ_GroundRock_AfterCombat {
+    
+}
+
+script CouncilHQ_GroundRock_Gary {
+    lock
+    faceplayer
+    namebox("Gary")
+    msgbox(format("{PLAYER}? It was you the whole time? No wonder I lost!!"))
+    hidenamebox
+    release
+    end
+}
+
+text Gary2 {
+    format("What? I've lost? Impossible!")
+}

@@ -1,0 +1,150 @@
+raw `
+ChallengerRd8_MapScripts::
+	.byte 0
+`
+
+script ChallengerRd8_Nurse {
+    lock
+    faceplayer
+    msgbox(format("Hello! You're almost there! Would you like me to heal your party?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Gotcha. Just relax..."))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("Here you go, fully healed!"))
+    }
+    else {
+        msgbox(format("Gotcha. Good luck!"))
+    }
+    release
+    end
+}
+
+script ChallengerRd7_Kristoph {
+    trainerbattle_single(TRAINER_CHALL_13, Kristoph1, Kristoph2)
+    msgbox(format("So close to the goal... Thank Arceus for the nurses. I don't have to go all the way back to the start."))
+    release
+    end
+}
+
+text Kristoph1 {
+    format("First, a cavern filled to the brim with lava, and now, snow? When will it end?")
+}
+
+text Kristoph2 {
+    format("And now I have to do it all over again? Great!")
+}
+
+/////////
+
+script ChallengerRd7_Troy {
+    trainerbattle_single(TRAINER_CHALL_14, Troy1, Troy2)
+    msgbox(format("How the hell did I end up here? I really need to learn to read a map."))
+    release
+    end
+}
+
+text Troy1 {
+    format("Hi, is this the way to Frux?")
+}
+
+text Troy2 {
+    format("It's NOT???")
+}
+
+/////////
+
+script ChallengerRd7_Marine {
+    trainerbattle_single(TRAINER_CHALL_15, Marine1, Marine2)
+    msgbox(format("I'm literally a few steps away from the Council HQ. Why did I decide to stop?"))
+    release
+    end
+}
+
+text Marine1 {
+    format("I'm the last trainer you'll ever face.")
+}
+
+text Marine2 {
+    format("Ok, I quit being a trainer.")
+}
+
+/////////
+
+script ChallengerRd8_Item {
+    lock
+    removeobject(5)
+    giveitem(ITEM_TM13)
+    setflag(FLAG_ITEM_CHALL_5)
+    release
+    end
+}
+
+script ChallengerRd8_Item2 {
+    lock
+    removeobject(6)
+    giveitem(ITEM_ICE_STONE)
+    setflag(FLAG_ITEM_CHALL_6)
+    release
+    end
+}
+
+script ChallengerRd8_Lapras {
+    lock
+    faceplayer
+    if(flag(FLAG_LAPRAS) && flag(FLAG_LAPRAS_COMPLETE)) {
+        msgbox(format("Thank you again! I need to catch one, now."))
+        release
+        end
+    }
+    elif(flag(FLAG_LAPRAS)) {
+        msgbox(format("Have you seen it yet?"))
+        checkspecies(SPECIES_LAPRAS, NO_PARTY_SCREEN)
+        if(var(VAR_RESULT) == TRUE) {
+            applymovement(7, moves(emote_exclamation_mark))
+            waitmovement(0)
+            playse(SE_PIN)
+            delay(40)
+            msgbox(format("That's it! I knew I wasn't crazy! What's it called?"))
+            msgbox(format("..."))
+            msgbox(format("Lapras? What a beautiful name! Thank you so much. As a token of my appreciation, accept this gift."))
+            giveitem(ITEM_FOCUS_SASH)
+            completequest(QUEST_LAPRAS)
+            setflag(FLAG_LAPRAS_COMPLETE)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+       msgbox(format("Have you seen it? A huge Pokémon, it looked like a dinosaur! I swear! I'm not crazy! Please, if you've got one, show it to me. It would mean the world to me."))
+        startquest(QUEST_LAPRAS)
+        setflag(FLAG_LAPRAS)
+        checkspecies(SPECIES_LAPRAS, NO_PARTY_SCREEN)
+        if(var(VAR_RESULT) == TRUE) {
+            applymovement(7, moves(emote_exclamation_mark))
+            waitmovement(0)
+            playse(SE_PIN)
+            delay(40)
+            msgbox(format("That's it! I knew I wasn't crazy! What's it called?"))
+            msgbox(format("..."))
+            msgbox(format("Lapras? What a beautiful name! Thank you so much. As a token of my appreciation, accept this gift."))
+            giveitem(ITEM_FOCUS_SASH)
+            completequest(QUEST_LAPRAS)
+            release
+            end
+        }
+        else {
+            release
+            end
+        } 
+    }
+    
+}

@@ -1,0 +1,114 @@
+raw `
+Xatu_Tent3_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Xatu_Tent3_OnFrame
+	.byte 0
+
+Xatu_Tent3_OnFrame:
+    map_script_2 VAR_SIDE_STORY_RETRO, 1, Xatu_Tent3_Arrival
+    .2byte 0
+`
+
+script Xatu_Tent3_Arrival {
+    lock
+    turnobject(1, DIR_EAST)
+    msgbox(format("Private! Is the machine ready yet? You're taking too long!"))
+    closemessage
+    turnobject(2, DIR_WEST)
+    playse(SE_PIN)
+    applymovement(2, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    applymovement(2, moves(jump_in_place_left))
+    waitmovement(0)
+    msgbox(format("SIR! It's almost ready, sir!"))
+    closemessage
+    turnobject(2, DIR_NORTH)
+    delay(40)
+    turnobject(1, DIR_WEST)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    msgbox(format("Well, you said you were from this town right? Glorray, they called it? There's only one way to figure it out."))
+    closemessage
+    delay(20)
+    turnobject(1, DIR_EAST)
+    delay(20)
+    msgbox(format("See this machine? It's the Army's newest baby. With that, we can delve into the memory of anyone who steps inside it."))
+    closemessage
+    delay(20)
+    turnobject(1, DIR_WEST)
+    delay(20)
+    msgbox(format("It's still in the trial phase... You'll be the perfect subject to test it on. We'll see if you tell the truth."))
+    msgbox(format("..."))
+    msgbox(format("Well, if you tell the truth, you can leave unscathed. But if it appears you lied to us..."))
+    closemessage
+    delay(20)
+    turnobject(2, DIR_WEST)
+    msgbox(format("SIR! The machine is ready for use, sir!"))
+    closemessage
+    turnobject(2, DIR_NORTH)
+    delay(20)
+    turnobject(1, DIR_EAST)
+    playse(SE_PIN)
+    applymovement(1, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(40)
+    msgbox(format("Hahaha... Finally!"))
+    closemessage
+    turnobject(1, DIR_WEST)
+    applymovement(1, moves(walk_right * 6 face_left))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right * 6))
+    waitmovement(0)
+    fadeoutbgm(1)
+    playbgm(MUS_DUMMY, TRUE)
+    msgbox(format("Get in."))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+    waitmovement(0)
+    setmetatile(6, 2, METATILE_ArrayBuilding_DoorDown, FALSE)
+    setmetatile(6, 1, METATILE_ArrayBuilding_DoorUp, FALSE)
+    special(DrawWholeMapView)
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up face_down))
+    waitmovement(0)
+    msgbox(format("Private, close the door, and run the program!"))
+    closemessage
+    turnobject(2, DIR_EAST)
+    delay(20)
+    msgbox(format("SIR! YES SIR!"))
+    closemessage
+    turnobject(2, DIR_NORTH)
+    hideobjectat(OBJ_EVENT_ID_PLAYER, MAP_XATU_TENT3)
+    setmetatile(6, 2, METATILE_ArrayBuilding_DoorClosedDown, FALSE)
+    setmetatile(6, 1, METATILE_ArrayBuilding_DoorClosedUp, FALSE)
+    special(DrawWholeMapView)
+    delay(60)
+    fadescreenspeed(FADE_TO_BLACK, 4)
+    //fadeoutbgm(1)
+    //waitstate
+    delay(40)
+    setflag(FLAG_RETRO_INIT)
+    namebox("Ulrich")
+    msgbox(format("{PLAYER}! How are you so slow? Pick it up!"))
+    hidenamebox
+    fwdtime(10, 00)
+    special(BackupPlayerState)
+    special(InitFlashbackState)
+    setvar(VAR_SIDE_STORY_RETRO, 2)
+    setflag(FLAG_GRANDMA_NEST)
+    setflag(FLAG_BRO_GYM)
+    setvar(VAR_REPEL_STEP_COUNT, 0)
+    clearflag(FLAG_SYS_OPTIONS_DISABLE)
+    clearflag(FLAG_SYS_DISABLE_SAVE)
+    clearflag(FLAG_SYS_PHONE_GET)
+    warpsilent(MAP_XATUS_NEST_RETRO, 17, 38)
+    release
+    end
+}
+
+script Xatu_Tent3_Lieutenant {
+    lock
+    faceplayer
+    msgbox(format("What's up? I have to ask you to keep what you saw here for yourself. Our machine is strictly confidential."))
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}

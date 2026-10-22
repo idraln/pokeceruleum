@@ -6,9 +6,9 @@
       "x": 4,
       "y": 2,
       "respawn_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
       "respawn_x": 2,
-      "respawn_y": 7,
-      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM"
+      "respawn_y": 7
     },
     {
       "id": "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
@@ -16,9 +16,9 @@
       "x": 4,
       "y": 2,
       "respawn_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
       "respawn_x": 8,
-      "respawn_y": 7,
-      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM"
+      "respawn_y": 7
     },
     {
       "id": "HEAL_LOCATION_PETALBURG_CITY",
@@ -98,9 +98,9 @@
       "x": 5,
       "y": 9,
       "respawn_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
       "respawn_x": 2,
-      "respawn_y": 7,
-      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM"
+      "respawn_y": 7
     },
     {
       "id": "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE",
@@ -108,9 +108,9 @@
       "x": 14,
       "y": 9,
       "respawn_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
       "respawn_x": 8,
-      "respawn_y": 7,
-      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM"
+      "respawn_y": 7
     },
     {
       "id": "HEAL_LOCATION_OLDALE_TOWN",
@@ -166,9 +166,9 @@
       "x": 18,
       "y": 6,
       "respawn_map": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+      "respawn_npc": "LOCALID_LEAGUE_NURSE",
       "respawn_x": 3,
-      "respawn_y": 4,
-      "respawn_npc": "LOCALID_LEAGUE_NURSE"
+      "respawn_y": 4
     },
     {
       "id": "HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR",
@@ -186,6 +186,224 @@
       "y": 52,
       "respawn_map": "MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FRONTIER_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ARRAY_RETRO_2",
+      "map": "MAP_ARRAY_RETRO",
+      "x": 9,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_MARINE_CAVE_END",
+      "map": "MAP_MARINE_CAVE_END",
+      "x": 13,
+      "y": 15
+    },
+    {
+      "id": "HEAL_LOCATION_CAPE_EAST",
+      "map": "MAP_CAPE_EAST",
+      "x": 34,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_CAPE_EAST_HOUSE",
+      "map": "MAP_CAPE_EAST_HOUSE",
+      "x": 2,
+      "y": 4
+    },
+    {
+      "id": "HEAL_LOCATION_ROCHEVAL",
+      "map": "MAP_ROCHEVAL",
+      "x": 6,
+      "y": 9,
+      "respawn_map": "MAP_ROCHEVAL_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_ROCHEVAL_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SAPPHIRE_CITY",
+      "map": "MAP_SAPPHIRE_CITY",
+      "x": 46,
+      "y": 33,
+      "respawn_map": "MAP_SAPPHIRE_CITY_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_SAPPHIRE_CITY_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_PETAL_PASS",
+      "map": "MAP_PETAL_PASS",
+      "x": 15,
+      "y": 17
+    },
+    {
+      "id": "HEAL_LOCATION_CRUZEIRA",
+      "map": "MAP_CRUZEIRA",
+      "x": 27,
+      "y": 8,
+      "respawn_map": "MAP_CRUZEIRA_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_CRUZEIRA_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VINE_GROTTO",
+      "map": "MAP_VINE_GROTTO",
+      "x": 29,
+      "y": 20
+    },
+    {
+      "id": "HEAL_LOCATION_LITTORAL_RD",
+      "map": "MAP_LITTORAL_RD",
+      "x": 29,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_CALI",
+      "map": "MAP_CALI",
+      "x": 22,
+      "y": 11,
+      "respawn_map": "MAP_CALI_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_CALI_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_OHULINN",
+      "map": "MAP_OHULINN",
+      "x": 7,
+      "y": 14,
+      "respawn_map": "MAP_OHULINN_POKEMON_CENTER",
+      "respawn_npc": "LOCALID_OHULINN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_BLACKSTONE_RD_EAST",
+      "map": "MAP_BLACKSTONE_RD_EAST",
+      "x": 38,
+      "y": 49
+    },
+    {
+      "id": "HEAL_LOCATION_FIESTA_RD",
+      "map": "MAP_FIESTA_RD",
+      "x": 29,
+      "y": 30
+    },
+    {
+      "id": "HEAL_LOCATION_FIESTA_RD_2",
+      "map": "MAP_FIESTA_RD",
+      "x": 29,
+      "y": 31
+    },
+    {
+      "id": "HEAL_LOCATION_GLASVILLE",
+      "map": "MAP_GLASVILLE",
+      "x": 5,
+      "y": 8,
+      "respawn_map": "MAP_GLASVILLE_PC",
+      "respawn_npc": "LOCALID_GLASVILLE_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VIKKELSON",
+      "map": "MAP_VIKKELSON",
+      "x": 16,
+      "y": 53,
+      "respawn_map": "MAP_VIKKELSON_PC",
+      "respawn_npc": "LOCALID_VIKKELSON_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_PEBBLE_CROSS",
+      "map": "MAP_PEBBLE_CROSS",
+      "x": 46,
+      "y": 18
+    },
+    {
+      "id": "HEAL_LOCATION_FRUX",
+      "map": "MAP_FRUX",
+      "x": 35,
+      "y": 8,
+      "respawn_map": "MAP_FRUX_PC",
+      "respawn_npc": "LOCALID_FRUX_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_PKMN_LEAGUE_HQ",
+      "map": "MAP_PKMN_LEAGUE_HQ",
+      "x": 10,
+      "y": 9,
+      "respawn_map": "MAP_PKMN_LEAGUE_HQ_LOBBY",
+      "respawn_npc": "LOCALID_LEAGUE1_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_JANGALA_RD1",
+      "map": "MAP_JANGALA_RD1",
+      "x": 18,
+      "y": 84
+    },
+    {
+      "id": "HEAL_LOCATION_BAMMOBO",
+      "map": "MAP_BAMMOBO",
+      "x": 14,
+      "y": 4,
+      "respawn_map": "MAP_BAMMOBO_PC",
+      "respawn_npc": "LOCALID_BAMMOBO_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_PASSAQUA_WY_S",
+      "map": "MAP_PASSAQUA_WY_S",
+      "x": 51,
+      "y": 14
+    },
+    {
+      "id": "HEAL_LOCATION_PASSWACAN",
+      "map": "MAP_PASSWACAN",
+      "x": 9,
+      "y": 36,
+      "respawn_map": "MAP_PASSWACAN_PC",
+      "respawn_npc": "LOCALID_PASSWACAN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_OPARQUE",
+      "map": "MAP_OPARQUE",
+      "x": 12,
+      "y": 25,
+      "respawn_map": "MAP_OPARQUE_PC",
+      "respawn_npc": "LOCALID_OPARQUE_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_GLORRAY_RETRO",
+      "map": "MAP_GLORRAY_RETRO",
+      "x": 9,
+      "y": 8,
+      "respawn_map": "MAP_GLORRAY_RETRO_PC",
+      "respawn_npc": "LOCALID_GLORRAY_RETRO_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ARRAY",
+      "map": "MAP_ARRAY",
+      "x": 9,
+      "y": 8
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIMANTE",
+      "map": "MAP_VIRIMANTE",
+      "x": 25,
+      "y": 9,
+      "respawn_map": "MAP_VIRIMANTE_PC",
+      "respawn_npc": "LOCALID_VIRIMANTE_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_COUNCIL_HQ",
+      "map": "MAP_COUNCIL_HQ",
+      "x": 15,
+      "y": 7,
+      "respawn_map": "MAP_COUNCIL_HQ_LOBBY",
+      "respawn_npc": "LOCALID_COUNCIL_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_MISTRALTON_CITY",
+      "map": "MAP_MISTRALTON_CITY",
+      "x": 47,
+      "y": 21,
+      "respawn_map": "MAP_MISTRALTON_CITY_PC",
+      "respawn_npc": "LOCALID_MISTRALTON_NURSE"
     }
   ]
 }

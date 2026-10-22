@@ -1,0 +1,64 @@
+raw `
+DeepSeas_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, DeepSeas_OnFrame
+	.byte 0
+
+DeepSeas_OnFrame:
+    map_script_2 VAR_DEEP_SEAS_CUTSCENE, 0, DeepSeas_Arrival
+    .2byte 0
+`
+
+script DeepSeas_Arrival {
+    lock
+    //fadescreen(FADE_FROM_BLACK)
+    callnative(ClearPlayerParty)
+    clearflag(FLAG_SYS_POKEMON_GET)
+    clearflag(FLAG_SYS_ID_GET)
+    clearflag(FLAG_BADGE01_GET)
+    clearflag(FLAG_BADGE02_GET)
+    clearflag(FLAG_BADGE03_GET)
+    clearflag(FLAG_BADGE04_GET)
+    clearflag(FLAG_BADGE05_GET)
+    clearflag(FLAG_BADGE06_GET)
+    clearflag(FLAG_BADGE07_GET)
+    clearflag(FLAG_BADGE08_GET)
+    removemoney(999999)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerPlank)
+    waitmovement(0)
+    msgbox(format("(...Ugh...)\p(What happened?)\p(Where am I? My head hurts so bad...)"))
+    setvar(VAR_DEEP_SEAS_CUTSCENE, 1)
+    release
+    end
+}
+
+script DeepSeas_Boat {
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerBoat)
+    applymovement(1, moves(face_left walk_fast_left * 7))
+    waitmovement(0)
+    msgbox(format("Hey! Are you OK? It's dangerous to be out there! Get on the boat, quick!"))
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    delay(40)
+    warpsilent(MAP_CAPE_EAST_HOUSE, 1, 4)
+    setrespawn(HEAL_LOCATION_CAPE_EAST_HOUSE)
+    releaseall
+    end
+}
+
+
+movement PlayerPlank {
+    face_right
+    delay_16
+    face_left
+    delay_16
+    face_down
+    delay_16
+    face_up
+    delay_16
+    emote_question_mark
+}
+
+movement PlayerBoat {
+    face_right
+}

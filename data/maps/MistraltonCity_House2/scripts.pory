@@ -1,0 +1,26 @@
+raw `
+MistraltonCity_House2_MapScripts::
+	.byte 0
+`
+
+script MistraltonCity_House2_Maniac {
+    lock
+    faceplayer
+    msgbox(format("I'm watching Prof. Oak's TV Show... I'm learning so much..."))
+    closemessage
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}
+
+script MistraltonCity_House2_TV {
+    lock
+    applymovement(1, moves(jump_in_place_up * 2))
+    waitmovement(0)
+    msgbox(format("Hey! I can't see a thing, MOVE!"))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+    waitmovement(0)
+    release
+    end
+}

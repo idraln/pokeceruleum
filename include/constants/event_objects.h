@@ -246,11 +246,127 @@
 #define OBJ_EVENT_GFX_POKE_BALL                  239
 #define OBJ_EVENT_GFX_OW_MON                     240
 #define OBJ_EVENT_GFX_LIGHT_SPRITE               241
+#define OBJ_EVENT_GFX_HELICOPTER                 242
+#define OBJ_EVENT_GFX_LAILA                      243
+#define OBJ_EVENT_GFX_GRUNTM                     244
+#define OBJ_EVENT_GFX_GRUNTF                     245
+#define OBJ_EVENT_GFX_ADMINM                     246
+#define OBJ_EVENT_GFX_ADMINF                     247
+#define OBJ_EVENT_GFX_AFRICANAMERICANW           248
+#define OBJ_EVENT_GFX_SAM                        249
+#define OBJ_EVENT_GFX_CORINNA                    250
+#define OBJ_EVENT_GFX_WORKERM                    251
+#define OBJ_EVENT_GFX_WORKERF                    252
+#define OBJ_EVENT_GFX_BRUCE                      253
+#define OBJ_EVENT_GFX_ERMITE                     254
+#define OBJ_EVENT_GFX_MANRETRO                   255
+#define OBJ_EVENT_GFX_WOMANRETRO                 256
+#define OBJ_EVENT_GFX_KIDRETRO                   257
+#define OBJ_EVENT_GFX_LASSRETRO                  258
+#define OBJ_EVENT_GFX_BUGRETRO                   259
+#define OBJ_EVENT_GFX_GRANDMARETRO               260
+#define OBJ_EVENT_GFX_BRORETRO                   261
+#define OBJ_EVENT_GFX_NURSERETRO                 262
+#define OBJ_EVENT_GFX_KAM                        263
+#define OBJ_EVENT_GFX_ANDRE                      264
+#define OBJ_EVENT_GFX_ARMYMAN                    265
+#define OBJ_EVENT_GFX_BROMASKED                  266
+#define OBJ_EVENT_GFX_BRO                        267
+#define OBJ_EVENT_GFX_OLDMANRETRO                268
+#define OBJ_EVENT_GFX_GRUNTFSWIM                 269
+#define OBJ_EVENT_GFX_GRUNTMSWIM                 270
+#define OBJ_EVENT_GFX_NATUEGG                    271
+#define OBJ_EVENT_GFX_DIVER                      272
+#define OBJ_EVENT_GFX_REMORAID2                  273
+#define OBJ_EVENT_GFX_SCIENTISTF                 274
+#define OBJ_EVENT_GFX_ANAIS                      275
+#define OBJ_EVENT_GFX_PERSIANOW                  276
+#define OBJ_EVENT_GFX_XATUOW                     277
+#define OBJ_EVENT_GFX_XATUCORRUPTED              278
+#define OBJ_EVENT_GFX_DIANCIEOW                  279
+#define OBJ_EVENT_GFX_PASTORAL                   280
+#define OBJ_EVENT_GFX_COLLEEN                    281
+#define OBJ_EVENT_GFX_MARTIN                     282
+#define OBJ_EVENT_GFX_POMME                      283
+#define OBJ_EVENT_GFX_GARY                       284
+//
+#define OBJ_EVENT_GFX_HERO_BALD_LIGHT_WALKING        285
+#define OBJ_EVENT_GFX_HERO_BALD_LIGHT_RUNNING        286
+#define OBJ_EVENT_GFX_HERO_BALD_LIGHT_SURFING        287
+#define OBJ_EVENT_GFX_HERO_BALD_LIGHT_FISHING        288
+#define OBJ_EVENT_GFX_HERO_BALD_LIGHT_FIELD          289
+//
+#define OBJ_EVENT_GFX_HERO_SHORT_LIGHT_WALKING        290
+#define OBJ_EVENT_GFX_HERO_SHORT_LIGHT_RUNNING        291
+#define OBJ_EVENT_GFX_HERO_SHORT_LIGHT_SURFING        292
+#define OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FISHING        293
+#define OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FIELD          294
+//
+#define OBJ_EVENT_GFX_HERO_LONG_LIGHT_WALKING        295
+#define OBJ_EVENT_GFX_HERO_LONG_LIGHT_RUNNING        296
+#define OBJ_EVENT_GFX_HERO_LONG_LIGHT_SURFING        297
+#define OBJ_EVENT_GFX_HERO_LONG_LIGHT_FISHING        298
+#define OBJ_EVENT_GFX_HERO_LONG_LIGHT_FIELD          299
+//
+#define OBJ_EVENT_GFX_HERO_BALD_MEDIUM_WALKING        300
+#define OBJ_EVENT_GFX_HERO_BALD_MEDIUM_RUNNING        301
+#define OBJ_EVENT_GFX_HERO_BALD_MEDIUM_SURFING        302
+#define OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FISHING        303
+#define OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FIELD          304
+//
+#define OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_WALKING        305
+#define OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_RUNNING        306
+#define OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_SURFING        307
+#define OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FISHING        308
+#define OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FIELD          309
+//
+#define OBJ_EVENT_GFX_HERO_LONG_MEDIUM_WALKING        310
+#define OBJ_EVENT_GFX_HERO_LONG_MEDIUM_RUNNING        311
+#define OBJ_EVENT_GFX_HERO_LONG_MEDIUM_SURFING        312
+#define OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FISHING        313
+#define OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FIELD          314
+//
+#define OBJ_EVENT_GFX_HERO_BALD_DARK_WALKING        315
+#define OBJ_EVENT_GFX_HERO_BALD_DARK_RUNNING        316
+#define OBJ_EVENT_GFX_HERO_BALD_DARK_SURFING        317
+#define OBJ_EVENT_GFX_HERO_BALD_DARK_FISHING        318
+#define OBJ_EVENT_GFX_HERO_BALD_DARK_FIELD          319
+//
+#define OBJ_EVENT_GFX_HERO_SHORT_DARK_WALKING        320
+#define OBJ_EVENT_GFX_HERO_SHORT_DARK_RUNNING        321
+#define OBJ_EVENT_GFX_HERO_SHORT_DARK_SURFING        322
+#define OBJ_EVENT_GFX_HERO_SHORT_DARK_FISHING        323
+#define OBJ_EVENT_GFX_HERO_SHORT_DARK_FIELD          324
+//
+#define OBJ_EVENT_GFX_HERO_LONG_DARK_WALKING        325
+#define OBJ_EVENT_GFX_HERO_LONG_DARK_RUNNING        326
+#define OBJ_EVENT_GFX_HERO_LONG_DARK_SURFING        327
+#define OBJ_EVENT_GFX_HERO_LONG_DARK_FISHING        328
+#define OBJ_EVENT_GFX_HERO_LONG_DARK_FIELD          329
+//
+#define OBJ_EVENT_GFX_HERO_BALD_UNDERWATER        330
+#define OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER        331
+#define OBJ_EVENT_GFX_HERO_LONG_UNDERWATER        332
+//
+#define OBJ_EVENT_GFX_HERO_RETRO_LIGHT_SHORT        333
+#define OBJ_EVENT_GFX_HERO_RETRO_LIGHT_LONG        334
+//
+#define OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_SHORT        335
+#define OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_LONG        336
+//
+#define OBJ_EVENT_GFX_HERO_RETRO_DARK_SHORT        337
+#define OBJ_EVENT_GFX_HERO_RETRO_DARK_LONG        338
+
+#define OBJ_EVENT_GFX_POLICEMAN                       339
+
+#define OBJ_EVENT_GFX_HERO_LIGHT_ACRO        340
+#define OBJ_EVENT_GFX_HERO_MEDIUM_ACRO        341
+#define OBJ_EVENT_GFX_HERO_DARK_ACRO        342
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        242
+#define NUM_OBJ_EVENT_GFX                        343
 
 
 // These are dynamic object gfx ids.
@@ -380,6 +496,121 @@
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
 #define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1124
+#define OBJ_EVENT_PAL_HELICOPTER                  0x1125
+#define OBJ_EVENT_PAL_LAILA                       0x1126
+#define OBJ_EVENT_PAL_GRUNTM                      0x1127
+#define OBJ_EVENT_PAL_GRUNTF                      0x1128
+#define OBJ_EVENT_PAL_ADMINM                      0x1129
+#define OBJ_EVENT_PAL_ADMINF                      0x112A
+#define OBJ_EVENT_PAL_AFRICANAMERICANW            0x112B
+#define OBJ_EVENT_PAL_SAM                         0x112C
+#define OBJ_EVENT_PAL_CORINNA                     0x112D
+#define OBJ_EVENT_PAL_WORKERM                     0x112E
+#define OBJ_EVENT_PAL_WORKERF                     0x112F
+#define OBJ_EVENT_PAL_BRUCE                       0x1130
+#define OBJ_EVENT_PAL_ERMITE                      0x1131
+#define OBJ_EVENT_PAL_MANRETRO                    0x1132
+#define OBJ_EVENT_PAL_WOMANRETRO                  0x1133
+#define OBJ_EVENT_PAL_KIDRETRO                    0x1134
+#define OBJ_EVENT_PAL_LASSRETRO                   0x1135
+#define OBJ_EVENT_PAL_BUGRETRO                    0x1136
+#define OBJ_EVENT_PAL_GRANDMARETRO                0x1137
+#define OBJ_EVENT_PAL_BRORETRO                    0x1138
+#define OBJ_EVENT_PAL_NURSERETRO                  0x1139
+#define OBJ_EVENT_PAL_KAM                         0x113A
+#define OBJ_EVENT_PAL_ANDRE                       0x113B
+#define OBJ_EVENT_PAL_ARMYMAN                     0x113C
+#define OBJ_EVENT_PAL_BROMASKED                   0x113D
+#define OBJ_EVENT_PAL_BRO                         0x113E
+#define OBJ_EVENT_PAL_OLDMANRETRO                 0x113F
+#define OBJ_EVENT_PAL_GRUNTFSWIM                  0x1140
+#define OBJ_EVENT_PAL_GRUNTMSWIM                  0x1141
+#define OBJ_EVENT_PAL_NATUEGG                     0x1142
+#define OBJ_EVENT_PAL_DIVER                       0x1143
+#define OBJ_EVENT_PAL_REMORAID2                   0x1144
+#define OBJ_EVENT_PAL_SCIENTISTF                  0x1145
+#define OBJ_EVENT_PAL_ANAIS                       0x1146
+#define OBJ_EVENT_PAL_PERSIANOW                   0x1147
+#define OBJ_EVENT_PAL_XATUOW                      0x1148
+#define OBJ_EVENT_PAL_XATUCORRUPTED               0x1149
+#define OBJ_EVENT_PAL_DIANCIEOW                   0x114A
+#define OBJ_EVENT_PAL_PASTORAL                    0x114B
+#define OBJ_EVENT_PAL_COLLEEN                     0x114C
+#define OBJ_EVENT_PAL_MARTIN                      0x114D
+#define OBJ_EVENT_PAL_POMME                       0x114E
+#define OBJ_EVENT_PAL_GARY                        0x114F
+#define OBJ_EVENT_PAL_POLICEMAN                        0x1150
+//
+#define OBJ_EVENT_PAL_HERO_BALD_LIGHT_WALKING                        0x116B
+#define OBJ_EVENT_PAL_HERO_BALD_LIGHT_RUNNING                        0x116C
+#define OBJ_EVENT_PAL_HERO_BALD_LIGHT_SURFING                        0x116D
+#define OBJ_EVENT_PAL_HERO_BALD_LIGHT_FISHING                        0x116E
+#define OBJ_EVENT_PAL_HERO_BALD_LIGHT_FIELD                        0x116F
+//
+#define OBJ_EVENT_PAL_HERO_SHORT_LIGHT_WALKING                        0x1170
+#define OBJ_EVENT_PAL_HERO_SHORT_LIGHT_RUNNING                        0x1171
+#define OBJ_EVENT_PAL_HERO_SHORT_LIGHT_SURFING                        0x1172
+#define OBJ_EVENT_PAL_HERO_SHORT_LIGHT_FISHING                        0x1173
+#define OBJ_EVENT_PAL_HERO_SHORT_LIGHT_FIELD                        0x1174
+//
+#define OBJ_EVENT_PAL_HERO_LONG_LIGHT_WALKING                        0x1175
+#define OBJ_EVENT_PAL_HERO_LONG_LIGHT_RUNNING                        0x1176
+#define OBJ_EVENT_PAL_HERO_LONG_LIGHT_SURFING                        0x1177
+#define OBJ_EVENT_PAL_HERO_LONG_LIGHT_FISHING                        0x1178
+#define OBJ_EVENT_PAL_HERO_LONG_LIGHT_FIELD                        0x1179
+//
+#define OBJ_EVENT_PAL_HERO_BALD_MEDIUM_WALKING                        0x117A
+#define OBJ_EVENT_PAL_HERO_BALD_MEDIUM_RUNNING                        0x117B
+#define OBJ_EVENT_PAL_HERO_BALD_MEDIUM_SURFING                        0x117C
+#define OBJ_EVENT_PAL_HERO_BALD_MEDIUM_FISHING                        0x117D
+#define OBJ_EVENT_PAL_HERO_BALD_MEDIUM_FIELD                        0x117E
+//
+#define OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_WALKING                        0x117F
+#define OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_RUNNING                        0x1180
+#define OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_SURFING                        0x1181
+#define OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_FISHING                        0x1182
+#define OBJ_EVENT_PAL_HERO_SHORT_MEDIUM_FIELD                        0x1183
+//
+#define OBJ_EVENT_PAL_HERO_LONG_MEDIUM_WALKING                        0x1184
+#define OBJ_EVENT_PAL_HERO_LONG_MEDIUM_RUNNING                        0x1185
+#define OBJ_EVENT_PAL_HERO_LONG_MEDIUM_SURFING                        0x1186
+#define OBJ_EVENT_PAL_HERO_LONG_MEDIUM_FISHING                        0x1187
+#define OBJ_EVENT_PAL_HERO_LONG_MEDIUM_FIELD                        0x1188
+//
+#define OBJ_EVENT_PAL_HERO_BALD_DARK_WALKING                        0x1189
+#define OBJ_EVENT_PAL_HERO_BALD_DARK_RUNNING                        0x118A
+#define OBJ_EVENT_PAL_HERO_BALD_DARK_SURFING                        0x118B
+#define OBJ_EVENT_PAL_HERO_BALD_DARK_FISHING                        0x118C
+#define OBJ_EVENT_PAL_HERO_BALD_DARK_FIELD                        0x118D
+//
+#define OBJ_EVENT_PAL_HERO_SHORT_DARK_WALKING                        0x118E
+#define OBJ_EVENT_PAL_HERO_SHORT_DARK_RUNNING                        0x118F
+#define OBJ_EVENT_PAL_HERO_SHORT_DARK_SURFING                        0x1190
+#define OBJ_EVENT_PAL_HERO_SHORT_DARK_FISHING                        0x1191
+#define OBJ_EVENT_PAL_HERO_SHORT_DARK_FIELD                        0x1192
+//
+#define OBJ_EVENT_PAL_HERO_LONG_DARK_WALKING                        0x1193
+#define OBJ_EVENT_PAL_HERO_LONG_DARK_RUNNING                        0x1194
+#define OBJ_EVENT_PAL_HERO_LONG_DARK_SURFING                        0x1195
+#define OBJ_EVENT_PAL_HERO_LONG_DARK_FISHING                        0x1196
+#define OBJ_EVENT_PAL_HERO_LONG_DARK_FIELD                        0x1197
+//
+#define OBJ_EVENT_PAL_HERO_BALD_UNDERWATER                        0x1198
+#define OBJ_EVENT_PAL_HERO_SHORT_UNDERWATER                        0x1199
+#define OBJ_EVENT_PAL_HERO_LONG_UNDERWATER                        0x119A
+//
+#define OBJ_EVENT_PAL_HERO_RETRO_LIGHT_SHORT        0x11A0
+#define OBJ_EVENT_PAL_HERO_RETRO_LIGHT_LONG        0x11A1
+//
+#define OBJ_EVENT_PAL_HERO_RETRO_MEDIUM_SHORT        0x11A2
+#define OBJ_EVENT_PAL_HERO_RETRO_MEDIUM_LONG        0x11A3
+//
+#define OBJ_EVENT_PAL_HERO_RETRO_DARK_SHORT        0x11A4
+#define OBJ_EVENT_PAL_HERO_RETRO_DARK_LONG        0x11A5
+
+#define OBJ_EVENT_PAL_HERO_LIGHT_ACRO                        0x11A6
+#define OBJ_EVENT_PAL_HERO_MEDIUM_ACRO                        0x11A7
+#define OBJ_EVENT_PAL_HERO_DARK_ACRO                        0x11A8
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

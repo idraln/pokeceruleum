@@ -1,0 +1,48 @@
+raw `
+Frux_Mart_MapScripts::
+	.byte 0
+`
+
+script Frux_Mart_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Frux's mart! How can I help you today?"))
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thanks for shopping with us! Come back soon!"))
+    release
+    end
+}
+
+script Frux_Mart_Camper {
+    lock
+    faceplayer
+    msgbox(format("Since the dorms are exclusively for the workers, I need to buy a tent. But they don't sell them here... Guess who's gonna sleep under the stars?"))
+    release
+    end
+}
+
+mart Frux_Mart_Items {
+    ITEM_SUPER_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_BURN_HEAL
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_IRON
+    ITEM_IRON_BALL
+}

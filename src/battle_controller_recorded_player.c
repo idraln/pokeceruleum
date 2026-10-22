@@ -28,6 +28,7 @@
 #include "constants/battle_anim.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "event_data.h"
 
 static void RecordedPlayerHandleDrawTrainerPic(u32 battler);
 static void RecordedPlayerHandleTrainerSlideBack(u32 battler);
@@ -402,10 +403,31 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler)
     u32 trainerPicId;
     const u16 *trainerPal;
 
+    u8 skin = VarGet(VAR_SKIN_COMPLEXION);
+    u8 hair = VarGet(VAR_HAIRCUT);
+
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender + TRAINER_BACK_PIC_BRENDAN;
     else
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+        //trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+        if(skin == 0 && hair == 0)
+            trainerPicId = TRAINER_BACK_PIC_HERO_BALD_LIGHT;
+        else if(skin == 0 && hair == 1)
+            trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_LIGHT;
+        else if(skin == 0 && hair == 2)
+            trainerPicId = TRAINER_BACK_PIC_HERO_LONG_LIGHT;
+        else if(skin == 1 && hair == 0)
+            trainerPicId = TRAINER_BACK_PIC_HERO_BALD_MEDIUM;
+        else if(skin == 1 && hair == 1)
+            trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_MEDIUM;
+        else if(skin == 1 && hair == 2)
+            trainerPicId = TRAINER_BACK_PIC_HERO_LONG_MEDIUM;
+        else if(skin == 2 && hair == 0)
+            trainerPicId = TRAINER_BACK_PIC_HERO_BALD_DARK;
+        else if(skin == 2 && hair == 1)
+            trainerPicId = TRAINER_BACK_PIC_HERO_SHORT_DARK;
+        else
+            trainerPicId = TRAINER_BACK_PIC_HERO_LONG_DARK;
 
     trainerPal = gTrainerBacksprites[trainerPicId].palette.data;
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, trainerPal, 24, Intro_TryShinyAnimShowHealthbox);

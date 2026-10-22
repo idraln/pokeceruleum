@@ -3358,7 +3358,7 @@ Route123_Text_BraxtonDefeat:
 	.string "Oh, you're worthy, all right!$"
 
 Route123_Text_BraxtonPostBattle:
-	.string "You did your BADGES proud in that\n"
+	.string "You did your emblems proud in that\n"
 	.string "match!$"
 
 Route123_Text_VioletIntro:

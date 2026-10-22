@@ -1,0 +1,25 @@
+raw `
+Glasville_HouseC_MapScripts::
+	.byte 0
+`
+
+script Glasville_HouseC_Pokeball {
+    lock
+    removeobject(1)
+    setflag(FLAG_POKEMON_GLASVILLE)
+    givemon(SPECIES_ABSOL, 25, ITEM_ABSOLITE)
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+        playfanfare(MUS_LEVEL_UP)
+        msgbox(format("You just received an Absol!"))
+        call(NicknamePokemon)
+    }
+    elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+        playfanfare(MUS_LEVEL_UP)
+        msgbox(format("You just received an Absol!"))
+        call(NicknameBoxmon)
+    }
+    completequest(QUEST_EMPTY_HOUSE)
+    setvar(VAR_HOUSE_GLASVILLE, 3)
+    release
+    end
+}

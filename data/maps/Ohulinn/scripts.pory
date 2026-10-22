@@ -1,0 +1,98 @@
+raw `
+Ohulinn_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Ohulinn_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Ohulinn_OnFrame
+	.byte 0
+
+Ohulinn_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 15, Ohulinn_UnknownCaller
+    .2byte 0
+`
+
+script Ohulinn_OnTransition {
+    setflag(FLAG_VISITED_OHULINN)
+}
+
+script Ohulinn_UnknownCaller {
+    lockall
+    faceplayer
+    pokenavcall(OhulinnCall)
+    waitmessage
+    setvar(VAR_MAIN_STORY, 16)
+    setflag(FLAG_PARTY_GOERS)
+    setflag(FLAG_BLACKSTONE_NPC)
+    clearflag(FLAG_BLACKSTONE_TRAINERS)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_LOST_BOY_1, 0)
+    setvar(VAR_LOST_BOY_2, 0)
+    releaseall
+    end
+}
+
+script Ohulinn_Man {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Ohulinn! Don't get weirded out by the wind, it's usually stronger than that."))
+    release
+    end
+}
+
+script Ohulinn_Woman {
+    lock
+    faceplayer
+    msgbox(format("I came here thinking I could go and dive to witness the depths of Ohulinn, but the currents are too strong..."))
+    release
+    end
+}
+
+script Ohulinn_Old {
+    lock
+    faceplayer
+    msgbox(format("Hmmm... The wind hitting my face makes me feel young again. Vigorous, even."))
+    turnobject(4, DIR_EAST)
+    release
+    end
+}
+
+script Ohulinn_Boy {
+    if(flag(FLAG_OHULINN_HEADBUTT)) {
+        lock
+        faceplayer
+        msgbox(format("Hey! Found any surprises yet?"))
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(format("You can Headbutt trees like these ones! Well, not you, but your Pokémons. Try this!"))
+        giveitem(ITEM_TM02)
+        msgbox(format("When you stand in front of a tree, make your Pokémon Headbutt it, and you'll get a surprise!"))
+        setflag(FLAG_OHULINN_HEADBUTT)
+        release
+        end
+    }
+}
+
+script Ohulinn_Sign {
+    lockall
+    msgbox(format("Ohulinn\nWhere the wind never sets."))
+    releaseall
+    end
+}
+
+text OhulinnCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "...Hi. {PLAYER}, is that right?\p"
+    "… … … … … …\p"
+    "I know what happened to you.\n"
+    "And to your Xatu.\p"
+    "… … … … … …\p"
+    "Meet me in Vikkelson.\n"
+    "Northeast of Sapphire City.\l"
+    "Come to the mansion.\l"
+    "Center of the city.\l"
+    "You can't miss it.\l"
+    "Don't tell anyone I called.\p"
+    "… … … … … …\n… … … … … Click!"
+}

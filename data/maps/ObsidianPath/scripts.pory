@@ -1,0 +1,66 @@
+raw `
+ObsidianPath_MapScripts::
+	.byte 0
+`
+
+script ObsidianPath_LostHiker {
+    lock
+    faceplayer
+    msgbox(format("That's one hell of a hike, eh? Want to rest with me? We'll settle a bivouac."), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Wise choice, kid. Here, let me heal your party."))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("See? Nothing more soothing than a camp in a moist, scary cave."))
+    }
+    else {
+        msgbox(format("Heh, it's up to you, kiddo. If you ever change your mind, I'll be right here."))
+    }
+    release
+    end
+}
+
+script ObsidianPath_Item {
+    lock
+    removeobject(3)
+    giveitem(ITEM_TM30)
+    setflag(FLAG_ITEM_OBSIDIAN_1)
+    release
+    end
+}
+
+script ObsidianPath_Joanne {
+    trainerbattle_single(TRAINER_OBSIDIAN_1, Joanne1, Joanne2)
+    msgbox(format("Leave me alone! Leave me alone!"))
+    release
+    end
+}
+
+text Joanne1 {
+    format("Leave me alone!")
+}
+
+text Joanne2 {
+    format("Leave... Me...")
+}
+
+/////
+
+script ObsidianPath_Julian {
+    trainerbattle_single(TRAINER_OBSIDIAN_2, Julian1, Julian2)
+    msgbox(format("Woah, this place sure is scary! But is there any bug Pokémon in here? I might stay a little longer, actually."))
+    release
+    end
+}
+
+text Julian1 {
+    format("This is not the retreat, is it?")
+}
+
+text Julian2 {
+    format("That's what I thought...")
+}

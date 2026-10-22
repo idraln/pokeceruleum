@@ -1,0 +1,220 @@
+raw `
+Frux_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Frux_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Frux_OnFrame
+    .byte 0
+
+Frux_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 36, Frux_SamCall
+    .2byte 0
+`
+
+script Frux_OnTransition {
+    setflag(FLAG_VISITED_FRUX)
+}
+
+script Frux_SamCall {
+    lockall
+    faceplayer
+    pokenavcall(FruxCall)
+    waitmessage
+    setvar(VAR_MAIN_STORY, 37)
+    setflag(FLAG_EARTHQUAKE)
+    releaseall
+    end
+}
+
+text FruxCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Sam: ...Hey, {PLAYER}?\p"
+    "… … … … … …\p"
+    "Bruce called me, and he seemed\n"
+    "worried, do you know what's up?\n"
+    "… … … … … …\p"
+    "Oh Arceus almighty, that's\n"
+    "terrible! How can I help?\p"
+    "… … … … … …\p"
+    "Gotcha, coming right now!\n"
+    "I got super strong in the\l"
+    "meantime, I could really be of\l"
+    "some help!\p"
+    "… … … … … …\n… … … … … Click!"
+}
+
+script Frux_Hiker {
+    lock
+    faceplayer
+    msgbox(format("Thank Arceus for that little town, I couldn't imagine hiking from Sapphire to the Ironair in one go."))
+    release
+    end
+}
+
+script Frux_Worker1 {
+    lock
+    faceplayer
+    if(flag(FLAG_QUEST_RUBIES) && flag(FLAG_QUEST_RUBIES_COMPLETE)) {
+        msgbox(format("Oi, what's up? Dug any treasures yet?"))
+        release
+        end
+    }
+    elif(flag(FLAG_QUEST_RUBIES)) {
+        checkitem(ITEM_STAR_PIECE)
+        if(var(VAR_RESULT) == TRUE) {
+            msgbox(format("So? Have you dug some?..."))
+            closemessage
+            delay(20)
+            playse(SE_PIN)
+            applymovement(4, moves(emote_exclamation_mark))
+            waitmovement(0)
+            delay(40)
+            msgbox(format("What? Star pieces? Damn, I was wrong?? Nonsense!"))
+            msgbox(format("..."))
+            msgbox(format("Well, you've got me. Thanks for proving me wrong, I guess?"))
+            msgbox(format("..."))
+            msgbox(format("No, I've got no rewards for you. I've already given you mining tools, what more do you want from me?"))
+            completequest(QUEST_RUBIES)
+            setflag(FLAG_QUEST_RUBIES_COMPLETE)
+            release
+            end
+        }
+        else {
+            msgbox(format("So? Have you dug some?..."))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("I saw some rubies in the Ironair! They were shaped like a star, too! I swear, go check yourself!"))
+        msgbox(format("..."))
+        msgbox(format("Oh yeah! You'll need some tools to mine! You can't do it with your bare hands, haha. Take this!"))
+        giveitem(ITEM_GOLD_TEETH)
+        msgbox(format("Just go in the Ironair, stand in front of a cracked wall and start mining! And no, it's not a trick to make you do my work. Now go!"))
+        setflag(FLAG_QUEST_RUBIES)
+        startquest(QUEST_RUBIES)
+        release
+        end
+    }
+}
+
+script Frux_Newbie {
+    lock
+    faceplayer
+    msgbox(format("Haha, yes!! I've finally been accepted on Bruce's team! I'm gonna mine until there's nothing left! Yeah! Take that!"))
+    release
+    end
+}
+
+script Frux_Worker2 {
+    lock
+    faceplayer
+    checkitem(ITEM_TM04)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("So, was I right?"))
+    }
+    else {
+        msgbox(format("The hardest part about working in a steel foundry is the noise metal makes when it hits the floor. I swear, listen to it!"))
+        giveitem(ITEM_TM04)
+    }
+    release
+    end
+}
+
+script Frux_Picnicker {
+    lock
+    faceplayer
+    msgbox(format("I don't understand, why are the dorms only reserved for the workers? I'm tired too, come on!"))
+    release
+    end
+}
+
+script Frux_Sign {
+    lockall
+    msgbox(format("Frux\n'Its will is stronger than steel.'"))
+    releaseall
+    end
+}
+
+script Frux_Cameraman {
+    lock
+    faceplayer
+    msgbox(format("Move! You're ruining the shot!"))
+    release
+    end
+}
+
+script Frux_Scott {
+    lock
+    faceplayer
+    if(flag(FLAG_BADGE04_GET) && flag(FLAG_TRIATHLON_QUEST_STARTED)) {
+        msgbox(format("Hey, trainer! Do you think you've got the cardio to finish first in the Triathlon?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Alright, I like your attitude! Let's meet up on Oxide Trail!"))
+            fadescreen(FADE_TO_BLACK)
+            setvar(VAR_TRIATHLON, 1)
+            clearflag(FLAG_TRIATHLON_NPC)
+            setflag(FLAG_HIDE_NPC_TRIATHLON)
+            setflag(FLAG_SCOTT_TRIATHLON)
+            clearflag(FLAG_TRAINERS_TRIATHLON)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            setvar(VAR_TRIATHLON_TIME, 0)
+            setflag(FLAG_CANT_FLY)
+            setflag(FLAG_TRIATHLON)
+            warpsilent(MAP_OXIDE_TRAIL, 13, 11)
+            release
+            end
+        }
+        else {
+            msgbox(format("Haha, don't sweat it! Come back when you feel ready!"))
+            release
+            end
+        }
+    }
+    elif(flag(FLAG_BADGE04_GET)) {
+        msgbox(format("Hey, trainer! I'm Scott from Hoenn, and I've created Thura's most challenging event: the Triathlon! Do you think you've got the cardio to finish first?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Alright, I like your attitude! Let's meet up on Oxide Trail!"))
+            startquest(QUEST_TRIATHLON)
+            setflag(FLAG_TRIATHLON_QUEST_STARTED)
+            fadescreen(FADE_TO_BLACK)
+            setvar(VAR_TRIATHLON, 1)
+            clearflag(FLAG_TRIATHLON_NPC)
+            setflag(FLAG_HIDE_NPC_TRIATHLON)
+            setflag(FLAG_SCOTT_TRIATHLON)
+            clearflag(FLAG_TRAINERS_TRIATHLON)
+            setflag(FLAG_HIDE_MAP_NAME_POPUP)
+            setvar(VAR_TRIATHLON_TIME, 0)
+            setflag(FLAG_CANT_FLY)
+            setflag(FLAG_TRIATHLON)
+            warpsilent(MAP_OXIDE_TRAIL, 13, 11)
+            release
+            end
+        }
+        else {
+            msgbox(format("Haha, don't sweat it! Come back when you feel ready!"))
+            setflag(FLAG_TRIATHLON_QUEST_STARTED)
+            startquest(QUEST_TRIATHLON)
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Hey, trainer! I'm Scott from Hoenn, and I've created Thura's most challenging event: the Triathlon! It goes from Oxide Trail all the way to Passwacan! I'm still prepping it, though. Come back and see me once you've earned your fourth emblem."))
+        release
+        end
+    }
+}
+
+script Frux_Johanna {
+    trainerbattle_single(TRAINER_TRIATHLON_1, Johanna1, Johanna2)
+    msgbox(format("Damn Arceus! All those hours of training for nothing!"))
+    closemessage
+    end
+}
+
+text Johanna1 {
+    format("My bike popped out of gear! This is a disaster!")
+}
+
+text Johanna2 {
+    format("What am I gonna do now?")
+}

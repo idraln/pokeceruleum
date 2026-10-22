@@ -1,0 +1,57 @@
+raw `
+Passwacan_House1_MapScripts::
+	.byte 0
+`
+
+script Passwacan_House1_Elder {
+    lock
+    faceplayer
+    if(flag(FLAG_100_PERCENT)) {
+        msgbox(format("Welcome back, young one. How are your adventures going? Well, I hope."))
+        closemessage
+        if(flag(FLAG_QUEST_DUSK_COMPLETE) && flag(FLAG_QUEST_MOTHER_COMPLETE) && flag(FLAG_QUEST_VIKKIE_COMPLETE) && flag(FLAG_LAPRAS_COMPLETE) && flag(FLAG_POKEDEX_COMPLETED) && flag(FLAG_BOT_HOMEWORK) && flag(FLAG_QUEST_INTRUDER_COMPLETE) && flag(FLAG_QUEST_RUBIES_COMPLETE) && var(VAR_HOUSE_GLASVILLE) == 3 && flag(FLAG_FOSSIL_REVIVED) && var(VAR_DISAPPEARANCE) == 3 && flag(FLAG_EMBLEMS_COMPLETE) && var(VAR_QUEST_HERMIT) == 6 && flag(FLAG_QUEST_SAM_COMPLETE) && flag(FLAG_TRIATHLON_COMPLETED) && flag(FLAG_PASTORAL_EKA) && flag(FLAG_QUEST_SHARDS_COMPLETE) && var(VAR_MAIN_STORY) == 58 && flag(FLAG_PRESIDENT_QUEST_COMPLETE) && flag(FLAG_SAPPHIRE_NERD) && flag(FLAG_XATU_QUEST_COMPLETE) && var(VAR_SAPPHIRE_LOVERS) == 3 && flag(FLAG_WOMAN_SAPPHIRE_B2) && flag(FLAG_QUEST_TM_COMPLETED) && flag(FLAG_DIANCIE_QUEST_COMPLETE) && flag(FLAG_30_ROD_GET) && flag(FLAG_PARTY_FAMILY) && flag(FLAG_FANDANGO_QUEST_COMPLETE) && flag(FLAG_HOME_QUEST_COMPLETE)) {
+            delay(40)
+            applymovement(1, moves(emote_exclamation_mark))
+            waitmovement(0)
+            delay(40)
+            msgbox(format("...Oh, my! You did it! You completed your quest log!"))
+            closemessage
+            delay(20)
+            applymovement(1, moves(face_away_player))
+            waitmovement(0)
+            delay(20)
+            msgbox(format("...Please, forgive me. You moved me to tears..."))
+            closemessage
+            delay(20)
+            applymovement(1, moves(face_player))
+            waitmovement(0)
+            delay(20)
+            msgbox(format("I'm sure you've built strong and durable memories with your partners. How I wish I was young again... Please, enjoy each and every moment of the rest of your life. The years go by faster than we realise..."))
+            closemessage
+            setvar(VAR_MAIN_STORY, 59)
+            fadescreenspeed(FADE_TO_BLACK, 24)
+	        special(GameClear)
+        } 
+        turnobject(1, DIR_NORTH)
+        release
+        end
+    }
+    else {
+        msgbox(format("Oh... You look so young, so full of life..."))
+        closemessage
+        delay(20)
+        msgbox(format("You remind me of my youth. How long ago that was! You must've lived so many adventures with your partners."))
+        closemessage
+        delay(20)
+        applymovement(1, moves(emote_exclamation_mark))
+        waitmovement(0)
+        msgbox(format("Oh! You have a quest log! How lucky you are! I'll give you one. Live as many adventures as you can, and once you've done that, come back to see me."))
+        closemessage
+        startquest(QUEST_100PERCENT)
+        setflag(FLAG_100_PERCENT)
+        turnobject(1, DIR_NORTH)
+        release
+        end
+    }
+    
+}

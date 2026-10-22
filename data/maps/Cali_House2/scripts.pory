@@ -1,0 +1,13 @@
+raw `
+Cali_House2_MapScripts::
+	.byte 0
+`
+
+script Cali_House2_Fisherman {
+    lock
+    faceplayer
+    msgbox(format("This one will do. It's a Finneon: not very tasty, not that big, but it's the only one I managed to catch. I caught it in Unova, since we can't catch anything here nowadays."))
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}

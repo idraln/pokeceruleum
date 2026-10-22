@@ -1,0 +1,240 @@
+raw `
+Ohulinn_Gym_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, Ohulinn_Gym_OnLoad
+	.byte 0
+`
+
+script Ohulinn_Gym_OnLoad {
+    if(var(VAR_OHULINN_SWITCH_1) == 1 && var(VAR_OHULINN_SWITCH_2) == 1 && var(VAR_OHULINN_SWITCH_3) == 1) {
+            setmetatile(9, 3, METATILE_OhulinnGym_StairsTop1, FALSE)
+            setmetatile(10, 3, METATILE_OhulinnGym_StairsTop2, FALSE)
+            setmetatile(11, 3, METATILE_OhulinnGym_StairsTop3, FALSE)
+            setmetatile(9, 4, METATILE_OhulinnGym_StairsBottom1, FALSE)
+            setmetatile(10, 4, METATILE_OhulinnGym_StairsBottom2, FALSE)
+            setmetatile(11, 4, METATILE_OhulinnGym_StairsBottom3, FALSE)
+            special(DrawWholeMapView)
+    }
+    end
+}
+
+script Ohulinn_Gym_Switch1 {
+    lock
+    msgbox(format("It's a shiny, big red button. Press it?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        closemessage
+        delay(30)
+        playse(SE_CLICK)
+        msgbox(format("Click!... That's the sound it made."))
+        closemessage
+        setvar(VAR_OHULINN_SWITCH_1, 1)
+        if(var(VAR_OHULINN_SWITCH_1) == 1 && var(VAR_OHULINN_SWITCH_2) == 1 && var(VAR_OHULINN_SWITCH_3) == 1) {
+            setmetatile(9, 3, METATILE_OhulinnGym_StairsTop1, FALSE)
+            setmetatile(10, 3, METATILE_OhulinnGym_StairsTop2, FALSE)
+            setmetatile(11, 3, METATILE_OhulinnGym_StairsTop3, FALSE)
+            setmetatile(9, 4, METATILE_OhulinnGym_StairsBottom1, FALSE)
+            setmetatile(10, 4, METATILE_OhulinnGym_StairsBottom2, FALSE)
+            setmetatile(11, 4, METATILE_OhulinnGym_StairsBottom3, FALSE)
+            special(DrawWholeMapView)
+            delay(30)
+            playse(MUS_LEVEL_UP)
+            msgbox(format("Stairs just appeared! You can now face the Council member."))
+            closemessage
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Better take some time to think about it!"))
+        closemessage
+        release
+        end
+    }
+}
+
+script Ohulinn_Gym_Switch2 {
+    lock
+    msgbox(format("It's a shiny, big red button. Press it?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        closemessage
+        delay(30)
+        playse(SE_CLICK)
+        msgbox(format("Click!... That's the sound it made."))
+        closemessage
+        setvar(VAR_OHULINN_SWITCH_2, 1)
+        if(var(VAR_OHULINN_SWITCH_1) == 1 && var(VAR_OHULINN_SWITCH_2) == 1 && var(VAR_OHULINN_SWITCH_3) == 1) {
+            setmetatile(9, 3, METATILE_OhulinnGym_StairsTop1, FALSE)
+            setmetatile(10, 3, METATILE_OhulinnGym_StairsTop2, FALSE)
+            setmetatile(11, 3, METATILE_OhulinnGym_StairsTop3, FALSE)
+            setmetatile(9, 4, METATILE_OhulinnGym_StairsBottom1, FALSE)
+            setmetatile(10, 4, METATILE_OhulinnGym_StairsBottom2, FALSE)
+            setmetatile(11, 4, METATILE_OhulinnGym_StairsBottom3, FALSE)
+            special(DrawWholeMapView)
+            delay(30)
+            playse(MUS_LEVEL_UP)
+            msgbox(format("Stairs just appeared! You can now face the Council member."))
+            closemessage
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Better take some time to think about it!"))
+        closemessage
+        release
+        end
+    }
+}
+
+script Ohulinn_Gym_Switch3 {
+    lock
+    msgbox(format("It's a shiny, big red button. Press it?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        closemessage
+        delay(30)
+        playse(SE_CLICK)
+        msgbox(format("Click!... That's the sound it made."))
+        closemessage
+        setvar(VAR_OHULINN_SWITCH_3, 1)
+        if(var(VAR_OHULINN_SWITCH_1) == 1 && var(VAR_OHULINN_SWITCH_2) == 1 && var(VAR_OHULINN_SWITCH_3) == 1) {
+            setmetatile(9, 3, METATILE_OhulinnGym_StairsTop1, FALSE)
+            setmetatile(10, 3, METATILE_OhulinnGym_StairsTop2, FALSE)
+            setmetatile(11, 3, METATILE_OhulinnGym_StairsTop3, FALSE)
+            setmetatile(9, 4, METATILE_OhulinnGym_StairsBottom1, FALSE)
+            setmetatile(10, 4, METATILE_OhulinnGym_StairsBottom2, FALSE)
+            setmetatile(11, 4, METATILE_OhulinnGym_StairsBottom3, FALSE)
+            special(DrawWholeMapView)
+            delay(30)
+            playse(MUS_LEVEL_UP)
+            msgbox(format("Stairs just appeared! You can now face the Council member."))
+            closemessage
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Better take some time to think about it!"))
+        closemessage
+        release
+        end
+    }
+}
+
+script Ohulinn_Gym_Totems {
+    lockall
+    msgbox(format("Ohulinn's Gym\nCouncil member: Eka a.k.a. the best looking man on the planet."))
+    msgbox(format("..."))
+    msgbox(format("(It looks like the last part was written with a sharpie.)"))
+    releaseall
+    end
+}
+
+script Ohulinn_Gym_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Good luck facing Eka! He certainly looks frail and weak, and maybe is a bit unnerving, and he also hasn't paid me in weeks, but... Uh, yeah."))
+    release
+    end
+}
+
+script Ohulinn_Gym_Betty {
+    trainerbattle_single(TRAINER_OHULINN_GYM_1, Betty1, Betty2)
+    msgbox(format("The switches sound weird, but Eka doesn't want to fix them. When he'll inevitably get stuck up there, he'll reconsider."))
+    closemessage
+    end 
+}
+
+script Ohulinn_Gym_Ciaran {
+    trainerbattle_single(TRAINER_OHULINN_GYM_2, Ciaran1, Ciaran2)
+    msgbox(format("Don't get fooled: the sky is actually fake! And the clouds are made with cotton. Clever, innit?"))
+    closemessage
+    end
+}
+
+script Ohulinn_Gym_Alexia {
+    trainerbattle_single(TRAINER_OHULINN_GYM_3, Alexia1, Alexia2)
+    msgbox(format("We'll meet again soon. Mark my words."))
+    closemessage
+    end
+}
+
+script Ohulinn_Gym_Eka {
+    if(flag(FLAG_BADGE02_GET)) {
+        lock
+        faceplayer
+        namebox("Eka")
+        msgbox(format("Oh, it's you again. What do you want? Don't you see I'm a very busy man?"))
+        hidenamebox
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        namebox("Eka")
+        msgbox(format("Finally, you're here! I was about to lose my patience. What took you so long? Whatever. You need this emblem, don't you? Well, first, let me teach you about birds. Let's do it!"))
+        hidenamebox
+        trainerbattle_no_intro(TRAINER_EKA, Eka1)
+        namebox("Eka")
+        msgbox(format("I knew you were something else. First the scarf, and now that battle... You have a great talent, kid. Don't let it go to waste. I'll watch your journey very carefully. Take this."))
+        closemessage
+        hidenamebox
+        delay(40)
+        setflag(FLAG_BADGE02_GET)
+        playfanfare(MUS_OBTAIN_BADGE)
+        msgbox(format("You've earned the Beak Emblem!"))
+        waitfanfare
+        closemessage
+        delay(20)
+        namebox("Eka")
+        msgbox(format("Let me also gift you this TM."))
+        hidenamebox
+        giveitem(ITEM_TM08)
+        namebox("Eka")
+        msgbox(format("This is Roost. As you may have seen, it allows Pokémons to rest up a bit and restore some HP. Now go! I need to study more."))
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 15)
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        release
+        end
+    }
+}
+
+text Betty1 {
+   format("Finally! Some fresh meat! Don't worry, it won't last long!") 
+}
+
+text Betty2 {
+   format("It didn't last long indeed...") 
+}
+
+text Ciaran1 {
+   format("My father designed this gym. I also got this gig thanks to him.") 
+}
+
+text Ciaran2 {
+   format("I need to ask daddy for another job...") 
+}
+
+text Alexia1 {
+   format("I'm the last hurdle before Eka! And I'm ten foot tall. So you won't get to him.") 
+}
+
+text Alexia2 {
+   format("So he didn't lie...") 
+}
+
+text Eka1 {
+   format("Good, very good... You really are something else, aren't you?") 
+}

@@ -1,0 +1,68 @@
+raw `
+MistraltonCity_CargoService_MapScripts::
+	.byte 0
+`
+
+script MistraltonCity_CargoService_Tenant {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Mistralton's Cargo Service! We can ship your package to the destination of your choice. We also sell sandwiches, but I'm all out of them for today. Sorry!"))
+    release
+    end
+}
+
+script MistraltonCity_CargoService_Man {
+    lock
+    faceplayer
+    msgbox(format("...Hmm? Oh, the book I'm reading is called 'The Legend of Xatu'. Very interesting book! There's no Xatus in Unova, so I've learned a bunch about this Pokémon."))
+    release
+    end
+}
+
+script MistraltonCity_CargoService_Boy {
+    lock
+    faceplayer
+    msgbox(format("Yummy! I'm eating a tomato and basil sandwich!"))    
+    release
+    end
+}
+
+script MistraltonCity_CargoService_Girl {
+    lock
+    faceplayer
+    msgbox(format("Eurk, I bought a carrot sandwich, it's yucky!"))
+    release
+    end
+}
+
+script MistraltonCity_CargoService_Sam {
+    lock
+    if(var(VAR_MAIN_STORY) == 52) {
+        faceplayer
+        namebox("Sam")
+        msgbox(format("Did you try your luck at that tower? I'm sorry, but I'm just too darn hungry to join you for now."))
+        hidenamebox
+        closemessage
+        release
+        end
+    }
+    else {
+        namebox("Sam")
+        msgbox(format("Dammit. They've sold out the sandwiches. No luck for me, again..."))
+        hidenamebox
+        closemessage
+        delay(20)
+        applymovement(5, moves(face_player emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("Oh, {PLAYER}! Well, let's get right into it, eh? Just a few minutes ago, an old woman warned me that Celestial Tower was closed due to a sudden disturbance. I guess she thought I was a tourist? Anyway, that disturbance might wery well be called Vikkie. Try your luck there, I'll stay here to... Uh, gather info."))
+        hidenamebox
+        closemessage
+        turnobject(5, DIR_NORTH)
+        setvar(VAR_MAIN_STORY, 52)
+        release
+        end
+    }
+}

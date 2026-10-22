@@ -1,0 +1,222 @@
+{
+  "id": "MAP_CALI",
+  "name": "Cali",
+  "layout": "LAYOUT_CALI",
+  "music": "MUS_OLDALE",
+  "region_map_section": "MAPSEC_CALI",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_LITTORAL_RD",
+      "offset": 7,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ULTRAMARINE_CHANNEL",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 18,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Cali_Sailor",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 32,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Cali_Fisherman",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
+      "x": 24,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Cali_WorriedMother",
+      "flag": "FLAG_WORRIED_MOTHER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
+      "x": 23,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Cali_FoundKid",
+      "flag": "FLAG_CALI_KID"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 22,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_CALI_POKEMON_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_CALI_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_CALI_HOUSE2",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "12",
+      "script": "Cali_NoEnter"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_LOST_KID",
+      "var_value": "1",
+      "script": "Cali_LostKid"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Cali_Sign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 23,
+      "y": 15,
+      "elevation": 0,
+      "item": "ITEM_ETHER",
+      "flag": "FLAG_ITEM_CALI_2"
+    },
+    {
+      "type": "hidden_item",
+      "x": 32,
+      "y": 11,
+      "elevation": 0,
+      "item": "ITEM_SUPER_POTION",
+      "flag": "FLAG_ITEM_CALI_1"
+    }
+  ]
+}

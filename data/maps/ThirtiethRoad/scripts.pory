@@ -1,0 +1,85 @@
+raw `
+ThirtiethRoad_MapScripts::
+	.byte 0
+`
+
+script ThirtiethRoad_Trainer1 {
+    trainerbattle_single(TRAINER_30TH_1, Charley1, Charley2)
+    msgbox(format("Yeah, yeah, I might have overestimated myself a bit. But! I'll get there. I'll get there..."))
+    closemessage
+    end
+}
+
+script ThirtiethRoad_Trainer2 {
+    trainerbattle_single(TRAINER_30TH_2, Niall1, Niall2)
+    msgbox(format("I try to hide and scare the new trainers who think they can take on the Council Challenge. But you're already the fifth person to tell me that I'm not good at hiding..."))
+    closemessage
+    end
+}
+
+script ThirtiethRoad_Fisherman {
+    lock
+    faceplayer
+    if(flag(FLAG_30_ROD_GET)) {
+        if(var(VAR_DISAPPEARANCE) == 3) {
+            msgbox(format("Hey! Uh, I've heard from some colleagues that fishes are back? Uh... You still using the rod I gave you?"))
+            release
+            end
+        }
+        else {
+            msgbox(format("Hey, it's you again! How's the fishing going, any luck yet? Haha."))
+            release
+            end
+        }
+    }
+    if(flag(FLAG_30_ROD)) {
+        msgbox(format("So? You got me the baits?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            checkitem(ITEM_SITRUS_BERRY, 3)
+            if(var(VAR_RESULT) == YES) {
+                msgbox(format("Great! I can finally go back and fish!... Just kidding. There aren't any Pokémons left in the ocean. That's why I'm giving away my precious fishing rod! You can have it!"))
+                giveitem(ITEM_OLD_ROD)
+                removeitem(ITEM_SITRUS_BERRY, 3)
+                completequest(QUEST_FISHING_ROD)
+                setflag(FLAG_30_ROD_GET)
+                release
+                end
+            }
+            else {
+                msgbox(format("You cheeky liar! I really need those baits!"))
+                release
+                end
+            } 
+        }
+        else {
+            msgbox(format("Come on! I really need those baits!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("Going to the League? I bet you don't have any fish type Pokémon in your party! Hah! People often forget how useful they are. Well, it's your lucky day! I have a fishing rod to spare. But if you want it, you'll have to help me. See, I don't have any baits left, and I can't go buy some because, uh, I'm lazy. So if you bring back to me {COLOR BLUE}3 Sitrus Berries{COLOR DARK_GRAY}, I might give you my rod. Uh, my fishing rod, I mean."))
+        turnobject(1, DIR_NORTH)
+        setflag(FLAG_30_ROD)
+        startquest(QUEST_FISHING_ROD)
+        release
+        end
+    }
+}
+
+text Charley1 {
+    format("I'm about to take on the Council Challenge! So what if I don't have any emblems? I'm more than ready!")
+}
+
+text Charley2 {
+    format("Damn, I might actually have to train...")
+}
+
+text Niall1 {
+    format("Hoho, surprise! I bet you didn't even see me!... What do you mean you did? And from a distance? Come on, man.")
+}
+
+text Niall2 {
+    format("Yeah, that's my bad. I shouldn't have hid.")
+}
+

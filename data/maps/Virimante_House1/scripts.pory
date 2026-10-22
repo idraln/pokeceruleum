@@ -1,0 +1,12 @@
+raw `
+Virimante_House1_MapScripts::
+	.byte 0
+`
+
+script Virimante_House1_Girl {
+    lock
+    faceplayer
+    msgbox(format("Heehee, this is my favourite cartoon! The bunny is so dumb!"))
+    release
+    end
+}

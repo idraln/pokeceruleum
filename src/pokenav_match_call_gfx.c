@@ -88,8 +88,8 @@ static void Task_FlashPokeballIcons(u8);
 static void TryDrawRematchPokeballIcon(u16, u32, u32);
 static void PrintNumberRegisteredLabel(u16);
 static void PrintNumberRegistered(u16);
-static void PrintNumberOfBattlesLabel(u16);
-static void PrintNumberOfBattles(u16);
+//static void PrintNumberOfBattlesLabel(u16);
+//static void PrintNumberOfBattles(u16);
 static void PrintMatchCallInfoLabel(u16, const u8 *, int);
 static void PrintMatchCallInfoNumber(u16, const u8 *, int);
 static void CreateOptionsCursorSprite(struct Pokenav_MatchCallGfx *, int);
@@ -391,7 +391,7 @@ static u32 LoopedTask_OpenMatchCall(s32 state)
         if (IsPaletteFadeActive() || AreLeftHeaderSpritesMoving())
             return LT_PAUSE;
 
-        SetPokeballIconsFlashing(TRUE);
+        SetPokeballIconsFlashing(FALSE);
         return LT_FINISH;
     default:
         return LT_FINISH;
@@ -976,8 +976,8 @@ static void UpdateMatchCallInfoBox(struct Pokenav_MatchCallGfx *gfx)
     FillWindowPixelBuffer(gfx->infoBoxWindowId, PIXEL_FILL(1));
     PrintNumberRegisteredLabel(gfx->infoBoxWindowId);
     PrintNumberRegistered(gfx->infoBoxWindowId);
-    PrintNumberOfBattlesLabel(gfx->infoBoxWindowId);
-    PrintNumberOfBattles(gfx->infoBoxWindowId);
+    //PrintNumberOfBattlesLabel(gfx->infoBoxWindowId);
+    //PrintNumberOfBattles(gfx->infoBoxWindowId);
     CopyWindowToVram(gfx->infoBoxWindowId, COPYWIN_GFX);
 }
 
@@ -993,21 +993,21 @@ static void PrintNumberRegistered(u16 windowId)
     PrintMatchCallInfoNumber(windowId, str, 1);
 }
 
-static void PrintNumberOfBattlesLabel(u16 windowId)
-{
-    PrintMatchCallInfoLabel(windowId, gText_NumberOfBattles, 2);
-}
+//static void PrintNumberOfBattlesLabel(u16 windowId)
+//{
+//    PrintMatchCallInfoLabel(windowId, gText_NumberOfBattles, 2);
+//}
 
-static void PrintNumberOfBattles(u16 windowId)
-{
-    u8 str[5];
-    int numTrainerBattles = GetGameStat(GAME_STAT_TRAINER_BATTLES);
-    if (numTrainerBattles > 99999)
-        numTrainerBattles = 99999;
-
-    ConvertIntToDecimalStringN(str, numTrainerBattles, STR_CONV_MODE_LEFT_ALIGN, 5);
-    PrintMatchCallInfoNumber(windowId, str, 3);
-}
+//static void PrintNumberOfBattles(u16 windowId)
+//{
+//    u8 str[5];
+//    int numTrainerBattles = GetGameStat(GAME_STAT_TRAINER_BATTLES);
+//    if (numTrainerBattles > 99999)
+//        numTrainerBattles = 99999;
+//
+//    ConvertIntToDecimalStringN(str, numTrainerBattles, STR_CONV_MODE_LEFT_ALIGN, 5);
+//    PrintMatchCallInfoNumber(windowId, str, 3);
+//}
 
 static void PrintMatchCallInfoLabel(u16 windowId, const u8 *str, int top)
 {

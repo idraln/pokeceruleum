@@ -31,6 +31,10 @@
 #include "constants/event_objects.h"
 #include "constants/rgb.h"
 
+extern u8 sChosenSkin;
+extern u8 sChosenHair;
+extern u8 sChosenFavType;
+
 enum {
     INPUT_NONE,
     INPUT_DPAD_UP,
@@ -1392,11 +1396,29 @@ static void NamingScreen_NoIcon(void)
 
 static void NamingScreen_CreatePlayerIcon(void)
 {
-    u16 rivalGfxId;
+    //u16 rivalGfxId;
     u8 spriteId;
 
-    rivalGfxId = GetRivalAvatarGraphicsIdByStateIdAndGender(PLAYER_AVATAR_STATE_NORMAL, sNamingScreen->monSpecies);
-    spriteId = CreateObjectGraphicsSprite(rivalGfxId, SpriteCallbackDummy, 56, 37, 0);
+    //rivalGfxId = GetRivalAvatarGraphicsIdByStateIdAndGender(PLAYER_AVATAR_STATE_NORMAL, sNamingScreen->monSpecies);
+    
+    if(sChosenSkin == 0 && sChosenHair == 0)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_BALD_LIGHT_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 0 && sChosenHair == 1)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_SHORT_LIGHT_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 0 && sChosenHair == 2)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_LONG_LIGHT_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 1 && sChosenHair == 0)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_BALD_MEDIUM_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 1 && sChosenHair == 1)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 1 && sChosenHair == 2)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_LONG_MEDIUM_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 2 && sChosenHair == 0)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_BALD_DARK_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else if(sChosenSkin == 2 && sChosenHair == 1)
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_SHORT_DARK_WALKING, SpriteCallbackDummy, 56, 37, 0);
+    else
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_HERO_LONG_DARK_WALKING, SpriteCallbackDummy, 56, 37, 0);
     gSprites[spriteId].oam.priority = 3;
     StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_SOUTH);
 }
@@ -1431,7 +1453,7 @@ static void NamingScreen_CreateWaldaDadIcon(void)
 static void NamingScreen_CreateCodeIcon(void)
 {
     u8 spriteId;
-    spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_MYSTERY_GIFT_MAN, SpriteCallbackDummy, 56, 37, 0);
+    spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_ANAIS, SpriteCallbackDummy, 56, 37, 0);
     gSprites[spriteId].oam.priority = 3;
 }
 

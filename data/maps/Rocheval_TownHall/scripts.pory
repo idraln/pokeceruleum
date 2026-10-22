@@ -1,0 +1,259 @@
+raw `
+Rocheval_TownHall_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Rocheval_TownHall_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rocheval_TownHall_OnFrame
+	.byte 0
+
+Rocheval_TownHall_OnFrame:
+    map_script_2 VAR_WALK, 1, Rocheval_TownHall_Walk
+    .2byte 0
+
+`
+
+script Rocheval_TownHall_OnTransition {
+    if(flag(FLAG_GUARD_HELI)) {
+        addobject(8)
+        setobjectxyperm(8, 18, 2)
+        applymovement(8, RTHSouth)
+    }
+    end
+}
+
+script Rocheval_TownHall_Walk {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+    waitmovement(0)
+    setvar(VAR_WALK, 2)
+    release
+    end
+}
+
+script Rocheval_TownHall_Receptionist {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) == 0) {
+        msgbox(format("Welcome to Rocheval's Town Hall! How can I help you?"))
+        msgbox(format("..."))
+        msgbox(format("You say you were stranded at sea and lost all your Pokémons, and your ID? Oh dear, I'm sorry to hear that. Can I have your name please?"))
+        msgbox(format("..."))
+        msgbox(format("Let me check."))
+        closemessage
+        applymovement(1, moves(walk_left * 2 delay_16 * 3))
+        waitmovement(0)
+        msgbox(format("...\p...\p...\p..."))
+        msgbox(format("{PLAYER}... Yes, I can confirm that you're indeed a Thura citizen. Let me print you a new ID."))
+        closemessage
+        applymovement(1, moves(walk_right * 2 face_down))
+        waitmovement(0)
+        msgbox(format("Here it is!"))
+        closemessage
+        setflag(FLAG_SYS_ID_GET)
+        delay(20)
+        msgbox(format("Huh? Your emblems? Unfortunately, there's very little I can do. I don't have the power to give you back your emblems. You will have to go to the continent, present yourself to the Pokémon League and explain your situation. Is there anything I can help you with?"))
+        closemessage
+        delay(20)
+        msgbox(format("To go back to the continent, you will have to take the helicopter, that will take you to Sapphire City. The ticket costs ¥5 000. Is there anything more I can help you with?"))
+        closemessage
+        delay(20)
+        msgbox(format("Umm, usually, we only give Pokémons away to the new trainers... Let me check with my superior."))
+        closemessage
+        applymovement(1, moves(walk_right * 2))
+        waitmovement(0)
+        applymovement(2, moves(face_left))
+        waitmovement(0)
+        delay(20)
+        applymovement(2, moves(face_down))
+        waitmovement(0)
+        applymovement(1, moves(walk_left * 2 face_down))
+        waitmovement(0)
+        msgbox(format("Well, it's you lucky day! We actually have one Pokémon left to give! You can proceed to your left, there's a small room downstairs where my colleague will provide you with a new companion."))
+        setvar(VAR_BLOCKED_ROAD, 0)
+        setvar(VAR_MAIN_STORY, 1)
+        setflag(FLAG_STARTER)
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) == 1) {
+        msgbox(format("{PLAYER}, have you seen my colleague yet?"))
+    }
+    else {
+        msgbox(format("Welcome back to Rocheval's Town Hall, {PLAYER}! How can I help you?"))
+        closemessage
+        goto(Rocheval_TownHall_Multichoice)
+    }
+    release
+    end
+}
+
+script Rocheval_TownHall_Multichoice {
+    multichoice(0, 0, MULTI_ROCHEVAL, FALSE)
+    switch(var(VAR_RESULT)){
+            case 0:
+                msgbox(format("Rocheval is an old village built by fishermen 400 years ago. At the time, Rocheval lived off fishing, but now it lives off tourism. Would you like to know anything else?"))
+                goto(Rocheval_TownHall_Multichoice)
+            case 1:
+                msgbox(format("We travel to the continent by helicopter. Although our citizens don't need to go there very often, as we can find almost everything here. Would you like to know anything else?"))
+                goto(Rocheval_TownHall_Multichoice)
+            case 2:
+                msgbox(format("We hope you enjoy your stay!"))
+                closemessage
+                end
+    }
+}
+
+script Rocheval_TownHall_NoAccess {
+    if(var(VAR_MAIN_STORY) == 0) {
+        lock
+        msgbox(format("(I should talk to the receptionist first.)"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, BackingUp)
+        waitmovement(0)
+        release
+        end
+    }
+}
+
+script Rocheval_TownHall_NoAccess2 {
+    if(var(VAR_MAIN_STORY) == 2) {
+        lock
+        msgbox(format("(I should meet the employee outside.)"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, BackingUp)
+        waitmovement(0)
+        release
+        end
+    }
+}
+
+script Rocheval_TownHall_ReadyToLeave {
+    lockall
+    faceplayer
+    namebox("Sam")
+    msgbox(format("{PLAYER}! You're finally here. What took you so long? Anyway. I bought us two tickets! You don't even have to pay for one! You're welcome, hehe. Come on, let's go!"))
+    hidenamebox
+    msgbox(format("..."))
+    namebox("Sam")
+    msgbox(format("How did I pay for them? Don't even worry about it, the main thing is that we can finally go to the continent! Come on!"))
+    closemessage
+    hidenamebox
+    applymovement(7, RTHNorth)
+    waitmovement(0)
+    delay(20)
+    namebox("Sam")
+    msgbox(format("Hi! Can you let us through? We have tickets!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(8, GuardStepping)
+    waitmovement(8)
+    //setobjectxy(8, 18, 2)
+    //setobjectxyperm(8, 18, 2)
+    setflag(FLAG_GUARD_HELI)
+    applymovement(8, RTHSouth)
+    waitmovement(0)
+    applymovement(8, moves(face_down))
+    waitmovement(0)
+    applymovement(7, moves(face_down))
+    waitmovement
+    namebox("Sam")
+    msgbox(format("Let's go!"))
+    closemessage
+    hidenamebox
+    applymovement(7, SamHeli)
+    waitmovement(0)
+    removeobject(7)
+    playse(SE_EXIT)
+    releaseall
+    end
+}
+
+script Rocheval_TownHall_Guard {
+    if(flag(FLAG_GUARD_HELI)){
+        lockall
+        faceplayer
+        msgbox(format("Have a safe flight."))
+        closemessage
+        applymovement(8, RTHSouth)
+        waitmovement(0)
+        releaseall
+        end
+    }
+    else {
+        lockall
+        faceplayer
+        msgbox(format("I'm sorry, you can't access the heliport now. Come back when you have a ticket."))
+        closemessage
+        applymovement(8, RTHSouth)
+        waitmovement(0)
+        releaseall
+        end
+    }
+}
+
+script Rocheval_TownHall_Kid {
+    lock
+    faceplayer
+    msgbox(format("Huh? Why am I wearing a swimsuit? I lost my ID while I was swimming. Don't make fun of me, it can happen to anyone."))
+    release
+    end
+}
+
+script Rocheval_TownHall_Francais1 {
+    lock
+    msgbox(format("Je comprends rien à ce que vous racontez. Personne ne parle français ici? On aurait du partir en vacances sur la Côte d'Azur, je te l'avais dit!"))
+    release
+    end 
+}
+
+script Rocheval_TownHall_Francais2 {
+    lock
+    msgbox(format("Arrête de t'énerver! Il fait super beau, c'est pas de sa faute si tu as perdu ta valise à l'aéroport!"))
+    release
+    end 
+}
+
+script Rocheval_TownHall_Woman {
+    lock
+    faceplayer
+    msgbox(format("It's too hot outside, so I'm hanging here and enjoying the AC."))
+    release
+    end 
+}
+
+movement ReceptionistChecking0 {
+    walk_left * 1
+    face_down
+}
+
+movement ReceptionistChecking1 {
+    walk_right * 1
+    face_player
+}
+
+movement ReceptionistChecking2 {
+    walk_right * 2
+    delay_16 * 4
+    walk_left * 2
+    face_player
+}
+
+movement BackingUp {
+    walk_down
+}
+
+movement GuardStepping {
+    walk_right
+    face_down
+}
+
+movement SamHeli {
+    walk_up * 2
+}
+
+movement RTHSouth {
+    face_down
+}
+
+movement RTHNorth {
+    face_up
+}

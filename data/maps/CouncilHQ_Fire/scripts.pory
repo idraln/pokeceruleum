@@ -1,0 +1,76 @@
+raw `
+CouncilHQ_Fire_MapScripts::
+	.byte 0
+`
+script CouncilHQ_Fire_Battle {
+    lock
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 5) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2 walk_down face_left))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 6) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2))
+        waitmovement(0)
+    }
+    elif(var(VAR_TEMP_1) == 7) {
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2 walk_up face_left))
+        waitmovement(0)
+    }
+    playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+    namebox("Pomme")
+    msgbox(format("Hahaha! Did you miss me, {PLAYER}?... Because I sure did! Bring it on!"))
+    closemessage
+    delay(20)
+    hidenamebox
+    setflag(FLAG_TRAINERBATTLE)
+    if(var(VAR_MAIN_STORY) < 56) {
+        trainerbattle_no_intro(TRAINER_COUNCIL_FIRE, Pomme2)
+    }
+    else {
+        trainerbattle_no_intro(TRAINER_COUNCIL_FIRE_2, Pomme2)
+    }
+    
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        namebox("Pomme")
+        msgbox(format("Don't sweat it, {PLAYER}! You can try as many times as you want!"))
+        closemessage
+        hidenamebox
+        special(HealPlayerParty)
+        setvar(VAR_COUNCIL_TRIES, 1)
+        setvar(VAR_COUNCIL_FIGHT, 0)
+        setvar(VAR_COUNCIL_ICE, 0)
+        setvar(VAR_COUNCIL_FIRE, 0)
+        setvar(VAR_COUNCIL_ROCK, 0)
+        clearflag(FLAG_COUNCIL_ICE)
+        clearflag(FLAG_COUNCIL_ROCK)
+        clearflag(FLAG_COUNCIL_FIRE)
+        clearflag(FLAG_COUNCIL_FIGHT)
+        warpsilent(MAP_COUNCIL_HQ_LOBBY, 3, 11)
+        releaseall
+        end
+    }
+    else {
+        namebox("Pomme")
+        msgbox(format("Same as before! You're tough!"))
+        hidenamebox
+        setvar(VAR_COUNCIL_FIRE, 1)
+        setflag(FLAG_COUNCIL_FIRE)
+        releaseall
+        end
+    }
+}
+
+script CouncilHQ_Fire_Pomme {
+    lock
+    faceplayer
+    namebox("Pomme")
+    msgbox(format("Is Brucey doing okay? It's been a hot minute since I've heard from him. Send him my salutations!"))
+    hidenamebox
+    release
+    end
+}
+
+text Pomme2 {
+    format("Actually, I don't know if I missed you that much...")
+}

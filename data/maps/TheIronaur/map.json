@@ -1,0 +1,282 @@
+{
+  "id": "MAP_THE_IRONAUR",
+  "name": "TheIronaur",
+  "layout": "LAYOUT_THE_IRONAUR",
+  "music": "MUS_RG_MT_MOON",
+  "region_map_section": "MAPSEC_IRONAIR",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERM",
+      "x": 6,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Worker3",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERF",
+      "x": 36,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Worker1",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERM",
+      "x": 25,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Worker2",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERF",
+      "x": 6,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Worker4",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 12,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "TheIronair_Norbert",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERM",
+      "x": 16,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_BEFORE_ATTACK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BRUCE",
+      "x": 16,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_BRUCE_IRONAIR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERM",
+      "x": 17,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Guard",
+      "flag": "FLAG_AFTER_ATTACK_NO_BRUCE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKERF",
+      "x": 14,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Shock",
+      "flag": "FLAG_BEFORE_ATTACK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BRUCE",
+      "x": 16,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_BruceGuarding",
+      "flag": "FLAG_BRUCE_GUARDING_DIANCIE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EXCADRILL)",
+      "x": 7,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Excadrill",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EXCADRILL)",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Excadrill",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EXCADRILL)",
+      "x": 26,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Excadrill",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EXCADRILL)",
+      "x": 36,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TheIronair_Excadrill",
+      "flag": "FLAG_EARTHQUAKE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 36,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_STEELIXITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_STEELIXITE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 25,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_OXIDE_TRAIL",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_THE_IRONAIR_B1F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY",
+      "var_value": "26",
+      "script": "TheIronair_Aftermath"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TheIronair_Mine"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 29,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TheIronair_Mine"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TheIronair_Mine"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TheIronair_Mine"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TheIronair_Mine"
+    }
+  ]
+}

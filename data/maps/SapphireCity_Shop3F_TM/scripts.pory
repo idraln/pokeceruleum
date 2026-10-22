@@ -1,0 +1,102 @@
+raw `
+SapphireCity_Shop3F_TM_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Shop3F_TM_Clerk_1 {
+    lock
+    faceplayer
+    if(var(VAR_SHOP_UPDATE) > 3) {
+        msgbox(format("Hello, and welcome to the TM Department! How can I help you today?"))
+        waitmessage
+        pokemart(MartTMPassive)
+        msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    }
+    else {
+        msgbox(format("Hello there! Unfortunately, our department is still under construction. Come back later!"))
+    }
+    release
+    end
+}
+
+mart MartTMPassive {
+    ITEM_TM06
+    ITEM_TM16
+    ITEM_TM28
+    ITEM_TM34
+    ITEM_TM14
+    ITEM_TM32
+    ITEM_TM46
+}
+
+script SapphireCity_Shop3F_TM_Clerk_2 {
+    lock
+    faceplayer
+    if(var(VAR_SHOP_UPDATE) > 3) {
+        msgbox(format("Hello, and welcome to the TM Department! How can I help you today?"))
+        waitmessage
+        pokemart(MartTMActive)
+        msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
+    }
+    else {
+        msgbox(format("Hello there! Unfortunately, our department is still under construction. Come back later!"))
+    }
+    release
+    end
+}
+
+mart MartTMActive {
+    ITEM_TM15
+    ITEM_TM40
+    ITEM_TM41
+    ITEM_TM42
+    ITEM_TM43
+}
+
+script SapphireCity_Shop3F_TM_Girl {
+    lock
+    faceplayer
+    if(flag(FLAG_QUEST_TM_COMPLETED)) {
+        msgbox(format("So, have you taught the TM? Powerful, isn't it?"))
+        release
+        end
+    }
+    elif(flag(FLAG_QUEST_TM)) {
+        msgbox(format("So, have you managed to collect all fifty TMs in Thura?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            specialvar(VAR_RESULT, CheckAllTMs)
+            if(var(VAR_RESULT) == TRUE) {
+                msgbox(format("Wow! Impressive! But what if I told there's actually fifty-one of them?"))
+                msgbox(format("..."))
+                msgbox(format("Heehee, yes! And since you must've been through hell to gather every TM, I'll gift you the last TM."))
+                giveitem(ITEM_TM51)
+                completequest(QUEST_TM)
+                clearflag(FLAG_QUEST_TM)
+                setflag(FLAG_QUEST_TM_COMPLETED)
+                release
+                end
+            }
+            else {
+                msgbox(format("Haha, you're nothing but a liar! Try harder!"))
+                release
+                end
+            }
+        }
+        else {
+            msgbox(format("Haha, you've got to try harder!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("I love TMs! I absolutely love them! I have every TMs you can find in Thura!"))
+        msgbox(format("..."))
+        msgbox(format("Tell you what. If you manage to collect every TM in Thura, I'll gift you something that'll blow your mind."))
+        startquest(QUEST_TM)
+        setflag(FLAG_QUEST_TM)
+        turnobject(2, DIR_EAST)
+        release
+        end
+    }
+    
+}

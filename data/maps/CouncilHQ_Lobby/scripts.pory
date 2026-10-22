@@ -1,0 +1,115 @@
+raw `
+CouncilHQ_Lobby_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CouncilHQ_Lobby_OnTransition
+    map_script MAP_SCRIPT_ON_LOAD, CouncilHQ_Lobby_OnLoad
+    .byte 0
+`
+
+script CouncilHQ_Lobby_OnTransition {
+    setrespawn(HEAL_LOCATION_COUNCIL_HQ)
+    end
+}
+
+script CouncilHQ_Lobby_OnLoad {
+    if(flag(FLAG_COUNCIL_EMP)) {
+        setobjectxyperm(3, 9, 2)
+    }
+}
+
+script CouncilHQ_Lobby_Nurse {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	msgbox(format("Hi there! Congratulations, you've reached the headquarters of the Council! Would you like me to heal your party?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        msgbox(format("Okay! Give me your Pokémons."))
+        hidefollower(0)
+        applymovement(1, PkmnCenter_NurseTurn)
+        waitmovement(0)
+        dofieldeffect(FLDEFF_POKECENTER_HEAL)
+        waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+        applymovement(1, PkmnCenter_NurseReTurn)
+        waitmovement(0)
+        special(HealPlayerParty)
+        msgbox(format("Here you go, your Pokémons are fully healed!"))
+        waitmessage
+        applymovement(1, PkmnCenter_NurseBow)
+        waitmovement(0)
+        msgbox(format("We hope to see you soon!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("Okay, we hope you come back soon! Good luck!"))
+        release
+        end
+    }
+}
+
+script CouncilHQ_Lobby_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to the Council's mart! How can I help you today?"))
+    waitmessage
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thanks for shopping with us! We hope you come back soon!"))
+    release
+    end
+}
+
+script CouncilHQ_Lobby_Employee {
+    lock
+    faceplayer
+    if(var(VAR_COUNCIL_TRIES) == 1) {
+        namebox("Bernard")
+        msgbox(format("Time to face the Council, {PLAYER}!"))
+        hidenamebox
+    }
+    else {
+        namebox("Bernard")
+        msgbox(format("Congratulations, {PLAYER}! As expected, you went through Challenger Road in the blink of an eye! Now comes the time for your final challenge. Are you ready?"), MSGBOX_YESNO)
+        hidenamebox
+        if(var(VAR_RESULT) == YES) {
+            closemessage
+            getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_0) == 7) {
+                applymovement(3, moves(walk_right face_left))
+                waitmovement(0)
+                setobjectxyperm(3, 9, 2)
+            }
+            else {
+                applymovement(3, moves(walk_left face_right))
+                waitmovement(0)
+                setobjectxyperm(3, 7, 2)
+            }
+            delay(40)
+            playfanfare(MUS_OBTAIN_BADGE)
+            namebox("Bernard")
+            msgbox(format("There it is! The path to victory! Do not wait any longer, go!"))
+            waitfanfare
+            hidenamebox
+            setvar(VAR_COUNCIL_TRIES, 1)
+            setflag(FLAG_COUNCIL_EMP)
+        }
+        else {
+            namebox("Bernard")
+            msgbox(format("It's okay! Take all the time you need, maybe stock up on some heals! You'll definitely need some, but you already know that."))
+            hidenamebox
+        }
+    }
+    release
+    end
+}

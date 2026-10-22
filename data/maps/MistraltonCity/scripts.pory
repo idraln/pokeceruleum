@@ -1,0 +1,134 @@
+raw `
+MistraltonCity_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MistraltonCity_OnFrame
+	.byte 0
+
+MistraltonCity_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 50, MistraltonCity_Welcome
+    .2byte 0
+`
+
+script MistraltonCity_Welcome {
+    lock
+    applymovement(18, moves(walk_down * 6 walk_left * 2))
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("There you are, {PLAYER}! I just landed too, so I haven't had the time to properly investigate. And I think I'll try some local food before I get into the deed! Meet me at the Cargo Station, we'll grab something to eat and ask locals if they know anything about Vikkie."))
+    hidenamebox
+    closemessage
+    applymovement(18, moves(walk_right * 9))
+    waitmovement(0)
+    removeobject(18)
+    setflag(FLAG_SAM_MISTRALTON)
+    setvar(VAR_MAIN_STORY, 51)
+    release
+    end
+}
+
+script MistraltonCity_Mechanic {
+    lock
+    faceplayer
+    msgbox(format("I'm the best darn mechanic in all of Unova. Look at this helicopter, I built it with my bare hands."))
+    closemessage
+    turnobject(5, DIR_NORTH)
+    release
+    end
+}
+
+script MistraltonCity_Policeman {
+    lock
+    faceplayer
+    msgbox(format("Be on the lookout! Always! I'm sensing a threat coming to town. I can smell it!"))
+    release
+    end
+}
+
+script MistraltonCity_LostGirl {
+    lock
+    faceplayer
+    msgbox(format("Every helicopter looks the same, how am I supposed to know which one's taking me back to Thura?"))
+    release
+    end
+}
+
+script MistraltonCity_Artist {
+    lock
+    faceplayer
+    msgbox(format("Look at all those vegetables! Those colours! How vibrant!"))
+    closemessage
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}
+
+script MistraltonCity_Scared {
+    lock
+    faceplayer
+    msgbox(format("I'm hiding here because I'm too scared of helicopters."))
+    release
+    end
+}
+
+script MistraltonCity_Lookout {
+    lock
+    faceplayer
+    msgbox(format("There isn't supposed to be anyone on the tarmac, but no one listens to me. If someone dies, that's not my problem. Nuh-uh."))
+    release
+    end
+}
+
+script MistraltonCity_Challenger {
+    lock
+    faceplayer
+    msgbox(format("I came all the way from Nuvema Town to get my 6th badge, but apparently the gym closed? What?"))
+    release
+    end
+}
+
+script MistraltonCity_Hiker {
+    lock
+    faceplayer
+    msgbox(format("I'm sorry lad, but I can't let you enter Chargestone Cave. It's too dangerous right now."))
+    release
+    end
+}
+
+script MistraltonCity_Psychic {
+    lock
+    faceplayer
+    msgbox(format("I heard that there's some rare Pokémons inside Celestial Tower, up north! I need to see them!"))
+    release
+    end
+}
+
+script MistraltonCity_Woman {
+    lock
+    faceplayer
+    msgbox(format("Welcome to Mistralton City! Nice place to live in, huh?"))
+    release
+    end
+}
+
+script MistraltonCity_Picknicker {
+    lock
+    faceplayer
+    msgbox(format("I call dibs on this spot! Yes, right here, on the puddle!"))
+    release
+    end
+}
+
+script MistraltonCity_TownSign {
+    lockall
+    msgbox(format("Mistralton City\nStrewn with windblown leaves."))
+    releaseall
+    end
+}
+
+script MistraltonCity_CargoSign {
+    lockall
+    msgbox(format("Mistralton Cargo Service\nOur slogan is 'Quick and Safe!'"))
+    releaseall
+    end    
+}

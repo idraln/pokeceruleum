@@ -1,0 +1,160 @@
+raw `
+CapeEast_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, CapeEast_OnFrame
+	.byte 0
+
+CapeEast_OnFrame:
+    map_script_2 VAR_FOLLOWING_SAM, 0, CapeEast_FollowingSam
+    .2byte 0
+`
+
+script CapeEast_FollowingSam {
+    lockall
+    //applymovement(OBJ_EVENT_ID_PLAYER, PlayerFacesSam)
+    msgbox(format("Come on! What took you so long? Let's go!"))
+    closemessage    
+    applymovement(4, SamShowingTheWay1)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerFollowingSam1)
+    waitmovement(0)
+    msgbox(format("Oh, I just remembered, I haven't even introduced myself! My name is Sam! I'm a fisherman, just trying to make ends meet, you know? Work has been rough lately, there are not as many fish as there used to be. But I'm never gonna give up! That's the Sam way, as I like to call it. Anyway, let's keep on going."))
+    closemessage
+    applymovement(4, SamShowingTheWay2)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerFollowingSam2)
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("Ha, thank goodness I'm with you! There are plenty Pokémons in those grass. Without any of your own, you would have been toast! Haha. But I guess you already know that, huh? Okay, I'll stop yapping, let's get to the Town Hall."))
+    closemessage
+    hidenamebox
+    applymovement(4, SamShowingTheWay3)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerFollowingSam3)
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("Okay, here we are! Rocheval is right there. The Town Hall is the first building you'll see. Come back to my place when you sort everything out!"))
+    closemessage
+    hidenamebox
+    applymovement(4, SamLeavingToHouse)
+    waitmovement(0)
+    setvar(VAR_FOLLOWING_SAM, 1)
+    setvar(VAR_BLOCKED_ROAD, 0)
+    setflag(FLAG_SAM_CAPE_EAST)
+    setflag(FLAG_SAM_CONTEST)
+    setflag(FLAG_SAM_TOWN_HALL)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    releaseall
+    end
+}
+
+script CapeEast_CantGoBackToHouse {
+    if(var(VAR_BLOCKED_ROAD) == 0) {
+        lock
+        msgbox(format("(I can't go back to Sam's place without going to the Town Hall first, it's too dangerous.)"))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerBackingUp)
+        waitmovement(0)
+        release
+        end
+    }
+    else {
+        release
+        end
+    }
+}
+
+script CapeEast_Boy {
+    lock
+    faceplayer
+    msgbox(format("The air is so cool here! And it also tastes salty. Is it weird that I can taste air? Should I see a doctor?"))
+    release
+    end
+}
+
+script CapeEast_Fisherman {
+    lock
+    msgbox(format("... \n ...Come on now, bite..."))
+    faceplayer
+    msgbox(format("...Huh? Hey! Scram! You're scaring the fish!"))
+    applymovement(2, CapeEastFisherman)
+    waitmovement(0)
+    release
+    end
+}
+
+script CapeEast_Girl {
+    lock
+    faceplayer
+    msgbox(format("I was told that if you Headbutt a tree like this one, a Pokémon will fall out of it. But so far, nothing has happened, and my head is starting to hurt."))
+    applymovement(3, moves(face_up))
+    release
+    end
+}
+
+script CapeEast_Tourist {
+    lock
+    faceplayer
+    msgbox(format("Oh man, I'm about to catch my very first Pokémon!! I'm so excited. I hope I manage to capture a good one, like a Kyogre or something."))
+    release
+    end
+}
+
+movement CapeEastFisherman {
+    face_down
+}
+
+movement PlayerFacesSam {
+    face_left
+} 
+
+movement SamShowingTheWay1 {
+    walk_down
+    walk_left * 8
+    face_player
+}
+
+movement PlayerFollowingSam1 {
+    walk_down * 2
+    walk_left * 7
+}
+
+movement SamShowingTheWay2 {
+    walk_up
+    walk_left * 12
+    face_player
+}
+
+movement PlayerFollowingSam2 {
+    walk_left
+    walk_up
+    walk_left * 11
+}
+
+movement SamShowingTheWay3 {
+    walk_left * 5
+    walk_down
+    walk_left * 4
+    walk_down * 2
+    walk_left * 4
+    face_player
+}
+
+movement PlayerFollowingSam3 {
+    walk_left * 6
+    walk_down
+    walk_left * 4
+    walk_down * 2
+    walk_left * 3
+}
+
+movement SamLeavingToHouse {
+    walk_up
+    walk_right * 5
+    walk_up
+    walk_right * 5
+}
+
+movement PlayerBackingUp {
+    walk_left
+}
+
+movement GirlCapeEast {
+    face_up
+}

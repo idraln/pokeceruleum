@@ -81,6 +81,13 @@ static const struct FormChange sMeowthFormChangeTable[] =
 #endif
     {FORM_CHANGE_TERMINATOR},
 };
+static const struct FormChange sPersianFormChangeTable[] =
+{
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_PERSIAN_MEGA, ITEM_PERSIANITE},
+#endif
+    {FORM_CHANGE_TERMINATOR},
+};
 #endif //P_FAMILY_MEOWTH
 
 #if P_FAMILY_ABRA

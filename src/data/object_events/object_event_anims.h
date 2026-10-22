@@ -1500,6 +1500,31 @@ static const union AffineAnimCmd *const sAffineAnimTable_KyogreGroudon[] = {
     sAffineAnim_KyogreGroudon_DipEast,      // Unused
 };
 
+static const union AnimCmd sAnim_HeliSpin[] = {
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_Helicopter[] = {
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+    sAnim_HeliSpin,
+};
+
 // For animations with alternating steps
 static const struct StepAnimTable sStepAnimTables[] = {
     {

@@ -1,0 +1,215 @@
+raw `
+Route7_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Route7_OnFrame
+	.byte 0
+
+Route7_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 56, Route7_Call
+    .2byte 0
+`
+
+script Route7_Call {
+    lockall
+    faceplayer
+    pokenavcall(KAMCall)
+    waitmessage
+    clearflag(FLAG_KAM_LEAGUE)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    startquest(QUEST_LAST_FIGHT)
+    setvar(VAR_MAIN_STORY, 57)
+    releaseall
+    end
+}
+
+text KAMCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "K.A.M.: Hey {PLAYER}!\p"
+    "… … … … … …\p"
+    "Remember me? I achieved my dream!\n"
+    "I'm finally a champion!\p"
+    "… … … … … …\p"
+    "Well, not until I can fight you\n"
+    "for the throne. Come back to\l"
+    "Thura, I'm waiting for you\l"
+    "on top of the Council\l"
+    "Headquarters!\l"
+    "… … … … … …\n… … … … … Click!"
+}
+
+script Route7_Tania {
+    trainerbattle_single(TRAINER_ROUTE7_1, Tania1, Tania2)
+    msgbox(format("Isn't Stoutland great? He's such a good boy!"))
+    closemessage
+    end
+}
+
+text Tania1 {
+    format("Check this out!")
+}
+
+text Tania2 {
+    format("Cute, aren't they?")
+}
+
+script Route7_Duke {
+    trainerbattle_single(TRAINER_ROUTE7_2, Duke1, Duke2)
+    msgbox(format("Why settle for one monkey when you can have three? Haha! I couldn't choose!"))
+    closemessage
+    end
+}
+
+text Duke1 {
+    format("Monkeys, go!")
+}
+
+text Duke2 {
+    format("Oh?")
+}
+
+script Route7_Flora {
+    trainerbattle_single(TRAINER_ROUTE7_3, Flora1, Flora2)
+    msgbox(format("We don't speak enough about the importance of growing flowers. With more flowers, there wouldn't be any wars."))
+    closemessage
+    end
+}
+
+text Flora1 {
+    format("Please, try the taste of flowers!")
+}
+
+text Flora2 {
+    format("Oh? Are you allergic?")
+}
+
+script Route7_Berry {
+    trainerbattle_single(TRAINER_ROUTE7_4, Berry1, Berry2)
+    msgbox(format("Yes, my name is Berry. Yes, my parents called me that on purpose. Yes, I was bullied because of that."))
+    closemessage
+    end
+}
+
+text Berry1 {
+    format("Move out the way!")
+}
+
+text Berry2 {
+    format("You've ruined my set! Not cool!")
+}
+
+script Route7_Charles {
+    trainerbattle_single(TRAINER_ROUTE7_5, Charles1, Charles2)
+    msgbox(format("Unova is great place and all, but it cruelly lacks forests. There's only one just past Nacrene City."))
+    closemessage
+    end
+}
+
+text Charles1 {
+    format("Ah! You scared me!")
+}
+
+text Charles2 {
+    format("I thought you were a big bug. I'm relieved.")
+}
+
+script Route7_Twins {
+    trainerbattle_double(TRAINER_ROUTE7_6, R7Twins1, R7Twins2, R7TwinsNE)
+    msgbox(format("With our birds, we're invicible!... Usually."))
+    closemessage
+    end
+}
+
+text R7Twins1 {
+    format("Braviary! Mandibuzz! GO BIRDS!")
+}
+
+text R7Twins2 {
+    format("Nooo...")
+}
+
+text R7TwinsNE {
+    format("We'd love to fight, but two against one wouldn't be fair!")
+}
+
+script Route7_Guard {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) == 53) {
+        checkitem(ITEM_TEA)
+        if(var(VAR_RESULT) == TRUE) {
+            msgbox(format("Ah, thank you, my child. You may come in."))
+            closemessage
+            delay(20)
+            applymovement(11, moves(walk_up))
+            waitmovement(0)
+            playse(SE_EXIT)
+            removeobject(11)
+            setflag(FLAG_GUARD_ROUTE7)
+            release
+            end
+        }
+        else {
+            msgbox(format("I'm sorry, young one, but the Tower is closed for now. It is too unsafe to go."))
+            msgbox(format("..."))
+            msgbox(format("Well, if you insist, you can go in. But before that, I need you to fetch me a cup of Tea, in my house, on this very route. I'm parched."))
+            release
+            end
+        }
+    }
+    if(var(VAR_MAIN_STORY) == 52) {
+        msgbox(format("I'm sorry, young one, but the Tower is closed for now. It is too unsafe to go."))
+        msgbox(format("..."))
+        msgbox(format("Well, if you insist, you can go in. But before that, I need you to fetch me a cup of Tea, in my house, on this very route. I'm parched."))
+        setvar(VAR_MAIN_STORY, 53)
+        release
+        end 
+    }
+    else {
+        msgbox(format("I'm sorry, young one, but the Tower is closed for now. It is too unsafe to go."))
+        release
+        end
+    }
+}
+
+script Route7_Ninja {
+    lock
+    faceplayer
+    msgbox(format("Shh! I'm trying to find an Audino, don't make a noise!"))
+    release
+    end
+}
+
+script Route7_Item1 {
+    lock
+    removeobject(4)
+    setflag(FLAG_ROUTE7_ITEM_1)
+    giveitem(ITEM_ZINC)
+    release
+    end
+}
+
+script Route7_Item2 {
+    lock
+    removeobject(7)
+    setflag(FLAG_ROUTE7_ITEM_2)
+    giveitem(ITEM_LUM_BERRY)
+    release
+    end
+}
+
+script Route7_Item3 {
+    lock
+    removeobject(12)
+    setflag(FLAG_ROUTE7_ITEM_3)
+    giveitem(ITEM_PP_MAX)
+    release
+    end
+}
+
+script Route7_Item4 {
+    lock
+    removeobject(1)
+    setflag(FLAG_ROUTE7_ITEM_4)
+    giveitem(ITEM_MAX_ELIXER)
+    release
+    end
+}

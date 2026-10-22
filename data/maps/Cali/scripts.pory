@@ -1,0 +1,124 @@
+raw `
+Cali_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Cali_OnTransition
+	.byte 0
+`
+
+script Cali_OnTransition {
+    setflag(FLAG_VISITED_CALI)
+}
+
+script Cali_Sailor {
+    lock
+    faceplayer
+    msgbox(format("How old do you think this wreck is? Do you reckon it could be from a hundred years ago?"))
+    turnobject(1, DIR_WEST)
+    release
+    end
+}
+
+script Cali_Fisherman {
+    lock
+    faceplayer
+    if(var(VAR_DISAPPEARANCE) == 3) {
+        msgbox(format("Good news! Things are back to normal! It was just an empty phase! I think?"))
+    }
+    else {
+        msgbox(format("I don't understand... It's like all the fish have decided to go on holiday at the same time... I didn't catch a single one for almost a week now..."))
+    }
+    turnobject(2, DIR_SOUTH)
+    release
+    end
+}
+
+script Cali_NoEnter {
+    lock
+    if(var(VAR_MAIN_STORY) < 13) {
+        msgbox(format("The door is closed."))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        waitmovement(0)
+    }
+    release
+    end
+}
+
+script Cali_Sign {
+    lockall
+    msgbox(format("Cali\nAlso known as the Fishermen's Haven."))
+    releaseall
+    end
+}
+
+script Cali_WorriedMother {
+    lock
+    faceplayer
+    if(flag(FLAG_QUEST_MOTHER)) {
+        if(var(VAR_LOST_KID) == 0) {
+            msgbox(format("Have you found my kid yet? Please! I fear he's going to drown!"))
+            release
+            end
+        }
+        else {
+            applymovement(3, moves(emote_exclamation_mark))
+            waitmovement(0)
+            playse(SE_PIN)
+            delay(40)
+            msgbox(format("My kid! You found him! Thank you so much! Please, accept this gift!"))
+            closemessage
+            giveitem(ITEM_BIG_NUGGET)
+            fadescreen(FADE_TO_BLACK)
+            removeobject(3)
+            removeobject(4)
+            setflag(FLAG_WORRIED_MOTHER)
+            setflag(FLAG_CALI_KID)
+            delay(20)
+            fadescreen(FADE_FROM_BLACK)
+            completequest(QUEST_MOTHER)
+            setflag(FLAG_QUEST_MOTHER_COMPLETE)
+            clearflag(FLAG_CANT_FLY)
+            clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("My child! My child! He's drifted away and I can't get to him! I don't have the emblems to Surf! Please, help me!"))
+        startquest(QUEST_MOTHER)
+        setflag(FLAG_QUEST_MOTHER)
+        setvar(VAR_LOST_KID, 0)
+        release
+        end
+    }
+}
+
+script Cali_LostKid {
+    if(var(VAR_LOST_KID) == 1) {
+        lock
+        msgbox(format("MUMMY!!"))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        destroyfollowernpc
+        clearflag(FLAG_CALI_KID)
+        addobject(4)
+        delay(20)
+        turnobject(3, DIR_WEST)
+        setvar(VAR_LOST_KID, 2)
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+    }
+    else {
+        end
+    }
+}
+
+script Cali_FoundKid {
+    lock
+    faceplayer
+    msgbox(format("Thank you so much!"))
+    closemessage
+    turnobject(4, DIR_EAST)
+    release
+    end
+}

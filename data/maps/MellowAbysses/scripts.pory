@@ -1,0 +1,104 @@
+raw `
+MellowAbysses_MapScripts::
+	.byte 0
+`
+
+script MellowAbysses_DiverNPC1 {
+    lock
+    faceplayer
+    msgbox(format("Hmblblbl! Hmblblbl!"))
+    release
+    end
+}
+
+script MellowAbysses_Diver1 {
+    trainerbattle_single(TRAINER_ABYSS_1, Diver1_1, Diver1_2)
+    msgbox(format("Hmblblbl, hmblblbl? Hmblbl! Hmblbl, hmblblbl..."))
+    closemessage
+    end
+}
+
+text Diver1_1 {
+    format("Hmblbl! Hmblbl, hmblblbl.")
+}
+
+text Diver1_2 {
+    format("Hmmm!")
+}
+
+/////////////
+
+script MellowAbysses_DiverNPC2 {
+    lock
+    faceplayer
+    msgbox(format("I'm on a project called the Restoration project! We're studying the past, and it's fascinating!"))
+    release
+    end
+}
+
+script MellowAbysses_Diver2 {
+    trainerbattle_single(TRAINER_ABYSS_2, Diver2_1, Diver2_2)
+    msgbox(format("A little clue for you: you must've seen some round rocks scattered across the abysses; maybe they would mean something?"))
+    closemessage
+    end
+}
+
+text Diver2_1 {
+    format("Are you down there for the Council Challenge? You must be strong!")
+}
+
+text Diver2_2 {
+    format("You are indeed very strong!")
+}
+
+/////////////
+
+script MellowAbysses_Diver3 {
+    trainerbattle_single(TRAINER_ABYSS_3, Diver3_1, Diver3_2)
+    msgbox(format("You can't be too careful while crossing this kind of rift. Who knows what could come from deep down..."))
+    closemessage
+    end
+}
+
+text Diver3_1 {
+    format("Are you going to cross out that rift? Be careful!")
+}
+
+text Diver3_2 {
+    format("Seems that you know what you're doing...")
+}
+
+/////////////
+
+script MellowAbysses_BlockLeft {
+    lock
+    msgbox(format("(The waters look too deep this way, it wouldn't be wise to go there.)"))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+    waitmovement(0)
+    release
+    end
+}
+
+script MellowAbysses_BlockRight {
+    lock
+    msgbox(format("(The waters look too deep this way, it wouldn't be wise to go there.)"))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
+    waitmovement(0)
+    release
+    end
+}
+
+script MellowAbysses_RiftWarp {
+    lock
+    delay(40)
+    call(ScreenShake)
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark face_up delay_16 face_left delay_16 face_down))
+    waitmovement(0)
+    call(ScreenShake)
+    warpsilent(MAP_BLEAK_RIFT, 11, 51)
+    release
+    end
+}

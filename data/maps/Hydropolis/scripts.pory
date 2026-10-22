@@ -1,0 +1,506 @@
+raw `
+Hydropolis_MapScripts::
+	.byte 0
+`
+
+script Hydropolis_AnaisWelcome {
+    lock
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if (var(VAR_TEMP_0) == 14) {
+        addobject(11)
+        setobjectxy(11, 15, 13)
+        turnobject(11, DIR_SOUTH)
+        playse(SE_EXIT)
+        delay(20)
+        applymovement(11, moves(walk_down * 2 walk_left face_down))
+        waitmovement(0)
+    }
+    elif (var(VAR_TEMP_0) == 15) {
+        addobject(11)
+        setobjectxy(11, 15, 13)
+        turnobject(11, DIR_SOUTH)
+        playse(SE_EXIT)
+        delay(20)
+        applymovement(11, moves(walk_down * 2))
+        waitmovement(0)
+    }
+    elif (var(VAR_TEMP_0) == 16) {
+        addobject(11)
+        setobjectxy(11, 16, 13)
+        turnobject(11, DIR_SOUTH)
+        playse(SE_EXIT)
+        delay(20)
+        applymovement(11, moves(walk_down * 2))
+        waitmovement(0)
+    }
+    elif (var(VAR_TEMP_0) == 17) {
+        addobject(11)
+        setobjectxy(11, 16, 13)
+        turnobject(11, DIR_SOUTH)
+        playse(SE_EXIT)
+        delay(20)
+        applymovement(11, moves(walk_down * 2 walk_right face_down))
+        waitmovement(0)
+    }
+    namebox("Anais")
+    msgbox(format("Ah, welcome to Hydropolis! You don't look like a researcher, so you must be a challenger!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    namebox("Anais")
+    msgbox(format("First of all, congratulations! You're almost finished with the Challenge! You must've lived some incredible adventures with your Pokémons! But, it's actually far from over! A last test awaits you. Come meet me in the research room, and you'll know more about it!"))
+    closemessage
+    hidenamebox
+    if (var(VAR_TEMP_0) == 14) {
+        delay(20)
+        applymovement(11, moves(walk_right walk_up * 2))
+        waitmovement(0)
+        playse(SE_EXIT)
+        setobjectxy(11, 48, 29)
+    }
+    elif (var(VAR_TEMP_0) == 15) {
+        delay(20)
+        applymovement(11, moves(walk_up * 2))
+        waitmovement(0)
+        playse(SE_EXIT)
+        setobjectxy(11, 48, 29)
+    }
+    elif (var(VAR_TEMP_0) == 16) {
+        delay(20)
+        applymovement(11, moves(walk_up * 2))
+        waitmovement(0)
+        playse(SE_EXIT)
+        setobjectxy(11, 48, 29)
+    }
+    elif (var(VAR_TEMP_0) == 17) {
+        delay(20)
+        applymovement(11, moves(walk_left walk_up * 2))
+        waitmovement(0)
+        playse(SE_EXIT)
+        setobjectxy(11, 48, 29)
+    }
+    setflag(FLAG_DIVERS_NPC)
+    clearflag(FLAG_DIVERS_TRAINERS)
+    setvar(VAR_MAIN_STORY, 33)
+    release
+    end
+}
+
+script Hydropolis_Diver {
+    lock
+    faceplayer
+    msgbox(format("That's it, this is it! For the first time in my life, I'm going to dive alone. Without any help. Now, if you'll excuse me, I need to gather myself, because I think I'm going to pass out."))
+    turnobject(1, DIR_NORTH)
+    release
+    end
+}
+
+script Hydropolis_Worker {
+    lock
+    faceplayer
+    msgbox(format("Remember me? We met near Frux! Yeah, I landed this gig, the pay's good but it gets repetitive quite fast."))
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}
+
+script Hydropolis_Scientist1 {
+    lock
+    faceplayer
+    msgbox(format("What? I know there's nothing in my aquariums! I'm getting started, don't rush me!"))
+    release
+    end
+}
+
+script Hydropolis_Intern {
+    lock
+    faceplayer
+    msgbox(format("I'm so happy! An internship in a marine biology lab! My friends are gonna be so jealous when I'll tell them! I'll finally figure out why fish disappeared from Thura's seas!"))
+    release
+    end
+}
+
+script Hydropolis_Scientist2 {
+    lock
+    msgbox(format("Hmmm... So those corals are actually remnants of Corsola? Did the seawater pH affect the color of its skeleton?..."))
+    release
+    end
+}
+
+script Hydropolis_Nurse {
+    lock
+    faceplayer
+    msgbox(format("Hiya! You must be exhausted after all this time spent underwater. Do you want me to heal your Pokémons?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("All right! Let me take your Pokémons."))
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        special(HealPlayerParty)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("There you go! Fully healed. See you!"))
+    }
+    else {
+        msgbox(format("Very well then! See you!"))
+    }
+    release
+    end
+}
+
+script Hydropolis_Scientist3 {
+    lock
+    faceplayer
+    msgbox(format("We're underwater, and yet we can breathe just fine! You're probably wondering how that's possible, aren't you? Well, we've developed a machine that converts the oxygen in seawater into breathable air! How wonderful!"))
+    release
+    end
+}
+
+script Hydropolis_Scientist4 {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) > 34 && flag(FLAG_FOSSIL_REVIVED)) {
+        msgbox(format("I haven't finished my paper, you've got to let me work!"))
+        turnobject(7, DIR_NORTH)
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) > 34) {
+        msgbox(format("That's it! I've cracked the code! I can finally revive fossils! Haha! Where do you think that Tirtouga came from? Anyways, if you have fossils, I can revive them for you. Free of charge, of course."), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            checkitem(ITEM_ROOT_FOSSIL, 1)
+            if(var(VAR_RESULT) == TRUE) {
+                msgbox(format("Oh yeah! That's one! Give it to me!"))
+                closemessage
+                removeitem(ITEM_ROOT_FOSSIL, 1)
+                fadescreen(FADE_TO_BLACK)
+                delay(40)
+                playse(MUS_LEVEL_UP)
+                waitse
+                fadescreen(FADE_FROM_BLACK)
+                msgbox(format("And voilà! A fresh Lileep, revived from its thousand-year sleep!"))
+                givemon(SPECIES_LILEEP, 10)
+                if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+                    playfanfare(MUS_LEVEL_UP)
+                    msgbox(format("You just received a Lileep!"))
+                    call(NicknamePokemon)
+                }
+                elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+                    playfanfare(MUS_LEVEL_UP)
+                    msgbox(format("You just received a Lileep!"))
+                    call(NicknameBoxmon)
+                }
+                msgbox(format("You're welcome. Now go, I've got a paper to write!"))
+                setflag(FLAG_FOSSIL_REVIVED)
+                turnobject(7, DIR_NORTH)
+                completequest(QUEST_FOSSIL)
+                release
+                end
+            }
+            else {
+                msgbox(format("Hmmm... I don't see any fossils. Come back when you've found one!"))
+                turnobject(7, DIR_NORTH)
+                release
+                end
+            }
+        }
+        else {
+            msgbox(format("It's okay! Come back when you've found one!"))
+            turnobject(7, DIR_NORTH)
+            release
+            end   
+        }
+    }
+    else {
+        msgbox(format("I'm on the verge of figuring out how to revive fossils! Just give me a few minutes! In the meantime, go talk to Anais!"))
+        turnobject(7, DIR_NORTH)
+        release
+        end
+    }  
+}
+
+script Hydropolis_Scientist5 {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) > 42 && var(VAR_DISAPPEARANCE) == 3) {
+        msgbox(format("Thanks again, {PLAYER}! The rift is truly a hidden treasure!"))
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) > 42 && var(VAR_DISAPPEARANCE) == 2) {
+        msgbox(format("So? Have you been inside the rift?"))
+        closemessage
+        delay(20)
+        applymovement(8, moves(emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        delay(40)
+        msgbox(format("Oh, my! You actually did it!"))
+        closemessage
+        delay(20)
+        msgbox(format("...So, how did it look like?..."))
+        closemessage
+        delay(20)
+        applymovement(8, moves(emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        delay(40)
+        msgbox(format("No way! A Kyogre, you say? I've only seen it in books!"))
+        closemessage
+        delay(20)
+        msgbox(format("You saw some unknown Pokémon too?! Now that Kyogre left to its home, we need to investigate the rift!"))
+        closemessage
+        delay(20)
+        msgbox(format("Well, you just did Thura a solid. Thanks a lot! You deserve this."))
+        giveitem(ITEM_EXP_CANDY_L, 10)
+        completequest(QUEST_DISAPPEARANCE)
+        setvar(VAR_DISAPPEARANCE, 3)
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) > 42 && var(VAR_DISAPPEARANCE) == 1) {
+        msgbox(format("So? Have you been inside the rift?"))
+        release
+        end
+    }
+    elif(var(VAR_MAIN_STORY) > 42 && var(VAR_DISAPPEARANCE) == 0) {
+        msgbox(format("What you're seeing here is probably the last two specimens of Remoraid in Thura! We hoped that they would reproduce, but it turns out they are both females. So we need to clone them, or try to get our hands on a Ditto."))
+        closemessage
+        delay(20)
+        msgbox(format("You look like a well seasoned trainer, am I mistaken?"))
+        closemessage
+        delay(20)
+        applymovement(8, moves(emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        delay(40)
+        msgbox(format("Oh, my! You're the president! So you're definitely strong."))
+        closemessage
+        delay(20)
+        applymovement(8, moves(face_up))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("Anais must've talked to you about the Mass Extinction of Fish project. It's something that's been a plague in Thura for a few months now."))
+        closemessage
+        delay(20)
+        applymovement(8, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("We studied this subject for days, we spent many sleepless nights, and we finally cracked the code. The answer to all of our problems lies deep inside the rift down in Mellow Abysses."))
+        closemessage
+        delay(20)
+        applymovement(8, moves(face_up))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("...There's a mighty Pokémon that has made its home there. Well, we actually think that it lost its way to its actual home, and it's making it angrier by the day. And none of the scientists in our team is strong enough to face it. Not even Anais..."))
+        closemessage
+        delay(20)
+        applymovement(8, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("This is when you come into the picture. We need someone strong enough to help this Pokémon go back to its home. And to achieve that, you'll need to make your way inside the rift. Please!"))
+        closemessage
+        startquest(QUEST_DISAPPEARANCE)
+        setvar(VAR_DISAPPEARANCE, 1)
+        release
+        end
+    }
+    else {
+        msgbox(format("What you're seeing here is probably the last two specimens of Remoraid in Thura! We hoped that they would reproduce, but it turns out they are both females. So we need to clone them, or try to get our hands on a Ditto."))
+        release
+        end
+    }
+}
+
+script Hydropolis_Scientist6 {
+    lock
+    faceplayer
+    msgbox(format("I can't believe it! I thought I was being played with! Those are actually Remoraids! I've never seen them in my life!"))
+    release
+    end
+}
+
+script Hydropolis_Scientist7 {
+    lock
+    faceplayer
+    msgbox(format("Dude, I'm on a break here, please. There are plenty of people to talk to."))
+    release
+    end
+}
+
+script Hydropolis_Scientist8 {
+    lock
+    faceplayer
+    msgbox(format("Don't listen to him. He just finished a 12 hour work session, he's just a bit tired. He's in charge of the MEF project. You're more than welcome here!"))
+    release
+    end
+}
+
+script Hydropolis_Cook {
+    lock
+    faceplayer
+    msgbox(format("Cooking seafood would be the easy thing to do. But I haven't earned my three stars cooking easy meals!"))
+    release
+    end
+}
+
+script Hydropolis_Anais {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) == 34) {
+        showmonpic(SPECIES_ACCELGOR, 10, 3)
+        namebox("Anais")
+        msgbox(format("So? Do you want to give it a try? What is the Pokémon we're trying to resurrect? Remember, that's the fossil it's coming from."), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            hidemonpic
+            msgbox(format("Ok, let's hear it!"))
+            special(EnterHydropolisPokemon)
+            waitstate
+            special(GetPokemonFeedback)
+            //waitstate
+            if(var(VAR_RESULT) == 1) {
+                closemessage
+                delay(40)
+                playse(SE_DING_DONG)
+                namebox("Anais")
+                msgbox(format("Ding ding ding! That's the correct answer! Well done!!"))
+                closemessage
+                hidenamebox
+                delay(20)
+                namebox("Anais")
+                msgbox(format("You've really earned the last Emblem of the Council Challenge!..."))
+                closemessage
+                hidenamebox
+                delay(20)
+                turnobject(11, DIR_NORTH)
+                delay(20)
+                playbgm(MUS_RG_ENCOUNTER_GYM_LEADER, FALSE)
+                namebox("Anais")
+                msgbox(format("...Or have you?"))
+                closemessage
+                hidenamebox
+                delay(20)
+                faceplayer
+                namebox("Anais")
+                msgbox(format("There's just one last test you need to pass!"))
+                closemessage
+                hidenamebox
+                trainerbattle_no_intro(TRAINER_ANAIS_HYDRO, Anais1)
+                namebox("Anais")
+                msgbox(format("Wow! You've done it! You've completed the Council Challenge! Now I can give you your hard-earned Emblem!"))
+                closemessage
+                hidenamebox
+                delay(20)
+                playfanfare(MUS_OBTAIN_BADGE)
+                msgbox(format("You've earned the Droplet Emblem!"))
+                waitfanfare
+                setflag(FLAG_BADGE08_GET)
+                closemessage
+                delay(20)
+                namebox("Anais")
+                msgbox(format("And for a special trainer like you, a freshly resurrected Tirtouga."))
+                closemessage
+                hidenamebox
+                givemon(SPECIES_TIRTOUGA, 10)
+                if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+                    playfanfare(MUS_LEVEL_UP)
+                    msgbox(format("You just received a Tirtouga!"))
+                    call(NicknamePokemon)
+                }
+                elif(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+                    playfanfare(MUS_LEVEL_UP)
+                    msgbox(format("You just received a Tirtouga!"))
+                    call(NicknameBoxmon)
+                }
+                namebox("Anais")
+                msgbox(format("Now go! The hardest part is yet to come. I'm sure you'll succeed with high honors!"))
+                hidenamebox
+                setvar(VAR_MAIN_STORY, 35)
+                settrainerflag(TRAINER_ABYSS_1)
+                settrainerflag(TRAINER_ABYSS_2)
+                settrainerflag(TRAINER_ABYSS_4)
+                settrainerflag(TRAINER_ABYSS_5)
+                completequest(QUEST_EMBLEMS)
+                setflag(FLAG_EMBLEMS_COMPLETE)
+            }
+            else {
+                closemessage
+                delay(40)
+                playse(SE_RG_HELP_ERROR)
+                namebox("Anais")
+                msgbox(format("...Nope! Wrong answer! Try again!"))
+                hidenamebox
+            }
+        }
+        else {
+            hidemonpic
+            
+            msgbox(format("It's okay, take your time!"))
+            hidenamebox
+            turnobject(11, DIR_NORTH)
+        }
+    }
+    elif(var(VAR_MAIN_STORY) > 34) {
+        namebox("Anais")
+        msgbox(format("{PLAYER}, happy to see you! Did you achieve your goal yet?"))
+        hidenamebox
+    }
+    else {
+        namebox("Anais")
+        msgbox(format("There you are! So, let me explain the rules to you. There are two projects that my team and me are working on right now: the Mass Extinction of Fish, or MEF project, and the Restoration Project. You'll be working on the latter one!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        turnobject(11, DIR_NORTH)
+        delay(20)
+        namebox("Anais")
+        msgbox(format("As part of the Restoration project, we're trying to answer current questions by drawing on insights from the past. Right now, we're studying fossils!"))
+        closemessage
+        hidenamebox
+        applymovement(11, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        namebox("Anais")
+        msgbox(format("And there's a specific fossil we're studying. Your mission is to figure out which Pokémon this fossil comes from!"))
+        closemessage
+        hidenamebox
+        showmonpic(SPECIES_ACCELGOR, 10, 3)
+        delay(120)
+        hidemonpic
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_question_mark))
+        waitmovement(0)
+        delay(40)
+        namebox("Anais")
+        msgbox(format("Don't worry, I scattered some clues in the underwater! You just have to explore. Once you think you got it, come back and tell me your answer! Good luck!"))
+        closemessage
+        hidenamebox
+        turnobject(11, DIR_NORTH)
+        setvar(VAR_MAIN_STORY, 34)
+        setflag(FLAG_DIVERS_NPC)
+        clearflag(FLAG_DIVERS_TRAINERS)
+    }
+    release
+    end
+}
+
+text Anais1 {
+    format("Congratulations!!")
+}
+
+script Hydropolis_Item1 {
+    lock
+    removeobject(17)
+    giveitem(ITEM_SAFETY_GOGGLES)
+    setflag(FLAG_ITEM_HYDRO_1)
+    release
+    end
+}
+
+script Hydropolis_Item2 {
+    lock
+    removeobject(18)
+    giveitem(ITEM_TM48)
+    setflag(FLAG_ITEM_HYDRO_2)
+    release
+    end
+}

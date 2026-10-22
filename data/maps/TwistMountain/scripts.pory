@@ -1,0 +1,35 @@
+raw `
+TwistMountain_MapScripts::
+	.byte 0
+`
+
+script TwistMountain_Triathlete {
+    lock
+    faceplayer
+    msgbox(format("Twist Mountain is closed? How am I supposed to train for Thura's Triathlon?"))
+    release
+    end
+}
+
+script TwistMountain_Worker {
+    lock
+    faceplayer
+    msgbox(format("I'm sorry lad, Twist Mountain is closed for now. Like in Chargestone Cave, something wrong happened in here."))
+    release
+    end
+}
+
+script TwistMountain_Bob {
+    trainerbattle_single(TRAINER_ROUTE7_7, Bob1, Bob2)
+    msgbox(format("Well, I guess I'll just go back from where I'm coming from."))
+    closemessage
+    end
+}
+
+text Bob1 {
+    format("Where do you come from?")
+}
+
+text Bob2 {
+    format("Never heard of this place...")
+}

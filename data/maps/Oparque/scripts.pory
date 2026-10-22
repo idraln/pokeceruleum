@@ -1,0 +1,25 @@
+raw `
+Oparque_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Oparque_OnTransition
+	.byte 0
+`
+
+script Oparque_OnTransition {
+    setflag(FLAG_VISITED_OPARQUE)
+}
+
+script Oparque_Item {
+    lock
+    removeobject(1)
+    giveitem(ITEM_TM11)
+    setflag(FLAG_ITEM_OPARQUE_1)
+    release
+    end
+}
+
+script Oparque_Sign {
+    lockall
+    msgbox(format("Oparque"))
+    releaseall
+    end
+}

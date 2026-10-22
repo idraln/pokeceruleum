@@ -1,0 +1,63 @@
+raw `
+UltramarineChannel_MapScripts::
+	.byte 0
+`
+
+script UltramarineChannel_Kleo {
+	trainerbattle_single(TRAINER_ULTRAMARINE_1, Kleo1, Kleo2)
+	msgbox(format("Screw it! I'm going for it, even it means that I drown. You only live once!"))
+	closemessage
+	end
+}
+
+text Kleo1 {
+	format("I need to go back to Cali, but these currents scare me shitless. What should I do?")
+}
+
+text Kleo2 {
+	format("I guess I don't have choice now...")
+}
+
+//////////////
+
+script UltramarineChannel_Timeo {
+	lock
+	faceplayer
+	if(var(VAR_LOST_KID) == 1 && flag(FLAG_QUEST_MOTHER)) {
+		msgbox(format("I can't wait to see my mum!"))
+		release
+		end
+	}
+	elif(flag(FLAG_QUEST_MOTHER)) {
+		msgbox(format("I'm lost... Please help me..."))
+		closemessage
+		delay(20)
+		applymovement(2, moves(emote_exclamation_mark))
+		waitmovement(0)
+		playse(SE_PIN)
+		delay(40)
+		msgbox(format("Oh? You know my mum? Please, take me back to her! I'll grab on your Pokémon!"))
+		setfollowernpc(2, FNPC_LEAVE_ROUTE, 0, 0)
+		setvar(VAR_LOST_KID, 1)
+		setflag(FLAG_LOST_KID_ULTRAMARINE)
+		setflag(FLAG_CANT_FLY)
+		setflag(FLAG_HIDE_MAP_NAME_POPUP)
+		release
+		end
+	}
+	else {
+		msgbox(format("I'm lost... Please help me..."))
+		release
+		end
+	}
+}
+
+script UltramarineChannel_LostKidQuest {
+	lock
+	msgbox(format("No! My mum isn't that way! She's in Cali!"))
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 2))
+	waitmovement(0)
+	release
+	end
+}

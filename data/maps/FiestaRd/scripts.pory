@@ -1,0 +1,56 @@
+raw `
+FiestaRd_MapScripts::
+	.byte 0
+`
+
+script FiestaRd_Jacob {
+    trainerbattle_single(TRAINER_FIESTA, Jacob1, Jacob2)
+    msgbox(format("I don't understand, why does it only have 1 HP? Is it broken?"))
+    closemessage
+    end
+}
+
+text Jacob1 {
+    format("My Nincada evolved into something weird, check it out!")
+}
+
+text Jacob2 {
+    format("WHAT? How??")
+}
+
+script FiestaRd_Camper {
+    lock
+    faceplayer
+    msgbox(format("Damn partygoers. Look at that mess! Confetti all the way through the road! What about the Pokémon? They can mistake it for food and choke on it!"))
+    release
+    end
+}
+
+script FiestaRd_Fast {
+    lock
+    faceplayer
+    msgbox(format("Dude, I drank something weird-tasting and I can't feel my legs. What is going on?"))
+    release
+    end
+}
+
+script FiestaRd_Sick {
+    lock
+    msgbox(format("Oof... Back up, I'm not finished throwing up..."))
+    release
+    end
+}
+
+script FiestaRd_Boyfriend {
+    lock
+    msgbox(format("Babe, I swear I wasn't looking at her! I just happened to look in that direction when she walked through! Believe me!"))
+    release
+    end
+}
+
+script FiestaRd_Girlfriend {
+    lock
+    msgbox(format("I KNEW I shouldn't have trusted your ass to come here! How could you do this to me?"))
+    release
+    end
+}

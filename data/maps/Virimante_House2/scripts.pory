@@ -1,0 +1,19 @@
+raw `
+Virimante_House2_MapScripts::
+	.byte 0
+`
+
+script Virimante_House2_GruntF {
+    lock
+    msgbox(format("Hmmm... Forks... Knives... Hehehe..."))
+    release
+    end
+}
+
+script Virimante_House2_GruntM {
+    lock
+    faceplayer
+    msgbox(format("My sis has a weird obsession with cutlery. I can't explain it."))
+    release
+    end
+}

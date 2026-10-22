@@ -7,6 +7,7 @@
 #include "palette.h"
 #include "pokemon_storage_system.h"
 #include "pokenav.h"
+#include "phone.h"
 
 #define LOOPED_TASK_DECODE_STATE(action) (action - 5)
 
@@ -317,7 +318,7 @@ void CB2_InitPokeNav(void)
     gPokenavResources = Alloc(sizeof(*gPokenavResources));
     if (gPokenavResources == NULL)
     {
-        SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        SetMainCallback2(CB2_InitPhone);
     }
     else
     {
@@ -446,7 +447,7 @@ static void Task_Pokenav(u8 taskId)
         // Wait for LoopedTask_InitPokenavMenu to finish
         if (PokenavMainMenuLoopedTaskIsActive())
             break;
-        SetActivePokenavMenu(POKENAV_MAIN_MENU);
+        SetActivePokenavMenu(POKENAV_REGION_MAP);
         tState = 4;
         break;
     case 2:
@@ -495,7 +496,7 @@ static void Task_Pokenav(u8 taskId)
             if (calledFromScript)
                 SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             else
-                SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+                SetMainCallback2(CB2_InitPhone);
         }
         break;
     }

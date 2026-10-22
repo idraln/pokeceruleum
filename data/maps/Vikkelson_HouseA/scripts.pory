@@ -1,0 +1,12 @@
+raw `
+Vikkelson_HouseA_MapScripts::
+	.byte 0
+`
+
+script Vikkelson_HouseA_Owner {
+    lock
+    faceplayer
+    msgbox(format("Hi sweetie! Unfortunately, I don't have any more room for you to sleep. Sorry!"))
+    release
+    end
+}

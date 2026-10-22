@@ -76,6 +76,7 @@ bool8 MetatileBehavior_HasRipples(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPuddle(u8 metatileBehavior);
 bool8 MetatileBehavior_IsTallGrass(u8 metatileBehavior);
 bool8 MetatileBehavior_IsLongGrass(u8 metatileBehavior);
+bool8 MetatileBehavior_IsPastoralLongGrass(u8 metatileBehavior);
 bool8 MetatileBehavior_IsBerryTreeSoil(u8 metatileBehavior);
 bool8 MetatileBehavior_IsAshGrass(u8 metatileBehavior);
 bool8 MetatileBehavior_IsFootprints(u8 metatileBehavior);
@@ -165,5 +166,24 @@ bool8 MetatileBehavior_IsSidewaysStairsLeftSideBottom(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSidewaysStairsRightSideAny(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSidewaysStairsLeftSideAny(u8 metatileBehavior);
 bool8 MetatileBehavior_IsRockClimbable(u8 metatileBehavior);
+bool8 MetatileBehavior_IsHeadbuttTree(u8);
+bool8 MetatileBehavior_IsVine(u8 metatileBehavior);
+bool8 MetatileBehavior_IsBois(u8 metatileBehavior);
+bool8 MetatileBehavior_IsRetro(u8 metatileBehavior);
+bool8 MetatileBehavior_IsRetroNE(u8 metatileBehavior);
+bool8 MetatileBehavior_IsBoisNE(u8 metatileBehavior);
+bool8 MetatileBehavior_IsSnowNE(u8 metatileBehavior);
+
+bool8 MetatileBehavior_IsRocheval(u8 metatileBehavior);
+bool8 MetatileBehavior_IsIronair1(u8 metatileBehavior);
+bool8 MetatileBehavior_IsIronair2(u8 metatileBehavior);
+bool8 MetatileBehavior_IsSnow(u8 metatileBehavior);
+bool8 MetatileBehavior_IsFrux(u8 metatileBehavior);
+bool8 MetatileBehavior_IsOhulinn(u8 metatileBehavior);
+bool8 MetatileBehavior_IsFighting(u8 metatileBehavior);
+bool8 MetatileBehavior_IsRooftop(u8 metatileBehavior);
+bool8 MetatileBehavior_IsJangala(u8 metatileBehavior);
+bool8 MetatileBehavior_IsObsidian(u8 metatileBehavior);
+bool8 MetatileBehavior_IsPebble(u8 metatileBehavior);
 
 #endif // GUARD_METATILE_BEHAVIOR_H

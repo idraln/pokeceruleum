@@ -1,0 +1,138 @@
+raw `
+ChallengerRd7_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, ChallengerRd7_OnLoad
+	.byte 0
+`
+
+script ChallengerRd7_OnLoad {
+    setflashlevel(2)
+}
+
+script ChallengerRd7_Xenia {
+    trainerbattle_single(TRAINER_CHALL_7, Xenia1, Xenia2)
+    msgbox(format("My head hurts! It means I'm dehydrated! But I can't leave without achieving my goal!"))
+    release
+    end
+}
+
+text Xenia1 {
+    format("It's too damn hot in here, and I dropped my water bottle in the lava!")
+}
+
+text Xenia2 {
+    format("How am I gonna get it back?")
+}
+
+/////////
+
+script ChallengerRd7_Marko {
+    trainerbattle_single(TRAINER_CHALL_8, Marko1, Marko2)
+    msgbox(format("Go away, I have no more desire to speak to you."))
+    release
+    end
+}
+
+text Marko1 {
+    format("This place is heaven on earth.")
+}
+
+text Marko2 {
+    format("Why would you spoil my happiness?")
+}
+
+/////////
+
+script ChallengerRd7_Hakim {
+    trainerbattle_single(TRAINER_CHALL_9, Hakim1, Hakim2)
+    msgbox(format("How is a place filled with lava that dark? I can't see anything!"))
+    release
+    end
+}
+
+text Hakim1 {
+    format("I'm lost, help me!")
+}
+
+text Hakim2 {
+    format("That doesn't help me!")
+}
+
+/////////
+
+script ChallengerRd7_Maya {
+    trainerbattle_single(TRAINER_CHALL_10, Maya1, Maya2)
+    msgbox(format("I haven't walked for long, yet I'm exhausted. I'm also parched..."))
+    release
+    end
+}
+
+text Maya1 {
+    format("Let's take a break together!")
+}
+
+text Maya2 {
+    format("Feeling rested yet?")
+}
+
+/////////
+
+script ChallengerRd7_Vlad {
+    trainerbattle_single(TRAINER_CHALL_11, Vlad1, Vlad2)
+    msgbox(format("I've had enough, I wanna go back home!"))
+    release
+    end
+}
+
+text Vlad1 {
+    format("Is this it? Is this the end of the cave?")
+}
+
+text Vlad2 {
+    format("Oh, so I took the wrong path.")
+}
+
+/////////
+
+script ChallengerRd7_Renee {
+    trainerbattle_single(TRAINER_CHALL_12, Renee1, Renee2)
+    msgbox(format("I'm sorry, I shouldn't have provoked you. But dude, have some sympathy!"))
+    release
+    end
+}
+
+text Renee1 {
+    format("This is the exit! I can feel it! And you're not going through!")
+}
+
+text Renee2 {
+    format("No! Because of you, I'll have to do it all over again!")
+}
+
+/////////
+
+script ChallengerRd7_Item {
+    lock
+    removeobject(7)
+    giveitem(ITEM_TM35)
+    setflag(FLAG_ITEM_CHALL_10)
+    release
+    end
+}
+
+script ChallengerRd7_Item2 {
+    lock
+    removeobject(8)
+    giveitem(ITEM_LEFTOVERS)
+    setflag(FLAG_ITEM_CHALL_11)
+    release
+    end
+}
+
+script ChallengerRd7_Item3 {
+    lock
+    removeobject(9)
+    giveitem(ITEM_FIRE_STONE)
+    setflag(FLAG_ITEM_CHALL_12)
+    release
+    end
+}

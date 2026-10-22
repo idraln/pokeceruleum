@@ -1,0 +1,44 @@
+raw `
+Ohulinn_Mart_MapScripts::
+	.byte 0
+`
+
+script Ohulinn_Mart_Clerk {
+    lock
+    faceplayer
+    msgbox(format("Hello, and welcome to Ohulinn's mart! How can I help you today?"))
+    waitmessage
+    if(var(VAR_SHOP_UPDATE) == 0) {
+        pokemart(MartUntil1stBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 2) {
+        pokemart(MartUntil4thBadge)
+    }
+    elif(var(VAR_SHOP_UPDATE) == 4) {
+        pokemart(MartUntil6thBadge)
+    }
+    else {
+        pokemart(MartFinal)
+    }
+    msgbox(format("Thanks for shopping with us! Come back soon!"))
+    release
+    end
+}
+
+script Ohulinn_Mart_Girl {
+    lock
+    faceplayer
+    msgbox(format("I want a Rage Candy Bar! I want ONE!! I don't care if it's bad for my teeth, I need one!!"))
+    release
+    end
+}
+
+mart Ohulinn_Mart_Items {
+    ITEM_SUPER_POTION
+    ITEM_PARALYZE_HEAL
+    ITEM_ANTIDOTE
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+}

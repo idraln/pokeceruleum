@@ -26,39 +26,39 @@ DewfordTown_Gym_SetGymTrainers::
 	return
 
 MauvilleCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_KIRK
-	settrainerflag TRAINER_SHAWN
+	settrainerflag TRAINER_CELESTIAL_2
+	settrainerflag TRAINER_COUNCIL_ICE_2
 	settrainerflag TRAINER_BEN
 	settrainerflag TRAINER_VIVIAN
 	settrainerflag TRAINER_ANGELO
 	return
 
 LavaridgeTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_COLE
-	settrainerflag TRAINER_AXLE
+	settrainerflag TRAINER_TRIATHLON_3
+	settrainerflag TRAINER_BRUCE_REMATCH
 	settrainerflag TRAINER_KEEGAN
 	settrainerflag TRAINER_GERALD
 	settrainerflag TRAINER_DANIELLE
 	settrainerflag TRAINER_JACE
-	settrainerflag TRAINER_JEFF
+	settrainerflag TRAINER_TRIATHLON_4
 	settrainerflag TRAINER_ELI
 	return
 
 PetalburgCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_RANDALL
-	settrainerflag TRAINER_PARKER
-	settrainerflag TRAINER_GEORGE
-	settrainerflag TRAINER_BERKE
-	settrainerflag TRAINER_MARY
-	settrainerflag TRAINER_ALEXIA
-	settrainerflag TRAINER_JODY
+	settrainerflag TRAINER_JANGALA_4
+	settrainerflag TRAINER_JANGALA_5
+	settrainerflag TRAINER_JANGALA_6
+	settrainerflag TRAINER_JANGALA_7
+	settrainerflag TRAINER_PASSWACAN_GYM_2
+	settrainerflag TRAINER_PASSWACAN_GYM_3
+	settrainerflag TRAINER_PASSWACAN_GYM_4
 	return
 
 FortreeCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_JARED
 	settrainerflag TRAINER_FLINT
 	settrainerflag TRAINER_ASHLEY
-	settrainerflag TRAINER_EDWARDO
+	settrainerflag TRAINER_CRUZ_GYM_1WARDO
 	settrainerflag TRAINER_HUMBERTO
 	settrainerflag TRAINER_DARIUS
 	return
@@ -81,12 +81,12 @@ MossdeepCity_Gym_SetGymTrainers::
 SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_ANDREA
 	settrainerflag TRAINER_CRISSY
-	settrainerflag TRAINER_BRIANNA
-	settrainerflag TRAINER_CONNIE
-	settrainerflag TRAINER_BRIDGET
-	settrainerflag TRAINER_OLIVIA
-	settrainerflag TRAINER_TIFFANY
+	settrainerflag TRAINER_ULTRAMARINE_1
+	settrainerflag TRAINER_BERYL_3
+	settrainerflag TRAINER_VIRIMANTE_1
+	settrainerflag TRAINER_VIRIMANTE_2
+	settrainerflag TRAINER_VIRIMANTE_3
 	settrainerflag TRAINER_BETHANY
 	settrainerflag TRAINER_ANNIKA
-	settrainerflag TRAINER_DAPHNE
+	settrainerflag TRAINER_NAVY_3
 	return

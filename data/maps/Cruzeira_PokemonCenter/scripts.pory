@@ -1,0 +1,61 @@
+raw `
+Cruzeira_PokemonCenter_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Cruzeira_PokemonCenter_OnTransition
+	.byte 0
+`
+
+script Cruzeira_PokemonCenter_OnTransition {
+    setrespawn(HEAL_LOCATION_CRUZEIRA)
+    end
+}
+
+script Cruzeira_PokemonCenter_Nurse {
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	msgbox(format("Hey there, welcome to Cruzeira's Pokémon Center! How's it going? Would you like to heal your party?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        msgbox(format("Okay, let me take your Pokémons."))
+        hidefollower(0)
+        applymovement(1, PkmnCenter_NurseTurn)
+        waitmovement(0)
+        dofieldeffect(FLDEFF_POKECENTER_HEAL)
+        waitfieldeffect(FLDEFF_POKECENTER_HEAL)
+        applymovement(1, PkmnCenter_NurseReTurn)
+        waitmovement(0)
+        special(HealPlayerParty)
+        msgbox(format("Here you go, your Pokémons are fully healed!"))
+        waitmessage
+        applymovement(1, PkmnCenter_NurseBow)
+        waitmovement(0)
+        msgbox(format("We hope to see you soon!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("No worries! Come back soon!"))
+        release
+        end
+    }
+}
+
+script Cruzeira_PokemonCenter_Boy {
+    lock
+    faceplayer
+    msgbox(format("Woofies sat on my porch one day, and we instantly became best friends! Now, he can be a bit too protective."))
+    turnobject(3, DIR_NORTH)
+    release
+    end
+}
+
+script Cruzeira_PokemonCenter_Woofies {
+    lock
+    faceplayer
+    playmoncry(SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    msgbox(format("Grrrr... GRRRRR...."))
+    turnobject(2, DIR_SOUTH)
+    release
+    end
+}

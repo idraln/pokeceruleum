@@ -1,0 +1,59 @@
+raw `
+PkmnLeagueHQ_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, PkmnLeagueHQ_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, PkmnLeagueHQ_OnFrame
+	.byte 0
+
+PkmnLeagueHQ_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 9, PkmnLeagueHQ_Arrival
+    .2byte 0
+`
+
+script PkmnLeagueHQ_OnTransition {
+    setflag(FLAG_VISITED_LEAGUE_HQ)
+}
+
+script PkmnLeagueHQ_Arrival {
+    lockall
+    faceplayer
+    pokenavcall(PKMNLSam)
+    waitmessage
+    setflag(FLAG_SAM_SAPPHIRE)
+    setflag(FLAG_PP_STUDENT)
+    setflag(FLAG_LAILA_STORMING)
+    setflag(FLAG_LAILA_GRANDMA)
+    setflag(FLAG_GRUNT_CRUZEIRA)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_MAIN_STORY, 10)
+    setvar(VAR_BLOCKED_ROAD, 2)
+    releaseall
+    end
+}
+
+script PkmnLeagueHQ_Sign {
+    lockall
+    msgbox(format("Pokémon League Headquarters"))
+    releaseall
+    end
+}
+
+text PKMNLSam {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Hiya, {PLAYER}, it's me, Sam!\n"
+    "So, did you see the guys at\p"
+    "the Pokémon League?\p"
+    "… … … … … …\p"
+    "You did? And what did they tell\n"
+    "you?\p"
+    "… … … … … …\p"
+    "Oh wow... I'm sorry to hear dude.\n" 
+    "Well, how about we take on\l"
+    "the Council Challenge together, at\l"
+    "the same time? So we can see\l"
+    "who's really the greatest trainer!\p"
+    "… … … … … …\p"
+    "Nah, I know you're the best, I'm\n"
+    "just messing with you. Last one\l"
+    "to Cruzeira is a big stinker!\p"
+    "… … … … … …\n… … … … … Click!"
+}

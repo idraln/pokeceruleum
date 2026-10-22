@@ -1,0 +1,345 @@
+raw `
+SapphireCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SapphireCity_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SapphireCity_OnFrame
+	.byte 0
+
+SapphireCity_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 43, SapphireCity_BruceCall
+    .2byte 0
+`
+
+script SapphireCity_BruceCall {
+    lockall
+	completequest(QUEST_PRESIDENT)
+	setflag(FLAG_PRESIDENT_QUEST_COMPLETE)
+    pokenavcall(BruceCall)
+    waitmessage
+    setvar(VAR_MAIN_STORY, 44)
+	clearflag(FLAG_EARTHQUAKE)
+    releaseall
+    end
+}
+
+text BruceCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Bruce: Hey {PLAYER}!\p"
+    "… … … … … …\p"
+    "Congratulations on becoming\n"
+    "Thura's President.\p"
+    "… … … … … …\p"
+    "Please, come to the Ironair.\n"
+    "I want you to meet with Diancie\l"
+    "once more. It's asking for you.\l"
+    "Don't be late!\l"
+    "… … … … … …\n… … … … … Click!"
+}
+
+script SapphireCity_OnTransition {
+	setflag(FLAG_VISITED_SAPPHIRE_CITY)
+	end
+}
+
+script SapphireCity_TM {
+	lock
+	removeobject(40)
+	setflag(FLAG_ITEM_SAPPHIRE_TM)
+	giveitem(ITEM_TM39)
+	release
+	end
+}
+
+script SapphireCity_RepairMan {
+	lock
+	faceplayer
+	msgbox(format("I'm trying to fix this fence as quickly as I can. Please don't go to the tarmac, I don't want any problems."))
+	closemessage
+	turnobject(23, DIR_NORTH)
+	release
+	end
+}
+
+script SapphireCity_WomanBF {
+	lock
+	faceplayer
+	msgbox(format("I'm waiting for my boyfriend! I'm so excited, we'll meet for the first time!"))
+	release
+	end	
+}
+
+script SapphireCity_OldMan1 {
+	lock
+	faceplayer
+	msgbox(format("Isn't this beautiful? Look at that boy. Look at how fast he's running. It's bringing up a lot of memories."))
+	release
+	end
+}
+
+script SapphireCity_OldMan2 {
+	lock
+	faceplayer
+	msgbox(format("That little kid is mental. He's going way too fast! He's going to fall and break something!"))
+	release
+	end
+}
+
+script SapphireCity_FastBoy {
+	lock
+	faceplayer
+	msgbox(format("Help me! I can't stop running! I've been bewitched by some upper force! These old dudes keep on watching me, and they don't help!"))
+	release
+	end	
+}
+
+script SapphireCity_LostDude {
+	lock
+	faceplayer
+	msgbox(format("I'm exhausted. I can't even remember where I live... Every building looks the same."))
+	release
+	end
+}
+
+script SapphireCity_LittleLad {
+	lock
+	faceplayer
+	msgbox(format("Look! I can see my Mum from here!"))
+	closemessage
+	turnobject(15, DIR_NORTH)
+	msgbox(format("HEY MUM! CAN YOU SEE ME?"))
+	release
+	end
+}
+
+script SapphireCity_GarbageDude {
+	lock
+	faceplayer
+	msgbox(format("I'm on the road! The freaking road! Haha. It's like I'm a car! No, no, not 'in a car'. Like the object! I'm a blue Sedan!"))
+	closemessage
+	release
+	end
+}
+
+script SapphireCity_PondGirl {
+	lock
+	faceplayer
+	msgbox(format("The water looks exceptionally blue today. My reflection also looks exceptionally blue. Don't you think?"))
+	closemessage
+	turnobject(17, DIR_SOUTH)
+	release
+	end
+}
+
+script SapphireCity_GarbageGirl {
+	lock
+	faceplayer
+	msgbox(format("What? No, it's not what you think. I lost my keys in here. I accidentally threw them away. Yes, it's very dumb. Leave."))
+	closemessage
+	turnobject(13, DIR_NORTH)
+	release
+	end
+}
+
+script SapphireCity_BoyBd8 {
+	lock
+	faceplayer
+	msgbox(format("What a great day! And there are not that many cars, except the usual trucks, and that guy who pretends to be a car. It's good to finally hear the birds chirping!"))
+	release
+	end
+}
+
+script SapphireCity_Steve {
+	lock
+	if(var(VAR_SAPPHIRE_LOVERS) == 1) {
+		faceplayer
+		applymovement(10, SC_Steve_Surprised)
+		waitmovement(0)
+		delay(10)
+		msgbox(format("What's that? I'm in front of the wrong building? My date told you that? Haha, thank you!"))
+		msgbox(format("..."))
+		msgbox(format("...He's also stressed out? That makes two of us! I'll go now. Thanks again!"))
+		closemessage
+		getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+		getobjectxy(10, CURRENT_POSITION, VAR_TEMP_2, VAR_TEMP_3)
+		compare(VAR_TEMP_1, VAR_TEMP_3)
+		goto_if_gt(SapphireCity_Steve_LeavingGT)
+		goto_if_lt(SapphireCity_Steve_LeavingGT)
+		goto_if_eq(SapphireCity_Steve_LeavingEQ)
+	}
+	else {
+		msgbox(format("...C'mon Steve. It's okay, you can do this. You haven't been on a date for 10 years, and that's ok. No one's perfect."))
+	}
+	release
+	end
+}
+
+script SapphireCity_Steve_LeavingGT {
+	applymovement(10, SC_Steve_LeavingGT)
+	waitmovement(0)
+	removeobject(10)
+	setflag(FLAG_SAPPHIRE_STEVE_L)
+	clearflag(FLAG_SAPPHIRE_STEVE_H)
+	setvar(VAR_SAPPHIRE_LOVERS, 2)
+}
+
+script SapphireCity_Steve_LeavingEQ {
+	applymovement(10, SC_Steve_LeavingEQ)
+	waitmovement(0)
+	removeobject(10)
+	setflag(FLAG_SAPPHIRE_STEVE_L)
+	clearflag(FLAG_SAPPHIRE_STEVE_H)
+	setvar(VAR_SAPPHIRE_LOVERS, 2)
+}
+
+script SapphireCity_Nerd {
+	lock
+	faceplayer
+	if(var(VAR_SAPPHIRE_NERD) == 0) {
+		msgbox(format("I can't find for the life of me the Gaming Center. I searched everywhere, and I can't find it. Do you know where it is by any chance?"))
+		startquest(QUEST_CASINO)
+		setvar(VAR_SAPPHIRE_NERD, 1)
+		release
+		end
+	}
+	elif(var(VAR_SAPPHIRE_NERD) == 1) {
+		msgbox(format("I can't find for the life of me the Gaming Center. I searched everywhere, and I can't find it. Do you know where it is by any chance?"))
+		release
+		end
+	}
+	elif (var(VAR_SAPPHIRE_NERD) == 2) {
+		msgbox(format("..."))
+		msgbox(format("On the second floor of the mall you say? Dammit, I knew I was close! You're a legend. Here, let me offer you this."))
+		closemessage
+		getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
+		getobjectxy(12, CURRENT_POSITION, VAR_TEMP_7, VAR_TEMP_8)
+		compare(VAR_TEMP_6, VAR_TEMP_8)
+		goto_if_gt(SapphireCity_Nerd_LeavingGT)
+		goto_if_lt(SapphireCity_Nerd_LeavingGT)
+		goto_if_eq(SapphireCity_Nerd_LeavingEQ)
+	}
+	else {
+		release
+		end
+	}
+}
+
+script SapphireCity_Nerd_LeavingGT {
+	giveitem(ITEM_BOTTLE_CAP)
+	closemessage
+	applymovement(12, SC_Nerd)
+	waitmovement(0)
+	setflag(FLAG_SAPPHIRE_NERD)
+	clearflag(FLAG_SAPPHIRE_NERD_2)
+	removeobject(12)
+	completequest(QUEST_CASINO)
+	release
+	end
+}
+
+script SapphireCity_Nerd_LeavingEQ {
+	giveitem(ITEM_BOTTLE_CAP)
+	closemessage
+	applymovement(12, SC_Nerd_EQ)
+	waitmovement(0)
+	setflag(FLAG_SAPPHIRE_NERD)
+	clearflag(FLAG_SAPPHIRE_NERD_2)
+	removeobject(12)
+	completequest(QUEST_CASINO)
+	release
+	end
+}
+
+script SapphireCity_LittleGirl {
+	lock
+	msgbox(format("Mum! Mum! Can I get the new Marill plushie? Please! Please! Pretty please!"))
+	release
+	end
+}
+
+script SapphireCity_Mom {
+	lock
+	msgbox(format("No, sweetie. You have way too many plushies and toys as is. Mummy doesn't have any money left."))
+	release
+	end
+}
+
+script SapphireCity_TownSign {
+	lockall
+    msgbox("Sapphire City \nThe dynamic capital of Thura.")
+    releaseall
+}
+
+script SapphireCity_AfrAmW {
+	lock
+	faceplayer
+	msgbox(format("There it is! Sapphire City, the big city! I don't even know where to go, it's so big!"))
+	release
+	end
+}
+
+script SapphireCity_Trash {
+	lock
+	faceplayer
+	msgbox(format("It's a stinky pile of trash. Check what's inside?"), MSGBOX_YESNO)
+	closemessage
+	if(var(VAR_RESULT) == YES) {
+		delay(40)
+		special(RockSmashWildEncounter)
+		if(var(VAR_RESULT) == FALSE) {
+			msgbox(format("Nothing to see here!"))
+		}
+	}
+	release
+	end
+}
+
+script SapphireCity_Item {
+	lock
+	removeobject(38)
+	giveitem(ITEM_BLACK_GLASSES)
+	setflag(FLAG_ITEM_SAPPHIRE)
+	release
+	end
+}
+
+script SapphireCity_Item2 {
+	lock
+	removeobject(39)
+	giveitem(ITEM_RARE_CANDY)
+	setflag(FLAG_ITEM_SAPPHIRE_2)
+	release
+	end
+}
+
+script SapphireCity_PhoneDebug {
+	lock
+	clearflag(FLAG_SYS_POKENAV_GET)
+	clearflag(FLAG_SYS_POKEDEX_GET)
+	setflag(FLAG_SYS_PHONE_GET)
+	release
+	end
+}
+
+movement SC_Nerd {
+	walk_right * 7
+	walk_up * 5
+}
+
+movement SC_Nerd_EQ {
+	walk_up
+	walk_right * 7
+	walk_up * 5
+}
+
+
+movement SC_Steve_Surprised {
+	emote_question_mark
+}
+
+movement SC_Steve_LeavingGT {
+	walk_left * 9
+}
+
+movement SC_Steve_LeavingEQ {
+	walk_up
+	walk_left * 9
+}

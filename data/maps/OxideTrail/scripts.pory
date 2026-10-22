@@ -1,0 +1,183 @@
+raw `
+OxideTrail_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, OxideTrail_OnFrame
+	.byte 0
+
+OxideTrail_OnFrame:
+    map_script_2 VAR_TRIATHLON, 1, OxideTrail_TriathlonStart
+    map_script_2 VAR_MAIN_STORY, 46, OxideTrail_VikkieCall
+    .2byte 0
+`
+
+script OxideTrail_VikkieCall {
+    lock
+    pokenavcall(SamCallVikkie)
+    waitmessage
+    startquest(QUEST_VIKKIE)
+    setflag(FLAG_VIKKIE_MANSION)
+    clearflag(FLAG_SAM_VIKKELSON)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setvar(VAR_MAIN_STORY, 47)
+    release 
+}
+
+script OxideTrail_TriathlonStart {
+    lock
+    namebox("Scott")
+    msgbox(format("Alright, {PLAYER}! Hop on your bike!"))
+    hidenamebox
+    closemessage
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    delay(10)
+    special(GetOnBikeOxideTrail)
+    delay(20)
+    namebox("Scott")
+    msgbox(format("Are you ready?"))
+    hidenamebox
+    closemessage
+    delay(10)
+    playse(SE_CONTEST_PLACE)
+    namebox("Scott")
+    msgbox(format("3..."))
+    hidenamebox
+    closemessage
+    delay(10)
+    playse(SE_CONTEST_PLACE)
+    namebox("Scott")
+    msgbox(format("2..."))
+    hidenamebox
+    closemessage
+    delay(10)
+    playse(SE_CONTEST_PLACE)
+    namebox("Scott")
+    msgbox(format("1..."))
+    hidenamebox
+    closemessage
+    delay(10)
+    playse(SE_DING_DONG)
+    namebox("Scott")
+    msgbox(format("GO!!!"))
+    hidenamebox
+    closemessage
+    clearflag(FLAG_SYS_DISABLE_SAVE)
+    setvar(VAR_TRIATHLON, 2)
+    special(StartTriathlonTimer)
+    release
+    end
+}
+
+script OxideTrail_ShopUpdate {
+    lockall
+    faceplayer
+    pokenavcall(OxideTrail_Shop_Text)
+    waitmessage
+    setvar(VAR_SHOP_UPDATE, 4)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    releaseall
+    end
+}
+
+text OxideTrail_Shop_Text {
+    "You just received a new\n"
+    "text message from:\l"
+    "Thura's Mart Association\l"
+    "'Hello, dear customer!\l"
+    "We'd like to inform you\l"
+    "that we're upgrading our stores\l"
+    "once again! You can now buy\l"
+    "items such as Hyper Potions,\l"
+    "Ultra Balls, Ethers and much\l" 
+    "more!\l"
+    "And finally, our TM, Battle and\l"
+    "Evo departments are finally open\l"
+    "in Sapphire City!\l"
+    "Come by and see by yourself!'"
+}
+
+script OxideTrail_Patrick {
+    trainerbattle_single(TRAINER_OXIDE_1, Patrick1, Patrick2)
+    msgbox(format("The warmth of the volcano and the smell of iron is pushing me to my limits! I feel great!"))
+    closemessage
+    end
+}
+
+text Patrick1 {
+    format("Wait! Let me show you my fire breathing skills!")
+}
+
+text Patrick2 {
+    format("That didn't impress you? Wow...")
+}
+
+script OxideTrail_Worker {
+    lock
+    faceplayer
+    msgbox(format("Our workplace isn't limited to the inside of the Ironair. Look around you! So much iron begging to be mined and processed!"))
+    release
+    end
+}
+
+script OxideTrail_Coralie {
+    trainerbattle_single(TRAINER_OXIDE_2, Coralie1, Coralie2)
+    msgbox(format("I love my Staraptor, and I want it to have a new friend! Skarmory is so majestic, with its wings made of steel!"))
+    closemessage
+    end
+}
+
+text Coralie1 {
+    format("Have you ever seen the Pokémon Skarmory?")
+}
+
+text Coralie2 {
+    format("I need to search further!")
+}
+
+script OxideTrail_Charlie {
+    trainerbattle_single(TRAINER_OXIDE_3, Charlie1, Charlie2)
+    msgbox(format("Some food for thought: often, descents are way riskier than climbs. This is all the more true in the Triathlon!"))
+    release
+    end
+}
+
+text Charlie1 {
+    format("So that's it? I'm at the end of the trail?")
+}
+
+text Charlie2 {
+    format("Back to Frux, I guess.")
+}
+
+script OxideTrail_TM {
+    lock
+    removeobject(5)
+    setflag(FLAG_OXIDE_TM)
+    giveitem(ITEM_TM23)
+    release
+    end
+}
+
+script OxideTrail_Orga {
+    lock
+    faceplayer
+    msgbox(format("Go! Go! You're losing time!"))
+    release
+    end
+}
+
+script OxideTrail_NPC1 {
+    lock
+    faceplayer
+    msgbox(format("Woohoo! Come on!"))
+    release
+    end
+}
+
+script OxideTrail_NPC2 {
+    lock
+    faceplayer
+    msgbox(format("What a beautiful display of sports skills!"))
+    release
+    end
+}

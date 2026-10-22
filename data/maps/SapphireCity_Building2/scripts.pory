@@ -1,0 +1,72 @@
+raw `
+SapphireCity_Building2_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SapphireCity_Building2_OnFrame
+	.byte 0
+
+SapphireCity_Building2_OnFrame:
+    map_script_2 VAR_MAIN_STORY, 40, SapphireCity_Building2_Call
+    .2byte 0
+`
+
+script SapphireCity_Building2_Call {
+    lockall
+    delay(40)
+    pokenavcall(BernardCall)
+    waitmessage
+    clearflag(FLAG_BRUCE_GUARDING_DIANCIE)
+    setflag(FLAG_DIANCIE)
+    clearflag(FLAG_DIANCIE_POST)
+    setvar(VAR_MAIN_STORY, 41)
+    completequest(QUEST_FIND_XATU)
+    startquest(QUEST_PRESIDENT)
+    releaseall
+    end
+}
+
+text BernardCall {
+    "… … … … … …\n… … … … … Beep!\p"
+    "Bernard: Hey, {PLAYER}.\p"
+    "… … … … … …\p"
+    "Just wanted to thank you for\n"
+    "bringing peace back in Thura.\l"
+    "You should come to the Pokémon\l"
+    "League now, face the Council\l"
+    "and become the new President.\l"
+    "… … … … … …\p"
+    "Believe me, that's what he\n"
+    "would've wanted... I'll wait\l"
+    "for you.\l"
+    "… … … … … …\n… … … … … Click!"
+}
+
+script SapphireCity_Building2_Sam_1st {
+        lock
+        faceplayer
+        namebox("Sam")
+        msgbox(format("Hey {PLAYER}, did you go to the Pokémon League yet?"))
+        hidenamebox
+        release
+        end
+}
+
+script SapphireCity_Building2_Man {
+    lock
+    faceplayer
+    msgbox(format("You smell that? I've cooked a slice of Magikarp with some Cheri Berries. I'm about to feast on that thing!"))
+    release
+    end
+}
+
+movement SCB2_Sam_Sud {
+    walk_fast_down * 2
+    walk_fast_left * 3
+    walk_fast_up
+    walk_fast_left * 2
+}
+
+movement SCB2_Sam_Nord {
+    walk_fast_up
+    walk_fast_left * 3
+    walk_fast_down
+    walk_fast_left * 2
+}

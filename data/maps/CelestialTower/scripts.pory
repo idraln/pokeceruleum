@@ -1,0 +1,111 @@
+raw `
+CelestialTower_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, CelestialTower_OnTransition
+	.byte 0
+`
+
+script CelestialTower_OnTransition {
+    if(var(VAR_MAIN_STORY) > 53) {
+        setobjectxyperm(2, 21, 9)
+        setobjectxyperm(3, 21, 12)
+        turnobject(2, DIR_WEST)
+        turnobject(3, DIR_WEST)
+    }
+}
+
+script CelestialTower_Dora {
+    trainerbattle_single(TRAINER_CELESTIAL_1, Dora1, Dora2)
+    msgbox(format("I can feel the spirits piercing through my body!"))
+    closemessage
+    end
+}
+
+text Dora1 {
+    format("The afterlife is calling me!")
+}
+
+text Dora2 {
+    format("Yes! I'm ascending!")
+}
+
+script CelestialTower_Kira {
+    trainerbattle_single(TRAINER_CELESTIAL_2, Kira1, Kira2)
+    msgbox(format("Aaaah!... Aaaah! I'm getting tired!"))
+    closemessage
+    end
+}
+
+text Kira1 {
+    format("Aaaah!")
+}
+
+text Kira2 {
+    format("Aaaah!")
+}
+
+script CelestialTower_Nerd {
+    lock
+    faceplayer
+    msgbox(format("Here lies my precious Seismitoad. I'll never have a friend like him..."))
+    closemessage
+    turnobject(5, DIR_NORTH)
+    release
+    end
+}
+
+script CelestialTower_Item1 {
+    lock
+    removeobject(6)
+    setflag(FLAG_CELESTIAL_ITEM_1)
+    giveitem(ITEM_SPELL_TAG)
+    release
+    end
+}
+
+script CelestialTower_Item2 {
+    lock
+    removeobject(7)
+    setflag(FLAG_CELESTIAL_ITEM_2)
+    giveitem(ITEM_WEAKNESS_POLICY)
+    release
+    end
+}
+
+script CelestialTower_Couple {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) > 53) {
+        msgbox(format("You can go upstairs now, if you desire to."))
+        release
+        end
+    }
+    else {
+        msgbox(format("...You look like a mighty trainer, am I mistaken? Why would you want to go upstairs?"))
+        msgbox(format("..."))
+        msgbox(format("...An outlaw, you say? There is indeed a woman praying upstairs, but I'm not aware of her intentions. I only know that she's one of the strongest trainers I've ever met."))
+        msgbox(format("..."))
+        msgbox(format("...Very well, then. It seems that you won't change your mind. Before I let you go upstairs, we need to make sure you're as strong as you seem."))
+        trainerbattle_no_intro(TRAINER_CELESTIAL_3, DanSix1)
+        msgbox(format("...We were not mistaken. Please, go on."))
+        closemessage
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_0) == 21) {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left face_right))
+            waitmovement(0)
+        }
+        applymovement(2, moves(walk_up face_left))
+        applymovement(3, moves(walk_down face_left))
+        waitmovement(0)
+        setobjectxyperm(2, 21, 9)
+        setobjectxyperm(3, 21, 12)
+        setvar(VAR_MAIN_STORY, 54)
+        setflag(FLAG_COPS_CELESTIAL)
+        clearflag(FLAG_VIKKIE_CELESTIAL)
+        release
+        end
+    }
+}
+
+text DanSix1 {
+    format("That was admirable, well done.")
+}

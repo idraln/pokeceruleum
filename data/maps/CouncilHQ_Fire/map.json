@@ -1,0 +1,70 @@
+{
+  "id": "MAP_COUNCIL_HQ_FIRE",
+  "name": "CouncilHQ_Fire",
+  "layout": "LAYOUT_COUNCIL_HQ_FIRE",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_COUNCIL_HQ",
+  "requires_flash": false,
+  "weather": "WEATHER_DROUGHT",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POMME",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CouncilHQ_Fire_Pomme",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_COUNCIL_MAIN_ROOM",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_COUNCIL_FIRE",
+      "var_value": "0",
+      "script": "CouncilHQ_Fire_Battle"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_COUNCIL_FIRE",
+      "var_value": "0",
+      "script": "CouncilHQ_Fire_Battle"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_COUNCIL_FIRE",
+      "var_value": "0",
+      "script": "CouncilHQ_Fire_Battle"
+    }
+  ],
+  "bg_events": []
+}

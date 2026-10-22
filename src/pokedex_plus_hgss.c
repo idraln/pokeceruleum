@@ -50,6 +50,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "config/pokedex_plus_hgss.h"
+#include "phone.h"
 
 enum
 {
@@ -284,6 +285,9 @@ static const u32 sPokedexPlusHGSS_ScreenSearchNational_Tilemap[] = INCBIN_U32("g
 // Coordinates of the Pokémon sprite on its page (info/cry screens)
 #define MON_PAGE_X 48
 #define MON_PAGE_Y 56
+
+#define SKIN_COUNT 3
+#define HAIR_COUNT 3
 
 static EWRAM_DATA struct PokedexView *sPokedexView = NULL;
 static EWRAM_DATA u16 sLastSelectedPokemon = 0;
@@ -2321,7 +2325,7 @@ static void Task_ClosePokedex(u8 taskId)
         ClearMonSprites();
         FreeWindowAndBgBuffers();
         DestroyTask(taskId);
-        SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        SetMainCallback2(CB2_InitPhone);
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x100);
         Free(sPokedexView);
     }
@@ -7363,6 +7367,14 @@ static void Task_SwitchScreensFromCryScreen(u8 taskId)
 //*        Size screen               *
 //*                                  *
 //************************************
+
+static const u32 sHeroFrontPicIds[SKIN_COUNT][HAIR_COUNT] =
+{
+    [0] = {TRAINER_PIC_HERO_BALD_LIGHT,  TRAINER_PIC_HERO_SHORT_LIGHT,  TRAINER_PIC_HERO_LONG_LIGHT},
+    [1] = {TRAINER_PIC_HERO_BALD_MEDIUM, TRAINER_PIC_HERO_SHORT_MEDIUM, TRAINER_PIC_HERO_LONG_MEDIUM},
+    [2] = {TRAINER_PIC_HERO_BALD_DARK,   TRAINER_PIC_HERO_SHORT_DARK,   TRAINER_PIC_HERO_LONG_DARK},
+};
+
 static void Task_LoadSizeScreen(u8 taskId)
 {
     u8 spriteId;
@@ -7407,7 +7419,7 @@ static void Task_LoadSizeScreen(u8 taskId)
         gMain.state++;
         break;
     case 5:
-        spriteId = CreateSizeScreenTrainerPic(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), 152, 56, 0);
+        spriteId = CreateSizeScreenTrainerPic(sHeroFrontPicIds[VarGet(VAR_SKIN_COMPLEXION)][VarGet(VAR_HAIRCUT)], 152, 56, 0);
         gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
         gSprites[spriteId].oam.matrixNum = 1;
         gSprites[spriteId].oam.priority = 0;

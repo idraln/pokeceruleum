@@ -1,0 +1,115 @@
+raw `
+AzurChannel_MapScripts::
+	.byte 0
+`
+
+script AzurChannel_Olga {
+    trainerbattle_single(TRAINER_AZUR_1, Olga1, Olga2)
+    msgbox(format("See, I don't need no Pokémon to help me swim. Those thighs do it for me."))
+    closemessage
+    end
+}
+
+text Olga1 {
+    format("Hey! Why aren't you swimming?")
+}
+
+text Olga2 {
+    format("I guess it's an advantage when it comes to battles...")
+}
+
+//////////
+
+script AzurChannel_Bastian {
+    trainerbattle_single(TRAINER_AZUR_2, Bastian1, Bastian2)
+    msgbox(format("Blue is the sky, and so is the sea. Except when it's night, then everything's black."))
+    closemessage
+    end
+}
+
+text Bastian1 {
+    format("Guess what my favourite color is!")
+}
+
+text Bastian2 {
+    format("You got it! Blue!")
+}
+
+//////////
+
+script AzurChannel_Ben {
+    trainerbattle_single(TRAINER_AZUR_3, Ben1, Ben2)
+    msgbox(format("Me and my girlfriend are training for the next Triathlon. People often oversee the importance of training your swimming technique."))
+    closemessage
+    end
+}
+
+text Ben1 {
+    format("Do you have what it takes for the next Triathlon?")
+}
+
+text Ben2 {
+    format("Oh, you're more than ready!")
+}
+
+//////////
+
+script AzurChannel_Cassidy {
+    trainerbattle_single(TRAINER_AZUR_4, Cassidy1, Cassidy2)
+    msgbox(format("Me and my boyfriend are training for the next Triathlon. People often oversee the importance of training your swimming technique."))
+    closemessage
+    end
+}
+
+text Cassidy1 {
+    format("You wouldn't last a minute in a Triathlon!")
+}
+
+text Cassidy2 {
+    format("Ben, did you see that?")
+}
+
+//////////
+
+script AzurChannel_Amar {
+    trainerbattle_single(TRAINER_AZUR_5, Amar1, Amar2)
+    msgbox(format("Swimming is the best way to forget all of your problems."))
+    closemessage
+    end
+}
+
+text Amar1 {
+    format("Have you ever thought of letting go?")
+}
+
+text Amar2 {
+    format("No, and you shouldn't! Keep on fighting!")
+}
+
+//////////
+
+script AzurChannel_Lisa {
+    trainerbattle_single(TRAINER_AZUR_6, Lisa1, Lisa2)
+    msgbox(format("Once, I saw a huge Pokémon, it was like an Orca but smaller and blue! It was the most beautiful sight!"))
+    closemessage
+    end
+}
+
+text Lisa1 {
+    format("What's the best looking Pokémon you got? Show me!")
+}
+
+text Lisa2 {
+    format("Wow! What a cutie!!")
+}
+
+//////////
+
+script AzurChannel_Item {
+    lock
+    removeobject(7)
+    giveitem(ITEM_SEA_INCENSE)
+    setflag(FLAG_ITEM_AZUR_1)
+    release
+    end
+}

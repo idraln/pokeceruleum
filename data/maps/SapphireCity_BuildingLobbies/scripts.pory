@@ -1,0 +1,182 @@
+raw `
+SapphireCity_BuildingLobbies_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_BuildingLobbies_CantAccess_Left {
+    lock
+    msgbox(format("The door is locked."))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, SCBL_Left)
+    waitmovement(0)
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_CantAccess_Right {
+    lock
+    msgbox(format("The door is locked."))
+    closemessage    
+    applymovement(OBJ_EVENT_ID_PLAYER, SCBL_Right)
+    waitmovement(0)
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_CantAccess_Right_Special {
+    if(flag(FLAG_SAPPHIRE_UNAUTHORIZED)) {
+        lock
+        msgbox(format("The door is locked."))
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, SCBL_Right)
+        waitmovement(0)
+        release
+        end
+    }
+}
+
+script SapphireCity_BuildingLobbies_OldB1 {
+    lock
+    faceplayer
+    msgbox(format("Where's my apartment again? Every door looks the same, it's too confusing."))
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_WomanB2 {
+    lock
+    checkitem(ITEM_SECRET_KEY)
+    if (var(VAR_RESULT)) {
+        faceplayer
+        msgbox(format("You found them! Where were they?... Right there, by the potted plant? Ah yeah. I remember now. Oh well, thanks again! Have this."))
+        removeitem(ITEM_SECRET_KEY)
+        giveitem(ITEM_POTION)
+        turnobject(3, DIR_WEST)
+        delay(20)
+        removeobject(3)
+        playse(SE_EXIT)
+        setflag(FLAG_WOMAN_SAPPHIRE_B2)
+        completequest(QUEST_LOST_KEY)
+        release
+        end
+    }
+    else {
+        faceplayer
+        msgbox(format("I lost my keys! This is the worst day of my life. I really need to pee, and all my neighbors are at work."))
+        startquest(QUEST_LOST_KEY)
+    }
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_ManB3 {
+    lock
+    msgbox(format("Come on baby, let me in! I didn't realise that you were there! I won't do it again, I promise! Pinky promise!!"))
+    faceplayer
+    msgbox(format("Oh, uh, hey. This is quite embarrassing. It's not what it sounds like, I just farted on the couch, and my baby hates that."))
+    turnobject(1, DIR_WEST)
+    msgbox(format("Come on, I'm sorry!"))
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_FighterB4 {
+    lock
+    faceplayer
+    msgbox(format("I've been training for the Council Challenge for months now. I hope it's still up after what happened."))
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_ThiefB5 {
+    if(var(VAR_SAPPHIRE_THIEF_B5) == 0) {
+        lock
+        faceplayer
+        msgbox(format("What? No. I uh... lost my keys... uh... they don't fit anymore. I don't know why. Now, go."))
+        turnobject(7, DIR_EAST)
+        setvar(VAR_SAPPHIRE_THIEF_B5, 1)
+        release
+        end
+    }
+    elif(var(VAR_SAPPHIRE_THIEF_B5) == 1) {
+        lock
+        faceplayer
+        msgbox(format("I said leave me alone. Like, leave."))
+        turnobject(7, DIR_EAST)
+        setvar(VAR_SAPPHIRE_THIEF_B5, 2)
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        msgbox(SCBL_Thief1)
+        trainerbattle_no_intro(TRAINER_THIEF_SAPPHIRE, SCBL_Thief2)
+        msgbox(format("Alright, you got me, I'll go. Don't snitch on me, or else."))
+        closemessage
+        applymovement(7, SCBL_Thief)
+        waitmovement(0)
+        removeobject(7)
+        playse(SE_EXIT)
+        setflag(FLAG_SAPPHIRE_THIEF)
+        release
+        end
+    }
+}
+
+script SapphireCity_BuildingLobbies_WomanB6 {
+    lock
+    faceplayer
+    msgbox(format("I don't know you. I have nothing to say. Leave."))
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_ObjectB7 {
+    lock
+    giveitem(ITEM_PARALYZE_HEAL)
+    removeobject(6)
+    setflag(FLAG_ITEM_SAPPHIRE_B7)
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_WomanB8 {
+    lock
+    faceplayer
+    msgbox(format("Are you familiar with the Pokémon Pikipek? I'm trying to find one by the airport, but no luck so far."))
+    release
+    end
+}
+
+script SapphireCity_BuildingLobbies_ManB9 {
+    lock
+    faceplayer
+    msgbox(format("As part of my student job, I have to water every single plant. Of the 9 buildings of Sapphire City. Man, end my pain already."))
+    turnobject(9, DIR_WEST)
+    release
+    end
+}
+
+
+movement SCBL_Left {
+    walk_right
+}
+
+movement SCBL_Right {
+    walk_left
+}
+
+movement SCBL_Thief {
+    walk_up
+    walk_left
+    walk_up
+}
+
+text SCBL_Thief1 {
+    format("Alright what's up? You don't understand basic sentences? You wanna taste these hands?")
+}
+
+text SCBL_Thief2 {
+    format("Dammit! Ok. You got me.")
+}

@@ -1,0 +1,43 @@
+raw `
+SapphireCity_Building9_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_Building9_SchoolBoy {
+    lock
+    faceplayer
+    if(flag(FLAG_SAPPHIRE_CLEVER)) {
+        msgbox(format("I don't have any more questions for you! I'm trying to catch up."))
+    }
+    else {
+        msgbox(format("School's off today, but there's always time to learn new things! Do you want to face the challenge?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Alright! Let's get it on! First question: does a Rawst Berry cure burned Pokémon?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                msgbox(format("Great answer! Next question: Exeggcute evolves 2 times. True or false?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == NO) {
+                    msgbox(format("Nice job! Final question! If F is a vector field in space and the surface integral of F is zero along any closed surface S, then div(F(x,y,z))=0 for all (x,y,z). True or false?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES) {
+                        msgbox(format("...Woah. You actually got it right! As a reward, take this."))
+                        giveitem(ITEM_TM27)
+                        setflag(FLAG_SAPPHIRE_CLEVER)
+                    }
+                    else {
+                        msgbox(format("Wrong! You lost! Yeah, that was too hard. I don't want to brag, but I know the answer. Heh."))
+                    }
+                }
+                else {
+                    msgbox(format("No, no! Exeggcute can evolve into 2 differents forms, but evolves only one time! That's basic!"))
+                }
+            }
+            else {
+                msgbox(format("Too bad! Better luck next time. Heh."))
+            }
+        }
+        else {
+            msgbox(format("No worries, come back later! I love learning new things."))
+        }
+    }
+    release
+    end
+}

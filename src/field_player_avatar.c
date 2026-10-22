@@ -33,9 +33,13 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
+#include "constants/flags.h"
 
 #define NUM_FORCED_MOVEMENTS 18
 #define NUM_ACRO_BIKE_COLLISIONS 5
+
+#define HAIR_COUNT 3
+#define SKIN_COUNT 3
 
 enum SpinDirection
 {
@@ -298,6 +302,90 @@ static const u8 sPlayerAvatarGfxIds[][GENDER_COUNT] =
     [PLAYER_AVATAR_STATE_VSSEEKER]   = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE, OBJ_EVENT_GFX_MAY_FIELD_MOVE},
 };
 
+/////////////////
+/////////////////
+
+static const u16 sHeroAvatarGfxIds[][SKIN_COUNT][HAIR_COUNT] =
+{
+    [PLAYER_AVATAR_STATE_NORMAL] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_WALKING,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_WALKING,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_WALKING},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_WALKING, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_WALKING, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_WALKING},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_WALKING,   OBJ_EVENT_GFX_HERO_SHORT_DARK_WALKING,   OBJ_EVENT_GFX_HERO_LONG_DARK_WALKING},
+    },
+    [PLAYER_AVATAR_STATE_ACRO_BIKE] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_LIGHT_ACRO,  OBJ_EVENT_GFX_HERO_LIGHT_ACRO,  OBJ_EVENT_GFX_HERO_LIGHT_ACRO},
+        [1] = {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO, OBJ_EVENT_GFX_HERO_MEDIUM_ACRO, OBJ_EVENT_GFX_HERO_MEDIUM_ACRO},
+        [2] = {OBJ_EVENT_GFX_HERO_DARK_ACRO,   OBJ_EVENT_GFX_HERO_DARK_ACRO,   OBJ_EVENT_GFX_HERO_DARK_ACRO},
+    },
+    [PLAYER_AVATAR_STATE_SURFING] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_SURFING,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_SURFING,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_SURFING},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_SURFING, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_SURFING, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_SURFING},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_SURFING,   OBJ_EVENT_GFX_HERO_SHORT_DARK_SURFING,   OBJ_EVENT_GFX_HERO_LONG_DARK_SURFING},
+    },
+    [PLAYER_AVATAR_STATE_FISHING] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_FISHING,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FISHING,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_FISHING},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FISHING, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FISHING, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FISHING},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_FISHING,   OBJ_EVENT_GFX_HERO_SHORT_DARK_FISHING,   OBJ_EVENT_GFX_HERO_LONG_DARK_FISHING},
+    },
+    [PLAYER_AVATAR_STATE_FIELD_MOVE] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_FIELD,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FIELD,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_FIELD},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FIELD, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FIELD, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FIELD},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_FIELD,   OBJ_EVENT_GFX_HERO_SHORT_DARK_FIELD,   OBJ_EVENT_GFX_HERO_LONG_DARK_FIELD},
+    },
+};
+
+//////////////////
+
+static const u16 sHeroAvatarRetroGfxIds[][SKIN_COUNT][HAIR_COUNT] =
+{
+    [PLAYER_AVATAR_STATE_NORMAL] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_RETRO_LIGHT_SHORT,  OBJ_EVENT_GFX_HERO_RETRO_LIGHT_SHORT,  OBJ_EVENT_GFX_HERO_RETRO_LIGHT_LONG},
+        [1] = {OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_SHORT,  OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_SHORT,  OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_LONG},
+        [2] = {OBJ_EVENT_GFX_HERO_RETRO_DARK_SHORT,   OBJ_EVENT_GFX_HERO_RETRO_DARK_SHORT,   OBJ_EVENT_GFX_HERO_RETRO_DARK_LONG},
+    },
+    [PLAYER_AVATAR_STATE_SURFING] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_SURFING,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_SURFING,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_SURFING},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_SURFING, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_SURFING, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_SURFING},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_SURFING,   OBJ_EVENT_GFX_HERO_SHORT_DARK_SURFING,   OBJ_EVENT_GFX_HERO_LONG_DARK_SURFING},
+    },
+    [PLAYER_AVATAR_STATE_FISHING] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_FISHING,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FISHING,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_FISHING},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FISHING, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FISHING, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FISHING},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_FISHING,   OBJ_EVENT_GFX_HERO_SHORT_DARK_FISHING,   OBJ_EVENT_GFX_HERO_LONG_DARK_FISHING},
+    },
+    [PLAYER_AVATAR_STATE_FIELD_MOVE] =
+    {
+        [0] = {OBJ_EVENT_GFX_HERO_BALD_LIGHT_FIELD,  OBJ_EVENT_GFX_HERO_SHORT_LIGHT_FIELD,  OBJ_EVENT_GFX_HERO_LONG_LIGHT_FIELD},
+        [1] = {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_FIELD, OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_FIELD, OBJ_EVENT_GFX_HERO_LONG_MEDIUM_FIELD},
+        [2] = {OBJ_EVENT_GFX_HERO_BALD_DARK_FIELD,   OBJ_EVENT_GFX_HERO_SHORT_DARK_FIELD,   OBJ_EVENT_GFX_HERO_LONG_DARK_FIELD},
+    },
+};
+
+static const u16 sHeroUnderwaterGfxIds[HAIR_COUNT] =
+{
+    OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,
+    OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER,
+    OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,
+};
+
+static const u16 sHeroAcroGfxIds[SKIN_COUNT] =
+{
+    OBJ_EVENT_GFX_HERO_LIGHT_ACRO,
+    OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,
+    OBJ_EVENT_GFX_HERO_DARK_ACRO,
+};
+
+/////////////////
+/////////////////
+
 static const u8 sFRLGAvatarGfxIds[GENDER_COUNT] =
 {
     [MALE]   = OBJ_EVENT_GFX_RED,
@@ -310,25 +398,175 @@ static const u8 sRSAvatarGfxIds[GENDER_COUNT] =
     [FEMALE] = OBJ_EVENT_GFX_LINK_RS_MAY
 };
 
-static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5][2] =
+//////////////
+
+//static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5][2] =
+//{
+//    [MALE] =
+//    {
+//        {OBJ_EVENT_GFX_BRENDAN_NORMAL,     PLAYER_AVATAR_FLAG_ON_FOOT},
+//        {OBJ_EVENT_GFX_BRENDAN_MACH_BIKE,  PLAYER_AVATAR_FLAG_MACH_BIKE},
+//        {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,  PLAYER_AVATAR_FLAG_ACRO_BIKE},
+//        {OBJ_EVENT_GFX_BRENDAN_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
+//        {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+//    },
+//    [FEMALE] =
+//    {
+//        {OBJ_EVENT_GFX_MAY_NORMAL,         PLAYER_AVATAR_FLAG_ON_FOOT},
+//        {OBJ_EVENT_GFX_MAY_MACH_BIKE,      PLAYER_AVATAR_FLAG_MACH_BIKE},
+//        {OBJ_EVENT_GFX_MAY_ACRO_BIKE,      PLAYER_AVATAR_FLAG_ACRO_BIKE},
+//        {OBJ_EVENT_GFX_MAY_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
+//        {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
+//    }
+//};
+
+
+static const u16 sHeroAvatarGfxToStateFlag[SKIN_COUNT][HAIR_COUNT][4][2] =
 {
-    [MALE] =
+    [0] =
     {
-        {OBJ_EVENT_GFX_BRENDAN_NORMAL,     PLAYER_AVATAR_FLAG_ON_FOOT},
-        {OBJ_EVENT_GFX_BRENDAN_MACH_BIKE,  PLAYER_AVATAR_FLAG_MACH_BIKE},
-        {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,  PLAYER_AVATAR_FLAG_ACRO_BIKE},
-        {OBJ_EVENT_GFX_BRENDAN_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
-        {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        [0] =
+        {
+            {OBJ_EVENT_GFX_HERO_BALD_LIGHT_WALKING,    PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_LIGHT_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_BALD_LIGHT_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
+            {OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,       PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [1] =
+        {
+            {OBJ_EVENT_GFX_HERO_SHORT_LIGHT_WALKING,   PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_LIGHT_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_SHORT_LIGHT_SURFING,   PLAYER_AVATAR_FLAG_SURFING},
+            {OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER,      PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [2] =
+        {
+            {OBJ_EVENT_GFX_HERO_LONG_LIGHT_WALKING,    PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_LIGHT_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_LONG_LIGHT_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
+            {OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,       PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
     },
-    [FEMALE] =
+    [1] =
     {
-        {OBJ_EVENT_GFX_MAY_NORMAL,         PLAYER_AVATAR_FLAG_ON_FOOT},
-        {OBJ_EVENT_GFX_MAY_MACH_BIKE,      PLAYER_AVATAR_FLAG_MACH_BIKE},
-        {OBJ_EVENT_GFX_MAY_ACRO_BIKE,      PLAYER_AVATAR_FLAG_ACRO_BIKE},
-        {OBJ_EVENT_GFX_MAY_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
-        {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
-    }
+        [0] = 
+        {
+            {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_WALKING,  PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE}, 
+            {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [1] = 
+        {
+            {OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_WALKING, PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_SURFING, PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [2] = 
+        {
+            {OBJ_EVENT_GFX_HERO_LONG_MEDIUM_WALKING,  PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_LONG_MEDIUM_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+    },
+    [2] =
+    {
+        [0] = 
+        {
+            {OBJ_EVENT_GFX_HERO_BALD_DARK_WALKING,  PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE}, 
+            {OBJ_EVENT_GFX_HERO_BALD_DARK_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [1] = 
+        {
+            {OBJ_EVENT_GFX_HERO_SHORT_DARK_WALKING, PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_SHORT_DARK_SURFING, PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [2] = 
+        {
+            {OBJ_EVENT_GFX_HERO_LONG_DARK_WALKING,  PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_MEDIUM_ACRO,       PLAYER_AVATAR_FLAG_ACRO_BIKE},
+            {OBJ_EVENT_GFX_HERO_LONG_DARK_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+    },
 };
+
+/////////////////
+
+static const u16 sHeroAvatarRetroGfxToStateFlag[SKIN_COUNT][HAIR_COUNT][3][2] =
+{
+    [0] =
+    {
+        [0] =
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_LIGHT_SHORT,    PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_BALD_LIGHT_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
+            {OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,       PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [1] =
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_LIGHT_SHORT,   PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_SHORT_LIGHT_SURFING,   PLAYER_AVATAR_FLAG_SURFING},
+            {OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER,      PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [2] =
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_LIGHT_LONG,    PLAYER_AVATAR_FLAG_ON_FOOT},
+            {OBJ_EVENT_GFX_HERO_LONG_LIGHT_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
+            {OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,       PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+    },
+    [1] =
+    {
+        [0] = 
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_SHORT,  PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_BALD_MEDIUM_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [1] = 
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_SHORT, PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_SHORT_MEDIUM_SURFING, PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [2] = 
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_MEDIUM_LONG,  PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_LONG_MEDIUM_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+    },
+    [2] =
+    {
+        [0] = 
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_DARK_SHORT,  PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_BALD_DARK_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_BALD_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [1] = 
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_DARK_SHORT, PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_SHORT_DARK_SURFING, PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_SHORT_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+        [2] = 
+        {
+            {OBJ_EVENT_GFX_HERO_RETRO_DARK_LONG,  PLAYER_AVATAR_FLAG_ON_FOOT}, 
+            {OBJ_EVENT_GFX_HERO_LONG_DARK_SURFING,  PLAYER_AVATAR_FLAG_SURFING}, 
+            {OBJ_EVENT_GFX_HERO_LONG_UNDERWATER,  PLAYER_AVATAR_FLAG_UNDERWATER},
+        },
+    },
+};
+
+///////////////////////////
 
 static bool8 (*const sArrowWarpMetatileBehaviorChecks2[])(u8) =  //Duplicate of sArrowWarpMetatileBehaviorChecks
 {
@@ -1070,7 +1308,12 @@ static void PlayerAvatarTransition_Dummy(struct ObjectEvent *objEvent)
 
 static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
 {
-    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarRetroGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+    }
+    else {
+        ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+    }
     ObjectEventTurn(objEvent, objEvent->movementDirection);
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
 }
@@ -1510,9 +1753,59 @@ u16 GetRSAvatarGraphicsIdByGender(u8 gender)
     return sRSAvatarGfxIds[gender];
 }
 
+static u16 GetHeroAvatarGraphicsId(u8 state, u8 hair, u8 skin)
+{
+    if (hair >= HAIR_COUNT)
+        hair = 0;
+    if (skin >= SKIN_COUNT)
+        skin = 0;
+
+    switch (state)
+    {
+    case PLAYER_AVATAR_STATE_UNDERWATER:
+        return sHeroUnderwaterGfxIds[hair];
+    case PLAYER_AVATAR_STATE_MACH_BIKE:
+    case PLAYER_AVATAR_STATE_ACRO_BIKE:
+        return sHeroAcroGfxIds[skin];
+    case PLAYER_AVATAR_STATE_WATERING:
+        // no dedicated bike/watering sprites yet — falls back to walking
+        return sHeroAvatarGfxIds[PLAYER_AVATAR_STATE_NORMAL][skin][hair];
+    case PLAYER_AVATAR_STATE_VSSEEKER:
+        return sHeroAvatarGfxIds[PLAYER_AVATAR_STATE_FIELD_MOVE][skin][hair];
+    default:
+        return sHeroAvatarGfxIds[state][skin][hair];
+    }
+}
+
 u16 GetPlayerAvatarGraphicsIdByStateId(u8 state)
 {
-    return GetPlayerAvatarGraphicsIdByStateIdAndGender(state, gPlayerAvatar.gender);
+    return GetHeroAvatarGraphicsId(state, VarGet(VAR_HAIRCUT), VarGet(VAR_SKIN_COMPLEXION));
+}
+
+///////////////
+
+static u16 GetHeroAvatarRetroGraphicsId(u8 state, u8 hair, u8 skin)
+{
+    if (hair >= HAIR_COUNT)
+        hair = 0;
+    if (skin >= SKIN_COUNT)
+        skin = 0;
+
+    switch (state)
+    {
+    case PLAYER_AVATAR_STATE_UNDERWATER:
+    case PLAYER_AVATAR_STATE_MACH_BIKE:
+    case PLAYER_AVATAR_STATE_ACRO_BIKE:
+    case PLAYER_AVATAR_STATE_WATERING:
+    case PLAYER_AVATAR_STATE_VSSEEKER:
+    default:
+        return sHeroAvatarRetroGfxIds[state][skin][hair];
+    }
+}
+
+u16 GetPlayerAvatarRetroGraphicsIdByStateId(u8 state)
+{
+    return GetHeroAvatarRetroGraphicsId(state, VarGet(VAR_HAIRCUT), VarGet(VAR_SKIN_COMPLEXION));
 }
 
 u8 GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
@@ -1584,15 +1877,52 @@ void SetPlayerAvatarStateMask(u8 flags)
     gPlayerAvatar.flags |= flags;
 }
 
-static u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId, u8 gender)
+//////
+
+//static u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId, u8 gender)
+//{
+//    u8 i;
+
+//    for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
+//    {
+//        if (sPlayerAvatarGfxToStateFlag[gender][i][0] == graphicsId)
+//            return sPlayerAvatarGfxToStateFlag[gender][i][1];
+//    }
+//    return PLAYER_AVATAR_FLAG_ON_FOOT;
+//}
+
+//u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
+//{
+//    u8 i;
+//    u8 flags = gPlayerAvatar.flags;
+
+//    for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
+//    {
+//        if (sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][1] & flags)
+//            return sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][0];
+//    }
+//    return 0;
+//}
+
+static u8 GetHeroAvatarStateTransitionByGraphicsId(u16 graphicsId, u8 hair, u8 skin)
 {
     u8 i;
 
-    for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
-    {
-        if (sPlayerAvatarGfxToStateFlag[gender][i][0] == graphicsId)
-            return sPlayerAvatarGfxToStateFlag[gender][i][1];
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        for (i = 0; i < ARRAY_COUNT(sHeroAvatarRetroGfxToStateFlag[0][0]); i++)
+        {
+            if (sHeroAvatarRetroGfxToStateFlag[skin][hair][i][0] == graphicsId)
+                return sHeroAvatarRetroGfxToStateFlag[skin][hair][i][1];
+        }
     }
+    else {
+        for (i = 0; i < ARRAY_COUNT(sHeroAvatarGfxToStateFlag[0][0]); i++)
+        {
+            if (sHeroAvatarGfxToStateFlag[skin][hair][i][0] == graphicsId)
+                return sHeroAvatarGfxToStateFlag[skin][hair][i][1];
+        }
+    }
+    
     return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
 
@@ -1600,18 +1930,32 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 {
     u8 i;
     u8 flags = gPlayerAvatar.flags;
+    u8 hair = VarGet(VAR_HAIRCUT);
+    u8 skin = VarGet(VAR_SKIN_COMPLEXION);
 
-    for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
-    {
-        if (sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][1] & flags)
-            return sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][0];
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        for (i = 0; i < ARRAY_COUNT(sHeroAvatarRetroGfxToStateFlag[0][0]); i++)
+        {
+            if (sHeroAvatarRetroGfxToStateFlag[skin][hair][i][1] & flags)
+                return sHeroAvatarRetroGfxToStateFlag[skin][hair][i][0];
+        }
     }
+    else {
+        for (i = 0; i < ARRAY_COUNT(sHeroAvatarGfxToStateFlag[0][0]); i++)
+        {
+            if (sHeroAvatarGfxToStateFlag[skin][hair][i][1] & flags)
+                return sHeroAvatarGfxToStateFlag[skin][hair][i][0];
+        }
+    }
+    
     return 0;
 }
 
+//////
+
 void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
 {
-    u8 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    u8 stateFlag = GetHeroAvatarStateTransitionByGraphicsId(graphicsId, VarGet(VAR_HAIRCUT), VarGet(VAR_SKIN_COMPLEXION));
 
     gPlayerAvatar.transitionFlags |= stateFlag | transitionFlag;
     DoPlayerAvatarTransition();

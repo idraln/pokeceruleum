@@ -1,0 +1,11 @@
+raw `
+MistraltonCity_House1_MapScripts::
+	.byte 0
+`
+
+script MistraltonCity_House1_Old {
+    lock
+    msgbox(format("Zzzz... Zzzz..."))
+    release
+    end
+}

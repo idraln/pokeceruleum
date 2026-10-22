@@ -50,7 +50,7 @@ SafariZone_South_EventScript_Youngster::
 SafariZone_South_EventScript_ExitAttendant::
 	lock
 	faceplayer
-	goto_if_unset FLAG_GOOD_LUCK_SAFARI_ZONE, SafariZone_South_EventScript_GoodLuck
+	goto_if_unset FLAG_CORINNA, SafariZone_South_EventScript_GoodLuck
 	msgbox SafariZone_South_Text_StillHaveTimeExit, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, SafariZone_South_EventScript_ExitEarly
 	msgbox SafariZone_South_Text_EnjoyTheRestOfYourAdventure, MSGBOX_DEFAULT
@@ -58,7 +58,7 @@ SafariZone_South_EventScript_ExitAttendant::
 	end
 
 SafariZone_South_EventScript_GoodLuck::
-	setflag FLAG_GOOD_LUCK_SAFARI_ZONE
+	setflag FLAG_CORINNA
 	msgbox SafariZone_South_Text_GoodLuck, MSGBOX_DEFAULT
 	release
 	end

@@ -1,0 +1,124 @@
+raw `
+NavyChannel_MapScripts::
+	.byte 0
+`
+
+script NavyChannel_Sheila {
+	trainerbattle_single(TRAINER_NAVY_1, Sheila1, Sheila2)
+	msgbox(format("Don't you see? The next island is only a few steps from here! Or should I say, a few swims. Hah!"))
+	closemessage
+	end
+}
+
+text Sheila1 {
+	format("Watch out! You're entering deep waters now!")
+}
+
+text Sheila2 {
+	format("I'm messing with you. It's just another channel.")
+}
+
+//////////////
+
+script NavyChannel_Pedro {
+	trainerbattle_single(TRAINER_NAVY_2, Pedro1, Pedro2)
+	msgbox(format("...Hmmm."))
+	closemessage
+	turnobject(2, DIR_SOUTH)
+	end
+}
+
+text Pedro1 {
+	format("...Hmmm? What?")
+}
+
+text Pedro2 {
+	format("Can you leave me to it now?")
+}
+
+//////////////
+
+script NavyChannel_Richie {
+	trainerbattle_single(TRAINER_NAVY_3, Richie1, Richie2)
+	msgbox(format("Sometimes, it's better to let go and let the waves carry you."))
+	closemessage
+	end
+}
+
+text Richie1 {
+	format("I don't wanna go to Cali! But I need to rest! What am I gonna do?")
+}
+
+text Richie2 {
+	format("You're right, I should do that!")
+}
+
+//////////////
+
+script NavyChannel_Carmen {
+	trainerbattle_single(TRAINER_NAVY_4, Carmen1, Carmen2)
+	msgbox(format("I've finally found the perfect isolated plot of land in the middle of the sea and I wish to keep it as lonely as possible!"))
+	closemessage
+	end
+}
+
+text Carmen1 {
+	format("No! Do not stay here, leave!")
+}
+
+text Carmen2 {
+	format("Good job! Will you leave now?")
+}
+
+//////////////
+
+script NavyChannel_Dan {
+	trainerbattle_single(TRAINER_NAVY_5, Dan1, Dan2)
+	msgbox(format("There are some weird people in Glorray. I tried to go there and I almost got abducted."))
+	closemessage
+	end
+}
+
+text Dan1 {
+	format("Are you trying to go to Glorray? I would advise you to go back to where you came from. It's no good.")
+}
+
+text Dan2 {
+	format("Dude, I warned you!")
+}
+
+//////////////
+
+script NavyChannel_SchoolBoy {
+	lock
+	faceplayer
+	msgbox(format("Hehe, if I don't get a perfect score in my class with this species of algae I just found..."))
+	release
+	end
+}
+
+script NavyChannel_SwimmerF {
+	lock
+	faceplayer
+	msgbox(format("If I swim fast enough in circles, I'll be able to create a whirlpool. Why? Hah, you wouldn't understand."))
+	release
+	end
+}
+
+script NavyChannel_Item1 {
+    lock
+    removeobject(8)
+    giveitem(ITEM_ABILITY_CAPSULE)
+    setflag(FLAG_ITEM_NAVY_1)
+    release
+    end
+}
+
+script NavyChannel_Item2 {
+    lock
+    removeobject(9)
+    giveitem(ITEM_BLUE_FLUTE)
+    setflag(FLAG_ITEM_NAVY_2)
+    release
+    end
+}

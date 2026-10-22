@@ -1,0 +1,170 @@
+raw `
+AzurChannel2_MapScripts::
+	.byte 0
+`
+
+script AzurChannel2_Deandra {
+    trainerbattle_single(TRAINER_AZUR_7, Deandra1, Deandra2)
+    msgbox(format("Did you see how strong Poliwrath is? I'm in love with it!"))
+    closemessage
+    end
+}
+
+text Deandra1 {
+    format("Have a taste of these hands.")
+}
+
+text Deandra2 {
+    format("Oh?")
+}
+
+////////////////
+
+script AzurChannel2_Noe {
+    lock
+    faceplayer
+    if(flag(FLAG_QUEST_DUSK_COMPLETE) && flag(FLAG_QUEST_DUSK)) {
+        msgbox(format("For some reason, I mistook Dawn for Dusk. Rookie mistake! Thanks again, Honchkrow really is majestic."))
+        release
+        end
+    }
+    elif(flag(FLAG_QUEST_DUSK)) {
+        msgbox(format("Do you have the Dusk Stone I asked you for?"))
+        checkitem(ITEM_DUSK_STONE)
+        if(var(VAR_RESULT) == TRUE) {
+            delay(20)
+            applymovement(5, moves(emote_exclamation_mark))
+            waitmovement(0)
+            playse(SE_PIN)
+            delay(40)
+            msgbox(format("Oh, thank you, thank you! I can finally make Murkrow evolve! As a gift, take this."))
+            removeitem(ITEM_DUSK_STONE)
+            giveitem(ITEM_DAWN_STONE)
+            completequest(QUEST_DUSK)
+            setflag(FLAG_QUEST_DUSK_COMPLETE)
+            release
+            end
+        }
+        else {
+            msgbox(format("..."))
+            msgbox(format("Please! It's the only thing I need right now!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("You got a Dusk Stone by any chance? I'll literally give you anything for it."))
+        trainerbattle_no_intro(TRAINER_AZUR_8, Noe2)
+        msgbox(format("I'm in dire need of a Dusk Stone. Murkrow cannot fight anymore, it's too weak! Please, bring me one!"))
+        startquest(QUEST_DUSK)
+        setflag(FLAG_QUEST_DUSK)
+        release
+        end
+    }
+}
+
+text Noe2 {
+    format("I see, you're the stingy type...")
+}
+
+////////////////
+
+script AzurChannel2_Zadj {
+    trainerbattle_single(TRAINER_AZUR_9, Zadj1, Zadj2)
+    msgbox(format("Why are people in such a hurry? Take the time to enjoy the surroundings!"))
+    closemessage
+    end
+}
+
+text Zadj1 {
+    format("Hey, hey! Time to relax! You're not far from Oparque, breathe!")
+}
+
+text Zadj2 {
+    format("You were already relaxed, my bad.")
+}
+
+////////////////
+
+script AzurChannel2_Esteban {
+    trainerbattle_single(TRAINER_AZUR_10, Esteban1, Esteban2)
+    msgbox(format("I'll tell you why I'm here. My damn father. He used to be a big time swimmer and he's projecting on me."))
+    closemessage
+    end
+}
+
+text Esteban1 {
+    format("I hate swimming. Why am I here?")
+}
+
+text Esteban2 {
+    format("Great!")
+}
+
+////////////////
+
+script AzurChannel2_Giancarlo {
+    trainerbattle_single(TRAINER_AZUR_11, Giancarlo1, Giancarlo2)
+    if(var(VAR_DISAPPEARANCE) == 3) {
+        msgbox(format("Well, something happened because everything's back from their vacation. Business is back, baby!"))
+    }
+    else {
+        msgbox(format("You must have met a lot of colleagues: why? Why it is that we can't find any fishes in the sea?"))
+    }
+    closemessage
+    end
+}
+
+text Giancarlo1 {
+    format("At that point, I'm just pretending. For old time's sake.")
+}
+
+text Giancarlo2 {
+    format("And even here, I can't figure it out.")
+}
+
+////////////////
+
+
+script AzurChannel2_SwimmerM {
+    lock
+    faceplayer
+    gettimeofday
+    if(var(VAR_RESULT) < 2) {
+        msgbox(format("Ah, what a beautiful day! The sea is at the perfect temperature!"))
+    }
+    else {
+        msgbox(format("Ah, what a wonderful night! The sea is at the perfect temperature!"))
+    }
+    release
+    end
+}
+
+script AzurChannel2_SwimmerF {
+    lock
+    faceplayer
+    msgbox(format("Help! I'm drowning!"))
+    release
+    end
+}
+
+////////////////
+
+script AzurChannel2_Item {
+    lock
+    removeobject(8)
+    giveitem(ITEM_SOFT_SAND)
+    setflag(FLAG_ITEM_AZUR_2)
+    release
+    end
+}
+
+script AzurChannel2_Item2 {
+    lock
+    removeobject(9)
+    giveitem(ITEM_ASSAULT_VEST)
+    setflag(FLAG_ITEM_AZUR_3)
+    msgbox(format("(It looks strangely familiar...)"))
+    release
+    end
+}

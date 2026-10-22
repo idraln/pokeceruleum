@@ -1,0 +1,21 @@
+raw `
+Virimante_House3_MapScripts::
+	.byte 0
+`
+
+script Virimante_House3_GruntF {
+    lock
+    faceplayer
+    checkitem(ITEM_TM44)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("I hope you feel well rested now!"))
+    }
+    else {
+        msgbox(format("Oh my! Look at your eyes. You need to rest."))
+        msgbox(format("..."))
+        msgbox(format("Huh? Oh no, I will not heal your Pokémons. Last time I did that for free, I almost got expelled from the Band. Take this instead."))
+        giveitem(ITEM_TM44)
+    }
+    release
+    end
+}

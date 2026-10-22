@@ -1,0 +1,66 @@
+raw `
+HelicopterCutscene_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, HelicopterCutscene_OnFrame
+	.byte 0
+
+HelicopterCutscene_OnFrame:
+    map_script_2 VAR_TEMP_0, 0, HelicopterCutscene_Arrival
+    .2byte 0
+`
+script HelicopterCutscene_Arrival {
+    lockall
+    applymovement(1, HCutHelico)
+    applymovement(OBJ_EVENT_ID_PLAYER, HCutHelico)
+    waitmovement(0)
+    msgbox(format("Sam: Hey, this isn't too bad! Look, the trees look tiny!"))
+    closemessage
+    delay(20)
+    msgbox(format("Sam: So, I haven't asked you yet, what do you think happened to your Pokémons?"))
+    multichoice(0, 8, MULTI_CUTSCENE, FALSE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            closemessage
+            delay(40)
+            msgbox(format("It...? By it, you mean, one Pokémon? You managed to battle your way through every Council Member with ONE Pokémon? Wow! What was it?"))
+            msgbox(format("..."))
+            msgbox(format("Xatu? Never heard of it! Must be a mythical creature from another region."))
+            msgbox(format("..."))
+            msgbox(format("It's not even a legendary? Man, I need to learn more about Pokémons."))
+            msgbox(format("..."))
+            msgbox(format("Anyways, don't worry, I'm sure your Xatu is waiting for you somewhere. You must have huge bonds, there's no way it just flew away."))
+            closemessage
+            delay(40)
+            msgbox(format("Well, let's hope for the best, shall we?"))
+        case 1:
+            closemessage
+            delay(40)
+            msgbox(format("Yeah, you're right, family first! Where does she live?"))
+            msgbox(format("..."))
+            msgbox(format("Array? Never heard of that town, where is it?"))
+            msgbox(format("..."))
+            msgbox(format("Ah, I see, in the southeast. I've never been there, I'm sure it's absolutely charming!"))
+            closemessage
+            delay(40)
+            msgbox(format("Well, let's hope for the best, shall we?"))
+    }
+    closemessage
+    applymovement(1, HCutHelico2)
+    applymovement(OBJ_EVENT_ID_PLAYER, HCutHelico2)
+    waitmovement(0)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+    delay(20)
+    msgbox(format("Pilot: There it is lads, welcome to Sapphire City! I hope you both had a great flight with me. See ya soon, I hope!"))
+    closemessage
+    warpsilent(MAP_SAPPHIRE_CITY_AIRPORT, 3, 9)
+    releaseall
+    end
+}
+
+movement HCutHelico {
+    walk_left * 12
+}
+
+movement HCutHelico2 {
+    walk_left * 9
+    step_end
+}

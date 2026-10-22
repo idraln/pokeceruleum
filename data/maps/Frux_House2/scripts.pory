@@ -1,0 +1,19 @@
+raw `
+Frux_House2_MapScripts::
+	.byte 0
+`
+
+script Frux_House2_Worker1 {
+    lock
+    faceplayer
+    msgbox(format("Hey. You can visit the dorms, but know that they are only reserved for us, hard workers. Not you, stinky hikers."))
+    release
+    end
+}
+
+script Frux_House2_Worker2 {
+    lock
+    msgbox(format("Hmmm... Which one will I read before going to bed?... 'The legend of Diancie', or Byron's autobiography, 'The boy from Oreburgh'?..."))
+    release
+    end
+}

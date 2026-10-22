@@ -1,0 +1,82 @@
+raw `
+PastoralRd_Sawmill_MapScripts::
+	.byte 0
+`
+
+script PastoralRd_Sawmill_Owner {
+    lock
+    faceplayer
+    msgbox(format("Hey there! Welcome to our cabin! Do you need honey? We produce it ourselves. It's only ¥50."), MSGBOX_YESNO)
+    goto(PastoralRd_Sawmill_Honey)
+    release
+    end
+}
+
+script PastoralRd_Sawmill_Honey {
+    if(var(VAR_RESULT) == YES) {
+        checkmoney(50)
+        if(var(VAR_RESULT) == TRUE) {
+            msgbox(format("Thank you! Here it is."))
+            giveitem(ITEM_HONEY)
+            removemoney(50)
+            msgbox(format("Do you need some more?"), MSGBOX_YESNO)
+            goto(PastoralRd_Sawmill_Honey)
+        }
+        else {
+            msgbox(format("I'm sorry, you don't have enough money! Come back soon!"))
+            release
+            end
+        }
+    }
+    else {
+        msgbox(format("No worries! Enjoy your time here!"))
+        release
+        end
+    }
+}
+
+script PastoralRd_Sawmill_Mom {
+    lock
+    faceplayer
+    msgbox(format("I didn't think that this trip to the refuge was going to be interesting, turns out it was! And their honey is delicious!"))
+    release
+    end
+}
+
+script PastoralRd_Sawmill_Kid {
+    lock
+    faceplayer
+    msgbox(format("Look! I caught a Wurmple! This is the best day of my life!!"))
+    release
+    end
+}
+
+script PastoralRd_Sawmill_Man {
+    lock
+    faceplayer
+    if(flag(FLAG_HERACRONITE_GIVEN)) {
+        msgbox(format("I hope I've made you want to become a fan of Heracross!"))
+        release
+        end
+    }
+    else {
+        msgbox(format("I'm a huge fan of Heracross. Show me one, and I'll gift you something awesome."))
+        checkspecies(SPECIES_HERACROSS, NO_PARTY_SCREEN)
+        if(var(VAR_RESULT) == TRUE) {
+            closemessage
+            delay(20)
+            applymovement(2, moves(emote_exclamation_mark))
+            waitmovement(0)
+            delay(40)
+            msgbox(format("Woah! How lucky you are! Isn't it gorgeous? You haven't seen anything yet. Give it this item, and you'll see!"))
+            giveitem(ITEM_HERACRONITE)
+            setflag(FLAG_HERACRONITE_GIVEN)
+            release
+            end
+        }
+        else {
+            release
+            end
+        }
+    }
+}

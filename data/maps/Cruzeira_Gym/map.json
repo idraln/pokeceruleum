@@ -1,0 +1,88 @@
+{
+  "id": "MAP_CRUZEIRA_GYM",
+  "name": "Cruzeira_Gym",
+  "layout": "LAYOUT_CRUZEIRA_GYM",
+  "music": "MUS_GYM",
+  "region_map_section": "MAPSEC_CRUZEIRA",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTF",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Cruzeira_Gym_Grunt1",
+      "flag": "FLAG_CRUZ_GYM_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GRUNTM",
+      "x": 11,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Cruzeira_Gym_Grunt2",
+      "flag": "FLAG_CRUZ_GYM_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ADMINF",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Cruzeira_Gym_Admin",
+      "flag": "FLAG_CRUZ_GYM_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LAILA",
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Cruzeira_Gym_Laila_After",
+      "flag": "FLAG_CRUZ_GYM_LAILA"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 8,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_CRUZEIRA",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_CRUZEIRA",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

@@ -1,0 +1,386 @@
+raw `
+PastoralRd_MapScripts::
+	.byte 0
+`
+
+script PastoralRd_Woman1 {
+    lock
+    faceplayer
+    msgbox(format("Today is the day! The guys at the cabin have finally finished setting up an insect shelter! That means we'll be able to observe them and maybe even catch some!"))
+    turnobject(14, DIR_NORTH)
+    release
+    end
+}
+
+script PastoralRd_Boy1 {
+    lock
+    faceplayer
+    msgbox(format("I can't wait! I'll finally be able to catch my very first Pokémon! How exciting!!"))
+    turnobject(4, DIR_NORTH)
+    release
+    end
+}
+
+script PastoralRd_Boy2 {
+    lock
+    faceplayer
+    msgbox(format("They say that some bugs can be as huge as us humans! I need to see that with my very eyes."))
+    turnobject(2, DIR_NORTH)
+    release
+    end
+}
+
+script PastoralRd_Man1 {
+    lock
+    faceplayer
+    msgbox(format("I know this place is supposed to be a safe haven for insects, but if something attacks me, I won't hesitate to squish it."))
+    turnobject(15, DIR_NORTH)
+    release
+    end
+}
+
+script PastoralRd_BugCatcher {
+    lock
+    faceplayer
+    msgbox(format("Ouf... I need 5 minutes to catch my breath. There's so much to see inside!"))
+    release
+    end
+}
+
+script PastoralRd_Russell {
+    trainerbattle_single(TRAINER_PASTORAL_1, Russell1, Russell2)
+    msgbox(format("Bugs don't seem to be powerful, but boy do they look cool!"))
+    closemessage
+    end
+}
+
+script PastoralRd_Syeda {
+    trainerbattle_single(TRAINER_PASTORAL_2, Syeda1, Syeda2)
+    msgbox(format("You should check what's inside the cave that's on the right. That's a hundred times better than that refuge."))
+    closemessage
+    end
+}
+
+script PastoralRd_Adil {
+    trainerbattle_single(TRAINER_PASTORAL_3, Adil1, Adil2)
+    msgbox(format("Vine Grotto sure is a challenge in itself. It's so humid in there!"))
+    closemessage
+    end
+}
+
+script PastoralRd_Seth {
+    trainerbattle_single(TRAINER_PASTORAL_4, Seth1, Seth2)
+    msgbox(format("It doesn't matter, I've already made enough cash to treat myself with the latest Pokédam... Fufufu..."))
+    closemessage
+    end
+}
+
+script PastoralRd_Eka {
+    if(var(VAR_MAIN_STORY) == 14) {
+        lock
+        faceplayer
+        checkitem(ITEM_RED_SCARF, 1)
+        if(var(VAR_RESULT) == TRUE) {
+            playse(SE_PIN)
+            applymovement(17, moves(emote_exclamation_mark))
+            waitmovement(0)
+            delay(30)
+            namebox("Eka")
+            msgbox(format("My scarf! You retrieved it! Impressive. Come to my gym, I need to see what you're made of."))
+            hidenamebox
+            closemessage
+            applymovement(17, moves(face_up delay_16 walk_up))
+            waitmovement(0)
+            removeobject(17)
+            playse(SE_EXIT)
+            removeitem(ITEM_RED_SCARF, 1)
+            setflag(FLAG_PASTORAL_EKA)
+            setflag(FLAG_ANGRY_VINEGROTTO)
+            completequest(QUEST_SCARF)
+            release
+            end
+        }
+        else {
+            namebox("Eka")
+            msgbox(format("Well? My scarf?? I don't have all day! Go!"))
+            hidenamebox
+            release
+            end
+        }
+    }
+    elif(var(VAR_MAIN_STORY) == 13) {
+        lock
+        faceplayer
+        namebox("Eka")
+        msgbox(format("Well? My scarf?? I don't have all day! Go!"))
+        hidenamebox
+        release
+        end
+    }
+    else {
+        lock
+        faceplayer
+        namebox("Eka")
+        msgbox(format("NO! No one goes inside until I decide otherwise! I lost my scarf, I think someone stole it from me! This is unacceptable!"))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Eka")
+        msgbox(format("I don't care! If you want to go through, you can help me. I think the thieves went to the south, to Cali! They were dressed weirdly, covered in pink."))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Eka")
+        msgbox(format("Why don't I go myself? Have you seen the size of me? Hello?! Plus, I have other stuff to care about, like my gym. I don't have time for this."))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Eka")
+        msgbox(format("...Why am I not in my gym? You're asking too many questions! I bet you want to go there, to progress in the Council Challenge, right? Then go get me that scarf, otherwise you don't get to challenge me. Hah."))
+        hidenamebox
+        setvar(VAR_MAIN_STORY, 13)
+        startquest(QUEST_SCARF)
+        release
+        end
+    }
+}
+
+script PastoralRd_Man2 {
+    lock
+    faceplayer
+    msgbox(format("I wonder why some trees are yellow, while some aren't. Could it be because of the bugs?"))
+    release
+    end
+}
+
+script PastoralRd_Girl {
+    lock
+    faceplayer
+    msgbox(format("The owner of the cabin gave me honey! You should get some!"))
+    release
+    end
+}
+
+script PastoralRd_Sam {
+    lock
+    clearflag(FLAG_PASTORAL_SAM)
+    addobject(16)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) == 17) {
+        applymovement(16, moves(walk_fast_down * 7 walk_fast_left * 3 delay_16 * 2))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(16, moves(emote_exclamation_mark delay_16 * 3 walk_fast_right * 3  walk_fast_up face_left))
+        waitmovement(0)
+        goto(PastoralRd_Sam2)
+    }
+    elif(var(VAR_TEMP_1) == 18) {
+        applymovement(16, moves(walk_fast_down * 8 walk_fast_left * 3 delay_16 * 2))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(16, moves(emote_exclamation_mark delay_16 * 3 walk_fast_right * 3 walk_fast_up face_left))
+        waitmovement(0)
+        goto(PastoralRd_Sam2)
+    }
+    elif(var(VAR_TEMP_1) == 19) {
+        applymovement(16, moves(walk_fast_down * 7 walk_fast_left * 3 delay_16 * 2))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(16, moves(emote_exclamation_mark delay_16 * 3 walk_fast_right * 3 walk_fast_down face_left))
+        waitmovement(0)
+        goto(PastoralRd_Sam2)
+    }
+    elif(var(VAR_TEMP_1) == 20) {
+        applymovement(16, moves(walk_fast_down * 8 walk_fast_left * 3 delay_16 * 2))
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(16, moves(emote_exclamation_mark delay_16 * 3 walk_fast_right * 3 walk_fast_down face_left))
+        waitmovement(0)
+        goto(PastoralRd_Sam2)
+    }
+}
+
+script PastoralRd_Sam2 {
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    namebox("Sam")
+    msgbox(format("{PLAYER}!! Fancy seeing you here! Did you defeat the first gym already? As for me, I decided to take a detour to the insect shelter to see what was going on there. I even managed to capture a super Pokémon, look!"))
+    hidenamebox
+    closemessage
+    setvar(VAR_TRAINERBATTLE, 0)
+    setflag(FLAG_TRAINERBATTLE)
+    trainerbattle_no_intro(TRAINER_PASTORAL_SAM, PastoralSam)
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        namebox("Sam")
+        msgbox(format("Doesn't Pinsir look majestic? I'm already in love! I feel like we're going to accomplish great things, him and me!! Anyways, let me heal your Pokémons."))
+        hidenamebox
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        special(HealPlayerParty)
+        fadescreen(FADE_FROM_BLACK)
+        namebox("Sam")
+        msgbox(format("Alright? Good! I'm going to face the first member now, wish me luck!"))
+        hidenamebox
+        closemessage
+        if(var(VAR_TEMP_1) == 17) {
+            applymovement(16, moves(walk_fast_down walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_1) == 18) {
+            applymovement(16, moves(walk_fast_down walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_1) == 19) {
+            applymovement(16, moves(walk_fast_up walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_1) == 20) {
+            applymovement(16, moves(walk_fast_up walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+    }
+    else {
+        namebox("Sam")
+        msgbox(format("I caught a Pinsir, and he looks absolutely majestic! I'm already in love! I feel like we're going to accomplish great things, him and me!! I'm going to face the first member, now. Wish me luck!"))
+        hidenamebox
+        closemessage
+        if(var(VAR_TEMP_1) == 17) {
+            applymovement(16, moves(walk_fast_down walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_1) == 18) {
+            applymovement(16, moves(walk_fast_down walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_1) == 19) {
+            applymovement(16, moves(walk_fast_up walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+        elif(var(VAR_TEMP_1) == 20) {
+            applymovement(16, moves(walk_fast_up walk_fast_left * 6 walk_fast_up * 5 walk_fast_left * 3))
+            waitmovement(0)
+            removeobject(16)
+            setflag(FLAG_PASTORAL_SAM)
+            setvar(VAR_BLOCKED_ROAD, 6)
+            fadeoutbgm(1)
+            playbgm(MUS_ROUTE101, TRUE)
+            release
+            end
+        }
+    }
+}
+
+script PastoralRd_Retreat {
+    lockall
+    msgbox(format("Pastoral Rd.'s Oak Retreat\nWe also take care of your Pokémons!"))
+    releaseall
+    end
+}
+
+script PastoralRd_VineSign {
+    lockall
+    msgbox(format("{UP_ARROW} Vine Grotto\n{DOWN_ARROW} Littoral Rd."))
+    releaseall
+    end
+}
+
+script PastoralRd_VineSign2 {
+    lockall
+    msgbox(format("{UP_ARROW} Vine Grotto\n{RIGHT_ARROW} Ohulinn"))
+    releaseall
+    end
+}
+
+script PastoralRd_Zigzagoon {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+    msgbox(format("Zig! Zig!"))
+    release
+    end
+}
+
+text Russell1 {
+    format("Let me show you what I've captured at the shelter!")
+}
+
+text Russell2 {
+    format("Well, it seems like they aren't as powerful as I imagined...")
+}
+
+text Syeda1 {
+    format("Bugs don't stand a chance against my Pokémons!")
+}
+
+text Syeda2 {
+    format("And I don't stand a chance against you...")
+}
+
+text Adil1 {
+    format("Perfect! Nothing better than a battle to rest my weary legs!")
+}
+
+text Adil2 {
+    format("Haha, I'm fully rested now! Thanks!")
+}
+
+text Seth1 {
+    format("Fufufu... Every trainer comes out of that cave exhausted... And I finish them off. Easy money...")
+}
+
+text Seth2 {
+    format("Woah... Aren't you tired?")
+}
+
+text PastoralSam {
+    format("Did you see that absolute beast? Wow!!")
+}

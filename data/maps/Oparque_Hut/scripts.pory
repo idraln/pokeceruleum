@@ -1,0 +1,197 @@
+raw `
+Oparque_Hut_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Oparque_Hut_OnFrame
+	.byte 0
+
+Oparque_Hut_OnFrame:
+    map_script_2 VAR_SIDE_STORY_BRO, 1, Oparque_Hut_Arrival
+    .2byte 0
+`
+
+script Oparque_Hut_Arrival {
+    lock
+    playbgm(MUS_AQUA_MAGMA_HIDEOUT, TRUE)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right walk_up * 2))
+    waitmovement(0)
+    applymovement(2, moves(walk_in_place_up))
+    waitmovement(0)
+    namebox("???")
+    msgbox(format("I said shut up! Shut up! I've already tied you, do you also want me to gag you? Is that what you want?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(1, moves(walk_in_place_down))
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("I don't care! My best pal will come soon enough and free me!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(walk_in_place_up))
+    waitmovement(0)
+    namebox("???")
+    msgbox(format("Oh yeah? We've been waiting for hours! I'm starting to think that you're nothing but a sneaky liar... Have you ever thought of becoming food for the Sharpedos?"))
+    closemessage
+    hidenamebox
+    delay(20)
+    playse(SE_PIN)
+    applymovement(1, moves(emote_exclamation_mark))
+    waitmovement(0)
+    delay(20)
+    namebox("Sam")
+    msgbox(format("Haha! I told you! {PLAYER}, help me!"))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_down))
+    waitmovement(0)
+    fadeoutbgm(1)
+    delay(40)
+    playbgm(MUS_DUMMY, TRUE)
+    namebox("???")
+    msgbox(format("...You're here."))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(2, moves(walk_down * 2 face_left))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down * 2 walk_left))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    namebox("???")
+    msgbox(format("...I can't believe it. {PLAYER}, you're actually here. You're alive..."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(walk_up walk_left face_down delay_16 * 2 walk_left walk_down face_right delay_16 * 2 walk_up walk_right * 2 walk_down face_left))
+    waitmovement(0)
+    namebox("???")
+    msgbox(format("...It's been so long. Yet, you haven't changed a bit, haven't you?"))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("???")
+    msgbox(format("...You don't recognise me, do you? Don't worry. You'll soon figure it out. In the meantime, if you want to free your little friend, you'll have to face me first. Bring it on, show me how you bounced back."))
+    hidenamebox
+    closemessage
+    setflag(FLAG_TRAINERBATTLE)
+    trainerbattle_no_intro(TRAINER_BRO_OPARQUE, BroOparque1)
+    if (var(VAR_TRAINERBATTLE) == B_OUTCOME_LOST) {
+        goto(Oparque_Hut_AfterFight)
+    }
+    else {
+        goto(Oparque_Hut_AfterFight)
+    }
+    
+}
+
+script Oparque_Hut_AfterFight {
+    namebox("???")
+    msgbox(format("...Yeah, you're still the same."))
+    closemessage
+    hidenamebox
+    delay(40)
+    namebox("???")
+    msgbox(format("...I guess it's time for me to leave, then. Don't worry though, we'll meet again. Very soon. My plan is almost complete."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(walk_up walk_left * 2 walk_down))
+    waitmovement(0)
+    delay(20)
+    namebox("???")
+    msgbox(format("...One last thing."))
+    closemessage
+    hidenamebox
+    delay(20)
+    applymovement(2, moves(face_right))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    namebox("???")
+    msgbox(format("...Xatu is doing just fine."))
+    closemessage
+    hidenamebox
+    applymovement(2, moves(face_down))
+    waitmovement(0)
+    removeobject(2)
+    playse(SE_EXIT)
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+    waitmovement(0)
+    delay(60)
+    namebox("Sam")
+    msgbox(format("{PLAYER}! Please, come untie me! I can't feel my hands!"))
+    closemessage
+    hidenamebox
+    delay(40)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right walk_up * 2))
+    waitmovement(0)
+    delay(60)
+    applymovement(1, moves(jump_in_place_down * 3))
+    waitmovement(0)
+    namebox("Sam")
+    msgbox(format("{PLAYER}, I'm so sorry to have brought you into this... I thought I made a new friend, and you know how I be, I'm talking too much. I started talking about you, because you know, you're the most talented trainer I've ever met, and I figured everyone should know about you. Anyway, this guy, completely flipped after I told him about you, and started threatening me if I didn't make you come and see him. He started dressing up like this weird diver, and he punched me really hard in the stomach when I tried to leave... But you showed him, hah!"))
+    closemessage
+    hidenamebox
+    delay(40)
+    msgbox(format("..."))
+    closemessage
+    delay(40)
+    namebox("Sam")
+    msgbox(format("...Didn't he say Xatu before leaving, though? I haven't told him about Xatu. Do you guys know each other?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        namebox("Sam")
+        msgbox(format("Oh? Well, you need to change friends. He's a big weirdo!"))
+        closemessage
+        hidenamebox
+        delay(20)
+        namebox("Sam")
+        msgbox(format("Anyways, now that you're here, we can actually chase the guy and deliver him to the authorities! Quick!!"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(walk_fast_right walk_fast_down * 3 walk_fast_left * 2 face_down))
+        waitmovement(0)
+        removeobject(1)
+        playse(SE_EXIT)
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        waitmovement(0)
+    }
+    else {
+        namebox("Sam")
+        msgbox(format("You don't? That's weird, how would he know about Xatu then?"))
+        hidenamebox
+        msgbox(format("..."))
+        namebox("Sam")
+        msgbox(format("You know what, {PLAYER}? And, don't take this the wrong way, but he kinda reminded me of you. In the way he spoke, his manners..."))
+        hidenamebox
+        closemessage
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+        waitmovement(0)
+        delay(40)
+        namebox("Sam")
+        msgbox(format("No no no! I'm not saying that you act like an outlaw! Just that... It's weird, he seemed like he knew you... Very well. Anyway, my ears didn't fool me, he said something about Xatu... We need to chase the guy! Quick!"))
+        closemessage
+        hidenamebox
+        applymovement(1, moves(walk_fast_right walk_fast_down * 3 walk_fast_left * 2 face_down))
+        waitmovement(0)
+        removeobject(1)
+        playse(SE_EXIT)
+        delay(40)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
+        waitmovement(0)
+    }
+    setflag(FLAG_SAM_KIDNAPPED)
+    setvar(VAR_SIDE_STORY_BRO, 2)
+    completequest(QUEST_SAM)
+    setflag(FLAG_QUEST_SAM_COMPLETE)
+    release
+    end
+}
+
+text BroOparque1 {
+    format("...Impressive.")
+}

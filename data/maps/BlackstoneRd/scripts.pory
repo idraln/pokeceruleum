@@ -1,0 +1,169 @@
+raw `
+BlackstoneRd_MapScripts::
+	.byte 0
+`
+
+script BlackstoneRd_Fat {
+    lock
+    faceplayer
+    msgbox(format("I tried to go to Vikkelson to meet Vikkie, but her guards wouldn't let me in her mansion. Oh well..."))
+    turnobject(10, DIR_NORTH)
+    release
+    end
+}
+
+script BlackstoneRd_Ronan_Before {
+    lock
+    faceplayer
+    msgbox(format("Yes, I'm a trainer! How did you know? I think I'm a bit too strong for you though. I'm not the kind to take advantage of new trainers! How kind am I! Right?"))
+    release
+    end
+}
+
+script BlackstoneRd_Ronan {
+    trainerbattle_single(TRAINER_BLACK_1, Ronan1, Ronan2)
+    msgbox(format("I swear to Arceus that I have never, ever, eaten those beautiful, tasty-looking, shiny rocks. Never."))
+    closemessage
+    end
+}
+
+script BlackstoneRd_Kid {
+    lock
+    faceplayer
+    msgbox(format("I need to collect as many orange leaves as possible! It will be a great gift for my dad."))
+    release
+    end
+}
+
+script BlackstoneRd_Rocco_Before {
+    lock
+    faceplayer
+    msgbox(format("I can't wait to go to Vikkelson! I'll party like there's no tomorrow. Like that Orson song."))
+    release
+    end
+}
+
+script BlackstoneRd_Rocco {
+    trainerbattle_single(TRAINER_BLACK_2, Rocco1, Rocco2)
+    msgbox(format("I love paryting, don't get me wrong. But there are way too many people in that city."))
+    closemessage
+    end
+}
+
+script BlackstoneRd_Fisherman {
+    lock
+    faceplayer
+    msgbox(format("No fish left in the ocean? No worries! There are plenty left in ponds like this one. I wonder why no one has come here yet."))
+    turnobject(8, DIR_WEST)
+    release
+    end
+}
+
+script BlackstoneRd_PartyGoers {
+    lock
+    applymovement(4, moves(walk_in_place_down))
+    waitmovement(0)
+    msgbox(format("Boys, this is about to be the best time of your lives! I told y'all Daddy was going to take care y'all. You just have to relax and enjoy. I'm so proud of my boys. Look at you, all grown up!"))
+    closemessage
+    applymovement(6, moves(jump_in_place_up * 2))
+    applymovement(5, moves(jump_in_place_up * 2))
+    waitmovement(0)
+    msgbox(format("Yeah! Thanks Dad!"))
+    release
+    end
+}
+
+script BlackstoneRd_Philip_Before {
+    lock
+    faceplayer
+    msgbox(format("Boy, you really have to earn the right to party! Those hills are no joke."))
+    release
+    end
+}
+
+
+script BlackstoneRd_Philip {
+    trainerbattle_single(TRAINER_BLACK_3, Philip1, Philip2)
+    msgbox(format("Nothing better than a hike before partying!... Is what I would've said if I liked hiking. Man, I really chose the wrong path in my life. Hah, path... How ironic..."))
+    closemessage
+    end
+}
+
+script BlackstoneRd_Leia_Before {
+    lock
+    faceplayer
+    msgbox(format("I hate partygoers. I absolutely despise them. Disrespectful twats."))
+    release
+    end
+}
+
+script BlackstoneRd_Leia {
+    trainerbattle_single(TRAINER_BLACK_4, Leia1, Leia2)
+    msgbox(format("How could you ever party or even relax when our world is literally crumbling before our eyes? I just don't get it..."))
+    closemessage
+    end
+}
+
+script BlackstoneRd_Sign {
+    lockall
+    msgbox(format("{UP_ARROW} Vikkelson\n{RIGHT_ARROW} Glasville"))
+    releaseall
+    end
+}
+
+script BlackstoneRd_Rock {
+    lockall
+    checkitem(ITEM_HM06, 1)
+    if(var(VAR_RESULT) == TRUE) {
+        call(EventScript_UseRockSmash)
+        removeobject(11)
+        setflag(FLAG_ROCK_BLACK)
+        releaseall
+        end
+    }
+    else {
+        releaseall
+        end
+    }
+}
+
+script BlackstoneRd_Item {
+    lock
+    removeobject(16)
+    giveitem(ITEM_TM10)
+    setflag(FLAG_ITEM_BLACKSTONE_2)
+    release
+    end
+}
+
+text Ronan1 {
+    format("Those black rocks look absolutely delicious. They shine like licorice!")
+}
+
+text Ronan2 {
+    format("You think this is what licorice is made of? Doesn't taste like- Oop! I've said too much!")
+}
+
+text Rocco1 {
+    format("Is this the right way to Vikkelson? I think I'm lost...")
+}
+
+text Rocco2 {
+    format("Ah! I should've crossed the bridge!")
+}
+
+text Philip1 {
+    format("I need to take a breather. Please, rest with me.")
+}
+
+text Philip2 {
+    format("Aren't you exhausted?")
+}
+
+text Leia1 {
+    format("Hey! Are you one of those abhorrent partygoers? I'll show you a party.")
+}
+
+text Leia2 {
+    format("I see. Sorry for getting carried away.")
+}

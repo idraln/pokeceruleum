@@ -1,0 +1,13 @@
+raw `
+ChallengerRd3_MapScripts::
+	.byte 0
+`
+
+script ChallengerRd3_Item {
+    lock
+    removeobject(1)
+    giveitem(ITEM_TM03)
+    setflag(FLAG_ITEM_CHALLENGER_ROAD_3)
+    release
+    end
+}

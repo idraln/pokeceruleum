@@ -75,7 +75,7 @@ Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone::
 	waitmovement 0
 	special EnterSafariMode
 	setvar VAR_SAFARI_ZONE_STATE, 2
-	clearflag FLAG_GOOD_LUCK_SAFARI_ZONE
+	clearflag FLAG_CORINNA
 	warp MAP_SAFARI_ZONE_SOUTH, 32, 33
 	waitstate
 	end

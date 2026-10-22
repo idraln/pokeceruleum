@@ -1,0 +1,137 @@
+raw `
+SapphireCity_AirportRestaurant_MapScripts::
+	.byte 0
+`
+
+script SapphireCity_AirportRestaurant_GirlAlone {
+    lock
+    if(flag(FLAG_CAROLINE_AIRPORT)) {
+        msgbox(format("Hmm... Some honey... Yes..."))
+        release
+        end
+    }
+    msgbox(format("Hmmm... Every item on the menu looks tasty. What if?... No..."))
+    closemessage
+    faceplayer
+    msgbox(format("Huh? What's up? You wanna battle?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(SCAR_Caroline1)
+        trainerbattle_no_intro(TRAINER_BOIS_ADMIN_1_RESTAURANT, SCAR_Caroline2)
+        setflag(FLAG_CAROLINE_AIRPORT)
+        release
+        end
+    }
+    else {
+        msgbox(format("Leave me alone then, don't you see I'm about to make the most important choice of my life?"))
+        turnobject(2, DIR_SOUTH)
+        release
+        end
+    }
+}
+
+script SapphireCity_AirportRestaurant_Dad {
+    lock
+    msgbox(format("Come on Molly, let the kid have some coffee. He's a grown up now."))
+    release
+    end
+}
+
+script SapphireCity_AirportRestaurant_Kid {
+    lock
+    faceplayer
+    msgbox(format("I'm a grown up now, I deserve coffee! Dad said so!"))
+    release
+    end
+}
+
+script SapphireCity_AirportRestaurant_Mom {
+    lock
+    msgbox(format("No, he will not have the drink. Not under my watch."))
+    release
+    end
+}
+
+script SapphireCity_AirportRestaurant_Dude {
+    lock
+    faceplayer
+    msgbox(format("The beer is on the other side of the table, but I'm too lazy to get up. Oh well."))
+    release
+    end
+}
+
+script SapphireCity_AirportRestaurant_Owner {
+    lock
+    faceplayer
+    if(var(VAR_QUEST_HERMIT) == 5) {
+        msgbox(format("Hi! Thank you again for what you've did for my family. How can I help you with today?"))
+        waitmessage
+        pokemart(SCAR_Mart)
+        msgbox(format("Thank you! Come back soon!"))
+        release
+        end
+    }
+    elif(var(VAR_QUEST_HERMIT) == 1) {
+        msgbox(format("Hi, and welcome to Sapphire City Airport's Restaurant! How can I help you today?"))
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(3, moves(emote_exclamation_mark))
+        waitmovement(0)
+        playse(SE_PIN)
+        delay(40)
+        msgbox(format("...My husband? How do you know about him?"))
+        msgbox(format("..."))
+        msgbox(format("...I can't believe it... It's been almost 30 years, I thought for sure he was dead... He left the city and never came back, even to see his kids... He lives in Bammobo you say?"))
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(3, moves(face_down))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("I can't go and see him. The shock might kill him."))
+        closemessage
+        delay(20)
+        applymovement(3, moves(face_player))
+        waitmovement(0)
+        delay(20)
+        msgbox(format("Please, can you tell him I'm doing good? Tell him our kids are doing great too. They miss him so much."))
+        msgbox(format("..."))
+        msgbox(format("Thank you. Let me gift you something for the road."))
+        giveitem(ITEM_LEMONADE, 5)
+        msgbox(format("Don't worry about the price, it's on the house."))
+        setvar(VAR_QUEST_HERMIT, 2)
+        release
+        end
+    }
+    else {
+        msgbox(format("Hi, and welcome to Sapphire City Airport's Restaurant! How can I help you today?"))
+        waitmessage
+        pokemart(SCAR_Mart)
+        msgbox(format("Thank you! Come back soon!"))
+        release
+        end
+    }
+}
+
+script SapphireCity_AirportRestaurant_Waitress {
+    lock
+    msgbox(format("...What the hell is written on these orders? I can't decipher anything... Dammit, I knew I should've applied to the Retreat..."))
+    release
+    end
+}
+
+text SCAR_Caroline1 {
+    format("Alright, but let's make it quick, I'm dying of hunger over here.")
+}
+
+text SCAR_Caroline2 {
+    format("Haha, well done, bravo, whatever. Now let me eat.")
+}
+
+mart SCAR_Mart {
+    ITEM_RAGE_CANDY_BAR
+    ITEM_OLD_GATEAU
+    ITEM_LAVA_COOKIE
+    ITEM_LEMONADE
+    ITEM_FRESH_WATER
+}

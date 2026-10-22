@@ -1,0 +1,134 @@
+raw `
+PokemonLeague_LastLobby_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_LastLobby_OnFrame
+	.byte 0
+
+PokemonLeague_LastLobby_OnFrame:
+    map_script_2 VAR_TEMP_0, 0, PokemonLeague_LastLobby_Arrival
+    .2byte 0
+
+`
+
+script PokemonLeague_LastLobby_Arrival {
+    lock
+    faceplayer
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
+    waitmovement(0)
+    if(var(VAR_MAIN_STORY) == 57) {
+        namebox("Bernard")
+        msgbox(format("{PLAYER}, good to see you back! There's someone very special waiting for you on the rooftop, go on and meet them!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        applymovement(1, moves(walk_left face_down))
+        waitmovement(0)
+        setflag(FLAG_PRESIDENT_START)
+        setflag(FLAG_SAM_FINAL)
+        setflag(FLAG_BERNARD_FINAL)
+        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_FIRST_CUTSCENE, 0)
+    }
+    elif(var(VAR_MAIN_STORY) == 42) {
+        namebox("Bernard")
+        msgbox(format("{PLAYER}, you mad one... You did it again! You defeated the Council once again! What a performance! Wait no more, and get to the roof. I'll join you in a few minutes and officially appoint you President of Thura!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        applymovement(1, moves(walk_left face_down))
+        waitmovement(0)
+        setflag(FLAG_PRESIDENT_START)
+        setflag(FLAG_SAM_FINAL)
+        setflag(FLAG_BERNARD_FINAL)
+        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_FIRST_CUTSCENE, 0)
+    }
+    elif(var(VAR_MAIN_STORY) == 0) {
+        namebox("Bernard")
+        msgbox(format("Congratulations {PLAYER}!! You have successfully defeated every single member of the Council! The President awaits you outside. This is your big moment! Your final challenge! Many trainers have dreamt of this moment, and here you are! Now, be cool. Whatever happens, you already did so well. I'm so proud of you! Now, go and face your destiny!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        applymovement(1, moves(walk_left face_down))
+        waitmovement(0)
+        setflag(FLAG_PRESIDENT_START)
+        setflag(FLAG_SAM_FINAL)
+        setflag(FLAG_BERNARD_FINAL)
+        setflag(FLAG_SYS_POKEMON_GET)
+        givemon(SPECIES_XATU, 70, ITEM_ASSAULT_VEST, ITEM_LOVE_BALL, NATURE_MODEST, 3, MON_FEMALE, 0, 0, 0, 252, 252, 0, 0, 31, 31, 31, 31, 31, MOVE_PSYCHIC, MOVE_AEROBLAST, MOVE_SHADOW_BALL, MOVE_TOXIC)
+        setflag(FLAG_BADGE01_GET)
+        setflag(FLAG_BADGE02_GET)
+        setflag(FLAG_BADGE03_GET)
+        setflag(FLAG_BADGE04_GET)
+        setflag(FLAG_BADGE05_GET)
+        setflag(FLAG_BADGE06_GET)
+        setflag(FLAG_BADGE07_GET)
+        setflag(FLAG_BADGE08_GET)
+        setflag(FLAG_SYS_B_DASH)
+        setflag(FLAG_SYS_ID_GET)
+        setflag(FLAG_SYS_OPTIONS_DISABLE)
+        setflag(FLAG_SYS_DISABLE_SAVE)
+        setflag(FLAG_KAM_LEAGUE)
+        setvar(VAR_FIRST_CUTSCENE, 0)
+        setvar(VAR_DEEP_SEAS_CUTSCENE, 0)
+        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_LEVELS, 100)
+        addmoney(255984)
+    }
+    else {
+        namebox("Bernard")
+        msgbox(format("{PLAYER}, you know the drill. In the president room you go!"))
+        closemessage
+        hidenamebox
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+        applymovement(1, moves(walk_left face_down))
+        waitmovement(0)
+        setflag(FLAG_PRESIDENT_START)
+        setflag(FLAG_SAM_FINAL)
+        setflag(FLAG_BERNARD_FINAL)
+        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_FIRST_CUTSCENE, 0)
+    }
+    release
+    end
+}
+
+script PokemonLeague_LastLobby_Manager2 {
+    lock
+    faceplayer
+    if(var(VAR_MAIN_STORY) < 42) {
+        namebox("Bernard")
+        msgbox(format("Come on now, enough chatter! It's time to face the President!"))
+        hidenamebox
+    }
+    else {
+        namebox("Bernard")
+        msgbox(format("Come on, {PLAYER}! To the roof you go!"))
+        hidenamebox
+    }
+    release
+    end
+}
+
+script PokemonLeague_LastLobby_Mart {
+    lock
+    faceplayer
+    msgbox(format("Hi {PLAYER}! This is your last chance at buying something! What do you need?"))
+    pokemart(LastLobbyMart)
+    msgbox(format("Good luck, you'll need it!"))
+    release
+    end    
+}
+
+script PokemonLeague_LastLobby_LockedDoor {
+    lockall
+    msgbox("The door is locked.")
+    releaseall
+}
+
+mart LastLobbyMart {
+    ITEM_FULL_RESTORE
+    ITEM_FULL_HEAL
+    ITEM_ELIXIR
+    ITEM_REVIVE
+    ITEM_SITRUS_BERRY
+}

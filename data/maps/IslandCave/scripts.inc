@@ -81,8 +81,8 @@ IslandCave_EventScript_CloseBrailleMsg::
 	end
 
 IslandCave_EventScript_ClearSteps::
-	setvar VAR_REGICE_STEPS_1, 0
-	setvar VAR_REGICE_STEPS_2, 0
+	setvar VAR_OHULINN_SWITCH_3, 0
+	setvar VAR_LOST_BOY_2, 0
 	setvar VAR_REGICE_STEPS_3, 0
 	clearflag FLAG_TEMP_REGICE_PUZZLE_FAILED
 	return

@@ -33,6 +33,11 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
+#include "event_data.h"
+#include "constants/flags.h"
+
+#define HAIR_COUNT 3
+#define SKIN_COUNT 3
 
 enum {
     WIN_MSG,
@@ -266,10 +271,10 @@ static const struct WindowTemplate sTrainerCardWindowTemplates[] =
 static const u16 *const sHoennTrainerCardPals[] =
 {
     gHoennTrainerCardGreen_Pal,  // Default (0 stars)
-    sHoennTrainerCardBronze_Pal, // 1 star
-    sHoennTrainerCardCopper_Pal, // 2 stars
-    sHoennTrainerCardSilver_Pal, // 3 stars
-    sHoennTrainerCardGold_Pal,   // 4 stars
+    gHoennTrainerCardGreen_Pal, // 1 star
+    gHoennTrainerCardGreen_Pal, // 2 stars
+    gHoennTrainerCardGreen_Pal, // 3 stars
+    gHoennTrainerCardGreen_Pal,   // 4 stars
 };
 
 static const u16 *const sKantoTrainerCardPals[] =
@@ -281,7 +286,8 @@ static const u16 *const sKantoTrainerCardPals[] =
     sKantoTrainerCardGold_Pal,   // 4 stars
 };
 
-static const u8 sTrainerCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+static const u8 sTrainerCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY};
+static const u8 sTrainerCardRetroTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 static const u8 sTrainerCardStatColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_RED};
 static const u8 sTimeColonInvisibleTextColors[6] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT};
 
@@ -318,6 +324,142 @@ static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
     }
 };
 
+static const u8 sHeroPicFacilityClass[][SKIN_COUNT][HAIR_COUNT] =
+{
+    [CARD_TYPE_FRLG] =
+    {
+        [0] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_LIGHT,
+            [1] = FACILITY_CLASS_HERO_SHORT_LIGHT,
+            [2] = FACILITY_CLASS_HERO_LONG_LIGHT
+        },
+        [1] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_MEDIUM,
+            [1] = FACILITY_CLASS_HERO_SHORT_MEDIUM,
+            [2] = FACILITY_CLASS_HERO_LONG_MEDIUM
+        },
+        [2] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_DARK,
+            [1] = FACILITY_CLASS_HERO_SHORT_DARK,
+            [2] = FACILITY_CLASS_HERO_LONG_DARK
+        }
+    },
+    [CARD_TYPE_RS] =
+    {
+        [0] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_LIGHT,
+            [1] = FACILITY_CLASS_HERO_SHORT_LIGHT,
+            [2] = FACILITY_CLASS_HERO_LONG_LIGHT
+        },
+        [1] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_MEDIUM,
+            [1] = FACILITY_CLASS_HERO_SHORT_MEDIUM,
+            [2] = FACILITY_CLASS_HERO_LONG_MEDIUM
+        },
+        [2] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_DARK,
+            [1] = FACILITY_CLASS_HERO_SHORT_DARK,
+            [2] = FACILITY_CLASS_HERO_LONG_DARK
+        }
+    },
+    [CARD_TYPE_EMERALD] =
+    {
+        [0] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_LIGHT,
+            [1] = FACILITY_CLASS_HERO_SHORT_LIGHT,
+            [2] = FACILITY_CLASS_HERO_LONG_LIGHT
+        },
+        [1] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_MEDIUM,
+            [1] = FACILITY_CLASS_HERO_SHORT_MEDIUM,
+            [2] = FACILITY_CLASS_HERO_LONG_MEDIUM
+        },
+        [2] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_DARK,
+            [1] = FACILITY_CLASS_HERO_SHORT_DARK,
+            [2] = FACILITY_CLASS_HERO_LONG_DARK
+        }
+    }
+};
+
+//////
+
+static const u8 sHeroPicFacilityClassRetro[][SKIN_COUNT][HAIR_COUNT] =
+{
+    [CARD_TYPE_FRLG] =
+    {
+        [0] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_LIGHT,
+            [1] = FACILITY_CLASS_HERO_SHORT_LIGHT,
+            [2] = FACILITY_CLASS_HERO_LONG_LIGHT
+        },
+        [1] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_MEDIUM,
+            [1] = FACILITY_CLASS_HERO_SHORT_MEDIUM,
+            [2] = FACILITY_CLASS_HERO_LONG_MEDIUM
+        },
+        [2] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_DARK,
+            [1] = FACILITY_CLASS_HERO_SHORT_DARK,
+            [2] = FACILITY_CLASS_HERO_LONG_DARK
+        }
+    },
+    [CARD_TYPE_RS] =
+    {
+        [0] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_LIGHT,
+            [1] = FACILITY_CLASS_HERO_SHORT_LIGHT,
+            [2] = FACILITY_CLASS_HERO_LONG_LIGHT
+        },
+        [1] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_MEDIUM,
+            [1] = FACILITY_CLASS_HERO_SHORT_MEDIUM,
+            [2] = FACILITY_CLASS_HERO_LONG_MEDIUM
+        },
+        [2] = 
+        {
+            [0] = FACILITY_CLASS_HERO_BALD_DARK,
+            [1] = FACILITY_CLASS_HERO_SHORT_DARK,
+            [2] = FACILITY_CLASS_HERO_LONG_DARK
+        }
+    },
+    [CARD_TYPE_EMERALD] =
+    {
+        [0] = 
+        {
+            [0] = FACILITY_CLASS_HERO_RETRO_SHORT_LIGHT,
+            [1] = FACILITY_CLASS_HERO_RETRO_SHORT_LIGHT,
+            [2] = FACILITY_CLASS_HERO_RETRO_LONG_LIGHT
+        },
+        [1] = 
+        {
+            [0] = FACILITY_CLASS_HERO_RETRO_SHORT_MEDIUM,
+            [1] = FACILITY_CLASS_HERO_RETRO_SHORT_MEDIUM,
+            [2] = FACILITY_CLASS_HERO_RETRO_LONG_MEDIUM
+        },
+        [2] = 
+        {
+            [0] = FACILITY_CLASS_HERO_RETRO_SHORT_DARK,
+            [1] = FACILITY_CLASS_HERO_RETRO_SHORT_DARK,
+            [2] = FACILITY_CLASS_HERO_RETRO_LONG_DARK
+        }
+    }
+};
+
 static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
 {
     Task_BeginCardFlip,
@@ -333,6 +475,7 @@ static void VblankCb_TrainerCard(void)
     LoadOam();
     ProcessSpriteCopyRequests();
     TransferPlttBuffer();
+    ChangeBgX(2, 200, BG_COORD_SUB);
     BlinkTimeColon();
     if (sData->allowDMACopy)
         DmaCopy16(3, &gScanlineEffectRegBuffers[0], &gScanlineEffectRegBuffers[1], 0x140);
@@ -570,7 +713,12 @@ static bool8 LoadCardGfx(void)
         break;
     case 4:
         if (sData->cardType != CARD_TYPE_FRLG)
-            DecompressDataWithHeaderWram(gHoennTrainerCard_Gfx, sData->cardTiles);
+            if (FlagGet(FLAG_RETRO_INIT)) {
+                DecompressDataWithHeaderWram(gHoennTrainerCardRetro_Gfx, sData->cardTiles);
+            }
+            else {
+                DecompressDataWithHeaderWram(gHoennTrainerCard_Gfx, sData->cardTiles);
+            }
         else
             DecompressDataWithHeaderWram(gKantoTrainerCard_Gfx, sData->cardTiles);
         break;
@@ -1011,7 +1159,12 @@ static void PrintNameOnCardFront(void)
     if (sData->cardType == CARD_TYPE_FRLG)
         AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 20, 28, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
     else
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 33, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+        if (FlagGet(FLAG_RETRO_INIT)) {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 33, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, buffer);
+        }
+        else {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 33, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+        }
 }
 
 static void PrintIdOnCard(void)
@@ -1024,16 +1177,16 @@ static void PrintIdOnCard(void)
     ConvertIntToDecimalStringN(txtPtr, sData->trainerCard.trainerId, STR_CONV_MODE_LEADING_ZEROS, 5);
     if (sData->cardType == CARD_TYPE_FRLG)
     {
-        xPos = GetStringCenterAlignXOffset(FONT_NORMAL, buffer, 80) + 132;
+        xPos = GetStringCenterAlignXOffset(FONT_SMALL, buffer, 80) + 132;
         top = 9;
     }
     else
     {
-        xPos = GetStringCenterAlignXOffset(FONT_NORMAL, buffer, 96) + 120;
+        xPos = GetStringCenterAlignXOffset(FONT_SMALL, buffer, 96) + 120;
         top = 9;
     }
 
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xPos, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, xPos, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
 }
 
 static void PrintMoneyOnCard(void)
@@ -1042,23 +1195,38 @@ static void PrintMoneyOnCard(void)
     u8 top;
 
     if (!sData->isHoenn)
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 20, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        if (FlagGet(FLAG_RETRO_INIT)) {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 56, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        }
+        else {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        }
     else
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 57, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        if (FlagGet(FLAG_RETRO_INIT)) {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 56, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        }
+        else {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        }
 
     ConvertIntToDecimalStringN(gStringVar1, sData->trainerCard.money, STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
     if (!sData->isHoenn)
     {
-        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 144);
+        xOffset = GetStringRightAlignXOffset(FONT_SMALL, gStringVar4, 144);
         top = 56;
     }
     else
     {
-        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 128);
+        xOffset = GetStringRightAlignXOffset(FONT_SMALL, gStringVar4, 128);
         top = 57;
     }
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, xOffset, top, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
+    else {
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, xOffset, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
 }
 
 static u16 GetCaughtMonsCount(void)
@@ -1104,9 +1272,20 @@ static void PrintTimeOnCard(void)
     u32 x, y, totalWidth;
 
     if (!sData->isHoenn)
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 20, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        if (FlagGet(FLAG_RETRO_INIT)) {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 72, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        }
+        else {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        }
+        
     else
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 89, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        if (FlagGet(FLAG_RETRO_INIT)) {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 72, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        }
+        else {
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 20, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        }
 
     if (sData->isLink)
     {
@@ -1123,29 +1302,39 @@ static void PrintTimeOnCard(void)
         hours = 999;
     if (minutes > 59)
         minutes = 59;
-    width = GetStringWidth(FONT_NORMAL, gText_Colon2, 0);
+    width = GetStringWidth(FONT_SMALL, gText_Colon2, 0);
 
     if (!sData->isHoenn)
     {
         x = 144;
-        y = 88;
+        y = 72;
     }
     else
     {
         x = 128;
-        y = 89;
+        y = 73;
     }
     totalWidth = width + 30;
     x -= totalWidth;
 
     FillWindowPixelRect(WIN_CARD_TEXT, PIXEL_FILL(0), x, y, totalWidth, 15);
     ConvertIntToDecimalStringN(gStringVar4, hours, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, x, y, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
+    else {
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
     x += 18;
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTimeColonTextColors[sData->timeColonInvisible], TEXT_SKIP_DRAW, gText_Colon2);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, x, y, sTimeColonTextColors[sData->timeColonInvisible], TEXT_SKIP_DRAW, gText_Colon2);
     x += width;
     ConvertIntToDecimalStringN(gStringVar4, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    if (FlagGet(FLAG_RETRO_INIT)) {
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, x, y, sTrainerCardRetroTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
+    else {
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
 }
 
 static void PrintProfilePhraseOnCard(void)
@@ -1432,17 +1621,23 @@ static u8 SetCardBgsAndPals(void)
     case 2:
         if (sData->cardType != CARD_TYPE_FRLG)
         {
-            LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-            LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
-            if (sData->trainerCard.gender != MALE)
-                LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            if (FlagGet(FLAG_RETRO_INIT)) {
+                LoadPalette(gHoennTrainerCardRetro_Pal, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
+                LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
+            }
+            else {
+                LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
+                LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
+            }
+            //if (sData->trainerCard.gender != MALE)
+            //    LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
         }
         else
         {
             LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
             LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
-            if (sData->trainerCard.gender != MALE)
-                LoadPalette(sKantoTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            //if (sData->trainerCard.gender != MALE)
+            //    LoadPalette(sKantoTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
         }
         LoadPalette(sTrainerCardStar_Pal, BG_PLTT_ID(4), PLTT_SIZE_4BPP);
         break;
@@ -1880,23 +2075,54 @@ static u8 VersionToCardType(u8 version)
         return CARD_TYPE_RS;
 }
 
+//static void CreateTrainerCardTrainerPic(void)
+//{
+//    if (InUnionRoom() == TRUE && gReceivedRemoteLinkPlayers == 1)
+//    {
+//        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sData->trainerCard.unionRoomClass),
+//                    TRUE,
+//                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
+//                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+//                    8,
+//                    WIN_TRAINER_PIC);
+//    }
+//    else
+//    {
+//        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+//                    TRUE,
+//                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
+//                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+//                    8,
+//                    WIN_TRAINER_PIC);
+//    }
+//}
+
 static void CreateTrainerCardTrainerPic(void)
 {
+    u8 skin = VarGet(VAR_SKIN_COMPLEXION);
+    u8 hair = VarGet(VAR_HAIRCUT);
+    u8 facilityClass;
+
+    if (FlagGet(FLAG_RETRO_INIT))
+        facilityClass = sHeroPicFacilityClassRetro[sData->cardType][skin][hair];
+    else
+        facilityClass = sHeroPicFacilityClass[sData->cardType][skin][hair];
+
     if (InUnionRoom() == TRUE && gReceivedRemoteLinkPlayers == 1)
     {
         CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sData->trainerCard.unionRoomClass),
                     TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    sTrainerPicOffset[sData->isHoenn][MALE][0],
+                    sTrainerPicOffset[sData->isHoenn][MALE][1],
                     8,
                     WIN_TRAINER_PIC);
     }
     else
     {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(facilityClass),
                     TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    sTrainerPicOffset[sData->isHoenn][MALE][0],
+                    sTrainerPicOffset[sData->isHoenn][MALE][1],
                     8,
                     WIN_TRAINER_PIC);
     }

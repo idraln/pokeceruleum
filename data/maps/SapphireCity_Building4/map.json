@@ -1,0 +1,103 @@
+{
+  "id": "MAP_SAPPHIRE_CITY_BUILDING4",
+  "name": "SapphireCity_Building4",
+  "layout": "LAYOUT_SAPPHIRE_CITY_BUILDING4",
+  "music": "MUS_RG_SEVII_67",
+  "region_map_section": "MAPSEC_SAPPHIRE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 7,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_Building4_Lover1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 12,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_Building4_Item",
+      "flag": "FLAG_ITEM_SAPPHIRE_B4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 7,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SapphireCity_Building4_Lover2",
+      "flag": "FLAG_SAPPHIRE_STEVE_H"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "39"
+    },
+    {
+      "x": 12,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "40"
+    },
+    {
+      "x": 0,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "41"
+    },
+    {
+      "x": 0,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "42"
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "44"
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SAPPHIRE_CITY_BUILDING_LOBBIES",
+      "dest_warp_id": "45"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

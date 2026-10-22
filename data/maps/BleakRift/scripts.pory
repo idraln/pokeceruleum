@@ -1,0 +1,82 @@
+raw `
+BleakRift_MapScripts::
+	.byte 0
+`
+
+script BleakRift_EscapeRope {
+    lock
+    removeobject(6)
+    setflag(FLAG_BLEAK_ITEM_1)
+    giveitem(ITEM_ESCAPE_ROPE)
+    release
+    end
+}
+
+script BleakRift_DragonScale {
+    lock
+    removeobject(4)
+    setflag(FLAG_BLEAK_ITEM_2)
+    giveitem(ITEM_DRAGON_SCALE)
+    release
+    end
+}
+
+script BleakRift_DeepSeaScale {
+    lock
+    removeobject(2)
+    setflag(FLAG_BLEAK_ITEM_3)
+    giveitem(ITEM_DEEP_SEA_SCALE)
+    release
+    end
+}
+
+script BleakRift_MysticWater {
+    lock
+    removeobject(3)
+    setflag(FLAG_BLEAK_ITEM_4)
+    giveitem(ITEM_MYSTIC_WATER)
+    release
+    end
+}
+
+script BleakRift_SoftSand {
+    lock
+    removeobject(5)
+    setflag(FLAG_BLEAK_ITEM_5)
+    giveitem(ITEM_SHELL_BELL)
+    release
+    end
+}
+
+script BleakRift_Kyogre {
+    lock
+    applymovement(1, moves(emote_exclamation_mark))
+    waitmovement(0)
+    faceplayer
+    playse(SE_PIN)
+    delay(40)
+    setwildbattle(SPECIES_KYOGRE, 75, ITEM_BLUE_ORB)
+    waitse
+    playmoncry(SPECIES_KYOGRE, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    delay(20)
+    fadescreen(FADE_TO_BLACK)
+    delay(40)
+    removeobject(1)
+    setflag(FLAG_KYOGRE_BLEAK)
+    fadescreen(FADE_FROM_BLACK)
+    setvar(VAR_DISAPPEARANCE, 2)
+    release
+    end
+}
+
+script BleakRift_Sign {
+    lockall
+    msgbox(format("A..ah! I l.st m. es.ap. ro.e! I'm s.uck h.re! T. wh.ever re.d. t.is, te.l .y fa.ily I l.ve t.em! M.y Arc.us h..e mer.y o. m. so.l!"))
+    releaseall
+    end
+}

@@ -25,12 +25,12 @@ static bool32 IsFieldMoveUnlocked_RockSmash(void)
 
 static bool32 IsFieldMoveUnlocked_Strength(void)
 {
-    return FlagGet(FLAG_BADGE04_GET);
+    return FlagGet(FLAG_BADGE05_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Surf(void)
 {
-    return FlagGet(FLAG_BADGE05_GET);
+    return FlagGet(FLAG_BADGE04_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Fly(void)
@@ -81,6 +81,11 @@ static bool32 IsFieldMoveUnlocked_SoftBoiled(void)
 }
 
 static bool32 IsFieldMoveUnlocked_SweetScent(void)
+{
+    return TRUE;
+}
+
+static bool32 IsFieldMoveUnlocked_Headbutt(void)
 {
     return TRUE;
 }
@@ -158,13 +163,13 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 
-    [FIELD_MOVE_TELEPORT] =
-    {
-        .fieldMoveFunc = SetUpFieldMove_Teleport,
-        .isUnlockedFunc = IsFieldMoveUnlocked_Teleport,
-        .moveID = MOVE_TELEPORT,
-        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-    },
+    //[FIELD_MOVE_TELEPORT] =
+    //{
+    //    .fieldMoveFunc = SetUpFieldMove_Teleport,
+    //    .isUnlockedFunc = IsFieldMoveUnlocked_Teleport,
+    //    .moveID = MOVE_TELEPORT,
+    //    .partyMsgID = PARTY_MSG_CANT_USE_HERE,
+    //},
 
     [FIELD_MOVE_DIG] =
     {
@@ -205,6 +210,15 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .moveID = MOVE_SWEET_SCENT,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
+
+    [FIELD_MOVE_HEADBUTT] =
+    {
+        .fieldMoveFunc = SetUpFieldMove_Headbutt,
+        .isUnlockedFunc = IsFieldMoveUnlocked_Headbutt,
+        .moveID = MOVE_HEADBUTT,
+        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
+    },
+
 #if OW_ROCK_CLIMB_FIELD_MOVE == TRUE
     [FIELD_MOVE_ROCK_CLIMB] =
     {

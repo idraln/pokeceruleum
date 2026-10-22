@@ -31,5 +31,13 @@ void InitTilesetAnim_MauvilleGym(void);
 void InitTilesetAnim_EliteFour(void);
 void InitTilesetAnim_BattleDome(void);
 void InitTilesetAnim_BattlePyramid(void);
+void InitTilesetAnim_Rocheval(void);
+void InitTilesetAnim_VikkiesMansion(void);
+void InitTilesetAnim_Fiesta(void);
+void InitTilesetAnim_Retro(void);
+void InitTilesetAnim_Hydro(void);
+void InitTilesetAnim_League(void);
+void InitTilesetAnim_Office(void);
+void InitTilesetAnim_GamingShop(void);
 
 #endif // GUARD_TILESET_ANIMS_H
