@@ -416,6 +416,9 @@ script Hydropolis_Anais {
                 msgbox(format("Now go! The hardest part is yet to come. I'm sure you'll succeed with high honors!"))
                 hidenamebox
                 setvar(VAR_MAIN_STORY, 35)
+                if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+                    setvar(VAR_LEVELS, 100)
+                }
                 settrainerflag(TRAINER_ABYSS_1)
                 settrainerflag(TRAINER_ABYSS_2)
                 settrainerflag(TRAINER_ABYSS_4)

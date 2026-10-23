@@ -55,6 +55,7 @@ extern const u8 EventScript_ResetAllMapFlags[];
 extern u8 sChosenSkin;
 extern u8 sChosenHair;
 extern u8 sChosenFavType;
+extern u8 sDifficultyLevel;
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
@@ -215,13 +216,21 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     QuestMenu_ResetMenuSaveData();
-    SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
+    if (sDifficultyLevel == 0)
+    {
+        SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
+    }
+    else if(sDifficultyLevel == 2)
+    {
+        FlagSet(FLAG_NUZLOCKE);
+    }
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
     VarSet(VAR_SKIN_COMPLEXION, sChosenSkin);
     VarSet(VAR_HAIRCUT, sChosenHair);
     VarSet(VAR_FAV_TYPE, sChosenFavType);
+    VarSet(VAR_DIFFICULTY_LEVEL, sDifficultyLevel);
 }
 
 static void ResetMiniGamesRecords(void)

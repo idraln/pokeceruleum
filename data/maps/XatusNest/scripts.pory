@@ -25,7 +25,12 @@ script XatusNest_Arrival {
     setflag(FLAG_HOME_QUEST_COMPLETE)
     setvar(VAR_SIDE_STORY_RETRO, 4)
     setvar(VAR_SHOP_UPDATE, 5)
-    setvar(VAR_LEVELS, 100)
+    if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+        setvar(VAR_LEVELS, 55)
+    }
+    else {
+        setvar(VAR_LEVELS, 100)
+    }
     delay(20)
     pokenavcall(XatusNest_Shop_Text)
     waitmessage

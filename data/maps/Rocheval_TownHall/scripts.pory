@@ -90,9 +90,11 @@ script Rocheval_TownHall_Multichoice {
     switch(var(VAR_RESULT)){
             case 0:
                 msgbox(format("Rocheval is an old village built by fishermen 400 years ago. At the time, Rocheval lived off fishing, but now it lives off tourism. Would you like to know anything else?"))
+                closemessage
                 goto(Rocheval_TownHall_Multichoice)
             case 1:
                 msgbox(format("We travel to the continent by helicopter. Although our citizens don't need to go there very often, as we can find almost everything here. Would you like to know anything else?"))
+                closemessage
                 goto(Rocheval_TownHall_Multichoice)
             case 2:
                 msgbox(format("We hope you enjoy your stay!"))

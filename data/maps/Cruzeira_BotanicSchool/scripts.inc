@@ -233,769 +233,820 @@ Cruzeira_BotanicSchool_Dad::
 # 146 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Dad_Text_0
 # 147 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmessage
+# 148 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	pokemart Cruzeira_BotanicSchool_Mart
+# 149 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Dad_Text_1
+# 150 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
-Cruzeira_BotanicSchool_Student6::
-# 152 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	lock
-# 153 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	faceplayer
+	.align 2
 # 154 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Student6_Text_0
+Cruzeira_BotanicSchool_Mart:
 # 155 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_LONELY_MINT
+# 156 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_ADAMANT_MINT
+# 157 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_NAUGHTY_MINT
+# 158 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_BRAVE_MINT
+# 159 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_BOLD_MINT
+# 160 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_IMPISH_MINT
+# 161 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_LAX_MINT
+# 162 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_RELAXED_MINT
+# 163 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_MODEST_MINT
+# 164 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_MILD_MINT
+# 165 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_RASH_MINT
+# 166 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_QUIET_MINT
+# 167 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_CALM_MINT
+# 168 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_GENTLE_MINT
+# 169 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_CAREFUL_MINT
+# 170 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_SASSY_MINT
+# 171 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_TIMID_MINT
+# 172 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_HASTY_MINT
+# 173 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_JOLLY_MINT
+# 174 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.2byte ITEM_NAIVE_MINT
+	.2byte ITEM_NONE
+
+Cruzeira_BotanicSchool_Student6::
+# 178 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	lock
+# 179 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	faceplayer
+# 180 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Student6_Text_0
+# 181 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
 Cruzeira_BotanicSchool_Student7::
-# 160 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 186 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	lock
-# 161 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 187 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Student7_Text_0
-# 162 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 188 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
 Cruzeira_BotanicSchool_Student8::
-# 167 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 193 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	lock
-# 168 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 194 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	faceplayer
-# 169 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 195 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Student8_Text_0
-# 170 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 196 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
 Cruzeira_BotanicSchool_Student9::
-# 175 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 201 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	lock
-# 176 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 202 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	faceplayer
-# 177 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 203 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	goto_if_set FLAG_BOT_STUDENTS, Cruzeira_BotanicSchool_Student9_1
-# 183 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 209 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Student9_Text_1
-# 184 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 210 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Student9_1:
-# 178 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 204 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Student9_Text_0
-# 179 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 205 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
 Cruzeira_BotanicSchool_Teacher2::
-# 190 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 216 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	lock
-# 191 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 217 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	faceplayer
-# 192 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 218 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	goto_if_set FLAG_BOT_HOMEWORK, Cruzeira_BotanicSchool_Teacher2_1
-# 198 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 224 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	goto_if_set FLAG_BOT_STUDENTS, Cruzeira_BotanicSchool_Teacher2_2
-# 227 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 253 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_8
-# 228 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 254 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 229 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 255 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	multichoice 0, 8, MULTI_BOTANIC, FALSE
-# 230 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 256 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	switch VAR_RESULT
-# 231 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 257 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	case 0, Cruzeira_BotanicSchool_Teacher2_10
-# 334 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 360 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	case 1, Cruzeira_BotanicSchool_Teacher2_11
 	return
 
 Cruzeira_BotanicSchool_Teacher2_1:
-# 193 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 219 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_0
-# 194 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 220 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	turnobject 5, DIR_NORTH
-# 195 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 221 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_2:
-# 199 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 225 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_1, MSGBOX_YESNO
-# 200 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 226 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq Cruzeira_BotanicSchool_Teacher2_6
-# 221 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 247 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_7
-# 222 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 248 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_6:
-# 201 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 227 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_2
-# 202 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 228 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	checkitem ITEM_FLOWER_SWEET, 3
-# 203 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 229 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Cruzeira_BotanicSchool_Teacher2_12
-# 214 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 240 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
-# 215 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 241 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_6
-# 216 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 242 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_10:
-# 232 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 258 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_9
-# 233 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 259 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	closemessage
-# 234 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 260 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	compare VAR_TEMP_0, 18
 	goto_if_eq Cruzeira_BotanicSchool_Teacher2_15
-# 284 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 310 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	compare VAR_TEMP_0, 20
 	goto_if_eq Cruzeira_BotanicSchool_Teacher2_16
 	return
 
 Cruzeira_BotanicSchool_Teacher2_11:
-# 335 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 361 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_15
-# 336 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 362 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	closemessage
-# 337 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 363 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	compare VAR_TEMP_0, 18
 	goto_if_eq Cruzeira_BotanicSchool_Teacher2_19
-# 387 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 413 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	compare VAR_TEMP_0, 20
 	goto_if_eq Cruzeira_BotanicSchool_Teacher2_20
 	return
 
 Cruzeira_BotanicSchool_Teacher2_12:
-# 204 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 230 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
-# 205 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 231 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_4
-# 206 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 232 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	giveitem ITEM_MIRACLE_SEED
-# 207 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 233 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Teacher2_Text_5
-# 208 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 234 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	completequest QUEST_ASSIGNMENT
-# 209 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 235 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	setflag FLAG_BOT_HOMEWORK
-# 210 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 236 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_15:
-# 235 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Botanic18
-# 236 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 237 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher
-# 238 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 239 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special SpawnCameraObject
-# 240 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
-# 241 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 242 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 243 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
-# 244 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 245 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
-# 246 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 247 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
-# 248 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_EAST
-# 249 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_WEST
-# 250 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
-# 251 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 252 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_WEST
-# 253 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_EAST
-# 254 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
-# 255 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 256 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 257 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_NORTH
-# 258 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_NORTH
-# 259 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_NORTH
-# 260 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
 # 261 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Botanic18
 # 262 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
-# 263 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 264 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher2
-# 265 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
-# 266 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
+# 263 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher
+# 264 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 265 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special SpawnCameraObject
+# 266 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
 # 267 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+	waitmovement 0
 # 268 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
+	delay 10
 # 269 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 7, BotanicStudent6
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
 # 270 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 4, BotanicStudent7
+	closemessage
 # 271 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 8, BotanicStudent8
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
 # 272 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
 # 273 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 7
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
 # 274 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 4
+	turnobject 8, DIR_EAST
 # 275 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 8
+	turnobject 7, DIR_WEST
 # 276 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	setflag FLAG_BOT_STUDENTS
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
 # 277 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+	delay 10
 # 278 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	turnobject 4, DIR_WEST
 # 279 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special RemoveCameraObject
+	turnobject 7, DIR_EAST
 # 280 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	startquest QUEST_ASSIGNMENT
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
 # 281 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	delay 10
+# 282 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 283 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 8, DIR_NORTH
+# 284 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 7, DIR_NORTH
+# 285 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 4, DIR_NORTH
+# 286 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
+# 287 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 288 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
+# 289 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 290 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher2
+# 291 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
+# 292 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 293 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+# 294 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 295 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 7, BotanicStudent6
+# 296 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 4, BotanicStudent7
+# 297 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 8, BotanicStudent8
+# 298 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 299 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 7
+# 300 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 4
+# 301 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 8
+# 302 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	setflag FLAG_BOT_STUDENTS
+# 303 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+# 304 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 305 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special RemoveCameraObject
+# 306 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	startquest QUEST_ASSIGNMENT
+# 307 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_16:
-# 285 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Botanic20
-# 286 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 287 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher
-# 288 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 289 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special SpawnCameraObject
-# 290 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
-# 291 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 292 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 293 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
-# 294 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 295 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
-# 296 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 297 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
-# 298 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_EAST
-# 299 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_WEST
-# 300 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
-# 301 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 302 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_WEST
-# 303 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_EAST
-# 304 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
-# 305 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 306 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 307 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_NORTH
-# 308 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_NORTH
-# 309 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_NORTH
-# 310 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
 # 311 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Botanic20
 # 312 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
-# 313 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 314 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher2
-# 315 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
-# 316 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
+# 313 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher
+# 314 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 315 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special SpawnCameraObject
+# 316 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
 # 317 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+	waitmovement 0
 # 318 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
+	delay 10
 # 319 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 7, BotanicStudent6
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
 # 320 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 4, BotanicStudent7
+	closemessage
 # 321 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 8, BotanicStudent8
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
 # 322 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
 # 323 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 7
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
 # 324 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 4
+	turnobject 8, DIR_EAST
 # 325 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 8
+	turnobject 7, DIR_WEST
 # 326 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	setflag FLAG_BOT_STUDENTS
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
 # 327 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+	delay 10
 # 328 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	turnobject 4, DIR_WEST
 # 329 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special RemoveCameraObject
+	turnobject 7, DIR_EAST
 # 330 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	startquest QUEST_ASSIGNMENT
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
 # 331 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	delay 10
+# 332 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 333 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 8, DIR_NORTH
+# 334 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 7, DIR_NORTH
+# 335 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 4, DIR_NORTH
+# 336 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
+# 337 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 338 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
+# 339 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 340 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher2
+# 341 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
+# 342 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 343 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+# 344 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 345 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 7, BotanicStudent6
+# 346 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 4, BotanicStudent7
+# 347 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 8, BotanicStudent8
+# 348 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 349 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 7
+# 350 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 4
+# 351 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 8
+# 352 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	setflag FLAG_BOT_STUDENTS
+# 353 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+# 354 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 355 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special RemoveCameraObject
+# 356 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	startquest QUEST_ASSIGNMENT
+# 357 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_19:
-# 338 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Botanic18
-# 339 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 340 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher
-# 341 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 342 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special SpawnCameraObject
-# 343 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
-# 344 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 345 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 346 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
-# 347 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 348 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
-# 349 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 350 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
-# 351 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_EAST
-# 352 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_WEST
-# 353 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
-# 354 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 355 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_WEST
-# 356 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_EAST
-# 357 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
-# 358 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 359 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 360 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_NORTH
-# 361 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_NORTH
-# 362 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_NORTH
-# 363 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
 # 364 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Botanic18
 # 365 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
-# 366 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 367 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher2
-# 368 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
-# 369 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
+# 366 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher
+# 367 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 368 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special SpawnCameraObject
+# 369 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
 # 370 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+	waitmovement 0
 # 371 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
+	delay 10
 # 372 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 7, BotanicStudent6
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
 # 373 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 4, BotanicStudent7
+	closemessage
 # 374 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 8, BotanicStudent8
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
 # 375 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
 # 376 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 7
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
 # 377 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 4
+	turnobject 8, DIR_EAST
 # 378 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 8
+	turnobject 7, DIR_WEST
 # 379 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	setflag FLAG_BOT_STUDENTS
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
 # 380 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+	delay 10
 # 381 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	turnobject 4, DIR_WEST
 # 382 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special RemoveCameraObject
+	turnobject 7, DIR_EAST
 # 383 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	startquest QUEST_ASSIGNMENT
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
 # 384 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	delay 10
+# 385 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 386 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 8, DIR_NORTH
+# 387 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 7, DIR_NORTH
+# 388 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 4, DIR_NORTH
+# 389 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
+# 390 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 391 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
+# 392 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 393 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher2
+# 394 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
+# 395 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 396 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+# 397 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 398 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 7, BotanicStudent6
+# 399 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 4, BotanicStudent7
+# 400 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 8, BotanicStudent8
+# 401 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 402 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 7
+# 403 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 4
+# 404 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 8
+# 405 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	setflag FLAG_BOT_STUDENTS
+# 406 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+# 407 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 408 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special RemoveCameraObject
+# 409 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	startquest QUEST_ASSIGNMENT
+# 410 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Teacher2_20:
-# 388 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Botanic20
-# 389 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 390 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher
-# 391 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 392 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special SpawnCameraObject
-# 393 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
-# 394 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 395 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 396 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
-# 397 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 398 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
-# 399 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
-# 400 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
-# 401 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_EAST
-# 402 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_WEST
-# 403 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
-# 404 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 405 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_WEST
-# 406 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_EAST
-# 407 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
-# 408 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay 10
-# 409 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 410 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 8, DIR_NORTH
-# 411 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 7, DIR_NORTH
-# 412 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	turnobject 4, DIR_NORTH
-# 413 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
 # 414 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Botanic20
 # 415 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
-# 416 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
-# 417 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 5, BotanicTeacher2
-# 418 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
-# 419 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
+# 416 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher
+# 417 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 418 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special SpawnCameraObject
+# 419 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher
 # 420 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+	waitmovement 0
 # 421 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	closemessage
+	delay 10
 # 422 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 7, BotanicStudent6
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_10
 # 423 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 4, BotanicStudent7
+	closemessage
 # 424 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement 8, BotanicStudent8
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamClass
 # 425 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	waitmovement 0
 # 426 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 7
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_3
 # 427 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 4
+	turnobject 8, DIR_EAST
 # 428 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	removeobject 8
+	turnobject 7, DIR_WEST
 # 429 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	setflag FLAG_BOT_STUDENTS
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_11
 # 430 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+	delay 10
 # 431 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	waitmovement 0
+	turnobject 4, DIR_WEST
 # 432 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	special RemoveCameraObject
+	turnobject 7, DIR_EAST
 # 433 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	startquest QUEST_ASSIGNMENT
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_12
 # 434 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	delay 10
+# 435 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 436 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 8, DIR_NORTH
+# 437 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 7, DIR_NORTH
+# 438 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	turnobject 4, DIR_NORTH
+# 439 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamTeacher2
+# 440 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 441 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_13
+# 442 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 443 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 5, BotanicTeacher2
+# 444 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicTeacher2
+# 445 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 446 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	msgbox Cruzeira_BotanicSchool_Teacher2_Text_14
+# 447 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	closemessage
+# 448 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 7, BotanicStudent6
+# 449 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 4, BotanicStudent7
+# 450 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement 8, BotanicStudent8
+# 451 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 452 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 7
+# 453 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 4
+# 454 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	removeobject 8
+# 455 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	setflag FLAG_BOT_STUDENTS
+# 456 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BotanicCamPlayer
+# 457 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	waitmovement 0
+# 458 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	special RemoveCameraObject
+# 459 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	startquest QUEST_ASSIGNMENT
+# 460 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
 Cruzeira_BotanicSchool_Diploma::
-# 442 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 468 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	lock
-# 443 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 469 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	goto_if_set FLAG_POKEDEX_COMPLETED, Cruzeira_BotanicSchool_Diploma_1
-# 449 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 475 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	msgbox Cruzeira_BotanicSchool_Diploma_Text_0
-# 450 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 476 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 Cruzeira_BotanicSchool_Diploma_1:
-# 444 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 470 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	special Special_ShowDiploma
-# 445 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 471 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	release
 	end
 
 
-# 455 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 481 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 Botanic18:
-# 456 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 457 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 457 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 457 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 457 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 458 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 458 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 459 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	face_up
-	step_end
-
-# 462 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-Botanic20:
-# 463 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 463 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 464 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 464 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 465 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 465 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 465 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 465 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 466 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 466 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 467 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 468 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	face_up
-	step_end
-
-# 471 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicTeacher:
-# 472 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 472 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 473 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 473 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 474 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 474 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 475 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	face_down
-	step_end
-
-# 478 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicCamTeacher:
-# 479 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_up
-# 479 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_up
-	step_end
-
 # 482 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicCamClass:
+	walk_left
 # 483 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_down
 # 483 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_down
 # 483 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_down
+# 483 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 484 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 484 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 485 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	face_up
 	step_end
 
-# 486 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicCamTeacher2:
-# 487 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_up
-# 487 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_up
-# 487 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_up
-	step_end
-
+# 488 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+Botanic20:
+# 489 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 489 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
 # 490 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicTeacher2:
+	walk_down
+# 490 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
 # 491 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
+	walk_left
 # 491 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
+	walk_left
+# 491 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_left
+# 491 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_left
 # 492 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay_16
+	walk_down
+# 492 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
 # 493 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 493 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
-# 493 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_left
+	walk_right
 # 494 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	face_down
+	face_up
 	step_end
 
 # 497 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicStudent6:
+BotanicTeacher:
 # 498 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_right
+	walk_left
 # 498 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_right
+	walk_left
 # 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
+	walk_down
 # 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
-# 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
-# 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
-# 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
-# 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
-# 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
-# 499 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_fast_down
+	walk_down
+# 500 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 500 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 501 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	face_down
 	step_end
 
-# 502 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicStudent7:
-# 503 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_right
 # 504 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	delay_16
+BotanicCamTeacher:
 # 505 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_left
+	walk_up
 # 505 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_left
-# 505 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_left
-# 506 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_down
-# 506 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_down
-# 506 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_down
-# 506 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_down
-# 506 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_slow_down
+	walk_up
 	step_end
 
+# 508 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicCamClass:
 # 509 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicStudent8:
-# 510 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 510 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 510 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 510 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 510 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 510 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_right
-# 511 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_down
-# 511 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 509 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_down
-# 511 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 511 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 511 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 509 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_down
 	step_end
 
-# 514 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-BotanicCamPlayer:
-# 515 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
-# 515 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
-	walk_down
+# 512 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicCamTeacher2:
+# 513 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_up
+# 513 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_up
+# 513 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_up
+	step_end
+
 # 516 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicTeacher2:
+# 517 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 517 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 518 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	delay_16
+# 519 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_left
+# 519 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_left
+# 519 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_left
+# 520 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	face_down
+	step_end
+
+# 523 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicStudent6:
+# 524 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_right
+# 524 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_right
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+# 525 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_fast_down
+	step_end
+
+# 528 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicStudent7:
+# 529 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_right
+# 530 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	delay_16
+# 531 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_left
+# 531 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_left
+# 531 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_left
+# 532 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_down
+# 532 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_down
+# 532 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_down
+# 532 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_down
+# 532 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_slow_down
+	step_end
+
+# 535 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicStudent8:
+# 536 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 536 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 536 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 536 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 536 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 536 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_right
+# 537 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 537 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 537 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 537 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 537 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+	step_end
+
+# 540 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+BotanicCamPlayer:
+# 541 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 541 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	walk_down
+# 542 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	walk_right
 	step_end
 
@@ -1113,74 +1164,78 @@ Cruzeira_BotanicSchool_Mom_Text_0:
 Cruzeira_BotanicSchool_Dad_Text_0:
 # 146 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Welcome to Cruzeira's botanic school!\n"
-	.string "We founded it together with my\l"
-	.string "beautiful wife 10 years ago, and look at\l"
-	.string "it now. It's thriving!$"
+	.string "Hope you learn a lot in here. We also sell\l"
+	.string "nature mints! Would you be interested\l"
+	.string "in some?$"
+
+Cruzeira_BotanicSchool_Dad_Text_1:
+# 149 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+	.string "Thanks! Don't hesitate to come back!$"
 
 Cruzeira_BotanicSchool_Student6_Text_0:
-# 154 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 180 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "I can't see anything, these desks are\n"
 	.string "too high! Can you tell me what's written\l"
 	.string "on the black board?$"
 
 Cruzeira_BotanicSchool_Student7_Text_0:
-# 161 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 187 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Flower...$"
 
 Cruzeira_BotanicSchool_Student8_Text_0:
-# 169 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 195 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Ok, ok, all these lectures are great, but\n"
 	.string "when are we going outside to practice?$"
 
 Cruzeira_BotanicSchool_Student9_Text_0:
-# 178 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 204 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Huh? Where is everyone? I didn't listen\n"
 	.string "to what the old man said.$"
 
 Cruzeira_BotanicSchool_Student9_Text_1:
-# 183 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 209 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "This is so boring... I wish my parents\n"
 	.string "had enrolled me in a training school, not\l"
 	.string "here.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_0:
-# 193 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 219 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Aren't plants fascinating?$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_1:
-# 199 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 225 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Hello, {PLAYER}. Have you completed\n"
 	.string "your homework yet?$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_2:
-# 201 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 227 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Very well, then. Let's see.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_3:
-# 204 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 230 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "...$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_4:
-# 205 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 231 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Ah yes! These are the exact species I\n"
 	.string "talked about! Well done, {PLAYER}.\l"
 	.string "Here is a little reward for a job well\l"
 	.string "done.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_5:
-# 207 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 233 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "If you give this seed to a Pokémon, it\n"
 	.string "will boost the power of its grass-type\l"
 	.string "moves. Very useful!$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_6:
-# 215 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 241 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "You cheeky one! You haven't completed\n"
 	.string "the homework yet! Come back when you\l"
 	.string "have.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_7:
-# 221 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 247 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "It's okay, you have plenty of time.\n"
 	.string "Remember, you'll find the daisies I\l"
 	.string "spoke about on Petal Pass, and we\l"
@@ -1188,38 +1243,38 @@ Cruzeira_BotanicSchool_Teacher2_Text_7:
 	.string "yellow or blue tint.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_8:
-# 227 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 253 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "What's that? Why aren't you seated, like\n"
 	.string "all the other students?$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_9:
-# 232 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 258 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "What? Nonsense! Seat down this\n"
 	.string "instant!$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_10:
-# 243 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 269 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Alright class, before I give you your\n"
 	.string "homework, can someone remind me of the\l"
 	.string "various species of daisies?$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_11:
-# 250 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 276 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Uhm... What are they?$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_12:
-# 254 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 280 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Ah, I swear I know the answer, it's on\n"
 	.string "the tip of my tongue...$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_13:
-# 262 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 288 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "Haha! This was a trick question. We\n"
 	.string "haven't seen them yet! That's the\l"
 	.string "subject of your next homework.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_14:
-# 267 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 293 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "On Petal Pass, just north of this\n"
 	.string "charming town that is Cruzeira, you'll\l"
 	.string "find various species of flowers. Some\l"
@@ -1233,10 +1288,10 @@ Cruzeira_BotanicSchool_Teacher2_Text_14:
 	.string "go.$"
 
 Cruzeira_BotanicSchool_Teacher2_Text_15:
-# 335 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 361 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "It's okay. Quick, we don't have much\n"
 	.string "time left.$"
 
 Cruzeira_BotanicSchool_Diploma_Text_0:
-# 449 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
+# 475 "data/maps/Cruzeira_BotanicSchool/scripts.pory"
 	.string "This is a blank frame.$"

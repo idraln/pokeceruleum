@@ -116,6 +116,9 @@ script Virimante_KAM {
     setflag(FLAG_DIVERS_TRAINERS)
     clearflag(FLAG_HIDE_MAP_NAME_POPUP)
     setvar(VAR_MAIN_STORY, 32)
+    if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+        setvar(VAR_LEVELS, 65)
+    }
     releaseall
     end
 }

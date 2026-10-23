@@ -31,6 +31,42 @@ gText_Birch_AndYouAre::
 gText_Birch_Haircut::
 	.string "What is your haircut?$"
 
+gText_Birch_DifficultyLevel::
+	.string "What is your style of play?$"
+
+gText_Birch_DifficultyCasual::
+	.string "A casual style of play means\n"
+	.string "that you'll have access to an\l"
+	.string "Infinite Candy early on,\l"
+	.string "and maxed-out IVs.\p"
+	.string "Although, there'll be level\n"
+	.string "caps, to keep your run a bit\l"
+	.string "challenging.\p"
+	.string "Are you content with that\n"
+	.string "choice?\p"
+	.string "$"
+
+gText_Birch_DifficultyNormal::
+	.string "A normal style of play means\n"
+	.string "that you'll play the game as it\l"
+	.string "was originally designed:\l"
+	.string "no Inifinte Candy, some grinding,\l"
+	.string "and no level caps.\p"
+	.string "Are you content with that\n"
+	.string "choice?\p"
+	.string "$"
+
+gText_Birch_DifficultyHard::
+	.string "In a Nuzlocke, you can only\n"
+	.string "catch one Pokémon per area,\l"
+	.string "and fainted Pokémon can't\l"
+	.string "be revived.\p"
+	.string "You'll still have access to\n"
+	.string "the Exp. Share, though.\p"
+	.string "Are you content with that\n"
+	.string "choice?\p"
+	.string "$"
+
 gText_Birch_BoyOrGirl::
 	.string "What is your skin complexion?$"
 

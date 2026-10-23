@@ -444,15 +444,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Gulpin
-Level: 20
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Trubbish
-Level: 20
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Grimer
-Level: 20
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PASTORAL_SAM ===
@@ -646,11 +646,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Phantump
-Level: 21
+Level: 19
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Misdreavus
-Level: 21
+Level: 19
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_OHULINN_GYM_1 ===
@@ -663,11 +663,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Fearow
-Level: 21
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Wattrel
-Level: 22
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_OHULINN_GYM_2 ===
@@ -680,11 +680,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Skiploom
-Level: 22
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Swellow
-Level: 22
+Taillow
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_OHULINN_GYM_3 ===
@@ -697,7 +697,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Mantine
-Level: 23
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_EKA ===
@@ -710,16 +710,16 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move
 
-Golbat
-Level: 22
+Zubat
+Level: 20
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
-- Toxic
+- Supersonic
 - Taunt
 - Air Cutter
 - Poison Fang
 
 Gligar
-Level: 23
+Level: 21
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Bulldoze
 - Steel Wing
@@ -727,7 +727,7 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Roost
 
 Emolga
-Level: 24
+Level: 22
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Spark
 - Aerial Ace
@@ -735,7 +735,7 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Attract
 
 Heracross
-Level: 22
+Level: 21
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Brick Break
 - Thief
@@ -3338,7 +3338,7 @@ Kilowattrel
 Level: 53
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-Raichu
+Raichu-Alola
 Level: 53
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 

@@ -93,18 +93,20 @@ MartVitaminItems:
 	.2byte ITEM_CALCIUM
 # 54 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
 	.2byte ITEM_ZINC
+# 55 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
+	.2byte ITEM_ABILITY_CAPSULE
 	.2byte ITEM_NONE
 
 SapphireCity_Shop3F_Attack_Boy::
-# 58 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
-	lock
 # 59 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
-	faceplayer
+	lock
 # 60 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
-	msgbox SapphireCity_Shop3F_Attack_Boy_Text_0
+	faceplayer
 # 61 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
-	turnobject 3, DIR_NORTH
+	msgbox SapphireCity_Shop3F_Attack_Boy_Text_0
 # 62 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
+	turnobject 3, DIR_NORTH
+# 63 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
 	release
 	end
 
@@ -127,11 +129,11 @@ SapphireCity_Shop3F_Attack_Clerk_1_Text_2:
 
 SapphireCity_Shop3F_Attack_Clerk_2_Text_0:
 # 37 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
-	.string "Hello, and welcome to the Vitamin\n"
+	.string "Hello, and welcome to the Growth\n"
 	.string "Department! How can I help you today?$"
 
 SapphireCity_Shop3F_Attack_Boy_Text_0:
-# 60 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
+# 61 "data/maps/SapphireCity_Shop3F_Attack/scripts.pory"
 	.string "Do you think that's a real Dire Hit? Do\n"
 	.string "you think that if a Wurmple would be\l"
 	.string "able to eat it?$"

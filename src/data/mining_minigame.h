@@ -44,9 +44,9 @@ static const int SpriteTileTable[][16] = {
     [ITEMID_MOON_STONE] = {
       0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,
     },
-    [ITEMID_ODD_KEY_STONE] = {
-      1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-    },
+    //[ITEMID_ODD_KEY_STONE] = {
+    //  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+    //},
     [ITEMID_OVAL_STONE] = {
       1,1,1,0,1,1,1,0,1,1,1,0,0,0,0,0,
     },

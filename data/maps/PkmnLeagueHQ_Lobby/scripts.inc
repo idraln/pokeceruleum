@@ -71,20 +71,20 @@ PkmnLeagueHQ_Lobby_Intendant::
 # 44 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 8
 	goto_if_eq PkmnLeagueHQ_Lobby_Intendant_1
-# 112 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 121 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 39
 	goto_if_gt PkmnLeagueHQ_Lobby_Intendant_2
-# 122 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 131 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	lock
-# 123 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 132 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	faceplayer
-# 124 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 133 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
-# 125 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_15
-# 126 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 134 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_16
+# 135 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	hidenamebox
-# 127 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 136 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
@@ -184,227 +184,244 @@ PkmnLeagueHQ_Lobby_Intendant_1:
 # 91 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	delay 40
 # 92 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
-# 93 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_11
-# 94 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	hidenamebox
-# 95 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	giveitem ITEM_EXP_SHARE
-# 96 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	delay 20
-# 97 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
-# 98 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_12
-# 99 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	closemessage
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq PkmnLeagueHQ_Lobby_Intendant_7
 # 100 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	hidenamebox
-# 101 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	setflag FLAG_DEXNAV_GET
-# 102 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	playfanfare MUS_RG_OBTAIN_KEY_ITEM
-# 103 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_13
-# 104 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	waitfanfare
-# 105 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	closemessage
-# 106 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	setflag FLAG_ENABLE_EMPLOYEE_MATCH_CALL
-# 107 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-# 108 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	setvar VAR_MAIN_STORY, 9
-# 109 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	release
-	end
-
-PkmnLeagueHQ_Lobby_Intendant_2:
-# 113 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	lock
-# 114 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	faceplayer
-# 115 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
-# 116 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
-	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_14
-# 117 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 101 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_12
+# 102 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	hidenamebox
+# 103 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	giveitem ITEM_EXP_SHARE
+PkmnLeagueHQ_Lobby_Intendant_6:
+# 105 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	delay 20
+# 106 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
+# 107 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_13
+# 108 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	closemessage
+# 109 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	hidenamebox
+# 110 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	setflag FLAG_DEXNAV_GET
+# 111 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+# 112 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_14
+# 113 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	waitfanfare
+# 114 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	closemessage
+# 115 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	setflag FLAG_ENABLE_EMPLOYEE_MATCH_CALL
+# 116 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+# 117 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	setvar VAR_MAIN_STORY, 9
 # 118 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
+PkmnLeagueHQ_Lobby_Intendant_2:
+# 122 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	lock
+# 123 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	faceplayer
+# 124 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
+# 125 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_15
+# 126 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	hidenamebox
+# 127 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	release
+	end
+
+PkmnLeagueHQ_Lobby_Intendant_7:
+# 93 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	namebox PkmnLeagueHQ_Lobby_Intendant_Text_0
+# 94 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	msgbox PkmnLeagueHQ_Lobby_Intendant_Text_11
+# 95 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	hidenamebox
+# 96 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	giveitem ITEM_EXP_SHARE
+# 97 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	giveitem ITEM_INFINITE_CANDY
+	goto PkmnLeagueHQ_Lobby_Intendant_6
+
 
 PkmnLeagueHQ_Lobby_Machine::
-# 133 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 142 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	lock
-# 134 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 143 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	faceplayer
-# 135 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 144 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 36
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_2
-# 135 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 144 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 37
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_2
-# 135 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 144 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 38
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_2
-# 135 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 144 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 39
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_2
-# 141 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 150 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 142 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 151 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_TEMP_1, 5
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_10
-# 173 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 182 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_6, MSGBOX_YESNO
-# 174 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 183 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_16
-# 186 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 195 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_8
-# 187 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 196 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
 PkmnLeagueHQ_Lobby_Machine_2:
-# 136 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 145 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	playse SE_FAILURE
-# 137 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 146 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_0
-# 138 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
 PkmnLeagueHQ_Lobby_Machine_10:
-# 143 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 152 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_1, MSGBOX_YESNO
-# 144 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 153 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq PkmnLeagueHQ_Lobby_Machine_13
-# 167 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 176 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_5
-# 168 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 177 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
 PkmnLeagueHQ_Lobby_Machine_13:
-# 145 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 154 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_2
-# 146 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 155 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	closemessage
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE01_GET, PkmnLeagueHQ_Lobby_Machine_22
 PkmnLeagueHQ_Lobby_Machine_20:
-# 159 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 168 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	delay 40
-# 160 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 169 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	playse SE_FAILURE
-# 161 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 170 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_4
-# 162 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 171 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
 PkmnLeagueHQ_Lobby_Machine_16:
-# 175 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 184 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	delay 40
-# 176 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 185 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	setmetatile 15, 4, METATILE_TrainerHill_GreenFloorTile, FALSE
-# 177 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 186 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	setmetatile 15, 5, METATILE_TrainerHill_GreenFloorTile, FALSE
-# 178 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 187 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	special DrawWholeMapView
-# 179 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 188 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	playse MUS_LEVEL_UP
-# 180 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 189 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_7
-# 181 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 190 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	closemessage
-# 182 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 191 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
 PkmnLeagueHQ_Lobby_Machine_19:
-# 148 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 157 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	delay 40
-# 149 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 158 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	setmetatile 15, 4, METATILE_TrainerHill_GreenFloorTile, FALSE
-# 150 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 159 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	setmetatile 15, 5, METATILE_TrainerHill_GreenFloorTile, FALSE
-# 151 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 160 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	special DrawWholeMapView
-# 152 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 161 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	playse MUS_LEVEL_UP
-# 153 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 162 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	msgbox PkmnLeagueHQ_Lobby_Machine_Text_3
-# 154 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 163 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	closemessage
-# 155 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 164 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	release
 	end
 
 PkmnLeagueHQ_Lobby_Machine_21:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE03_GET, PkmnLeagueHQ_Lobby_Machine_26
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 PkmnLeagueHQ_Lobby_Machine_22:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE02_GET, PkmnLeagueHQ_Lobby_Machine_21
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 PkmnLeagueHQ_Lobby_Machine_25:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE05_GET, PkmnLeagueHQ_Lobby_Machine_30
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 PkmnLeagueHQ_Lobby_Machine_26:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE04_GET, PkmnLeagueHQ_Lobby_Machine_25
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 PkmnLeagueHQ_Lobby_Machine_29:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE07_GET, PkmnLeagueHQ_Lobby_Machine_33
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 PkmnLeagueHQ_Lobby_Machine_30:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE06_GET, PkmnLeagueHQ_Lobby_Machine_29
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 PkmnLeagueHQ_Lobby_Machine_33:
-# 147 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 156 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	goto_if_set FLAG_BADGE08_GET, PkmnLeagueHQ_Lobby_Machine_19
 	goto PkmnLeagueHQ_Lobby_Machine_20
 
 
 PkmnLeagueHQ_HideName::
-# 195 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 204 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 42
 	goto_if_lt PkmnLeagueHQ_HideName_2
 PkmnLeagueHQ_HideName_1:
 	end
 
 PkmnLeagueHQ_HideName_2:
-# 196 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 205 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	goto PkmnLeagueHQ_HideName_1
 
 
 PkmnLeagueHQ_ShowName::
-# 202 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 211 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	compare VAR_MAIN_STORY, 42
 	goto_if_lt PkmnLeagueHQ_ShowName_2
 PkmnLeagueHQ_ShowName_1:
 	end
 
 PkmnLeagueHQ_ShowName_2:
-# 203 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 212 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	goto PkmnLeagueHQ_ShowName_1
 
@@ -510,7 +527,16 @@ PkmnLeagueHQ_Lobby_Intendant_Text_10:
 	.string "You registered Employee Bernard.$"
 
 PkmnLeagueHQ_Lobby_Intendant_Text_11:
-# 93 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 94 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+	.string "...Uh, I guess that in the meantime, you\n"
+	.string "could take on the Council Challenge all\l"
+	.string "over again? Since you're so talented...\l"
+	.string "We could use some of your skills. Here,\l"
+	.string "take those. With these items, it'll take\l"
+	.string "sooner to raise your new Pokémon.$"
+
+PkmnLeagueHQ_Lobby_Intendant_Text_12:
+# 101 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "...Uh, I guess that in the meantime, you\n"
 	.string "could take on the Council Challenge all\l"
 	.string "over again? Since you're so talented...\l"
@@ -518,20 +544,20 @@ PkmnLeagueHQ_Lobby_Intendant_Text_11:
 	.string "take this. With this item, it'll take\l"
 	.string "sooner to raise your new Pokémon.$"
 
-PkmnLeagueHQ_Lobby_Intendant_Text_12:
-# 98 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+PkmnLeagueHQ_Lobby_Intendant_Text_13:
+# 107 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "You can also take that device. It's a\n"
 	.string "neat little machine we've been working\l"
 	.string "on, and we called it the DexNav. With\l"
 	.string "this, you can find any Pokémon you\l"
 	.string "want!$"
 
-PkmnLeagueHQ_Lobby_Intendant_Text_13:
-# 103 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+PkmnLeagueHQ_Lobby_Intendant_Text_14:
+# 112 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "Obtained the DexNav.$"
 
-PkmnLeagueHQ_Lobby_Intendant_Text_14:
-# 116 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+PkmnLeagueHQ_Lobby_Intendant_Text_15:
+# 125 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "{PLAYER}... I'm still shaken about\n"
 	.string "what happened back at the Ironair.\l"
 	.string "Thank you for everything you've done.\l"
@@ -539,52 +565,52 @@ PkmnLeagueHQ_Lobby_Intendant_Text_14:
 	.string "over presidential duties... That's what\l"
 	.string "the President would've wanted.$"
 
-PkmnLeagueHQ_Lobby_Intendant_Text_15:
-# 125 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+PkmnLeagueHQ_Lobby_Intendant_Text_16:
+# 134 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "Hi {PLAYER}! Unfortunately, I don't\n"
 	.string "have any news to share. I'll call you as\l"
 	.string "soon as I got some.$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_0:
-# 137 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 146 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "SORRY, MAINTENANCE IN PROGRESS.\n"
 	.string "ENDING SEQUENCE...$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_1:
-# 143 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 152 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "GOOD DAY AND WELCOME TO THURA'S\n"
 	.string "POKEMON LEAGUE. WOULD YOU LIKE TO\l"
 	.string "ENTER?$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_2:
-# 145 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 154 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "READING ID... CHECKING FOR EMBLEMS...$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_3:
-# 153 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 162 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "YOU MAY NOW ENTER. GOOD LUCK.$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_4:
-# 161 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 170 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "ERROR. YOU DON'T HAVE THE REQUIRED\n"
 	.string "EMBLEMS TO GO THROUGH. ENDING\l"
 	.string "SEQUENCE...$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_5:
-# 167 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 176 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "WE HOPE TO SEE YOU SOON AT THURA'S\n"
 	.string "POKEMON LEAGUE.$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_6:
-# 173 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 182 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "HELLO, BRAVE CHALLENGER. WOULD YOU\n"
 	.string "LIKE TO EXIT?$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_7:
-# 180 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 189 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "YOU MAY NOW EXIT. WE HOPE TO SEE YOU\n"
 	.string "SOON.$"
 
 PkmnLeagueHQ_Lobby_Machine_Text_8:
-# 186 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
+# 195 "data/maps/PkmnLeagueHQ_Lobby/scripts.pory"
 	.string "ENDING SEQUENCE...$"

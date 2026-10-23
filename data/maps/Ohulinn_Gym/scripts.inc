@@ -385,8 +385,12 @@ Ohulinn_Gym_Eka::
 # 207 "data/maps/Ohulinn_Gym/scripts.pory"
 	setvar VAR_MAIN_STORY, 15
 # 208 "data/maps/Ohulinn_Gym/scripts.pory"
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq Ohulinn_Gym_Eka_5
+Ohulinn_Gym_Eka_4:
+# 211 "data/maps/Ohulinn_Gym/scripts.pory"
 	setflag FLAG_HIDE_MAP_NAME_POPUP
-# 209 "data/maps/Ohulinn_Gym/scripts.pory"
+# 212 "data/maps/Ohulinn_Gym/scripts.pory"
 	release
 	end
 
@@ -404,6 +408,11 @@ Ohulinn_Gym_Eka_1:
 # 179 "data/maps/Ohulinn_Gym/scripts.pory"
 	release
 	end
+
+Ohulinn_Gym_Eka_5:
+# 209 "data/maps/Ohulinn_Gym/scripts.pory"
+	setvar VAR_LEVELS, 32
+	goto Ohulinn_Gym_Eka_4
 
 
 Ohulinn_Gym_Switch1_Text_0:
@@ -504,33 +513,33 @@ Ohulinn_Gym_Eka_Text_6:
 	.string "study more.$"
 
 Betty1::
-# 214 "data/maps/Ohulinn_Gym/scripts.pory"
+# 217 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "Finally! Some fresh meat! Don't worry, it\n"
 	.string "won't last long!$"
 
 Betty2::
-# 218 "data/maps/Ohulinn_Gym/scripts.pory"
+# 221 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "It didn't last long indeed...$"
 
 Ciaran1::
-# 222 "data/maps/Ohulinn_Gym/scripts.pory"
+# 225 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "My father designed this gym. I also got\n"
 	.string "this gig thanks to him.$"
 
 Ciaran2::
-# 226 "data/maps/Ohulinn_Gym/scripts.pory"
+# 229 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "I need to ask daddy for another job...$"
 
 Alexia1::
-# 230 "data/maps/Ohulinn_Gym/scripts.pory"
+# 233 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "I'm the last hurdle before Eka! And I'm\n"
 	.string "ten foot tall. So you won't get to him.$"
 
 Alexia2::
-# 234 "data/maps/Ohulinn_Gym/scripts.pory"
+# 237 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "So he didn't lie...$"
 
 Eka1::
-# 238 "data/maps/Ohulinn_Gym/scripts.pory"
+# 241 "data/maps/Ohulinn_Gym/scripts.pory"
 	.string "Good, very good... You really are\n"
 	.string "something else, aren't you?$"

@@ -2038,6 +2038,18 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
     s32 maxHp = GetMonData(mon, MON_DATA_MAX_HP);
     s32 currHp = GetMonData(mon, MON_DATA_HP);
 
+    if (elementId == HEALTHBOX_NICK || elementId == HEALTHBOX_ALL)
+    {
+        u8 rightId = gSprites[healthboxSpriteId].oam.affineParam;
+        u8 palNum = IsMonShiny(mon) ? IndexOfSpritePaletteTag(TAG_HEALTHBOX_SHINY_PAL) : IndexOfSpritePaletteTag(TAG_HEALTHBOX_PAL);
+
+        if (palNum != 0xFF)
+        {
+            gSprites[healthboxSpriteId].oam.paletteNum = palNum;
+            gSprites[rightId].oam.paletteNum = palNum;
+        }
+    }
+
     if (IsOnPlayerSide(battler))
     {
         u8 isDoubles = GetBattlerCoordsIndex(battler) == BATTLE_COORDS_DOUBLES;

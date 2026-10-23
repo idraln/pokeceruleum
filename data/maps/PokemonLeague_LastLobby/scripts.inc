@@ -33,32 +33,32 @@ PokemonLeague_LastLobby_Arrival::
 # 45 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	compare VAR_MAIN_STORY, 0
 	goto_if_eq PokemonLeague_LastLobby_Arrival_4
-# 78 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	namebox PokemonLeague_LastLobby_Arrival_Text_0
-# 79 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	msgbox PokemonLeague_LastLobby_Arrival_Text_4
-# 80 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	closemessage
-# 81 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	hidenamebox
-# 82 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague_LastLobby_Arrival_Movement_1
 # 83 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	applymovement 1, PokemonLeague_LastLobby_Arrival_Movement_2
+	namebox PokemonLeague_LastLobby_Arrival_Text_0
 # 84 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	waitmovement 0
+	msgbox PokemonLeague_LastLobby_Arrival_Text_4
 # 85 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	setflag FLAG_PRESIDENT_START
+	closemessage
 # 86 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	setflag FLAG_SAM_FINAL
+	hidenamebox
 # 87 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	setflag FLAG_BERNARD_FINAL
+	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague_LastLobby_Arrival_Movement_1
 # 88 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	setvar VAR_TEMP_0, 1
+	applymovement 1, PokemonLeague_LastLobby_Arrival_Movement_2
 # 89 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	waitmovement 0
+# 90 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	setflag FLAG_PRESIDENT_START
+# 91 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	setflag FLAG_SAM_FINAL
+# 92 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	setflag FLAG_BERNARD_FINAL
+# 93 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	setvar VAR_TEMP_0, 1
+# 94 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	setvar VAR_FIRST_CUTSCENE, 0
 PokemonLeague_LastLobby_Arrival_1:
-# 91 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 96 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	release
 	end
 
@@ -174,79 +174,88 @@ PokemonLeague_LastLobby_Arrival_4:
 # 73 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	setvar VAR_TEMP_0, 1
 # 74 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq PokemonLeague_LastLobby_Arrival_10
+# 78 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	setvar VAR_LEVELS, 100
-# 75 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+PokemonLeague_LastLobby_Arrival_9:
+# 80 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	addmoney 255984
 	goto PokemonLeague_LastLobby_Arrival_1
 
+PokemonLeague_LastLobby_Arrival_10:
+# 75 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	setvar VAR_LEVELS, 15
+	goto PokemonLeague_LastLobby_Arrival_9
+
 
 PokemonLeague_LastLobby_Manager2::
-# 96 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 101 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	lock
-# 97 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 102 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	faceplayer
-# 98 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 103 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	compare VAR_MAIN_STORY, 42
 	goto_if_lt PokemonLeague_LastLobby_Manager2_2
-# 104 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 109 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	namebox PokemonLeague_LastLobby_Arrival_Text_0
-# 105 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 110 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	msgbox PokemonLeague_LastLobby_Manager2_Text_1
-# 106 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 111 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	hidenamebox
 PokemonLeague_LastLobby_Manager2_1:
-# 108 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 113 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	release
 	end
 
 PokemonLeague_LastLobby_Manager2_2:
-# 99 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 104 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	namebox PokemonLeague_LastLobby_Arrival_Text_0
-# 100 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 105 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	msgbox PokemonLeague_LastLobby_Manager2_Text_0
-# 101 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 106 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	hidenamebox
 	goto PokemonLeague_LastLobby_Manager2_1
 
 
 PokemonLeague_LastLobby_Mart::
-# 113 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	lock
-# 114 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	faceplayer
-# 115 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	msgbox PokemonLeague_LastLobby_Mart_Text_0
-# 116 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	pokemart LastLobbyMart
-# 117 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	msgbox PokemonLeague_LastLobby_Mart_Text_1
 # 118 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	lock
+# 119 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	faceplayer
+# 120 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	msgbox PokemonLeague_LastLobby_Mart_Text_0
+# 121 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	pokemart LastLobbyMart
+# 122 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	msgbox PokemonLeague_LastLobby_Mart_Text_1
+# 123 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	release
 	end
 
 
 PokemonLeague_LastLobby_LockedDoor::
-# 123 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 128 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	lockall
-# 124 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 129 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	msgbox PokemonLeague_LastLobby_LockedDoor_Text_0
-# 125 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 130 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	releaseall
 	return
 
 
 	.align 2
-# 128 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-LastLobbyMart:
-# 129 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	.2byte ITEM_FULL_RESTORE
-# 130 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	.2byte ITEM_FULL_HEAL
-# 131 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	.2byte ITEM_ELIXIR
-# 132 "data/maps/PokemonLeague_LastLobby/scripts.pory"
-	.2byte ITEM_REVIVE
 # 133 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+LastLobbyMart:
+# 134 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	.2byte ITEM_FULL_RESTORE
+# 135 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 136 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	.2byte ITEM_ELIXIR
+# 137 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+	.2byte ITEM_REVIVE
+# 138 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.2byte ITEM_SITRUS_BERRY
 	.2byte ITEM_NONE
 
@@ -304,28 +313,28 @@ PokemonLeague_LastLobby_Arrival_Text_3:
 	.string "destiny!$"
 
 PokemonLeague_LastLobby_Arrival_Text_4:
-# 79 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 84 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.string "{PLAYER}, you know the drill. In the\n"
 	.string "president room you go!$"
 
 PokemonLeague_LastLobby_Manager2_Text_0:
-# 100 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 105 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.string "Come on now, enough chatter! It's time\n"
 	.string "to face the President!$"
 
 PokemonLeague_LastLobby_Manager2_Text_1:
-# 105 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 110 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.string "Come on, {PLAYER}! To the roof you go!$"
 
 PokemonLeague_LastLobby_Mart_Text_0:
-# 115 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 120 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.string "Hi {PLAYER}! This is your last chance\n"
 	.string "at buying something! What do you need?$"
 
 PokemonLeague_LastLobby_Mart_Text_1:
-# 117 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 122 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.string "Good luck, you'll need it!$"
 
 PokemonLeague_LastLobby_LockedDoor_Text_0:
-# 124 "data/maps/PokemonLeague_LastLobby/scripts.pory"
+# 129 "data/maps/PokemonLeague_LastLobby/scripts.pory"
 	.string "The door is locked.$"

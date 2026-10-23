@@ -30,10 +30,40 @@ script SapphireCity_Shop3F_Boy {
 script SapphireCity_Shop3F_MeanClerk {
     lock
     faceplayer
-    if(flag(FLAG_SAPPHIRE_CASHIER)) {
+    if(flag(FLAG_ANGRY_SAPPHIRE_CASHIER) && flag(FLAG_SAPPHIRE_CASHIER)) {
+        msgbox(format("Oh look! It's my favourite person on Thura! NOT!! What do you want?"))
+        waitmessage
+        pokemart(SCS_Mart3F)
+        msgbox(format("Leave me alone, now!"))
+        release
+        end
+    }
+    elif(flag(FLAG_SAPPHIRE_CASHIER)) {
         msgbox(format("Sup. What do...\nHey! You're the asshole that interrupted my lunch break!"))
         msgbox(format("..."))
         msgbox(format("Yeah, well, suddenly, I don't want to sell you anything! How's that for a customer service? You moron. Go away."))
+        msgbox(format("..."))
+        closemessage
+        delay(20)
+        applymovement(5, moves(emote_exclamation_mark face_down))
+        waitmovement(0)
+        delay(40)
+        applymovement(5, moves(walk_down walk_left))
+        waitmovement(0)
+        turnobject(4, DIR_EAST)
+        msgbox(format("What am I hearing now? You're refusing to serve a customer? You're on your last straw, Ben! Quit acting like a spoiled child, or else you'll have to look for a job somewhere else!"))
+        closemessage
+        delay(20)
+        applymovement(5, moves(walk_right walk_up))
+        waitmovement(0)
+        setflag(FLAG_ANGRY_SAPPHIRE_CASHIER)
+        delay(20)
+        turnobject(4, DIR_SOUTH)
+        delay(20)
+        msgbox(format("UGH! I bet you enjoyed what you just saw, huh? What do you want more from me?"))
+        waitmessage
+        pokemart(SCS_Mart3F)
+        msgbox(format("Great! Don't ever come back!"))
         release
         end
     }

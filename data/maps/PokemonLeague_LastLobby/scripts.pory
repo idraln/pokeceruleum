@@ -71,7 +71,12 @@ script PokemonLeague_LastLobby_Arrival {
         setvar(VAR_FIRST_CUTSCENE, 0)
         setvar(VAR_DEEP_SEAS_CUTSCENE, 0)
         setvar(VAR_TEMP_0, 1)
-        setvar(VAR_LEVELS, 100)
+        if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+            setvar(VAR_LEVELS, 15)
+        }
+        else {
+            setvar(VAR_LEVELS, 100)
+        }
         addmoney(255984)
     }
     else {

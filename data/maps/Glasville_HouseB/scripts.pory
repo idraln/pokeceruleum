@@ -107,6 +107,9 @@ script Glasville_HouseB_Dave {
         closemessage
         hidenamebox
         delay(20)
+        if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+            setvar(VAR_LEVELS, 40)
+        }
         setflag(FLAG_REGISTERED_DAVE_POKENAV)
         getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
         if(var(VAR_TEMP_0) == 3) {

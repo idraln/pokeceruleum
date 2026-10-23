@@ -5,7 +5,18 @@ Frux_House1_MapScripts::
 
 script Frux_House1_Worker {
     lock
-    msgbox(format("Dammit! Bruce took the last choco milk! Even though I wrote my name on it!"))
+    faceplayer
+    msgbox(format("I've got my hands on loads of hidden treasures in the Ironair. Wanna take a look?"))
+    waitmessage
+    pokemart(FruxHouse1)
+    msgbox(format("Come back when you need something else."))
     release
     end
+}
+
+mart FruxHouse1 {
+    ITEM_AUSPICIOUS_ARMOR
+    ITEM_MALICIOUS_ARMOR
+    ITEM_MOON_STONE
+    ITEM_SUN_STONE
 }

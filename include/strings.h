@@ -291,6 +291,10 @@ extern const u8 gText_Birch_AreYouReady[];
 extern const u8 gText_Birch_SkinComplexion[];
 extern const u8 gText_Birch_Haircut[];
 extern const u8 gText_Birch_FavouriteType[];
+extern const u8 gText_Birch_DifficultyLevel[];
+extern const u8 gText_Birch_DifficultyCasual[];
+extern const u8 gText_Birch_DifficultyNormal[];
+extern const u8 gText_Birch_DifficultyHard[];
 
 extern const u8 gText_BirchInTrouble[];
 extern const u8 gText_ConfirmStarterChoice[];

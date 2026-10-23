@@ -240,12 +240,16 @@ Cruzeira_Gym_Laila_1:
 # 124 "data/maps/Cruzeira_Gym/scripts.pory"
 	setvar VAR_SHOP_UPDATE, 1
 # 125 "data/maps/Cruzeira_Gym/scripts.pory"
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-# 126 "data/maps/Cruzeira_Gym/scripts.pory"
-	completequest QUEST_INTRUDER
-# 127 "data/maps/Cruzeira_Gym/scripts.pory"
-	setflag FLAG_QUEST_INTRUDER_COMPLETE
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq Cruzeira_Gym_Laila_15
+Cruzeira_Gym_Laila_14:
 # 128 "data/maps/Cruzeira_Gym/scripts.pory"
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+# 129 "data/maps/Cruzeira_Gym/scripts.pory"
+	completequest QUEST_INTRUDER
+# 130 "data/maps/Cruzeira_Gym/scripts.pory"
+	setflag FLAG_QUEST_INTRUDER_COMPLETE
+# 131 "data/maps/Cruzeira_Gym/scripts.pory"
 	release
 	end
 
@@ -288,112 +292,117 @@ Cruzeira_Gym_Laila_11:
 	goto_if_eq Cruzeira_Gym_Laila_2
 	goto Cruzeira_Gym_Laila_9
 
+Cruzeira_Gym_Laila_15:
+# 126 "data/maps/Cruzeira_Gym/scripts.pory"
+	setvar VAR_LEVELS, 25
+	goto Cruzeira_Gym_Laila_14
+
 
 Cruzeira_Gym_Laila_After::
-# 133 "data/maps/Cruzeira_Gym/scripts.pory"
-	lock
-# 134 "data/maps/Cruzeira_Gym/scripts.pory"
-	faceplayer
-# 135 "data/maps/Cruzeira_Gym/scripts.pory"
-	namebox Cruzeira_Gym_Laila_Text_0
 # 136 "data/maps/Cruzeira_Gym/scripts.pory"
-	msgbox Cruzeira_Gym_Laila_After_Text_0
+	lock
 # 137 "data/maps/Cruzeira_Gym/scripts.pory"
-	hidenamebox
+	faceplayer
 # 138 "data/maps/Cruzeira_Gym/scripts.pory"
+	namebox Cruzeira_Gym_Laila_Text_0
+# 139 "data/maps/Cruzeira_Gym/scripts.pory"
+	msgbox Cruzeira_Gym_Laila_After_Text_0
+# 140 "data/maps/Cruzeira_Gym/scripts.pory"
+	hidenamebox
+# 141 "data/maps/Cruzeira_Gym/scripts.pory"
 	release
 	end
 
 
-# 166 "data/maps/Cruzeira_Gym/scripts.pory"
+# 169 "data/maps/Cruzeira_Gym/scripts.pory"
 LailaHeart:
-# 167 "data/maps/Cruzeira_Gym/scripts.pory"
+# 170 "data/maps/Cruzeira_Gym/scripts.pory"
 	emote_heart
 	step_end
 
-# 170 "data/maps/Cruzeira_Gym/scripts.pory"
+# 173 "data/maps/Cruzeira_Gym/scripts.pory"
 LailaExc:
-# 171 "data/maps/Cruzeira_Gym/scripts.pory"
+# 174 "data/maps/Cruzeira_Gym/scripts.pory"
 	emote_exclamation_mark
 	step_end
 
-# 174 "data/maps/Cruzeira_Gym/scripts.pory"
+# 177 "data/maps/Cruzeira_Gym/scripts.pory"
 Laila83:
-# 175 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 175 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 176 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_right
-# 176 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_right
-# 176 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_right
-# 177 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 177 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 177 "data/maps/Cruzeira_Gym/scripts.pory"
+# 178 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
 # 178 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_left
+	walk_up
 # 179 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_right
+# 179 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_right
+# 179 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_right
+# 180 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_up
+# 180 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_up
+# 180 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_up
+# 181 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_left
+# 182 "data/maps/Cruzeira_Gym/scripts.pory"
 	face_up
 	step_end
 
-# 182 "data/maps/Cruzeira_Gym/scripts.pory"
+# 185 "data/maps/Cruzeira_Gym/scripts.pory"
 Laila72:
-# 183 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 183 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 184 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_right
-# 184 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_right
-# 184 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_right
-# 185 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 185 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_up
-# 185 "data/maps/Cruzeira_Gym/scripts.pory"
+# 186 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
 # 186 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_left
-# 186 "data/maps/Cruzeira_Gym/scripts.pory"
-	walk_left
+	walk_up
 # 187 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_right
+# 187 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_right
+# 187 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_right
+# 188 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
 # 188 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_up
+# 188 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_up
+# 189 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_left
+# 189 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_left
+# 190 "data/maps/Cruzeira_Gym/scripts.pory"
+	walk_up
+# 191 "data/maps/Cruzeira_Gym/scripts.pory"
 	face_up
 	step_end
 
-# 191 "data/maps/Cruzeira_Gym/scripts.pory"
+# 194 "data/maps/Cruzeira_Gym/scripts.pory"
 Laila92:
-# 192 "data/maps/Cruzeira_Gym/scripts.pory"
+# 195 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
-# 192 "data/maps/Cruzeira_Gym/scripts.pory"
+# 195 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
-# 193 "data/maps/Cruzeira_Gym/scripts.pory"
+# 196 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_right
-# 193 "data/maps/Cruzeira_Gym/scripts.pory"
+# 196 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_right
-# 193 "data/maps/Cruzeira_Gym/scripts.pory"
+# 196 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_right
-# 194 "data/maps/Cruzeira_Gym/scripts.pory"
+# 197 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
-# 194 "data/maps/Cruzeira_Gym/scripts.pory"
+# 197 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
-# 194 "data/maps/Cruzeira_Gym/scripts.pory"
+# 197 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
-# 194 "data/maps/Cruzeira_Gym/scripts.pory"
+# 197 "data/maps/Cruzeira_Gym/scripts.pory"
 	walk_up
 	step_end
 
-# 197 "data/maps/Cruzeira_Gym/scripts.pory"
+# 200 "data/maps/Cruzeira_Gym/scripts.pory"
 CruzGymDown:
-# 198 "data/maps/Cruzeira_Gym/scripts.pory"
+# 201 "data/maps/Cruzeira_Gym/scripts.pory"
 	face_down
 	step_end
 
@@ -495,38 +504,38 @@ Cruzeira_Gym_Laila_Text_6:
 	.string "non-grass Pokémons! Neat, isn't it?$"
 
 Cruzeira_Gym_Laila_After_Text_0:
-# 136 "data/maps/Cruzeira_Gym/scripts.pory"
+# 139 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "Hi {PLAYER}! I'm still practicing, I\n"
 	.string "hope to be as strong as you one day!$"
 
 CruzGymGrunt1::
-# 142 "data/maps/Cruzeira_Gym/scripts.pory"
+# 145 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "Huh? Who are you? Weren't we supposed\n"
 	.string "to let nobody enter?$"
 
 CruzGymGrunt2::
-# 146 "data/maps/Cruzeira_Gym/scripts.pory"
+# 149 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "I understand now. It's because you're\n"
 	.string "strong.$"
 
 CruzGymGrunt3::
-# 150 "data/maps/Cruzeira_Gym/scripts.pory"
+# 153 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "That grunt doesn't know jack shit\n"
 	.string "about battles. I'll show you what a real\l"
 	.string "opponent looks like!$"
 
 CruzGymGrunt4::
-# 154 "data/maps/Cruzeira_Gym/scripts.pory"
+# 157 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "So, it seems that I'm also not a worthy\n"
 	.string "opponent.$"
 
 CruzGymAdmin1::
-# 158 "data/maps/Cruzeira_Gym/scripts.pory"
+# 161 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "Wow! You managed to get past those\n"
 	.string "useless grunts! Bravo! Unfortunately\l"
 	.string "for you, your promising run ends now.\l"
 	.string "Haha!$"
 
 CruzGymAdmin2::
-# 162 "data/maps/Cruzeira_Gym/scripts.pory"
+# 165 "data/maps/Cruzeira_Gym/scripts.pory"
 	.string "For Arceus' sake...$"

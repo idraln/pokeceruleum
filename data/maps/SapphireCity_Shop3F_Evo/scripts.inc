@@ -44,54 +44,50 @@ MartTMEvo1:
 # 26 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_THUNDER_STONE
 # 27 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
-	.2byte ITEM_MOON_STONE
-# 28 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
-	.2byte ITEM_SUN_STONE
-# 29 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_ICE_STONE
-# 30 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 28 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_SHINY_STONE
-# 31 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 29 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_DUSK_STONE
 	.2byte ITEM_NONE
 
 SapphireCity_Shop3F_Evo_Clerk_2::
-# 35 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 33 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	lock
-# 36 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 34 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	faceplayer
-# 37 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 35 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	compare VAR_SHOP_UPDATE, 3
 	goto_if_gt SapphireCity_Shop3F_Evo_Clerk_2_2
-# 44 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 42 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	msgbox SapphireCity_Shop3F_Evo_Clerk_1_Text_2
 SapphireCity_Shop3F_Evo_Clerk_2_1:
-# 46 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 44 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	release
 	end
 
 SapphireCity_Shop3F_Evo_Clerk_2_2:
-# 38 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 36 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	msgbox SapphireCity_Shop3F_Evo_Clerk_1_Text_0
-# 39 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 37 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	waitmessage
-# 40 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 38 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	pokemart MartTMEvo2
-# 41 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 39 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	msgbox SapphireCity_Shop3F_Evo_Clerk_1_Text_1
 	goto SapphireCity_Shop3F_Evo_Clerk_2_1
 
 
 	.align 2
-# 50 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 48 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 MartTMEvo2:
-# 51 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 49 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_METAL_COAT
-# 52 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 50 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_RAZOR_CLAW
-# 53 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 51 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_DEEP_SEA_SCALE
-# 54 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
+# 52 "data/maps/SapphireCity_Shop3F_Evo/scripts.pory"
 	.2byte ITEM_DEEP_SEA_TOOTH
 	.2byte ITEM_NONE
 

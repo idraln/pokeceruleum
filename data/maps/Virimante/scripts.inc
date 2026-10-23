@@ -197,6 +197,10 @@ Virimante_KAM_5:
 # 118 "data/maps/Virimante/scripts.pory"
 	setvar VAR_MAIN_STORY, 32
 # 119 "data/maps/Virimante/scripts.pory"
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq Virimante_KAM_10
+Virimante_KAM_9:
+# 122 "data/maps/Virimante/scripts.pory"
 	releaseall
 	end
 
@@ -234,47 +238,52 @@ Virimante_KAM_6:
 	waitmovement 0
 	goto Virimante_KAM_5
 
+Virimante_KAM_10:
+# 120 "data/maps/Virimante/scripts.pory"
+	setvar VAR_LEVELS, 65
+	goto Virimante_KAM_9
+
 
 Virimante_OnTransition::
-# 124 "data/maps/Virimante/scripts.pory"
+# 127 "data/maps/Virimante/scripts.pory"
 	setflag FLAG_VISITED_VIRIMANTE
 	return
 
 
 Virimante_GruntF::
-# 128 "data/maps/Virimante/scripts.pory"
-	lock
-# 129 "data/maps/Virimante/scripts.pory"
-	faceplayer
-# 130 "data/maps/Virimante/scripts.pory"
-	msgbox Virimante_GruntF_Text_0
 # 131 "data/maps/Virimante/scripts.pory"
-	turnobject 3, DIR_NORTH
+	lock
 # 132 "data/maps/Virimante/scripts.pory"
+	faceplayer
+# 133 "data/maps/Virimante/scripts.pory"
+	msgbox Virimante_GruntF_Text_0
+# 134 "data/maps/Virimante/scripts.pory"
+	turnobject 3, DIR_NORTH
+# 135 "data/maps/Virimante/scripts.pory"
 	release
 	end
 
 
 Virimante_GruntM::
-# 137 "data/maps/Virimante/scripts.pory"
-	lock
-# 138 "data/maps/Virimante/scripts.pory"
-	faceplayer
-# 139 "data/maps/Virimante/scripts.pory"
-	msgbox Virimante_GruntM_Text_0
 # 140 "data/maps/Virimante/scripts.pory"
+	lock
+# 141 "data/maps/Virimante/scripts.pory"
+	faceplayer
+# 142 "data/maps/Virimante/scripts.pory"
+	msgbox Virimante_GruntM_Text_0
+# 143 "data/maps/Virimante/scripts.pory"
 	release
 	end
 
 
 Virimante_Admin::
-# 145 "data/maps/Virimante/scripts.pory"
-	lock
-# 146 "data/maps/Virimante/scripts.pory"
-	faceplayer
-# 147 "data/maps/Virimante/scripts.pory"
-	msgbox Virimante_Admin_Text_0
 # 148 "data/maps/Virimante/scripts.pory"
+	lock
+# 149 "data/maps/Virimante/scripts.pory"
+	faceplayer
+# 150 "data/maps/Virimante/scripts.pory"
+	msgbox Virimante_Admin_Text_0
+# 151 "data/maps/Virimante/scripts.pory"
 	release
 	end
 
@@ -449,14 +458,14 @@ Virimante_KAM_Text_10:
 	.string "the Ironair together. Take care!$"
 
 Virimante_GruntF_Text_0:
-# 130 "data/maps/Virimante/scripts.pory"
+# 133 "data/maps/Virimante/scripts.pory"
 	.string "This is unacceptable! Just because\n"
 	.string "we're a bunch of outlaws, does that\l"
 	.string "mean we have to soil everything? And\l"
 	.string "I'm the one cleaning everything up.$"
 
 Virimante_GruntM_Text_0:
-# 139 "data/maps/Virimante/scripts.pory"
+# 142 "data/maps/Virimante/scripts.pory"
 	.string "This town used to be a safe haven for\n"
 	.string "fishermen. But since every fish in the\l"
 	.string "ocean decided to go on a vacation\l"
@@ -466,5 +475,5 @@ Virimante_GruntM_Text_0:
 	.string "it...$"
 
 Virimante_Admin_Text_0:
-# 147 "data/maps/Virimante/scripts.pory"
+# 150 "data/maps/Virimante/scripts.pory"
 	.string "I'm on smoko, so leave me alone.$"

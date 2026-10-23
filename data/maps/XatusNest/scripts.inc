@@ -49,77 +49,86 @@ XatusNest_Arrival::
 # 27 "data/maps/XatusNest/scripts.pory"
 	setvar VAR_SHOP_UPDATE, 5
 # 28 "data/maps/XatusNest/scripts.pory"
-	setvar VAR_LEVELS, 100
-# 29 "data/maps/XatusNest/scripts.pory"
-	delay 20
-# 30 "data/maps/XatusNest/scripts.pory"
-	pokenavcall XatusNest_Shop_Text
-# 31 "data/maps/XatusNest/scripts.pory"
-	waitmessage
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq XatusNest_Arrival_2
 # 32 "data/maps/XatusNest/scripts.pory"
+	setvar VAR_LEVELS, 100
+XatusNest_Arrival_1:
+# 34 "data/maps/XatusNest/scripts.pory"
+	delay 20
+# 35 "data/maps/XatusNest/scripts.pory"
+	pokenavcall XatusNest_Shop_Text
+# 36 "data/maps/XatusNest/scripts.pory"
+	waitmessage
+# 37 "data/maps/XatusNest/scripts.pory"
 	setvar VAR_SHOP_UPDATE, 6
-# 33 "data/maps/XatusNest/scripts.pory"
+# 38 "data/maps/XatusNest/scripts.pory"
 	release
 	end
 
+XatusNest_Arrival_2:
+# 29 "data/maps/XatusNest/scripts.pory"
+	setvar VAR_LEVELS, 55
+	goto XatusNest_Arrival_1
+
 
 XatusNest_ShopUpdate::
-# 38 "data/maps/XatusNest/scripts.pory"
-	lockall
-# 39 "data/maps/XatusNest/scripts.pory"
-	faceplayer
-# 40 "data/maps/XatusNest/scripts.pory"
-	pokenavcall XatusNest_Shop_Text
-# 41 "data/maps/XatusNest/scripts.pory"
-	waitmessage
-# 42 "data/maps/XatusNest/scripts.pory"
-	setvar VAR_SHOP_UPDATE, 6
 # 43 "data/maps/XatusNest/scripts.pory"
+	lockall
+# 44 "data/maps/XatusNest/scripts.pory"
+	faceplayer
+# 45 "data/maps/XatusNest/scripts.pory"
+	pokenavcall XatusNest_Shop_Text
+# 46 "data/maps/XatusNest/scripts.pory"
+	waitmessage
+# 47 "data/maps/XatusNest/scripts.pory"
+	setvar VAR_SHOP_UPDATE, 6
+# 48 "data/maps/XatusNest/scripts.pory"
 	releaseall
 	end
 
 
 XatusNest_TM::
-# 48 "data/maps/XatusNest/scripts.pory"
+# 53 "data/maps/XatusNest/scripts.pory"
 	lock
-# 49 "data/maps/XatusNest/scripts.pory"
+# 54 "data/maps/XatusNest/scripts.pory"
 	removeobject 2
-# 50 "data/maps/XatusNest/scripts.pory"
+# 55 "data/maps/XatusNest/scripts.pory"
 	setflag FLAG_ITEM_NEST
-# 51 "data/maps/XatusNest/scripts.pory"
+# 56 "data/maps/XatusNest/scripts.pory"
 	giveitem ITEM_TM38
-# 52 "data/maps/XatusNest/scripts.pory"
+# 57 "data/maps/XatusNest/scripts.pory"
 	release
 	end
 
 
 XatusNest_Egg::
-# 71 "data/maps/XatusNest/scripts.pory"
+# 76 "data/maps/XatusNest/scripts.pory"
 	lock
-# 72 "data/maps/XatusNest/scripts.pory"
+# 77 "data/maps/XatusNest/scripts.pory"
 	faceplayer
-# 73 "data/maps/XatusNest/scripts.pory"
+# 78 "data/maps/XatusNest/scripts.pory"
 	msgbox XatusNest_Egg_Text_0, MSGBOX_YESNO
-# 74 "data/maps/XatusNest/scripts.pory"
+# 79 "data/maps/XatusNest/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq XatusNest_Egg_2
-# 82 "data/maps/XatusNest/scripts.pory"
+# 87 "data/maps/XatusNest/scripts.pory"
 	msgbox XatusNest_Egg_Text_2
 XatusNest_Egg_1:
-# 84 "data/maps/XatusNest/scripts.pory"
+# 89 "data/maps/XatusNest/scripts.pory"
 	release
 	end
 
 XatusNest_Egg_2:
-# 75 "data/maps/XatusNest/scripts.pory"
+# 80 "data/maps/XatusNest/scripts.pory"
 	giveegg SPECIES_NATU
-# 76 "data/maps/XatusNest/scripts.pory"
+# 81 "data/maps/XatusNest/scripts.pory"
 	removeobject 3
-# 77 "data/maps/XatusNest/scripts.pory"
+# 82 "data/maps/XatusNest/scripts.pory"
 	setflag FLAG_NATU_EGG_LEAGUE
-# 78 "data/maps/XatusNest/scripts.pory"
+# 83 "data/maps/XatusNest/scripts.pory"
 	playse MUS_LEVEL_UP
-# 79 "data/maps/XatusNest/scripts.pory"
+# 84 "data/maps/XatusNest/scripts.pory"
 	msgbox XatusNest_Egg_Text_1
 	goto XatusNest_Egg_1
 
@@ -149,19 +158,19 @@ XatusNest_Arrival_Text_0:
 	.string "over! Back to the tent for me.$"
 
 XatusNest_Egg_Text_0:
-# 73 "data/maps/XatusNest/scripts.pory"
+# 78 "data/maps/XatusNest/scripts.pory"
 	.string "This looks like an Egg. Take it?$"
 
 XatusNest_Egg_Text_1:
-# 79 "data/maps/XatusNest/scripts.pory"
+# 84 "data/maps/XatusNest/scripts.pory"
 	.string "You just received an Egg.$"
 
 XatusNest_Egg_Text_2:
-# 82 "data/maps/XatusNest/scripts.pory"
+# 87 "data/maps/XatusNest/scripts.pory"
 	.string "Decided against it.$"
 
 XatusNest_Shop_Text::
-# 56 "data/maps/XatusNest/scripts.pory"
+# 61 "data/maps/XatusNest/scripts.pory"
 	.string "You just received a new\n"
 	.string "text message from:\l"
 	.string "Thura's Mart Association\l"

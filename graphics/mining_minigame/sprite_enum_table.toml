@@ -22,7 +22,6 @@
 "./graphics/mining_minigame/items/thunder_stone.4bpp" = "ITEMID_THUNDER_STONE"
 "./graphics/mining_minigame/items/moon_stone.4bpp" = "ITEMID_MOON_STONE"
 "./graphics/mining_minigame/items/sun_stone.4bpp" = "ITEMID_SUN_STONE"
-"./graphics/mining_minigame/items/odd_key_stone.4bpp" = "ITEMID_ODD_KEY_STONE"
 
 [stones]
 "./graphics/mining_minigame/stones/stone_2x2.4bpp" = "ID_STONE_2x2"

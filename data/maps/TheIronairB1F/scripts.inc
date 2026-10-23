@@ -344,24 +344,33 @@ TheIronairB1F_Choice_4:
 # 171 "data/maps/TheIronairB1F/scripts.pory"
 	setvar VAR_SHOP_UPDATE, 3
 # 172 "data/maps/TheIronairB1F/scripts.pory"
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq TheIronairB1F_Choice_6
+TheIronairB1F_Choice_5:
+# 175 "data/maps/TheIronairB1F/scripts.pory"
 	setflag FLAG_HIDE_MAP_NAME_POPUP
-# 173 "data/maps/TheIronairB1F/scripts.pory"
+# 176 "data/maps/TheIronairB1F/scripts.pory"
 	startquest QUEST_FANDANGO
-# 174 "data/maps/TheIronairB1F/scripts.pory"
+# 177 "data/maps/TheIronairB1F/scripts.pory"
 	release
 	end
 
+TheIronairB1F_Choice_6:
+# 173 "data/maps/TheIronairB1F/scripts.pory"
+	setvar VAR_LEVELS, 55
+	goto TheIronairB1F_Choice_5
+
 
 TheIronairB1F_Item::
-# 180 "data/maps/TheIronairB1F/scripts.pory"
-	lock
-# 181 "data/maps/TheIronairB1F/scripts.pory"
-	removeobject 2
-# 182 "data/maps/TheIronairB1F/scripts.pory"
-	giveitem ITEM_TM09
 # 183 "data/maps/TheIronairB1F/scripts.pory"
-	setflag FLAG_ITEM_IRONAIR_1
+	lock
 # 184 "data/maps/TheIronairB1F/scripts.pory"
+	removeobject 2
+# 185 "data/maps/TheIronairB1F/scripts.pory"
+	giveitem ITEM_TM09
+# 186 "data/maps/TheIronairB1F/scripts.pory"
+	setflag FLAG_ITEM_IRONAIR_1
+# 187 "data/maps/TheIronairB1F/scripts.pory"
 	release
 	end
 

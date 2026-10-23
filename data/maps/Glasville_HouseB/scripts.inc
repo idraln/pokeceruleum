@@ -195,15 +195,19 @@ Glasville_HouseB_Dave_4:
 # 109 "data/maps/Glasville_HouseB/scripts.pory"
 	delay 20
 # 110 "data/maps/Glasville_HouseB/scripts.pory"
-	setflag FLAG_REGISTERED_DAVE_POKENAV
-# 111 "data/maps/Glasville_HouseB/scripts.pory"
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 112 "data/maps/Glasville_HouseB/scripts.pory"
-	compare VAR_TEMP_0, 3
-	goto_if_eq Glasville_HouseB_Dave_16
-# 123 "data/maps/Glasville_HouseB/scripts.pory"
-	compare VAR_TEMP_0, 4
+	compare VAR_DIFFICULTY_LEVEL, 0
 	goto_if_eq Glasville_HouseB_Dave_17
+Glasville_HouseB_Dave_16:
+# 113 "data/maps/Glasville_HouseB/scripts.pory"
+	setflag FLAG_REGISTERED_DAVE_POKENAV
+# 114 "data/maps/Glasville_HouseB/scripts.pory"
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+# 115 "data/maps/Glasville_HouseB/scripts.pory"
+	compare VAR_TEMP_0, 3
+	goto_if_eq Glasville_HouseB_Dave_19
+# 126 "data/maps/Glasville_HouseB/scripts.pory"
+	compare VAR_TEMP_0, 4
+	goto_if_eq Glasville_HouseB_Dave_20
 	return
 
 Glasville_HouseB_Dave_12:
@@ -236,41 +240,46 @@ Glasville_HouseB_Dave_13:
 	waitmovement 0
 	goto Glasville_HouseB_Dave_11
 
-Glasville_HouseB_Dave_16:
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
-	applymovement 1, Glasville_HouseB_Dave_Movement_6
-# 114 "data/maps/Glasville_HouseB/scripts.pory"
-	waitmovement 0
-# 115 "data/maps/Glasville_HouseB/scripts.pory"
-	removeobject 1
+Glasville_HouseB_Dave_17:
+# 111 "data/maps/Glasville_HouseB/scripts.pory"
+	setvar VAR_LEVELS, 40
+	goto Glasville_HouseB_Dave_16
+
+Glasville_HouseB_Dave_19:
 # 116 "data/maps/Glasville_HouseB/scripts.pory"
-	playse SE_EXIT
+	applymovement 1, Glasville_HouseB_Dave_Movement_6
 # 117 "data/maps/Glasville_HouseB/scripts.pory"
-	setflag FLAG_DAVE_LEAVING
+	waitmovement 0
 # 118 "data/maps/Glasville_HouseB/scripts.pory"
-	setvar VAR_MAIN_STORY, 22
+	removeobject 1
 # 119 "data/maps/Glasville_HouseB/scripts.pory"
-	setflag FLAG_HIDE_MAP_NAME_POPUP
+	playse SE_EXIT
 # 120 "data/maps/Glasville_HouseB/scripts.pory"
+	setflag FLAG_DAVE_LEAVING
+# 121 "data/maps/Glasville_HouseB/scripts.pory"
+	setvar VAR_MAIN_STORY, 22
+# 122 "data/maps/Glasville_HouseB/scripts.pory"
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+# 123 "data/maps/Glasville_HouseB/scripts.pory"
 	release
 	end
 
-Glasville_HouseB_Dave_17:
-# 124 "data/maps/Glasville_HouseB/scripts.pory"
-	applymovement 1, Glasville_HouseB_Dave_Movement_7
-# 125 "data/maps/Glasville_HouseB/scripts.pory"
-	waitmovement 0
-# 126 "data/maps/Glasville_HouseB/scripts.pory"
-	removeobject 1
+Glasville_HouseB_Dave_20:
 # 127 "data/maps/Glasville_HouseB/scripts.pory"
-	playse SE_EXIT
+	applymovement 1, Glasville_HouseB_Dave_Movement_7
 # 128 "data/maps/Glasville_HouseB/scripts.pory"
-	setflag FLAG_DAVE_LEAVING
+	waitmovement 0
 # 129 "data/maps/Glasville_HouseB/scripts.pory"
-	setvar VAR_MAIN_STORY, 22
+	removeobject 1
 # 130 "data/maps/Glasville_HouseB/scripts.pory"
-	setflag FLAG_HIDE_MAP_NAME_POPUP
+	playse SE_EXIT
 # 131 "data/maps/Glasville_HouseB/scripts.pory"
+	setflag FLAG_DAVE_LEAVING
+# 132 "data/maps/Glasville_HouseB/scripts.pory"
+	setvar VAR_MAIN_STORY, 22
+# 133 "data/maps/Glasville_HouseB/scripts.pory"
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+# 134 "data/maps/Glasville_HouseB/scripts.pory"
 	release
 	end
 
@@ -333,29 +342,29 @@ Glasville_HouseB_Dave_Movement_5:
 	jump_in_place_down
 	step_end
 
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
+# 116 "data/maps/Glasville_HouseB/scripts.pory"
 Glasville_HouseB_Dave_Movement_6:
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
+# 116 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_right
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
+# 116 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
+# 116 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
+# 116 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
-# 113 "data/maps/Glasville_HouseB/scripts.pory"
+# 116 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
 	step_end
 
-# 124 "data/maps/Glasville_HouseB/scripts.pory"
+# 127 "data/maps/Glasville_HouseB/scripts.pory"
 Glasville_HouseB_Dave_Movement_7:
-# 124 "data/maps/Glasville_HouseB/scripts.pory"
+# 127 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
-# 124 "data/maps/Glasville_HouseB/scripts.pory"
+# 127 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
-# 124 "data/maps/Glasville_HouseB/scripts.pory"
+# 127 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
-# 124 "data/maps/Glasville_HouseB/scripts.pory"
+# 127 "data/maps/Glasville_HouseB/scripts.pory"
 	walk_fast_down
 	step_end
 

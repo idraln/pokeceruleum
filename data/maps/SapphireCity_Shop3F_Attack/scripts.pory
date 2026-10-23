@@ -34,7 +34,7 @@ script SapphireCity_Shop3F_Attack_Clerk_2 {
     lock
     faceplayer
     if(var(VAR_SHOP_UPDATE) > 3) {
-        msgbox(format("Hello, and welcome to the Vitamin Department! How can I help you today?"))
+        msgbox(format("Hello, and welcome to the Growth Department! How can I help you today?"))
         waitmessage
         pokemart(MartVitaminItems)
         msgbox(format("Thank you for shopping with us! We'll hope to see you very soon!"))
@@ -52,6 +52,7 @@ mart MartVitaminItems {
     ITEM_PROTEIN
     ITEM_CALCIUM
     ITEM_ZINC
+    ITEM_ABILITY_CAPSULE
 }
 
 script SapphireCity_Shop3F_Attack_Boy {

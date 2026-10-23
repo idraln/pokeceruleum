@@ -122,6 +122,9 @@ script Cruzeira_Gym_Laila {
     setflag(FLAG_PASTORAL_GROUP)
     setvar(VAR_MAIN_STORY, 12)
     setvar(VAR_SHOP_UPDATE, 1)
+    if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+        setvar(VAR_LEVELS, 25)
+    }
     setflag(FLAG_HIDE_MAP_NAME_POPUP)
     completequest(QUEST_INTRUDER)
     setflag(FLAG_QUEST_INTRUDER_COMPLETE)

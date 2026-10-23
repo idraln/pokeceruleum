@@ -205,6 +205,9 @@ script Ohulinn_Gym_Eka {
         msgbox(format("This is Roost. As you may have seen, it allows Pokémons to rest up a bit and restore some HP. Now go! I need to study more."))
         hidenamebox
         setvar(VAR_MAIN_STORY, 15)
+        if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+            setvar(VAR_LEVELS, 32)
+        }
         setflag(FLAG_HIDE_MAP_NAME_POPUP)
         release
         end

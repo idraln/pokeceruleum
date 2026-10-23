@@ -103,10 +103,10 @@ script Rocheval_TownHallB1F_Worker {
             msgbox(format("...Hey. Treecko is truly one of its kind. Thanks again. You did me a solid..."))
         }
         elif(var(VAR_FAV_TYPE) == 1) {
-            msgbox(format("...Hey. Litten is truly one of its kind. Thanks again. You did me a solid..."))
+            msgbox(format("...Hey. Torchic is truly one of its kind. Thanks again. You did me a solid..."))
         }
         else {
-            msgbox(format("...Hey. Totodile is truly one of its kind. Thanks again. You did me a solid..."))
+            msgbox(format("...Hey. Mudkip is truly one of its kind. Thanks again. You did me a solid..."))
         }
         
         release

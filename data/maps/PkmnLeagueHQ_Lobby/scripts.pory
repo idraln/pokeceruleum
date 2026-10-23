@@ -89,10 +89,19 @@ script PkmnLeagueHQ_Lobby_Intendant {
         waitfanfare
         closemessage
         delay(40)
-        namebox("Bernard")
-        msgbox(format("...Uh, I guess that in the meantime, you could take on the Council Challenge all over again? Since you're so talented... We could use some of your skills. Here, take this. With this item, it'll take sooner to raise your new Pokémon."))
-        hidenamebox
-        giveitem(ITEM_EXP_SHARE)
+        if(var(VAR_DIFFICULTY_LEVEL) == 0) {
+            namebox("Bernard")
+            msgbox(format("...Uh, I guess that in the meantime, you could take on the Council Challenge all over again? Since you're so talented... We could use some of your skills. Here, take those. With these items, it'll take sooner to raise your new Pokémon."))
+            hidenamebox
+            giveitem(ITEM_EXP_SHARE)
+            giveitem(ITEM_INFINITE_CANDY)
+        }
+        else {
+            namebox("Bernard")
+            msgbox(format("...Uh, I guess that in the meantime, you could take on the Council Challenge all over again? Since you're so talented... We could use some of your skills. Here, take this. With this item, it'll take sooner to raise your new Pokémon."))
+            hidenamebox
+            giveitem(ITEM_EXP_SHARE)
+        }
         delay(20)
         namebox("Bernard")
         msgbox(format("You can also take that device. It's a neat little machine we've been working on, and we called it the DexNav. With this, you can find any Pokémon you want!"))

@@ -679,75 +679,75 @@ Hydropolis_Anais::
 # 350 "data/maps/Hydropolis/scripts.pory"
 	compare VAR_MAIN_STORY, 34
 	goto_if_eq Hydropolis_Anais_2
-# 443 "data/maps/Hydropolis/scripts.pory"
+# 446 "data/maps/Hydropolis/scripts.pory"
 	compare VAR_MAIN_STORY, 34
 	goto_if_gt Hydropolis_Anais_3
-# 449 "data/maps/Hydropolis/scripts.pory"
-	namebox Hydropolis_AnaisWelcome_Text_0
-# 450 "data/maps/Hydropolis/scripts.pory"
-	msgbox Hydropolis_Anais_Text_14
-# 451 "data/maps/Hydropolis/scripts.pory"
-	closemessage
 # 452 "data/maps/Hydropolis/scripts.pory"
-	hidenamebox
+	namebox Hydropolis_AnaisWelcome_Text_0
 # 453 "data/maps/Hydropolis/scripts.pory"
-	delay 20
+	msgbox Hydropolis_Anais_Text_14
 # 454 "data/maps/Hydropolis/scripts.pory"
-	turnobject 11, DIR_NORTH
+	closemessage
 # 455 "data/maps/Hydropolis/scripts.pory"
-	delay 20
+	hidenamebox
 # 456 "data/maps/Hydropolis/scripts.pory"
-	namebox Hydropolis_AnaisWelcome_Text_0
-# 457 "data/maps/Hydropolis/scripts.pory"
-	msgbox Hydropolis_Anais_Text_15
-# 458 "data/maps/Hydropolis/scripts.pory"
-	closemessage
-# 459 "data/maps/Hydropolis/scripts.pory"
-	hidenamebox
-# 460 "data/maps/Hydropolis/scripts.pory"
-	applymovement 11, Hydropolis_Scientist5_Movement_2
-# 461 "data/maps/Hydropolis/scripts.pory"
-	waitmovement 0
-# 462 "data/maps/Hydropolis/scripts.pory"
 	delay 20
-# 463 "data/maps/Hydropolis/scripts.pory"
-	namebox Hydropolis_AnaisWelcome_Text_0
-# 464 "data/maps/Hydropolis/scripts.pory"
-	msgbox Hydropolis_Anais_Text_16
-# 465 "data/maps/Hydropolis/scripts.pory"
-	closemessage
-# 466 "data/maps/Hydropolis/scripts.pory"
-	hidenamebox
-# 467 "data/maps/Hydropolis/scripts.pory"
-	showmonpic SPECIES_ACCELGOR, 10, 3
-# 468 "data/maps/Hydropolis/scripts.pory"
-	delay 120
-# 469 "data/maps/Hydropolis/scripts.pory"
-	hidemonpic
-# 470 "data/maps/Hydropolis/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Hydropolis_Anais_Movement_0
-# 471 "data/maps/Hydropolis/scripts.pory"
-	waitmovement 0
-# 472 "data/maps/Hydropolis/scripts.pory"
-	delay 40
-# 473 "data/maps/Hydropolis/scripts.pory"
-	namebox Hydropolis_AnaisWelcome_Text_0
-# 474 "data/maps/Hydropolis/scripts.pory"
-	msgbox Hydropolis_Anais_Text_17
-# 475 "data/maps/Hydropolis/scripts.pory"
-	closemessage
-# 476 "data/maps/Hydropolis/scripts.pory"
-	hidenamebox
-# 477 "data/maps/Hydropolis/scripts.pory"
+# 457 "data/maps/Hydropolis/scripts.pory"
 	turnobject 11, DIR_NORTH
+# 458 "data/maps/Hydropolis/scripts.pory"
+	delay 20
+# 459 "data/maps/Hydropolis/scripts.pory"
+	namebox Hydropolis_AnaisWelcome_Text_0
+# 460 "data/maps/Hydropolis/scripts.pory"
+	msgbox Hydropolis_Anais_Text_15
+# 461 "data/maps/Hydropolis/scripts.pory"
+	closemessage
+# 462 "data/maps/Hydropolis/scripts.pory"
+	hidenamebox
+# 463 "data/maps/Hydropolis/scripts.pory"
+	applymovement 11, Hydropolis_Scientist5_Movement_2
+# 464 "data/maps/Hydropolis/scripts.pory"
+	waitmovement 0
+# 465 "data/maps/Hydropolis/scripts.pory"
+	delay 20
+# 466 "data/maps/Hydropolis/scripts.pory"
+	namebox Hydropolis_AnaisWelcome_Text_0
+# 467 "data/maps/Hydropolis/scripts.pory"
+	msgbox Hydropolis_Anais_Text_16
+# 468 "data/maps/Hydropolis/scripts.pory"
+	closemessage
+# 469 "data/maps/Hydropolis/scripts.pory"
+	hidenamebox
+# 470 "data/maps/Hydropolis/scripts.pory"
+	showmonpic SPECIES_ACCELGOR, 10, 3
+# 471 "data/maps/Hydropolis/scripts.pory"
+	delay 120
+# 472 "data/maps/Hydropolis/scripts.pory"
+	hidemonpic
+# 473 "data/maps/Hydropolis/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Hydropolis_Anais_Movement_0
+# 474 "data/maps/Hydropolis/scripts.pory"
+	waitmovement 0
+# 475 "data/maps/Hydropolis/scripts.pory"
+	delay 40
+# 476 "data/maps/Hydropolis/scripts.pory"
+	namebox Hydropolis_AnaisWelcome_Text_0
+# 477 "data/maps/Hydropolis/scripts.pory"
+	msgbox Hydropolis_Anais_Text_17
 # 478 "data/maps/Hydropolis/scripts.pory"
-	setvar VAR_MAIN_STORY, 34
+	closemessage
 # 479 "data/maps/Hydropolis/scripts.pory"
-	setflag FLAG_DIVERS_NPC
+	hidenamebox
 # 480 "data/maps/Hydropolis/scripts.pory"
+	turnobject 11, DIR_NORTH
+# 481 "data/maps/Hydropolis/scripts.pory"
+	setvar VAR_MAIN_STORY, 34
+# 482 "data/maps/Hydropolis/scripts.pory"
+	setflag FLAG_DIVERS_NPC
+# 483 "data/maps/Hydropolis/scripts.pory"
 	clearflag FLAG_DIVERS_TRAINERS
 Hydropolis_Anais_1:
-# 482 "data/maps/Hydropolis/scripts.pory"
+# 485 "data/maps/Hydropolis/scripts.pory"
 	release
 	end
 
@@ -761,22 +761,22 @@ Hydropolis_Anais_2:
 # 354 "data/maps/Hydropolis/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq Hydropolis_Anais_7
-# 436 "data/maps/Hydropolis/scripts.pory"
-	hidemonpic
-# 438 "data/maps/Hydropolis/scripts.pory"
-	msgbox Hydropolis_Anais_Text_12
 # 439 "data/maps/Hydropolis/scripts.pory"
+	hidemonpic
+# 441 "data/maps/Hydropolis/scripts.pory"
+	msgbox Hydropolis_Anais_Text_12
+# 442 "data/maps/Hydropolis/scripts.pory"
 	hidenamebox
-# 440 "data/maps/Hydropolis/scripts.pory"
+# 443 "data/maps/Hydropolis/scripts.pory"
 	turnobject 11, DIR_NORTH
 	goto Hydropolis_Anais_1
 
 Hydropolis_Anais_3:
-# 444 "data/maps/Hydropolis/scripts.pory"
+# 447 "data/maps/Hydropolis/scripts.pory"
 	namebox Hydropolis_AnaisWelcome_Text_0
-# 445 "data/maps/Hydropolis/scripts.pory"
+# 448 "data/maps/Hydropolis/scripts.pory"
 	msgbox Hydropolis_Anais_Text_13
-# 446 "data/maps/Hydropolis/scripts.pory"
+# 449 "data/maps/Hydropolis/scripts.pory"
 	hidenamebox
 	goto Hydropolis_Anais_1
 
@@ -794,17 +794,17 @@ Hydropolis_Anais_7:
 # 361 "data/maps/Hydropolis/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq Hydropolis_Anais_10
-# 427 "data/maps/Hydropolis/scripts.pory"
-	closemessage
-# 428 "data/maps/Hydropolis/scripts.pory"
-	delay 40
-# 429 "data/maps/Hydropolis/scripts.pory"
-	playse SE_RG_HELP_ERROR
 # 430 "data/maps/Hydropolis/scripts.pory"
-	namebox Hydropolis_AnaisWelcome_Text_0
+	closemessage
 # 431 "data/maps/Hydropolis/scripts.pory"
-	msgbox Hydropolis_Anais_Text_11
+	delay 40
 # 432 "data/maps/Hydropolis/scripts.pory"
+	playse SE_RG_HELP_ERROR
+# 433 "data/maps/Hydropolis/scripts.pory"
+	namebox Hydropolis_AnaisWelcome_Text_0
+# 434 "data/maps/Hydropolis/scripts.pory"
+	msgbox Hydropolis_Anais_Text_11
+# 435 "data/maps/Hydropolis/scripts.pory"
 	hidenamebox
 	goto Hydropolis_Anais_1
 
@@ -911,16 +911,20 @@ Hydropolis_Anais_13:
 # 418 "data/maps/Hydropolis/scripts.pory"
 	setvar VAR_MAIN_STORY, 35
 # 419 "data/maps/Hydropolis/scripts.pory"
-	settrainerflag TRAINER_ABYSS_1
-# 420 "data/maps/Hydropolis/scripts.pory"
-	settrainerflag TRAINER_ABYSS_2
-# 421 "data/maps/Hydropolis/scripts.pory"
-	settrainerflag TRAINER_ABYSS_4
+	compare VAR_DIFFICULTY_LEVEL, 0
+	goto_if_eq Hydropolis_Anais_19
+Hydropolis_Anais_18:
 # 422 "data/maps/Hydropolis/scripts.pory"
-	settrainerflag TRAINER_ABYSS_5
+	settrainerflag TRAINER_ABYSS_1
 # 423 "data/maps/Hydropolis/scripts.pory"
-	completequest QUEST_EMBLEMS
+	settrainerflag TRAINER_ABYSS_2
 # 424 "data/maps/Hydropolis/scripts.pory"
+	settrainerflag TRAINER_ABYSS_4
+# 425 "data/maps/Hydropolis/scripts.pory"
+	settrainerflag TRAINER_ABYSS_5
+# 426 "data/maps/Hydropolis/scripts.pory"
+	completequest QUEST_EMBLEMS
+# 427 "data/maps/Hydropolis/scripts.pory"
 	setflag FLAG_EMBLEMS_COMPLETE
 	goto Hydropolis_Anais_1
 
@@ -942,31 +946,36 @@ Hydropolis_Anais_15:
 	call NicknameBoxmon
 	goto Hydropolis_Anais_13
 
+Hydropolis_Anais_19:
+# 420 "data/maps/Hydropolis/scripts.pory"
+	setvar VAR_LEVELS, 100
+	goto Hydropolis_Anais_18
+
 
 Hydropolis_Item1::
-# 491 "data/maps/Hydropolis/scripts.pory"
-	lock
-# 492 "data/maps/Hydropolis/scripts.pory"
-	removeobject 17
-# 493 "data/maps/Hydropolis/scripts.pory"
-	giveitem ITEM_SAFETY_GOGGLES
 # 494 "data/maps/Hydropolis/scripts.pory"
-	setflag FLAG_ITEM_HYDRO_1
+	lock
 # 495 "data/maps/Hydropolis/scripts.pory"
+	removeobject 17
+# 496 "data/maps/Hydropolis/scripts.pory"
+	giveitem ITEM_SAFETY_GOGGLES
+# 497 "data/maps/Hydropolis/scripts.pory"
+	setflag FLAG_ITEM_HYDRO_1
+# 498 "data/maps/Hydropolis/scripts.pory"
 	release
 	end
 
 
 Hydropolis_Item2::
-# 500 "data/maps/Hydropolis/scripts.pory"
-	lock
-# 501 "data/maps/Hydropolis/scripts.pory"
-	removeobject 18
-# 502 "data/maps/Hydropolis/scripts.pory"
-	giveitem ITEM_TM48
 # 503 "data/maps/Hydropolis/scripts.pory"
-	setflag FLAG_ITEM_HYDRO_2
+	lock
 # 504 "data/maps/Hydropolis/scripts.pory"
+	removeobject 18
+# 505 "data/maps/Hydropolis/scripts.pory"
+	giveitem ITEM_TM48
+# 506 "data/maps/Hydropolis/scripts.pory"
+	setflag FLAG_ITEM_HYDRO_2
+# 507 "data/maps/Hydropolis/scripts.pory"
 	release
 	end
 
@@ -1049,9 +1058,9 @@ Hydropolis_Scientist5_Movement_2:
 	face_player
 	step_end
 
-# 470 "data/maps/Hydropolis/scripts.pory"
+# 473 "data/maps/Hydropolis/scripts.pory"
 Hydropolis_Anais_Movement_0:
-# 470 "data/maps/Hydropolis/scripts.pory"
+# 473 "data/maps/Hydropolis/scripts.pory"
 	emote_question_mark
 	step_end
 
@@ -1352,20 +1361,20 @@ Hydropolis_Anais_Text_10:
 	.string "honors!$"
 
 Hydropolis_Anais_Text_11:
-# 431 "data/maps/Hydropolis/scripts.pory"
+# 434 "data/maps/Hydropolis/scripts.pory"
 	.string "...Nope! Wrong answer! Try again!$"
 
 Hydropolis_Anais_Text_12:
-# 438 "data/maps/Hydropolis/scripts.pory"
+# 441 "data/maps/Hydropolis/scripts.pory"
 	.string "It's okay, take your time!$"
 
 Hydropolis_Anais_Text_13:
-# 445 "data/maps/Hydropolis/scripts.pory"
+# 448 "data/maps/Hydropolis/scripts.pory"
 	.string "{PLAYER}, happy to see you! Did you\n"
 	.string "achieve your goal yet?$"
 
 Hydropolis_Anais_Text_14:
-# 450 "data/maps/Hydropolis/scripts.pory"
+# 453 "data/maps/Hydropolis/scripts.pory"
 	.string "There you are! So, let me explain the\n"
 	.string "rules to you. There are two projects\l"
 	.string "that my team and me are working on\l"
@@ -1375,7 +1384,7 @@ Hydropolis_Anais_Text_14:
 	.string "one!$"
 
 Hydropolis_Anais_Text_15:
-# 457 "data/maps/Hydropolis/scripts.pory"
+# 460 "data/maps/Hydropolis/scripts.pory"
 	.string "As part of the Restoration project,\n"
 	.string "we're trying to answer current\l"
 	.string "questions by drawing on insights from\l"
@@ -1383,18 +1392,18 @@ Hydropolis_Anais_Text_15:
 	.string "fossils!$"
 
 Hydropolis_Anais_Text_16:
-# 464 "data/maps/Hydropolis/scripts.pory"
+# 467 "data/maps/Hydropolis/scripts.pory"
 	.string "And there's a specific fossil we're\n"
 	.string "studying. Your mission is to figure out\l"
 	.string "which Pokémon this fossil comes from!$"
 
 Hydropolis_Anais_Text_17:
-# 474 "data/maps/Hydropolis/scripts.pory"
+# 477 "data/maps/Hydropolis/scripts.pory"
 	.string "Don't worry, I scattered some clues in\n"
 	.string "the underwater! You just have to\l"
 	.string "explore. Once you think you got it, come\l"
 	.string "back and tell me your answer! Good luck!$"
 
 Anais1::
-# 486 "data/maps/Hydropolis/scripts.pory"
+# 489 "data/maps/Hydropolis/scripts.pory"
 	.string "Congratulations!!$"

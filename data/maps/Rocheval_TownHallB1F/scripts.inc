@@ -502,12 +502,12 @@ Rocheval_TownHallB1F_Worker_Text_0:
 
 Rocheval_TownHallB1F_Worker_Text_1:
 # 106 "data/maps/Rocheval_TownHallB1F/scripts.pory"
-	.string "...Hey. Litten is truly one of its kind.\n"
+	.string "...Hey. Torchic is truly one of its kind.\n"
 	.string "Thanks again. You did me a solid...$"
 
 Rocheval_TownHallB1F_Worker_Text_2:
 # 109 "data/maps/Rocheval_TownHallB1F/scripts.pory"
-	.string "...Hey. Totodile is truly one of its kind.\n"
+	.string "...Hey. Mudkip is truly one of its kind.\n"
 	.string "Thanks again. You did me a solid...$"
 
 Rocheval_TownHallB1F_Worker_Text_3:

@@ -163,9 +163,9 @@ Rocheval_TownHall_Multichoice::
 	switch VAR_RESULT
 # 91 "data/maps/Rocheval_TownHall/scripts.pory"
 	case 0, Rocheval_TownHall_Multichoice_2
-# 94 "data/maps/Rocheval_TownHall/scripts.pory"
+# 95 "data/maps/Rocheval_TownHall/scripts.pory"
 	case 1, Rocheval_TownHall_Multichoice_3
-# 97 "data/maps/Rocheval_TownHall/scripts.pory"
+# 99 "data/maps/Rocheval_TownHall/scripts.pory"
 	case 2, Rocheval_TownHall_Multichoice_4
 	return
 
@@ -173,294 +173,298 @@ Rocheval_TownHall_Multichoice_2:
 # 92 "data/maps/Rocheval_TownHall/scripts.pory"
 	msgbox Rocheval_TownHall_Multichoice_Text_0
 # 93 "data/maps/Rocheval_TownHall/scripts.pory"
+	closemessage
+# 94 "data/maps/Rocheval_TownHall/scripts.pory"
 	goto Rocheval_TownHall_Multichoice
 	return
 
 Rocheval_TownHall_Multichoice_3:
-# 95 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Multichoice_Text_1
 # 96 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_Multichoice_Text_1
+# 97 "data/maps/Rocheval_TownHall/scripts.pory"
+	closemessage
+# 98 "data/maps/Rocheval_TownHall/scripts.pory"
 	goto Rocheval_TownHall_Multichoice
 	return
 
 Rocheval_TownHall_Multichoice_4:
-# 98 "data/maps/Rocheval_TownHall/scripts.pory"
+# 100 "data/maps/Rocheval_TownHall/scripts.pory"
 	msgbox Rocheval_TownHall_Multichoice_Text_2
-# 99 "data/maps/Rocheval_TownHall/scripts.pory"
+# 101 "data/maps/Rocheval_TownHall/scripts.pory"
 	closemessage
 	end
 
 
 Rocheval_TownHall_NoAccess::
-# 105 "data/maps/Rocheval_TownHall/scripts.pory"
+# 107 "data/maps/Rocheval_TownHall/scripts.pory"
 	compare VAR_MAIN_STORY, 0
 	goto_if_eq Rocheval_TownHall_NoAccess_1
 	return
 
 Rocheval_TownHall_NoAccess_1:
-# 106 "data/maps/Rocheval_TownHall/scripts.pory"
-	lock
-# 107 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_NoAccess_Text_0
 # 108 "data/maps/Rocheval_TownHall/scripts.pory"
-	closemessage
+	lock
 # 109 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, BackingUp
+	msgbox Rocheval_TownHall_NoAccess_Text_0
 # 110 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement 0
+	closemessage
 # 111 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, BackingUp
+# 112 "data/maps/Rocheval_TownHall/scripts.pory"
+	waitmovement 0
+# 113 "data/maps/Rocheval_TownHall/scripts.pory"
 	release
 	end
 
 
 Rocheval_TownHall_NoAccess2::
-# 117 "data/maps/Rocheval_TownHall/scripts.pory"
+# 119 "data/maps/Rocheval_TownHall/scripts.pory"
 	compare VAR_MAIN_STORY, 2
 	goto_if_eq Rocheval_TownHall_NoAccess2_1
 	return
 
 Rocheval_TownHall_NoAccess2_1:
-# 118 "data/maps/Rocheval_TownHall/scripts.pory"
-	lock
-# 119 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_NoAccess2_Text_0
 # 120 "data/maps/Rocheval_TownHall/scripts.pory"
-	closemessage
+	lock
 # 121 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, BackingUp
+	msgbox Rocheval_TownHall_NoAccess2_Text_0
 # 122 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement 0
+	closemessage
 # 123 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, BackingUp
+# 124 "data/maps/Rocheval_TownHall/scripts.pory"
+	waitmovement 0
+# 125 "data/maps/Rocheval_TownHall/scripts.pory"
 	release
 	end
 
 
 Rocheval_TownHall_ReadyToLeave::
-# 129 "data/maps/Rocheval_TownHall/scripts.pory"
-	lockall
-# 130 "data/maps/Rocheval_TownHall/scripts.pory"
-	faceplayer
 # 131 "data/maps/Rocheval_TownHall/scripts.pory"
-	namebox Rocheval_TownHall_ReadyToLeave_Text_0
+	lockall
 # 132 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_ReadyToLeave_Text_1
+	faceplayer
 # 133 "data/maps/Rocheval_TownHall/scripts.pory"
-	hidenamebox
+	namebox Rocheval_TownHall_ReadyToLeave_Text_0
 # 134 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Receptionist_Text_1
+	msgbox Rocheval_TownHall_ReadyToLeave_Text_1
 # 135 "data/maps/Rocheval_TownHall/scripts.pory"
-	namebox Rocheval_TownHall_ReadyToLeave_Text_0
+	hidenamebox
 # 136 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_ReadyToLeave_Text_2
+	msgbox Rocheval_TownHall_Receptionist_Text_1
 # 137 "data/maps/Rocheval_TownHall/scripts.pory"
-	closemessage
-# 138 "data/maps/Rocheval_TownHall/scripts.pory"
-	hidenamebox
-# 139 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 7, RTHNorth
-# 140 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement 0
-# 141 "data/maps/Rocheval_TownHall/scripts.pory"
-	delay 20
-# 142 "data/maps/Rocheval_TownHall/scripts.pory"
 	namebox Rocheval_TownHall_ReadyToLeave_Text_0
-# 143 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_ReadyToLeave_Text_3
-# 144 "data/maps/Rocheval_TownHall/scripts.pory"
+# 138 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_ReadyToLeave_Text_2
+# 139 "data/maps/Rocheval_TownHall/scripts.pory"
 	closemessage
-# 145 "data/maps/Rocheval_TownHall/scripts.pory"
+# 140 "data/maps/Rocheval_TownHall/scripts.pory"
 	hidenamebox
-# 146 "data/maps/Rocheval_TownHall/scripts.pory"
-	delay 20
-# 147 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 8, GuardStepping
-# 148 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement 8
-# 151 "data/maps/Rocheval_TownHall/scripts.pory"
-	setflag FLAG_GUARD_HELI
-# 152 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 8, RTHSouth
-# 153 "data/maps/Rocheval_TownHall/scripts.pory"
+# 141 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement 7, RTHNorth
+# 142 "data/maps/Rocheval_TownHall/scripts.pory"
 	waitmovement 0
+# 143 "data/maps/Rocheval_TownHall/scripts.pory"
+	delay 20
+# 144 "data/maps/Rocheval_TownHall/scripts.pory"
+	namebox Rocheval_TownHall_ReadyToLeave_Text_0
+# 145 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_ReadyToLeave_Text_3
+# 146 "data/maps/Rocheval_TownHall/scripts.pory"
+	closemessage
+# 147 "data/maps/Rocheval_TownHall/scripts.pory"
+	hidenamebox
+# 148 "data/maps/Rocheval_TownHall/scripts.pory"
+	delay 20
+# 149 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement 8, GuardStepping
+# 150 "data/maps/Rocheval_TownHall/scripts.pory"
+	waitmovement 8
+# 153 "data/maps/Rocheval_TownHall/scripts.pory"
+	setflag FLAG_GUARD_HELI
 # 154 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 8, Rocheval_TownHall_Receptionist_Movement_4
+	applymovement 8, RTHSouth
 # 155 "data/maps/Rocheval_TownHall/scripts.pory"
 	waitmovement 0
 # 156 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 7, Rocheval_TownHall_Receptionist_Movement_4
+	applymovement 8, Rocheval_TownHall_Receptionist_Movement_4
 # 157 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement
-# 158 "data/maps/Rocheval_TownHall/scripts.pory"
-	namebox Rocheval_TownHall_ReadyToLeave_Text_0
-# 159 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_ReadyToLeave_Text_4
-# 160 "data/maps/Rocheval_TownHall/scripts.pory"
-	closemessage
-# 161 "data/maps/Rocheval_TownHall/scripts.pory"
-	hidenamebox
-# 162 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 7, SamHeli
-# 163 "data/maps/Rocheval_TownHall/scripts.pory"
 	waitmovement 0
+# 158 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement 7, Rocheval_TownHall_Receptionist_Movement_4
+# 159 "data/maps/Rocheval_TownHall/scripts.pory"
+	waitmovement
+# 160 "data/maps/Rocheval_TownHall/scripts.pory"
+	namebox Rocheval_TownHall_ReadyToLeave_Text_0
+# 161 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_ReadyToLeave_Text_4
+# 162 "data/maps/Rocheval_TownHall/scripts.pory"
+	closemessage
+# 163 "data/maps/Rocheval_TownHall/scripts.pory"
+	hidenamebox
 # 164 "data/maps/Rocheval_TownHall/scripts.pory"
-	removeobject 7
+	applymovement 7, SamHeli
 # 165 "data/maps/Rocheval_TownHall/scripts.pory"
-	playse SE_EXIT
+	waitmovement 0
 # 166 "data/maps/Rocheval_TownHall/scripts.pory"
+	removeobject 7
+# 167 "data/maps/Rocheval_TownHall/scripts.pory"
+	playse SE_EXIT
+# 168 "data/maps/Rocheval_TownHall/scripts.pory"
 	releaseall
 	end
 
 
 Rocheval_TownHall_Guard::
-# 171 "data/maps/Rocheval_TownHall/scripts.pory"
+# 173 "data/maps/Rocheval_TownHall/scripts.pory"
 	goto_if_set FLAG_GUARD_HELI, Rocheval_TownHall_Guard_1
-# 182 "data/maps/Rocheval_TownHall/scripts.pory"
-	lockall
-# 183 "data/maps/Rocheval_TownHall/scripts.pory"
-	faceplayer
 # 184 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Guard_Text_1
+	lockall
 # 185 "data/maps/Rocheval_TownHall/scripts.pory"
-	closemessage
+	faceplayer
 # 186 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 8, RTHSouth
+	msgbox Rocheval_TownHall_Guard_Text_1
 # 187 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement 0
+	closemessage
 # 188 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement 8, RTHSouth
+# 189 "data/maps/Rocheval_TownHall/scripts.pory"
+	waitmovement 0
+# 190 "data/maps/Rocheval_TownHall/scripts.pory"
 	releaseall
 	end
 
 Rocheval_TownHall_Guard_1:
-# 172 "data/maps/Rocheval_TownHall/scripts.pory"
-	lockall
-# 173 "data/maps/Rocheval_TownHall/scripts.pory"
-	faceplayer
 # 174 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Guard_Text_0
+	lockall
 # 175 "data/maps/Rocheval_TownHall/scripts.pory"
-	closemessage
+	faceplayer
 # 176 "data/maps/Rocheval_TownHall/scripts.pory"
-	applymovement 8, RTHSouth
+	msgbox Rocheval_TownHall_Guard_Text_0
 # 177 "data/maps/Rocheval_TownHall/scripts.pory"
-	waitmovement 0
+	closemessage
 # 178 "data/maps/Rocheval_TownHall/scripts.pory"
+	applymovement 8, RTHSouth
+# 179 "data/maps/Rocheval_TownHall/scripts.pory"
+	waitmovement 0
+# 180 "data/maps/Rocheval_TownHall/scripts.pory"
 	releaseall
 	end
 
 
 Rocheval_TownHall_Kid::
-# 194 "data/maps/Rocheval_TownHall/scripts.pory"
-	lock
-# 195 "data/maps/Rocheval_TownHall/scripts.pory"
-	faceplayer
 # 196 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Kid_Text_0
+	lock
 # 197 "data/maps/Rocheval_TownHall/scripts.pory"
+	faceplayer
+# 198 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_Kid_Text_0
+# 199 "data/maps/Rocheval_TownHall/scripts.pory"
 	release
 	end
 
 
 Rocheval_TownHall_Francais1::
-# 202 "data/maps/Rocheval_TownHall/scripts.pory"
-	lock
-# 203 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Francais1_Text_0
 # 204 "data/maps/Rocheval_TownHall/scripts.pory"
+	lock
+# 205 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_Francais1_Text_0
+# 206 "data/maps/Rocheval_TownHall/scripts.pory"
 	release
 	end
 
 
 Rocheval_TownHall_Francais2::
-# 209 "data/maps/Rocheval_TownHall/scripts.pory"
-	lock
-# 210 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Francais2_Text_0
 # 211 "data/maps/Rocheval_TownHall/scripts.pory"
+	lock
+# 212 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_Francais2_Text_0
+# 213 "data/maps/Rocheval_TownHall/scripts.pory"
 	release
 	end
 
 
 Rocheval_TownHall_Woman::
-# 216 "data/maps/Rocheval_TownHall/scripts.pory"
-	lock
-# 217 "data/maps/Rocheval_TownHall/scripts.pory"
-	faceplayer
 # 218 "data/maps/Rocheval_TownHall/scripts.pory"
-	msgbox Rocheval_TownHall_Woman_Text_0
+	lock
 # 219 "data/maps/Rocheval_TownHall/scripts.pory"
+	faceplayer
+# 220 "data/maps/Rocheval_TownHall/scripts.pory"
+	msgbox Rocheval_TownHall_Woman_Text_0
+# 221 "data/maps/Rocheval_TownHall/scripts.pory"
 	release
 	end
 
 
-# 223 "data/maps/Rocheval_TownHall/scripts.pory"
-ReceptionistChecking0:
-# 224 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_left
 # 225 "data/maps/Rocheval_TownHall/scripts.pory"
+ReceptionistChecking0:
+# 226 "data/maps/Rocheval_TownHall/scripts.pory"
+	walk_left
+# 227 "data/maps/Rocheval_TownHall/scripts.pory"
 	face_down
 	step_end
 
-# 228 "data/maps/Rocheval_TownHall/scripts.pory"
-ReceptionistChecking1:
-# 229 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_right
 # 230 "data/maps/Rocheval_TownHall/scripts.pory"
+ReceptionistChecking1:
+# 231 "data/maps/Rocheval_TownHall/scripts.pory"
+	walk_right
+# 232 "data/maps/Rocheval_TownHall/scripts.pory"
 	face_player
 	step_end
 
-# 233 "data/maps/Rocheval_TownHall/scripts.pory"
+# 235 "data/maps/Rocheval_TownHall/scripts.pory"
 ReceptionistChecking2:
-# 234 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_right
-# 234 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_right
-# 235 "data/maps/Rocheval_TownHall/scripts.pory"
-	delay_16
-# 235 "data/maps/Rocheval_TownHall/scripts.pory"
-	delay_16
-# 235 "data/maps/Rocheval_TownHall/scripts.pory"
-	delay_16
-# 235 "data/maps/Rocheval_TownHall/scripts.pory"
-	delay_16
 # 236 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_left
+	walk_right
 # 236 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_left
+	walk_right
 # 237 "data/maps/Rocheval_TownHall/scripts.pory"
+	delay_16
+# 237 "data/maps/Rocheval_TownHall/scripts.pory"
+	delay_16
+# 237 "data/maps/Rocheval_TownHall/scripts.pory"
+	delay_16
+# 237 "data/maps/Rocheval_TownHall/scripts.pory"
+	delay_16
+# 238 "data/maps/Rocheval_TownHall/scripts.pory"
+	walk_left
+# 238 "data/maps/Rocheval_TownHall/scripts.pory"
+	walk_left
+# 239 "data/maps/Rocheval_TownHall/scripts.pory"
 	face_player
 	step_end
 
-# 240 "data/maps/Rocheval_TownHall/scripts.pory"
+# 242 "data/maps/Rocheval_TownHall/scripts.pory"
 BackingUp:
-# 241 "data/maps/Rocheval_TownHall/scripts.pory"
+# 243 "data/maps/Rocheval_TownHall/scripts.pory"
 	walk_down
 	step_end
 
-# 244 "data/maps/Rocheval_TownHall/scripts.pory"
-GuardStepping:
-# 245 "data/maps/Rocheval_TownHall/scripts.pory"
-	walk_right
 # 246 "data/maps/Rocheval_TownHall/scripts.pory"
+GuardStepping:
+# 247 "data/maps/Rocheval_TownHall/scripts.pory"
+	walk_right
+# 248 "data/maps/Rocheval_TownHall/scripts.pory"
 	face_down
 	step_end
 
-# 249 "data/maps/Rocheval_TownHall/scripts.pory"
+# 251 "data/maps/Rocheval_TownHall/scripts.pory"
 SamHeli:
-# 250 "data/maps/Rocheval_TownHall/scripts.pory"
+# 252 "data/maps/Rocheval_TownHall/scripts.pory"
 	walk_up
-# 250 "data/maps/Rocheval_TownHall/scripts.pory"
+# 252 "data/maps/Rocheval_TownHall/scripts.pory"
 	walk_up
 	step_end
 
-# 253 "data/maps/Rocheval_TownHall/scripts.pory"
+# 255 "data/maps/Rocheval_TownHall/scripts.pory"
 RTHSouth:
-# 254 "data/maps/Rocheval_TownHall/scripts.pory"
+# 256 "data/maps/Rocheval_TownHall/scripts.pory"
 	face_down
 	step_end
 
-# 257 "data/maps/Rocheval_TownHall/scripts.pory"
+# 259 "data/maps/Rocheval_TownHall/scripts.pory"
 RTHNorth:
-# 258 "data/maps/Rocheval_TownHall/scripts.pory"
+# 260 "data/maps/Rocheval_TownHall/scripts.pory"
 	face_up
 	step_end
 
@@ -613,7 +617,7 @@ Rocheval_TownHall_Multichoice_Text_0:
 	.string "know anything else?$"
 
 Rocheval_TownHall_Multichoice_Text_1:
-# 95 "data/maps/Rocheval_TownHall/scripts.pory"
+# 96 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "We travel to the continent by\n"
 	.string "helicopter. Although our citizens don't\l"
 	.string "need to go there very often, as we can\l"
@@ -621,24 +625,24 @@ Rocheval_TownHall_Multichoice_Text_1:
 	.string "like to know anything else?$"
 
 Rocheval_TownHall_Multichoice_Text_2:
-# 98 "data/maps/Rocheval_TownHall/scripts.pory"
+# 100 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "We hope you enjoy your stay!$"
 
 Rocheval_TownHall_NoAccess_Text_0:
-# 107 "data/maps/Rocheval_TownHall/scripts.pory"
+# 109 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "(I should talk to the receptionist\n"
 	.string "first.)$"
 
 Rocheval_TownHall_NoAccess2_Text_0:
-# 119 "data/maps/Rocheval_TownHall/scripts.pory"
+# 121 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "(I should meet the employee outside.)$"
 
 Rocheval_TownHall_ReadyToLeave_Text_0:
-# 131 "data/maps/Rocheval_TownHall/scripts.pory"
+# 133 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Sam$"
 
 Rocheval_TownHall_ReadyToLeave_Text_1:
-# 132 "data/maps/Rocheval_TownHall/scripts.pory"
+# 134 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "{PLAYER}! You're finally here. What\n"
 	.string "took you so long? Anyway. I bought us\l"
 	.string "two tickets! You don't even have to pay\l"
@@ -646,49 +650,49 @@ Rocheval_TownHall_ReadyToLeave_Text_1:
 	.string "let's go!$"
 
 Rocheval_TownHall_ReadyToLeave_Text_2:
-# 136 "data/maps/Rocheval_TownHall/scripts.pory"
+# 138 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "How did I pay for them? Don't even worry\n"
 	.string "about it, the main thing is that we can\l"
 	.string "finally go to the continent! Come on!$"
 
 Rocheval_TownHall_ReadyToLeave_Text_3:
-# 143 "data/maps/Rocheval_TownHall/scripts.pory"
+# 145 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Hi! Can you let us through? We have\n"
 	.string "tickets!$"
 
 Rocheval_TownHall_ReadyToLeave_Text_4:
-# 159 "data/maps/Rocheval_TownHall/scripts.pory"
+# 161 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Let's go!$"
 
 Rocheval_TownHall_Guard_Text_0:
-# 174 "data/maps/Rocheval_TownHall/scripts.pory"
+# 176 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Have a safe flight.$"
 
 Rocheval_TownHall_Guard_Text_1:
-# 184 "data/maps/Rocheval_TownHall/scripts.pory"
+# 186 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "I'm sorry, you can't access the heliport\n"
 	.string "now. Come back when you have a ticket.$"
 
 Rocheval_TownHall_Kid_Text_0:
-# 196 "data/maps/Rocheval_TownHall/scripts.pory"
+# 198 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Huh? Why am I wearing a swimsuit? I lost\n"
 	.string "my ID while I was swimming. Don't make\l"
 	.string "fun of me, it can happen to anyone.$"
 
 Rocheval_TownHall_Francais1_Text_0:
-# 203 "data/maps/Rocheval_TownHall/scripts.pory"
+# 205 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Je comprends rien à ce que vous\n"
 	.string "racontez. Personne ne parle français\l"
 	.string "ici? On aurait du partir en vacances sur\l"
 	.string "la Côte d'Azur, je te l'avais dit!$"
 
 Rocheval_TownHall_Francais2_Text_0:
-# 210 "data/maps/Rocheval_TownHall/scripts.pory"
+# 212 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "Arrête de t'énerver! Il fait super beau,\n"
 	.string "c'est pas de sa faute si tu as perdu ta\l"
 	.string "valise à l'aéroport!$"
 
 Rocheval_TownHall_Woman_Text_0:
-# 218 "data/maps/Rocheval_TownHall/scripts.pory"
+# 220 "data/maps/Rocheval_TownHall/scripts.pory"
 	.string "It's too hot outside, so I'm hanging\n"
 	.string "here and enjoying the AC.$"
